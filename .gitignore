@@ -151,3 +151,8 @@ docker-compose.override.yml
 local_settings.py
 .envrc
 .direnv/
+
+# Graphify Outputs
+graphify-out/
+backend/data/*.csv
+backend/data/*.json
