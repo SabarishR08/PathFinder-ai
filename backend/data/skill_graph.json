@@ -1,0 +1,503 @@
+{
+  "Data Science": [
+    {
+      "id": "ds_python",
+      "name": "Python Programming",
+      "prereqs": []
+    },
+    {
+      "id": "ds_stats",
+      "name": "Statistics",
+      "prereqs": []
+    },
+    {
+      "id": "ds_sql",
+      "name": "SQL",
+      "prereqs": []
+    },
+    {
+      "id": "ds_excel",
+      "name": "Microsoft Excel",
+      "prereqs": []
+    },
+    {
+      "id": "ds_dbms",
+      "name": "Database (DBMS)",
+      "prereqs": [
+        "ds_sql"
+      ]
+    },
+    {
+      "id": "ds_cleansing",
+      "name": "Data Cleansing",
+      "prereqs": [
+        "ds_python",
+        "ds_excel"
+      ]
+    },
+    {
+      "id": "ds_eda",
+      "name": "Exploratory Data Analysis",
+      "prereqs": [
+        "ds_python",
+        "ds_stats",
+        "ds_cleansing"
+      ]
+    },
+    {
+      "id": "ds_analysis",
+      "name": "Data Analysis",
+      "prereqs": [
+        "ds_eda"
+      ]
+    },
+    {
+      "id": "ds_viz",
+      "name": "Data Visualization (DataViz)",
+      "prereqs": [
+        "ds_analysis"
+      ]
+    },
+    {
+      "id": "ds_tableau",
+      "name": "Tableau Software",
+      "prereqs": [
+        "ds_viz"
+      ]
+    },
+    {
+      "id": "ds_hypothesis",
+      "name": "Statistical Hypothesis Testing",
+      "prereqs": [
+        "ds_stats"
+      ]
+    },
+    {
+      "id": "ds_regression",
+      "name": "Regression Analysis",
+      "prereqs": [
+        "ds_hypothesis"
+      ]
+    },
+    {
+      "id": "ds_linreg",
+      "name": "Linear Regression",
+      "prereqs": [
+        "ds_regression"
+      ]
+    },
+    {
+      "id": "ds_ml",
+      "name": "Machine Learning",
+      "prereqs": [
+        "ds_analysis",
+        "ds_linreg"
+      ]
+    },
+    {
+      "id": "ds_ai",
+      "name": "Artificial Intelligence (AI)",
+      "prereqs": [
+        "ds_ml"
+      ]
+    },
+    {
+      "id": "ds_tensorflow",
+      "name": "Tensorflow",
+      "prereqs": [
+        "ds_ml"
+      ]
+    },
+    {
+      "id": "ds_dl",
+      "name": "Deep Learning",
+      "prereqs": [
+        "ds_ml",
+        "ds_tensorflow"
+      ]
+    },
+    {
+      "id": "ds_bigdata",
+      "name": "Big Data",
+      "prereqs": [
+        "ds_analysis",
+        "ds_dbms"
+      ]
+    },
+    {
+      "id": "ds_datamgmt",
+      "name": "Data Management",
+      "prereqs": [
+        "ds_dbms",
+        "ds_bigdata"
+      ]
+    },
+    {
+      "id": "ds_r",
+      "name": "R Programming",
+      "prereqs": [
+        "ds_stats"
+      ]
+    },
+    {
+      "id": "ds_rstudio",
+      "name": "Rstudio",
+      "prereqs": [
+        "ds_r"
+      ]
+    },
+    {
+      "id": "ds_cloud",
+      "name": "Cloud Computing",
+      "prereqs": [
+        "ds_python"
+      ]
+    },
+    {
+      "id": "ds_gcp",
+      "name": "Google Cloud Platform",
+      "prereqs": [
+        "ds_cloud"
+      ]
+    },
+    {
+      "id": "ds_azure",
+      "name": "Microsoft Azure",
+      "prereqs": [
+        "ds_cloud"
+      ]
+    },
+    {
+      "id": "ds_datascience",
+      "name": "Data Science",
+      "prereqs": [
+        "ds_ml",
+        "ds_viz",
+        "ds_bigdata"
+      ]
+    }
+  ],
+  "Web Development": [
+    {
+      "id": "wd_programming",
+      "name": "Computer Programming",
+      "prereqs": []
+    },
+    {
+      "id": "wd_html",
+      "name": "HTML",
+      "prereqs": []
+    },
+    {
+      "id": "wd_css",
+      "name": "Cascading Style Sheets (CSS)",
+      "prereqs": [
+        "wd_html"
+      ]
+    },
+    {
+      "id": "wd_js",
+      "name": "JavaScript",
+      "prereqs": [
+        "wd_html",
+        "wd_css"
+      ]
+    },
+    {
+      "id": "wd_python",
+      "name": "Python Programming",
+      "prereqs": [
+        "wd_programming"
+      ]
+    },
+    {
+      "id": "wd_pysyntax",
+      "name": "Python Syntax And Semantics",
+      "prereqs": [
+        "wd_python"
+      ]
+    },
+    {
+      "id": "wd_java",
+      "name": "Java Programming",
+      "prereqs": [
+        "wd_programming"
+      ]
+    },
+    {
+      "id": "wd_c",
+      "name": "C Programming",
+      "prereqs": [
+        "wd_programming"
+      ]
+    },
+    {
+      "id": "wd_cpp",
+      "name": "C++",
+      "prereqs": [
+        "wd_c"
+      ]
+    },
+    {
+      "id": "wd_ds",
+      "name": "Data Structure",
+      "prereqs": [
+        "wd_programming"
+      ]
+    },
+    {
+      "id": "wd_algo",
+      "name": "Algorithms",
+      "prereqs": [
+        "wd_ds"
+      ]
+    },
+    {
+      "id": "wd_oop",
+      "name": "Object-Oriented Programming (OOP)",
+      "prereqs": [
+        "wd_java"
+      ]
+    },
+    {
+      "id": "wd_debug",
+      "name": "Debugging",
+      "prereqs": [
+        "wd_programming"
+      ]
+    },
+    {
+      "id": "wd_testing",
+      "name": "Software Testing",
+      "prereqs": [
+        "wd_debug"
+      ]
+    },
+    {
+      "id": "wd_linux",
+      "name": "Linux",
+      "prereqs": []
+    },
+    {
+      "id": "wd_bash",
+      "name": "Bash (Unix Shell)",
+      "prereqs": [
+        "wd_linux"
+      ]
+    },
+    {
+      "id": "wd_sql",
+      "name": "SQL",
+      "prereqs": []
+    },
+    {
+      "id": "wd_webdev",
+      "name": "Web Development",
+      "prereqs": [
+        "wd_js",
+        "wd_css",
+        "wd_html"
+      ]
+    },
+    {
+      "id": "wd_uxd",
+      "name": "User Experience Design (UXD)",
+      "prereqs": []
+    },
+    {
+      "id": "wd_ux",
+      "name": "User Experience (UX)",
+      "prereqs": [
+        "wd_uxd"
+      ]
+    },
+    {
+      "id": "wd_research",
+      "name": "User Research",
+      "prereqs": [
+        "wd_ux"
+      ]
+    },
+    {
+      "id": "wd_agile",
+      "name": "Agile Software Development",
+      "prereqs": [
+        "wd_algo"
+      ]
+    },
+    {
+      "id": "wd_problem",
+      "name": "Problem Solving",
+      "prereqs": []
+    },
+    {
+      "id": "wd_cs",
+      "name": "Computer Science",
+      "prereqs": [
+        "wd_algo",
+        "wd_ds",
+        "wd_oop"
+      ]
+    },
+    {
+      "id": "wd_ml",
+      "name": "Machine Learning",
+      "prereqs": [
+        "wd_python",
+        "wd_algo"
+      ]
+    }
+  ],
+  "Cybersecurity": [
+    {
+      "id": "cy_networking",
+      "name": "networking basics",
+      "prereqs": []
+    },
+    {
+      "id": "cy_scripting",
+      "name": "scripting",
+      "prereqs": []
+    },
+    {
+      "id": "cy_python",
+      "name": "Python Programming",
+      "prereqs": [
+        "cy_scripting"
+      ]
+    },
+    {
+      "id": "cy_security_basic",
+      "name": "security",
+      "prereqs": [
+        "cy_networking"
+      ]
+    },
+    {
+      "id": "cy_infosec",
+      "name": "Information Security (INFOSEC)",
+      "prereqs": [
+        "cy_security_basic"
+      ]
+    },
+    {
+      "id": "cy_netsec",
+      "name": "Network Security",
+      "prereqs": [
+        "cy_networking",
+        "cy_infosec"
+      ]
+    },
+    {
+      "id": "cy_cyberattacks",
+      "name": "Cyberattacks",
+      "prereqs": [
+        "cy_netsec"
+      ]
+    },
+    {
+      "id": "cy_sqli",
+      "name": "Sql Injection",
+      "prereqs": [
+        "cy_python",
+        "cy_infosec"
+      ]
+    },
+    {
+      "id": "cy_dbvuln",
+      "name": "database vulnerabilities",
+      "prereqs": [
+        "cy_sqli"
+      ]
+    },
+    {
+      "id": "cy_appsec",
+      "name": "Application Security",
+      "prereqs": [
+        "cy_infosec"
+      ]
+    },
+    {
+      "id": "cy_crypto",
+      "name": "Cryptography",
+      "prereqs": [
+        "cy_infosec"
+      ]
+    },
+    {
+      "id": "cy_pkc",
+      "name": "Public-Key Cryptography",
+      "prereqs": [
+        "cy_crypto"
+      ]
+    },
+    {
+      "id": "cy_pentest",
+      "name": "Penetration Test",
+      "prereqs": [
+        "cy_netsec",
+        "cy_appsec"
+      ]
+    },
+    {
+      "id": "cy_forensics",
+      "name": "Digital Forensics",
+      "prereqs": [
+        "cy_infosec"
+      ]
+    },
+    {
+      "id": "cy_incident",
+      "name": "Computer Security Incident Management",
+      "prereqs": [
+        "cy_netsec",
+        "cy_forensics"
+      ]
+    },
+    {
+      "id": "cy_threat",
+      "name": "threat intelligence",
+      "prereqs": [
+        "cy_cyberattacks"
+      ]
+    },
+    {
+      "id": "cy_analyst",
+      "name": "security analyst",
+      "prereqs": [
+        "cy_infosec",
+        "cy_netsec"
+      ]
+    },
+    {
+      "id": "cy_risk",
+      "name": "Risk Management",
+      "prereqs": [
+        "cy_infosec"
+      ]
+    },
+    {
+      "id": "cy_bc",
+      "name": "Business Continuity",
+      "prereqs": [
+        "cy_risk"
+      ]
+    },
+    {
+      "id": "cy_dr",
+      "name": "Disaster Recovery",
+      "prereqs": [
+        "cy_bc"
+      ]
+    },
+    {
+      "id": "cy_cybersecurity",
+      "name": "Cybersecurity",
+      "prereqs": [
+        "cy_infosec",
+        "cy_netsec",
+        "cy_crypto"
+      ]
+    }
+  ]
+}
