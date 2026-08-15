@@ -29,6 +29,7 @@ export const api = {
   chatIntake: (message) => request("POST", "/api/chat-intake", { message }),
   createProfile: (data) => request("POST", "/api/profile", data),
   getPath: (data) => request("POST", "/api/path", data),
+  getOptimalPath: (data) => request("POST", "/api/path/optimal", data),
   explain: (data) => request("POST", "/api/explain", data),
   updateProgress: (userId, completedSkillIds) =>
     request("POST", "/api/progress", {

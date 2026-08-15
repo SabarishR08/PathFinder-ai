@@ -58,6 +58,7 @@ export default function SkillPathMap({
   domain,
   goal,
   loading,
+  showTimeEstimates = false,
 }) {
   const [explainSkill, setExplainSkill] = useState(null);
 
@@ -118,23 +119,23 @@ export default function SkillPathMap({
               <div className="milestone-body">
                 <div className="milestone-header">
                   <div>
-                    <div
-                      style={{
-                        fontSize: "0.75rem",
-                        color: "var(--text-muted)",
-                        marginBottom: 4,
-                        textTransform: "uppercase",
-                        letterSpacing: "0.05em",
-                      }}
-                    >
+                    <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.05em" }}>
                       Step {milestone.milestone}
                     </div>
                     <div className="milestone-title">
-                      {isCompleted && (
-                        <span style={{ color: "var(--accent)", marginRight: 8 }}>✓</span>
-                      )}
+                      {isCompleted && <span style={{ color: "var(--accent)", marginRight: 8 }}>✓</span>}
                       {milestone.skill_name}
                     </div>
+                    {showTimeEstimates && milestone.estimated_months_for_skill && (
+                      <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", marginTop: 3 }}>
+                        ⏱ ~{milestone.estimated_months_for_skill} mo
+                        {milestone.cumulative_estimated_months && (
+                          <span style={{ marginLeft: 8, color: "var(--accent)", opacity: 0.7 }}>
+                            ({milestone.cumulative_estimated_months} mo cumulative)
+                          </span>
+                        )}
+                      </div>
+                    )}
                   </div>
 
                   <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
