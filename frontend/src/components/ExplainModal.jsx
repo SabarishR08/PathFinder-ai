@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { api } from "../api";
 
 /**
@@ -28,14 +28,9 @@ export default function ExplainModal({ skill, domain, goal, onClose }) {
   }
 
   // Auto-fetch on mount
-  useState(() => {
+  useEffect(() => {
     fetchExplanation();
   }, []);
-
-  // Trigger on first render
-  if (explanation === null && !loading && !error) {
-    fetchExplanation();
-  }
 
   return (
     <div className="modal-overlay" onClick={onClose}>

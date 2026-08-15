@@ -14,7 +14,7 @@ const DOMAIN_ICONS = {
  * Dashboard — the main output screen.
  * Shows the full skill learning path, progress tracker, and plan stats.
  */
-export default function Dashboard({ profile, intake }) {
+export default function Dashboard({ profile, intake, onClearProfile }) {
   const navigate = useNavigate();
   const [plan, setPlan] = useState(null);
   const [planLoading, setPlanLoading] = useState(true);
@@ -23,6 +23,13 @@ export default function Dashboard({ profile, intake }) {
   const [progressLoading, setProgressLoading] = useState(false);
 
   const { user_id, profile: p } = profile || {};
+
+  // Handle session expiration (backend restart invalidates user_id)
+  const handleSessionExpired = useCallback(() => {
+    onClearProfile?.();
+    alert("Your session has expired (backend was restarted). Please create a new learning path.");
+    navigate("/onboarding");
+  }, [onClearProfile, navigate]);
 
   // Fetch the initial path on mount
   useEffect(() => {
@@ -40,10 +47,15 @@ export default function Dashboard({ profile, intake }) {
       })
       .catch((err) => {
         console.error(err);
-        setPlan([]);
+        // Check if it's a 404 (unknown user_id after backend restart)
+        if (err.message?.includes("404") || err.message?.includes("Unknown user_id")) {
+          handleSessionExpired();
+        } else {
+          setPlan([]);
+        }
       })
       .finally(() => setPlanLoading(false));
-  }, []);
+  }, [p, navigate, handleSessionExpired]);
 
   // Toggle a skill complete/incomplete and call /api/progress
   const handleToggleSkill = useCallback(
@@ -59,11 +71,15 @@ export default function Dashboard({ profile, intake }) {
         setProgressData(res);
       } catch (e) {
         console.error(e);
+        // Check if it's a 404 (unknown user_id after backend restart)
+        if (e.message?.includes("404") || e.message?.includes("Unknown user_id")) {
+          handleSessionExpired();
+        }
       } finally {
         setProgressLoading(false);
       }
     },
-    [completedSkills, user_id]
+    [completedSkills, user_id, handleSessionExpired]
   );
 
   if (!profile) return null;
@@ -216,7 +232,10 @@ export default function Dashboard({ profile, intake }) {
         <div style={{ marginTop: 48, textAlign: "center" }}>
           <button
             className="btn btn-secondary"
-            onClick={() => navigate("/onboarding")}
+            onClick={() => {
+              onClearProfile?.();
+              navigate("/onboarding");
+            }}
           >
             ← Start a new path
           </button>

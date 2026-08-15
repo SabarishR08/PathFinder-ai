@@ -87,12 +87,16 @@ export default function SkillPathMap({
     );
   }
 
+  const firstIncompleteIdx = plan.findIndex(
+    (m) => !completedSkills.includes(m.skill_id)
+  );
+
   return (
     <>
       <div className="path-timeline">
         {plan.map((milestone, idx) => {
           const isCompleted = completedSkills.includes(milestone.skill_id);
-          const isActive = !isCompleted && idx === 0;
+          const isActive = !isCompleted && idx === firstIncompleteIdx;
 
           return (
             <div

@@ -154,5 +154,5 @@ local_settings.py
 
 # Graphify Outputs
 graphify-out/
-backend/data/*.csv
-backend/data/*.json
+
+
