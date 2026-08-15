@@ -16,4 +16,4 @@ jobs:
     steps:
       - name: Ping backend health endpoint
         run: |
-          curl -sf https://YOUR-RENDER-URL.onrender.com/health || echo "Ping failed (backend may be redeploying)"
+          curl -sf https://pathfinder-backend-yagz.onrender.com/health || echo "Ping failed (backend may be redeploying)"
