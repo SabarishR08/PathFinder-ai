@@ -1,13 +1,14 @@
 """
-Thin wrapper around the Groq API (free tier, OpenAI-compatible client).
+Multi-LLM service with automatic fallback.
+
+Tries LLM providers in order: Groq → Gemini → NVIDIA
+Falls back to next provider if quota/rate limits hit.
 
 Used for:
   - /api/chat-intake : extracting structured profile fields from free text
   - /api/explain      : generating grounded "why this skill" explanations
 
-If GROQ_API_KEY is missing or the API call fails, functions return a clear
-error string instead of raising, so endpoints degrade gracefully rather
-than crashing the whole request.
+If all providers fail, returns clear error string for graceful degradation.
 """
 import os
 import json
@@ -15,46 +16,134 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Support both GROQ_API_KEY (standard) and groq (as set in root .env)
+# LLM API Keys (checked in priority order)
 GROQ_API_KEY = os.getenv("GROQ_API_KEY") or os.getenv("groq")
-MODEL_NAME = "llama-3.3-70b-versatile"
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY") or os.getenv("gemini")
+NVIDIA_API_KEY = os.getenv("NVIDIA_API_KEY") or os.getenv("OPENAI_API_KEY")  # NVIDIA uses OpenAI format
 
-_client = None
+# Model configurations
+GROQ_MODEL = "llama-3.3-70b-versatile"
+GEMINI_MODEL = "gemini-1.5-flash"
+NVIDIA_MODEL = "nvidia/llama-3.1-nemotron-70b-instruct"  # Fast reasoning model
+
+_groq_client = None
+_gemini_client = None
+_nvidia_client = None
 
 
-def _get_client():
-    global _client
-    if _client is not None:
-        return _client
+def _get_groq_client():
+    global _groq_client
+    if _groq_client is not None:
+        return _groq_client
     if not GROQ_API_KEY:
         return None
     try:
         from groq import Groq
-        _client = Groq(api_key=GROQ_API_KEY)
-        return _client
+        _groq_client = Groq(api_key=GROQ_API_KEY)
+        return _groq_client
+    except Exception:
+        return None
+
+
+def _get_gemini_client():
+    global _gemini_client
+    if _gemini_client is not None:
+        return _gemini_client
+    if not GEMINI_API_KEY:
+        return None
+    try:
+        import google.generativeai as genai
+        genai.configure(api_key=GEMINI_API_KEY)
+        _gemini_client = genai.GenerativeModel(GEMINI_MODEL)
+        return _gemini_client
+    except Exception:
+        return None
+
+
+def _get_nvidia_client():
+    global _nvidia_client
+    if _nvidia_client is not None:
+        return _nvidia_client
+    if not NVIDIA_API_KEY:
+        return None
+    try:
+        from openai import OpenAI
+        _nvidia_client = OpenAI(
+            api_key=NVIDIA_API_KEY,
+            base_url="https://integrate.api.nvidia.com/v1"
+        )
+        return _nvidia_client
     except Exception:
         return None
 
 
 def call_llm(system_prompt: str, user_prompt: str, max_tokens: int = 500) -> str:
-    """Generic LLM call. Returns model text or a clear 'LLM_ERROR: ...' string."""
-    client = _get_client()
-    if client is None:
-        return "LLM_ERROR: GROQ_API_KEY not set or groq package unavailable. Check backend/.env"
-
-    try:
-        completion = client.chat.completions.create(
-            model=MODEL_NAME,
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt},
-            ],
-            max_tokens=max_tokens,
-            temperature=0.3,
-        )
-        return completion.choices[0].message.content.strip()
-    except Exception as e:
-        return f"LLM_ERROR: {str(e)}"
+    """
+    Generic LLM call with automatic fallback.
+    Tries: Groq → Gemini → NVIDIA
+    Returns model text or 'LLM_ERROR: ...' string.
+    """
+    
+    # Try Groq first
+    groq_client = _get_groq_client()
+    if groq_client:
+        try:
+            completion = groq_client.chat.completions.create(
+                model=GROQ_MODEL,
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt},
+                ],
+                max_tokens=max_tokens,
+                temperature=0.3,
+            )
+            return completion.choices[0].message.content.strip()
+        except Exception as e:
+            error_msg = str(e).lower()
+            # If rate limit or quota, fall back; otherwise return error
+            if "rate" in error_msg or "quota" in error_msg or "limit" in error_msg:
+                pass  # Fall through to next provider
+            else:
+                return f"LLM_ERROR: Groq failed: {str(e)}"
+    
+    # Try Gemini fallback
+    gemini_client = _get_gemini_client()
+    if gemini_client:
+        try:
+            response = gemini_client.generate_content(
+                f"{system_prompt}\n\n{user_prompt}",
+                generation_config={
+                    "max_output_tokens": max_tokens,
+                    "temperature": 0.3,
+                }
+            )
+            return response.text.strip()
+        except Exception as e:
+            error_msg = str(e).lower()
+            if "rate" in error_msg or "quota" in error_msg or "limit" in error_msg:
+                pass  # Fall through to NVIDIA
+            else:
+                return f"LLM_ERROR: Gemini failed: {str(e)}"
+    
+    # Try NVIDIA fallback
+    nvidia_client = _get_nvidia_client()
+    if nvidia_client:
+        try:
+            completion = nvidia_client.chat.completions.create(
+                model=NVIDIA_MODEL,
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt},
+                ],
+                max_tokens=max_tokens,
+                temperature=0.3,
+            )
+            return completion.choices[0].message.content.strip()
+        except Exception as e:
+            return f"LLM_ERROR: NVIDIA failed: {str(e)}"
+    
+    # All providers failed or unavailable
+    return "LLM_ERROR: No LLM providers available. Check API keys in backend/.env"
 
 
 def extract_intake_json(message: str, domain_options, skill_names_by_domain: dict) -> dict:
