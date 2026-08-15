@@ -120,9 +120,10 @@ def _sanitize_str(s: str, max_len: int = MAX_MESSAGE_LEN) -> str:
     return s.strip()[:max_len] if s else ""
 
 def _validate_domain(domain: str):
-    """Raise 400 if domain is not in skill graph."""
-    if domain not in engine.get_domains():
-        valid = ", ".join(engine.get_domains())
+    """Raise 400 if domain is not in skill graph (checks core + extended)."""
+    all_domains = engine.get_domains(include_extended=True)
+    if domain not in all_domains:
+        valid = ", ".join(all_domains)
         raise HTTPException(
             status_code=400,
             detail=f"Unknown domain '{domain}'. Valid domains: {valid}",
@@ -176,15 +177,27 @@ def get_stats():
         "uptime_seconds": int((datetime.utcnow() - _start_time).total_seconds()),
         "total_profiles": len(PROFILES),
         "request_counts": dict(_stats),
-        "domains_available": engine.get_domains(),
+        "domains_available": engine.get_domains(include_extended=True),
     }
 
 
 @app.get("/api/domains")
-def get_domains():
-    """List all available learning domains."""
+def get_domains(include_extended: bool = False):
+    """
+    List available learning domains.
+
+    Defaults to the 3 core CSE-aligned domains (Data Science, Web Development,
+    Cybersecurity) — this is the primary product surface, matching the
+    Coursera/Udacity CSE-heavy source data.
+
+    Pass ?include_extended=true to also list Business, Health, and Personal
+    Development. These exist with the same real-data rigor (100% skill
+    coverage, TF-IDF matched courses) and are fully queryable via the API —
+    they demonstrate the pipeline generalizes beyond CSE — but are not part
+    of the default onboarding flow.
+    """
     _stats["get_domains"] += 1
-    return {"domains": engine.get_domains()}
+    return {"domains": engine.get_domains(include_extended=include_extended)}
 
 
 @app.get("/api/skills/{domain}", response_model=list[SkillItem])
@@ -194,7 +207,7 @@ def get_skills(domain: str):
     skills = engine.get_skills(domain)
     if not skills:
         raise HTTPException(status_code=404, detail=f"Unknown domain '{domain}'. "
-                            f"Available: {', '.join(engine.get_domains())}")
+                            f"Available: {', '.join(engine.get_domains(include_extended=True))}")
     return skills
 
 
@@ -252,7 +265,7 @@ def chat_intake(req: ChatIntakeRequest):
     if len(message) < 5:
         raise HTTPException(status_code=400, detail="Message too short. Please describe your goal.")
 
-    domain_options = engine.get_domains()
+    domain_options = engine.get_domains(include_extended=True)
     skill_names_by_domain = {
         d: [s["name"] for s in engine.get_skills(d)] for d in domain_options
     }
@@ -275,7 +288,7 @@ def chat_intake(req: ChatIntakeRequest):
     goal_skill_id = None
     warning = None
 
-    if domain and domain in engine.get_domains():
+    if domain and domain in engine.get_domains(include_extended=True):
         if goal_skill_name:
             goal_skill_id = engine.find_skill_id_by_name(domain, goal_skill_name)
         if goal_skill_id is None:
@@ -338,6 +351,72 @@ def get_path(req: PathRequest):
 
     logger.info("get_path: domain=%s target=%s milestones=%d", req.domain, req.target_skill_id, len(plan))
     return {"domain": req.domain, "target_skill_id": req.target_skill_id, "plan": plan}
+
+
+@lru_cache(maxsize=256)
+def _cached_optimal_path(domain: str, target_skill_id: str, known_skills_tuple: tuple, courses_per_skill: int):
+    """Cache optimal (SPT-scheduled) plan generation."""
+    return engine.build_optimal_learning_plan(
+        domain=domain,
+        target_skill_id=target_skill_id,
+        known_skills=list(known_skills_tuple),
+        courses_per_skill=courses_per_skill,
+    )
+
+
+@app.post("/api/path/optimal")
+def get_optimal_path(req: PathRequest):
+    """
+    Time-optimal learning path using weighted topological scheduling
+    (Kahn's algorithm + min-heap, Shortest-Processing-Time rule).
+
+    Same required skill set as /api/path (total time is order-independent
+    for an AND-semantics prerequisite DAG — see path_engine.generate_optimal_path
+    docstring for why Dijkstra does not apply here). What differs: whenever
+    multiple skills become available at once with no dependency between them,
+    this endpoint schedules the cheaper one first, and returns real per-skill
+    and cumulative time estimates derived from actual matched course durations.
+
+    Note on units: estimated months are averaged from real Coursera/Udacity
+    course Duration fields, which describe casual self-paced study of ONE
+    course at a time. Real learners typically study faster or in parallel,
+    so treat cumulative totals as an upper bound, not a literal forecast.
+    """
+    _stats["get_optimal_path"] += 1
+
+    _validate_domain(req.domain)
+    _validate_skill_id(req.domain, req.target_skill_id)
+
+    courses_per_skill = max(1, min(req.courses_per_skill, 5))
+
+    try:
+        plan = _cached_optimal_path(
+            domain=req.domain,
+            target_skill_id=req.target_skill_id,
+            known_skills_tuple=tuple(sorted(req.known_skills)),
+            courses_per_skill=courses_per_skill,
+        )
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        logger.error("get_optimal_path error: %s", str(e))
+        raise HTTPException(status_code=500, detail="Failed to generate optimal path. Please try again.")
+
+    total_months = plan[-1]["cumulative_estimated_months"] if plan else 0.0
+    logger.info("get_optimal_path: domain=%s target=%s milestones=%d total_months=%.1f",
+                req.domain, req.target_skill_id, len(plan), total_months)
+    return {
+        "domain": req.domain,
+        "target_skill_id": req.target_skill_id,
+        "algorithm": "Kahn's algorithm with min-heap (SPT scheduling)",
+        "total_estimated_months": total_months,
+        "duration_estimate_caveat": (
+            "Estimated from real course Duration fields assuming one course "
+            "at a time, self-paced. Studying faster or in parallel will reduce "
+            "actual time-to-mastery below this figure."
+        ),
+        "plan": plan,
+    }
 
 
 @app.post("/api/explain", response_model=ExplainResponse)
