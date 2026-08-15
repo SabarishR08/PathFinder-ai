@@ -24,7 +24,7 @@ NVIDIA_API_KEY = os.getenv("NVIDIA_API_KEY") or os.getenv("OPENAI_API_KEY")  # N
 # Model configurations
 GROQ_MODEL = "llama-3.3-70b-versatile"
 GEMINI_MODEL = "gemini-1.5-flash"
-NVIDIA_MODEL = "nvidia/llama-3.1-nemotron-70b-instruct"  # Fast reasoning model
+NVIDIA_MODEL = "meta/llama-3.1-70b-instruct"  # Widely available NVIDIA model
 
 _groq_client = None
 _gemini_client = None
@@ -84,6 +84,8 @@ def call_llm(system_prompt: str, user_prompt: str, max_tokens: int = 500) -> str
     Returns model text or 'LLM_ERROR: ...' string.
     """
     
+    last_error = None
+    
     # Try Groq first
     groq_client = _get_groq_client()
     if groq_client:
@@ -99,12 +101,11 @@ def call_llm(system_prompt: str, user_prompt: str, max_tokens: int = 500) -> str
             )
             return completion.choices[0].message.content.strip()
         except Exception as e:
+            last_error = f"Groq: {str(e)}"
             error_msg = str(e).lower()
             # If rate limit or quota, fall back; otherwise return error
-            if "rate" in error_msg or "quota" in error_msg or "limit" in error_msg:
-                pass  # Fall through to next provider
-            else:
-                return f"LLM_ERROR: Groq failed: {str(e)}"
+            if "rate" not in error_msg and "quota" not in error_msg and "limit" not in error_msg:
+                return f"LLM_ERROR: {last_error}"
     
     # Try Gemini fallback
     gemini_client = _get_gemini_client()
@@ -119,11 +120,10 @@ def call_llm(system_prompt: str, user_prompt: str, max_tokens: int = 500) -> str
             )
             return response.text.strip()
         except Exception as e:
+            last_error = f"Gemini: {str(e)}"
             error_msg = str(e).lower()
-            if "rate" in error_msg or "quota" in error_msg or "limit" in error_msg:
-                pass  # Fall through to NVIDIA
-            else:
-                return f"LLM_ERROR: Gemini failed: {str(e)}"
+            if "rate" not in error_msg and "quota" not in error_msg and "limit" not in error_msg:
+                return f"LLM_ERROR: {last_error}"
     
     # Try NVIDIA fallback
     nvidia_client = _get_nvidia_client()
@@ -140,10 +140,19 @@ def call_llm(system_prompt: str, user_prompt: str, max_tokens: int = 500) -> str
             )
             return completion.choices[0].message.content.strip()
         except Exception as e:
-            return f"LLM_ERROR: NVIDIA failed: {str(e)}"
+            last_error = f"NVIDIA: {str(e)}"
+            return f"LLM_ERROR: {last_error}"
     
     # All providers failed or unavailable
-    return "LLM_ERROR: No LLM providers available. Check API keys in backend/.env"
+    providers_status = []
+    if GROQ_API_KEY: providers_status.append("Groq (configured)")
+    if GEMINI_API_KEY: providers_status.append("Gemini (configured)")
+    if NVIDIA_API_KEY: providers_status.append("NVIDIA (configured)")
+    
+    if not providers_status:
+        return "LLM_ERROR: No API keys configured. Check GROQ_API_KEY, GEMINI_API_KEY, or NVIDIA_API_KEY in environment."
+    
+    return f"LLM_ERROR: All providers failed. Last: {last_error}"
 
 
 def extract_intake_json(message: str, domain_options, skill_names_by_domain: dict) -> dict:
