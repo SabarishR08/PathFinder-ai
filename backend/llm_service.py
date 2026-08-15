@@ -23,7 +23,7 @@ NVIDIA_API_KEY = os.getenv("NVIDIA_API_KEY") or os.getenv("OPENAI_API_KEY")  # N
 
 # Model configurations
 GROQ_MODEL = "llama-3.3-70b-versatile"
-GEMINI_MODEL = "gemini-1.5-flash"
+GEMINI_MODEL = "gemini-3.7-flash"  # Latest, fastest Gemini model (free tier)
 NVIDIA_MODEL = "meta/llama-3.1-70b-instruct"  # Widely available NVIDIA model
 
 _groq_client = None
