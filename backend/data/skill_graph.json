@@ -87,36 +87,6 @@
       ]
     },
     {
-      "id": "ds_ml",
-      "name": "Machine Learning",
-      "prereqs": [
-        "ds_analysis",
-        "ds_linreg"
-      ]
-    },
-    {
-      "id": "ds_ai",
-      "name": "Artificial Intelligence (AI)",
-      "prereqs": [
-        "ds_ml"
-      ]
-    },
-    {
-      "id": "ds_tensorflow",
-      "name": "Tensorflow",
-      "prereqs": [
-        "ds_ml"
-      ]
-    },
-    {
-      "id": "ds_dl",
-      "name": "Deep Learning",
-      "prereqs": [
-        "ds_ml",
-        "ds_tensorflow"
-      ]
-    },
-    {
       "id": "ds_bigdata",
       "name": "Big Data",
       "prereqs": [
@@ -171,9 +141,381 @@
       "id": "ds_datascience",
       "name": "Data Science",
       "prereqs": [
-        "ds_ml",
+        "ds_analysis",
         "ds_viz",
         "ds_bigdata"
+      ]
+    }
+  ],
+  "Machine Learning": [
+    {
+      "id": "ml_python",
+      "name": "Python Programming",
+      "prereqs": []
+    },
+    {
+      "id": "ml_math",
+      "name": "Mathematics",
+      "prereqs": []
+    },
+    {
+      "id": "ml_linear_algebra",
+      "name": "Linear Algebra",
+      "prereqs": [
+        "ml_math"
+      ]
+    },
+    {
+      "id": "ml_calculus",
+      "name": "Calculus",
+      "prereqs": [
+        "ml_math"
+      ]
+    },
+    {
+      "id": "ml_statistics",
+      "name": "Statistics",
+      "prereqs": [
+        "ml_math"
+      ]
+    },
+    {
+      "id": "ml_probability",
+      "name": "Probability",
+      "prereqs": [
+        "ml_statistics"
+      ]
+    },
+    {
+      "id": "ml_numpy",
+      "name": "NumPy",
+      "prereqs": [
+        "ml_python"
+      ]
+    },
+    {
+      "id": "ml_pandas",
+      "name": "Pandas",
+      "prereqs": [
+        "ml_python",
+        "ml_numpy"
+      ]
+    },
+    {
+      "id": "ml_matplotlib",
+      "name": "Matplotlib",
+      "prereqs": [
+        "ml_python"
+      ]
+    },
+    {
+      "id": "ml_data_preprocessing",
+      "name": "Data Preprocessing",
+      "prereqs": [
+        "ml_pandas"
+      ]
+    },
+    {
+      "id": "ml_supervised",
+      "name": "Supervised Learning",
+      "prereqs": [
+        "ml_statistics",
+        "ml_data_preprocessing"
+      ]
+    },
+    {
+      "id": "ml_regression",
+      "name": "Regression",
+      "prereqs": [
+        "ml_supervised",
+        "ml_linear_algebra"
+      ]
+    },
+    {
+      "id": "ml_classification",
+      "name": "Classification",
+      "prereqs": [
+        "ml_supervised",
+        "ml_probability"
+      ]
+    },
+    {
+      "id": "ml_unsupervised",
+      "name": "Unsupervised Learning",
+      "prereqs": [
+        "ml_statistics",
+        "ml_data_preprocessing"
+      ]
+    },
+    {
+      "id": "ml_clustering",
+      "name": "Clustering",
+      "prereqs": [
+        "ml_unsupervised"
+      ]
+    },
+    {
+      "id": "ml_dimensionality",
+      "name": "Dimensionality Reduction",
+      "prereqs": [
+        "ml_unsupervised",
+        "ml_linear_algebra"
+      ]
+    },
+    {
+      "id": "ml_scikit",
+      "name": "Scikit-Learn",
+      "prereqs": [
+        "ml_supervised",
+        "ml_unsupervised"
+      ]
+    },
+    {
+      "id": "ml_model_evaluation",
+      "name": "Model Evaluation",
+      "prereqs": [
+        "ml_scikit"
+      ]
+    },
+    {
+      "id": "ml_feature_engineering",
+      "name": "Feature Engineering",
+      "prereqs": [
+        "ml_data_preprocessing"
+      ]
+    },
+    {
+      "id": "ml_ensemble",
+      "name": "Ensemble Methods",
+      "prereqs": [
+        "ml_classification",
+        "ml_regression"
+      ]
+    },
+    {
+      "id": "ml_neural_networks",
+      "name": "Neural Networks",
+      "prereqs": [
+        "ml_supervised",
+        "ml_calculus",
+        "ml_linear_algebra"
+      ]
+    },
+    {
+      "id": "ml_tensorflow",
+      "name": "TensorFlow",
+      "prereqs": [
+        "ml_neural_networks"
+      ]
+    },
+    {
+      "id": "ml_keras",
+      "name": "Keras",
+      "prereqs": [
+        "ml_tensorflow"
+      ]
+    },
+    {
+      "id": "ml_pytorch",
+      "name": "PyTorch",
+      "prereqs": [
+        "ml_neural_networks"
+      ]
+    },
+    {
+      "id": "ml_deep_learning",
+      "name": "Deep Learning",
+      "prereqs": [
+        "ml_neural_networks",
+        "ml_tensorflow"
+      ]
+    },
+    {
+      "id": "ml_cnn",
+      "name": "Convolutional Neural Networks (CNN)",
+      "prereqs": [
+        "ml_deep_learning"
+      ]
+    },
+    {
+      "id": "ml_rnn",
+      "name": "Recurrent Neural Networks (RNN)",
+      "prereqs": [
+        "ml_deep_learning"
+      ]
+    },
+    {
+      "id": "ml_nlp",
+      "name": "Natural Language Processing (NLP)",
+      "prereqs": [
+        "ml_rnn"
+      ]
+    },
+    {
+      "id": "ml_computer_vision",
+      "name": "Computer Vision",
+      "prereqs": [
+        "ml_cnn"
+      ]
+    },
+    {
+      "id": "ml_reinforcement",
+      "name": "Reinforcement Learning",
+      "prereqs": [
+        "ml_supervised",
+        "ml_probability"
+      ]
+    },
+    {
+      "id": "ml_model_deployment",
+      "name": "Model Deployment",
+      "prereqs": [
+        "ml_model_evaluation"
+      ]
+    },
+    {
+      "id": "ml_mlops",
+      "name": "MLOps",
+      "prereqs": [
+        "ml_model_deployment"
+      ]
+    },
+    {
+      "id": "ml_machine_learning",
+      "name": "Machine Learning",
+      "prereqs": [
+        "ml_scikit",
+        "ml_deep_learning",
+        "ml_model_evaluation"
+      ]
+    }
+  ],
+  "Computer Science": [
+    {
+      "id": "cs_programming",
+      "name": "Programming Fundamentals",
+      "prereqs": []
+    },
+    {
+      "id": "cs_python",
+      "name": "Python",
+      "prereqs": [
+        "cs_programming"
+      ]
+    },
+    {
+      "id": "cs_java",
+      "name": "Java",
+      "prereqs": [
+        "cs_programming"
+      ]
+    },
+    {
+      "id": "cs_cpp",
+      "name": "C++",
+      "prereqs": [
+        "cs_programming"
+      ]
+    },
+    {
+      "id": "cs_data_structures",
+      "name": "Data Structures",
+      "prereqs": [
+        "cs_programming"
+      ]
+    },
+    {
+      "id": "cs_algorithms",
+      "name": "Algorithms",
+      "prereqs": [
+        "cs_data_structures"
+      ]
+    },
+    {
+      "id": "cs_oop",
+      "name": "Object-Oriented Programming",
+      "prereqs": [
+        "cs_java"
+      ]
+    },
+    {
+      "id": "cs_databases",
+      "name": "Databases",
+      "prereqs": []
+    },
+    {
+      "id": "cs_sql",
+      "name": "SQL",
+      "prereqs": [
+        "cs_databases"
+      ]
+    },
+    {
+      "id": "cs_os",
+      "name": "Operating Systems",
+      "prereqs": [
+        "cs_programming"
+      ]
+    },
+    {
+      "id": "cs_networks",
+      "name": "Computer Networks",
+      "prereqs": []
+    },
+    {
+      "id": "cs_software_engineering",
+      "name": "Software Engineering",
+      "prereqs": [
+        "cs_oop",
+        "cs_algorithms"
+      ]
+    },
+    {
+      "id": "cs_compilers",
+      "name": "Compiler Design",
+      "prereqs": [
+        "cs_algorithms"
+      ]
+    },
+    {
+      "id": "cs_ai",
+      "name": "Artificial Intelligence",
+      "prereqs": [
+        "cs_algorithms",
+        "cs_python"
+      ]
+    },
+    {
+      "id": "cs_ml",
+      "name": "Machine Learning",
+      "prereqs": [
+        "cs_ai",
+        "cs_python"
+      ]
+    },
+    {
+      "id": "cs_cloud",
+      "name": "Cloud Computing",
+      "prereqs": [
+        "cs_networks",
+        "cs_os"
+      ]
+    },
+    {
+      "id": "cs_distributed",
+      "name": "Distributed Systems",
+      "prereqs": [
+        "cs_networks",
+        "cs_algorithms"
+      ]
+    },
+    {
+      "id": "cs_computer_science",
+      "name": "Computer Science",
+      "prereqs": [
+        "cs_software_engineering",
+        "cs_algorithms",
+        "cs_databases"
       ]
     }
   ],
@@ -934,135 +1276,6 @@
       "name": "Health Informatics",
       "prereqs": [
         "hl_medical_terminology"
-      ]
-    }
-  ],
-  "Computer Science": [
-    {
-      "id": "cs_programming",
-      "name": "Programming Fundamentals",
-      "prereqs": []
-    },
-    {
-      "id": "cs_python",
-      "name": "Python",
-      "prereqs": [
-        "cs_programming"
-      ]
-    },
-    {
-      "id": "cs_java",
-      "name": "Java",
-      "prereqs": [
-        "cs_programming"
-      ]
-    },
-    {
-      "id": "cs_cpp",
-      "name": "C++",
-      "prereqs": [
-        "cs_programming"
-      ]
-    },
-    {
-      "id": "cs_data_structures",
-      "name": "Data Structures",
-      "prereqs": [
-        "cs_programming"
-      ]
-    },
-    {
-      "id": "cs_algorithms",
-      "name": "Algorithms",
-      "prereqs": [
-        "cs_data_structures"
-      ]
-    },
-    {
-      "id": "cs_oop",
-      "name": "Object-Oriented Programming",
-      "prereqs": [
-        "cs_java"
-      ]
-    },
-    {
-      "id": "cs_databases",
-      "name": "Databases",
-      "prereqs": []
-    },
-    {
-      "id": "cs_sql",
-      "name": "SQL",
-      "prereqs": [
-        "cs_databases"
-      ]
-    },
-    {
-      "id": "cs_os",
-      "name": "Operating Systems",
-      "prereqs": [
-        "cs_programming"
-      ]
-    },
-    {
-      "id": "cs_networks",
-      "name": "Computer Networks",
-      "prereqs": []
-    },
-    {
-      "id": "cs_software_engineering",
-      "name": "Software Engineering",
-      "prereqs": [
-        "cs_oop",
-        "cs_algorithms"
-      ]
-    },
-    {
-      "id": "cs_compilers",
-      "name": "Compiler Design",
-      "prereqs": [
-        "cs_algorithms"
-      ]
-    },
-    {
-      "id": "cs_ai",
-      "name": "Artificial Intelligence",
-      "prereqs": [
-        "cs_algorithms",
-        "cs_python"
-      ]
-    },
-    {
-      "id": "cs_ml",
-      "name": "Machine Learning",
-      "prereqs": [
-        "cs_ai",
-        "cs_python"
-      ]
-    },
-    {
-      "id": "cs_cloud",
-      "name": "Cloud Computing",
-      "prereqs": [
-        "cs_networks",
-        "cs_os"
-      ]
-    },
-    {
-      "id": "cs_distributed",
-      "name": "Distributed Systems",
-      "prereqs": [
-        "cs_networks",
-        "cs_algorithms"
-      ]
-    },
-    {
-      "id": "cs_computer_science",
-      "name": "Computer Science",
-      "prereqs": [
-        "cs_software_engineering",
-        "cs_algorithms",
-        "cs_databases"
       ]
     }
   ],
