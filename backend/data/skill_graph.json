@@ -87,6 +87,36 @@
       ]
     },
     {
+      "id": "ds_ml",
+      "name": "Machine Learning",
+      "prereqs": [
+        "ds_analysis",
+        "ds_linreg"
+      ]
+    },
+    {
+      "id": "ds_ai",
+      "name": "Artificial Intelligence (AI)",
+      "prereqs": [
+        "ds_ml"
+      ]
+    },
+    {
+      "id": "ds_tensorflow",
+      "name": "Tensorflow",
+      "prereqs": [
+        "ds_ml"
+      ]
+    },
+    {
+      "id": "ds_dl",
+      "name": "Deep Learning",
+      "prereqs": [
+        "ds_ml",
+        "ds_tensorflow"
+      ]
+    },
+    {
       "id": "ds_bigdata",
       "name": "Big Data",
       "prereqs": [
@@ -141,381 +171,9 @@
       "id": "ds_datascience",
       "name": "Data Science",
       "prereqs": [
-        "ds_analysis",
+        "ds_ml",
         "ds_viz",
         "ds_bigdata"
-      ]
-    }
-  ],
-  "Machine Learning": [
-    {
-      "id": "ml_python",
-      "name": "Python Programming",
-      "prereqs": []
-    },
-    {
-      "id": "ml_math",
-      "name": "Mathematics",
-      "prereqs": []
-    },
-    {
-      "id": "ml_linear_algebra",
-      "name": "Linear Algebra",
-      "prereqs": [
-        "ml_math"
-      ]
-    },
-    {
-      "id": "ml_calculus",
-      "name": "Calculus",
-      "prereqs": [
-        "ml_math"
-      ]
-    },
-    {
-      "id": "ml_statistics",
-      "name": "Statistics",
-      "prereqs": [
-        "ml_math"
-      ]
-    },
-    {
-      "id": "ml_probability",
-      "name": "Probability",
-      "prereqs": [
-        "ml_statistics"
-      ]
-    },
-    {
-      "id": "ml_numpy",
-      "name": "NumPy",
-      "prereqs": [
-        "ml_python"
-      ]
-    },
-    {
-      "id": "ml_pandas",
-      "name": "Pandas",
-      "prereqs": [
-        "ml_python",
-        "ml_numpy"
-      ]
-    },
-    {
-      "id": "ml_matplotlib",
-      "name": "Matplotlib",
-      "prereqs": [
-        "ml_python"
-      ]
-    },
-    {
-      "id": "ml_data_preprocessing",
-      "name": "Data Preprocessing",
-      "prereqs": [
-        "ml_pandas"
-      ]
-    },
-    {
-      "id": "ml_supervised",
-      "name": "Supervised Learning",
-      "prereqs": [
-        "ml_statistics",
-        "ml_data_preprocessing"
-      ]
-    },
-    {
-      "id": "ml_regression",
-      "name": "Regression",
-      "prereqs": [
-        "ml_supervised",
-        "ml_linear_algebra"
-      ]
-    },
-    {
-      "id": "ml_classification",
-      "name": "Classification",
-      "prereqs": [
-        "ml_supervised",
-        "ml_probability"
-      ]
-    },
-    {
-      "id": "ml_unsupervised",
-      "name": "Unsupervised Learning",
-      "prereqs": [
-        "ml_statistics",
-        "ml_data_preprocessing"
-      ]
-    },
-    {
-      "id": "ml_clustering",
-      "name": "Clustering",
-      "prereqs": [
-        "ml_unsupervised"
-      ]
-    },
-    {
-      "id": "ml_dimensionality",
-      "name": "Dimensionality Reduction",
-      "prereqs": [
-        "ml_unsupervised",
-        "ml_linear_algebra"
-      ]
-    },
-    {
-      "id": "ml_scikit",
-      "name": "Scikit-Learn",
-      "prereqs": [
-        "ml_supervised",
-        "ml_unsupervised"
-      ]
-    },
-    {
-      "id": "ml_model_evaluation",
-      "name": "Model Evaluation",
-      "prereqs": [
-        "ml_scikit"
-      ]
-    },
-    {
-      "id": "ml_feature_engineering",
-      "name": "Feature Engineering",
-      "prereqs": [
-        "ml_data_preprocessing"
-      ]
-    },
-    {
-      "id": "ml_ensemble",
-      "name": "Ensemble Methods",
-      "prereqs": [
-        "ml_classification",
-        "ml_regression"
-      ]
-    },
-    {
-      "id": "ml_neural_networks",
-      "name": "Neural Networks",
-      "prereqs": [
-        "ml_supervised",
-        "ml_calculus",
-        "ml_linear_algebra"
-      ]
-    },
-    {
-      "id": "ml_tensorflow",
-      "name": "TensorFlow",
-      "prereqs": [
-        "ml_neural_networks"
-      ]
-    },
-    {
-      "id": "ml_keras",
-      "name": "Keras",
-      "prereqs": [
-        "ml_tensorflow"
-      ]
-    },
-    {
-      "id": "ml_pytorch",
-      "name": "PyTorch",
-      "prereqs": [
-        "ml_neural_networks"
-      ]
-    },
-    {
-      "id": "ml_deep_learning",
-      "name": "Deep Learning",
-      "prereqs": [
-        "ml_neural_networks",
-        "ml_tensorflow"
-      ]
-    },
-    {
-      "id": "ml_cnn",
-      "name": "Convolutional Neural Networks (CNN)",
-      "prereqs": [
-        "ml_deep_learning"
-      ]
-    },
-    {
-      "id": "ml_rnn",
-      "name": "Recurrent Neural Networks (RNN)",
-      "prereqs": [
-        "ml_deep_learning"
-      ]
-    },
-    {
-      "id": "ml_nlp",
-      "name": "Natural Language Processing (NLP)",
-      "prereqs": [
-        "ml_rnn"
-      ]
-    },
-    {
-      "id": "ml_computer_vision",
-      "name": "Computer Vision",
-      "prereqs": [
-        "ml_cnn"
-      ]
-    },
-    {
-      "id": "ml_reinforcement",
-      "name": "Reinforcement Learning",
-      "prereqs": [
-        "ml_supervised",
-        "ml_probability"
-      ]
-    },
-    {
-      "id": "ml_model_deployment",
-      "name": "Model Deployment",
-      "prereqs": [
-        "ml_model_evaluation"
-      ]
-    },
-    {
-      "id": "ml_mlops",
-      "name": "MLOps",
-      "prereqs": [
-        "ml_model_deployment"
-      ]
-    },
-    {
-      "id": "ml_machine_learning",
-      "name": "Machine Learning",
-      "prereqs": [
-        "ml_scikit",
-        "ml_deep_learning",
-        "ml_model_evaluation"
-      ]
-    }
-  ],
-  "Computer Science": [
-    {
-      "id": "cs_programming",
-      "name": "Programming Fundamentals",
-      "prereqs": []
-    },
-    {
-      "id": "cs_python",
-      "name": "Python",
-      "prereqs": [
-        "cs_programming"
-      ]
-    },
-    {
-      "id": "cs_java",
-      "name": "Java",
-      "prereqs": [
-        "cs_programming"
-      ]
-    },
-    {
-      "id": "cs_cpp",
-      "name": "C++",
-      "prereqs": [
-        "cs_programming"
-      ]
-    },
-    {
-      "id": "cs_data_structures",
-      "name": "Data Structures",
-      "prereqs": [
-        "cs_programming"
-      ]
-    },
-    {
-      "id": "cs_algorithms",
-      "name": "Algorithms",
-      "prereqs": [
-        "cs_data_structures"
-      ]
-    },
-    {
-      "id": "cs_oop",
-      "name": "Object-Oriented Programming",
-      "prereqs": [
-        "cs_java"
-      ]
-    },
-    {
-      "id": "cs_databases",
-      "name": "Databases",
-      "prereqs": []
-    },
-    {
-      "id": "cs_sql",
-      "name": "SQL",
-      "prereqs": [
-        "cs_databases"
-      ]
-    },
-    {
-      "id": "cs_os",
-      "name": "Operating Systems",
-      "prereqs": [
-        "cs_programming"
-      ]
-    },
-    {
-      "id": "cs_networks",
-      "name": "Computer Networks",
-      "prereqs": []
-    },
-    {
-      "id": "cs_software_engineering",
-      "name": "Software Engineering",
-      "prereqs": [
-        "cs_oop",
-        "cs_algorithms"
-      ]
-    },
-    {
-      "id": "cs_compilers",
-      "name": "Compiler Design",
-      "prereqs": [
-        "cs_algorithms"
-      ]
-    },
-    {
-      "id": "cs_ai",
-      "name": "Artificial Intelligence",
-      "prereqs": [
-        "cs_algorithms",
-        "cs_python"
-      ]
-    },
-    {
-      "id": "cs_ml",
-      "name": "Machine Learning",
-      "prereqs": [
-        "cs_ai",
-        "cs_python"
-      ]
-    },
-    {
-      "id": "cs_cloud",
-      "name": "Cloud Computing",
-      "prereqs": [
-        "cs_networks",
-        "cs_os"
-      ]
-    },
-    {
-      "id": "cs_distributed",
-      "name": "Distributed Systems",
-      "prereqs": [
-        "cs_networks",
-        "cs_algorithms"
-      ]
-    },
-    {
-      "id": "cs_computer_science",
-      "name": "Computer Science",
-      "prereqs": [
-        "cs_software_engineering",
-        "cs_algorithms",
-        "cs_databases"
       ]
     }
   ],
@@ -844,61 +502,81 @@
   ],
   "Business": [
     {
-      "id": "biz_fundamentals",
-      "name": "Business Fundamentals",
+      "id": "biz_communication",
+      "name": "Communication",
       "prereqs": []
     },
     {
-      "id": "biz_marketing",
-      "name": "Marketing",
-      "prereqs": [
-        "biz_fundamentals"
-      ]
+      "id": "biz_excel",
+      "name": "Microsoft Excel",
+      "prereqs": []
     },
     {
-      "id": "biz_digital_marketing",
-      "name": "Digital Marketing",
-      "prereqs": [
-        "biz_marketing"
-      ]
-    },
-    {
-      "id": "biz_seo",
-      "name": "Search Engine Optimization (SEO)",
-      "prereqs": [
-        "biz_digital_marketing"
-      ]
-    },
-    {
-      "id": "biz_finance",
-      "name": "Finance",
+      "id": "biz_planning",
+      "name": "Planning",
       "prereqs": []
     },
     {
       "id": "biz_accounting",
       "name": "Accounting",
       "prereqs": [
-        "biz_finance"
+        "biz_excel"
       ]
     },
     {
-      "id": "biz_financial_analysis",
-      "name": "Financial Analysis",
+      "id": "biz_finaccounting",
+      "name": "Financial Accounting",
       "prereqs": [
-        "biz_accounting",
-        "biz_finance"
+        "biz_accounting"
+      ]
+    },
+    {
+      "id": "biz_finstatement",
+      "name": "Financial Statement",
+      "prereqs": [
+        "biz_finaccounting"
+      ]
+    },
+    {
+      "id": "biz_finance",
+      "name": "Finance",
+      "prereqs": [
+        "biz_finstatement"
+      ]
+    },
+    {
+      "id": "biz_dataanalysis",
+      "name": "Data Analysis",
+      "prereqs": [
+        "biz_excel"
       ]
     },
     {
       "id": "biz_management",
       "name": "Management",
       "prereqs": [
-        "biz_fundamentals"
+        "biz_communication",
+        "biz_planning"
       ]
     },
     {
-      "id": "biz_project_management",
+      "id": "biz_projmgmt",
       "name": "Project Management",
+      "prereqs": [
+        "biz_management",
+        "biz_planning"
+      ]
+    },
+    {
+      "id": "biz_projplanning",
+      "name": "Project Planning",
+      "prereqs": [
+        "biz_projmgmt"
+      ]
+    },
+    {
+      "id": "biz_changemgmt",
+      "name": "Change Management",
       "prereqs": [
         "biz_management"
       ]
@@ -907,471 +585,337 @@
       "id": "biz_leadership",
       "name": "Leadership",
       "prereqs": [
-        "biz_management"
+        "biz_management",
+        "biz_communication"
       ]
     },
     {
-      "id": "biz_strategy",
+      "id": "biz_strategicthinking",
+      "name": "Strategic Thinking",
+      "prereqs": [
+        "biz_leadership"
+      ]
+    },
+    {
+      "id": "biz_strategicmgmt",
+      "name": "Strategic Management",
+      "prereqs": [
+        "biz_strategicthinking",
+        "biz_planning"
+      ]
+    },
+    {
+      "id": "biz_bizstrategy",
       "name": "Business Strategy",
       "prereqs": [
-        "biz_management",
-        "biz_finance"
+        "biz_strategicmgmt"
       ]
     },
     {
-      "id": "biz_entrepreneurship",
-      "name": "Entrepreneurship",
+      "id": "biz_innovation",
+      "name": "Innovation",
       "prereqs": [
-        "biz_fundamentals",
-        "biz_finance"
+        "biz_strategicthinking"
       ]
     },
     {
-      "id": "biz_sales",
-      "name": "Sales",
+      "id": "biz_riskmgmt",
+      "name": "Risk Management",
+      "prereqs": [
+        "biz_finance",
+        "biz_strategicmgmt"
+      ]
+    },
+    {
+      "id": "biz_marketing",
+      "name": "Marketing",
+      "prereqs": [
+        "biz_communication"
+      ]
+    },
+    {
+      "id": "biz_socialmedia",
+      "name": "Social Media Marketing",
       "prereqs": [
         "biz_marketing"
       ]
-    },
-    {
-      "id": "biz_communication",
-      "name": "Business Communication",
-      "prereqs": []
-    },
-    {
-      "id": "biz_analytics",
-      "name": "Business Analytics",
-      "prereqs": [
-        "biz_fundamentals"
-      ]
-    },
-    {
-      "id": "biz_excel",
-      "name": "Microsoft Excel",
-      "prereqs": []
-    },
-    {
-      "id": "biz_powerbi",
-      "name": "Power BI",
-      "prereqs": [
-        "biz_excel",
-        "biz_analytics"
-      ]
-    },
-    {
-      "id": "biz_operations",
-      "name": "Operations Management",
-      "prereqs": [
-        "biz_management"
-      ]
-    },
-    {
-      "id": "biz_supply_chain",
-      "name": "Supply Chain Management",
-      "prereqs": [
-        "biz_operations"
-      ]
-    },
-    {
-      "id": "biz_admin",
-      "name": "Business Administration",
-      "prereqs": [
-        "biz_fundamentals",
-        "biz_management",
-        "biz_finance"
-      ]
     }
   ],
-  "Graphic Design": [
+  "Health": [
     {
-      "id": "gd_basics",
-      "name": "Design Basics",
+      "id": "health_communication",
+      "name": "Communication",
       "prereqs": []
     },
     {
-      "id": "gd_color_theory",
-      "name": "Color Theory",
-      "prereqs": [
-        "gd_basics"
-      ]
-    },
-    {
-      "id": "gd_typography",
-      "name": "Typography",
-      "prereqs": [
-        "gd_basics"
-      ]
-    },
-    {
-      "id": "gd_photoshop",
-      "name": "Adobe Photoshop",
+      "id": "health_biology",
+      "name": "Biology",
       "prereqs": []
     },
     {
-      "id": "gd_illustrator",
-      "name": "Adobe Illustrator",
+      "id": "health_dataanalysis",
+      "name": "Data Analysis",
+      "prereqs": []
+    },
+    {
+      "id": "health_datacollection",
+      "name": "Data Collection",
       "prereqs": [
-        "gd_basics"
+        "health_dataanalysis"
       ]
     },
     {
-      "id": "gd_indesign",
-      "name": "Adobe InDesign",
+      "id": "health_epidemiology",
+      "name": "Epidemiology",
       "prereqs": [
-        "gd_typography"
+        "health_biology",
+        "health_dataanalysis"
       ]
     },
     {
-      "id": "gd_figma",
-      "name": "Figma",
+      "id": "health_publichealth",
+      "name": "Public Health",
       "prereqs": [
-        "gd_basics"
+        "health_epidemiology"
       ]
     },
     {
-      "id": "gd_ui_design",
-      "name": "UI Design",
+      "id": "health_immunology",
+      "name": "Immunology",
       "prereqs": [
-        "gd_figma",
-        "gd_color_theory"
+        "health_biology"
       ]
     },
     {
-      "id": "gd_logo_design",
-      "name": "Logo Design",
+      "id": "health_autoimmunity",
+      "name": "Autoimmunity",
       "prereqs": [
-        "gd_illustrator",
-        "gd_color_theory"
+        "health_immunology"
       ]
     },
     {
-      "id": "gd_branding",
-      "name": "Branding",
+      "id": "health_tumourimmunity",
+      "name": "Tumour immunity",
       "prereqs": [
-        "gd_logo_design"
+        "health_immunology"
       ]
     },
     {
-      "id": "gd_layout",
-      "name": "Layout Design",
+      "id": "health_infectious",
+      "name": "Infectious Diseases",
       "prereqs": [
-        "gd_indesign",
-        "gd_typography"
+        "health_immunology",
+        "health_epidemiology"
       ]
     },
     {
-      "id": "gd_digital_illustration",
-      "name": "Digital Illustration",
+      "id": "health_patientcare",
+      "name": "Patient Care",
       "prereqs": [
-        "gd_illustrator"
+        "health_communication"
       ]
     },
     {
-      "id": "gd_photo_editing",
-      "name": "Photo Editing",
+      "id": "health_patientcentered",
+      "name": "patient-centered care",
       "prereqs": [
-        "gd_photoshop"
+        "health_patientcare"
       ]
     },
     {
-      "id": "gd_graphic_design",
-      "name": "Graphic Design",
+      "id": "health_symptommgmt",
+      "name": "symptom management",
       "prereqs": [
-        "gd_ui_design",
-        "gd_branding",
-        "gd_layout"
+        "health_patientcare"
+      ]
+    },
+    {
+      "id": "health_improvedsymptom",
+      "name": "improved symptom management",
+      "prereqs": [
+        "health_symptommgmt"
+      ]
+    },
+    {
+      "id": "health_ebp",
+      "name": "evidence-based practice",
+      "prereqs": [
+        "health_dataanalysis",
+        "health_patientcare"
+      ]
+    },
+    {
+      "id": "health_wellbeing",
+      "name": "wellbeing",
+      "prereqs": [
+        "health_communication"
+      ]
+    },
+    {
+      "id": "health_nutrition",
+      "name": "Nutrition",
+      "prereqs": [
+        "health_wellbeing"
+      ]
+    },
+    {
+      "id": "health_informatics",
+      "name": "Health Informatics",
+      "prereqs": [
+        "health_dataanalysis"
+      ]
+    },
+    {
+      "id": "health_education",
+      "name": "Health Education",
+      "prereqs": [
+        "health_communication",
+        "health_publichealth"
+      ]
+    },
+    {
+      "id": "health_clinicaltrial",
+      "name": "Clinical Trial Design",
+      "prereqs": [
+        "health_epidemiology",
+        "health_dataanalysis"
       ]
     }
   ],
   "Personal Development": [
     {
       "id": "pd_communication",
-      "name": "Communication Skills",
+      "name": "Communication",
       "prereqs": []
     },
     {
-      "id": "pd_public_speaking",
-      "name": "Public Speaking",
+      "id": "pd_listening",
+      "name": "Listening Skills",
       "prereqs": [
         "pd_communication"
       ]
     },
     {
-      "id": "pd_time_management",
-      "name": "Time Management",
-      "prereqs": []
-    },
-    {
-      "id": "pd_productivity",
-      "name": "Productivity",
+      "id": "pd_softskills",
+      "name": "Soft skills",
       "prereqs": [
-        "pd_time_management"
+        "pd_communication"
       ]
     },
     {
-      "id": "pd_critical_thinking",
+      "id": "pd_criticalthinking",
       "name": "Critical Thinking",
       "prereqs": []
     },
     {
-      "id": "pd_problem_solving",
+      "id": "pd_problemsolving",
       "name": "Problem Solving",
       "prereqs": [
-        "pd_critical_thinking"
+        "pd_criticalthinking"
       ]
     },
     {
-      "id": "pd_emotional_intelligence",
-      "name": "Emotional Intelligence",
+      "id": "pd_creativity",
+      "name": "Creativity",
       "prereqs": []
     },
     {
-      "id": "pd_leadership",
-      "name": "Leadership Skills",
+      "id": "pd_writing",
+      "name": "Writing",
       "prereqs": [
-        "pd_emotional_intelligence",
         "pd_communication"
+      ]
+    },
+    {
+      "id": "pd_editing",
+      "name": "Editing",
+      "prereqs": [
+        "pd_writing"
+      ]
+    },
+    {
+      "id": "pd_persuasion",
+      "name": "Persuasion",
+      "prereqs": [
+        "pd_communication",
+        "pd_criticalthinking"
       ]
     },
     {
       "id": "pd_negotiation",
       "name": "Negotiation",
       "prereqs": [
-        "pd_communication"
+        "pd_persuasion"
       ]
     },
     {
-      "id": "pd_conflict_resolution",
-      "name": "Conflict Resolution",
-      "prereqs": [
-        "pd_emotional_intelligence"
-      ]
-    },
-    {
-      "id": "pd_stress_management",
-      "name": "Stress Management",
-      "prereqs": []
-    },
-    {
-      "id": "pd_mindfulness",
-      "name": "Mindfulness",
-      "prereqs": [
-        "pd_stress_management"
-      ]
-    },
-    {
-      "id": "pd_career_development",
-      "name": "Career Development",
-      "prereqs": []
-    },
-    {
-      "id": "pd_networking",
-      "name": "Professional Networking",
+      "id": "pd_delegation",
+      "name": "Delegation",
       "prereqs": [
         "pd_communication"
       ]
     },
     {
-      "id": "pd_personal_development",
+      "id": "pd_timemgmt",
+      "name": "Time management",
+      "prereqs": []
+    },
+    {
+      "id": "pd_goalsetting",
+      "name": "goal setting",
+      "prereqs": [
+        "pd_timemgmt"
+      ]
+    },
+    {
+      "id": "pd_resilience",
+      "name": "Resilience",
+      "prereqs": []
+    },
+    {
+      "id": "pd_happiness",
+      "name": "Happiness",
+      "prereqs": [
+        "pd_resilience"
+      ]
+    },
+    {
+      "id": "pd_personaldev",
       "name": "Personal Development",
       "prereqs": [
-        "pd_productivity",
-        "pd_leadership",
-        "pd_career_development"
-      ]
-    }
-  ],
-  "Health": [
-    {
-      "id": "hl_anatomy",
-      "name": "Anatomy",
-      "prereqs": []
-    },
-    {
-      "id": "hl_physiology",
-      "name": "Physiology",
-      "prereqs": [
-        "hl_anatomy"
+        "pd_goalsetting",
+        "pd_resilience",
+        "pd_softskills"
       ]
     },
     {
-      "id": "hl_nutrition",
-      "name": "Nutrition",
-      "prereqs": []
-    },
-    {
-      "id": "hl_dietetics",
-      "name": "Dietetics",
+      "id": "pd_profdev",
+      "name": "Professional Development",
       "prereqs": [
-        "hl_nutrition"
+        "pd_personaldev",
+        "pd_softskills"
       ]
     },
     {
-      "id": "hl_exercise",
-      "name": "Exercise Science",
+      "id": "pd_videoproduction",
+      "name": "Video Production",
       "prereqs": [
-        "hl_physiology"
+        "pd_creativity"
       ]
     },
     {
-      "id": "hl_fitness",
-      "name": "Personal Fitness",
+      "id": "pd_videoediting",
+      "name": "Video Editing",
       "prereqs": [
-        "hl_exercise"
+        "pd_videoproduction"
       ]
     },
     {
-      "id": "hl_psychology",
-      "name": "Psychology",
-      "prereqs": []
-    },
-    {
-      "id": "hl_mental_health",
-      "name": "Mental Health",
+      "id": "pd_skillsmgmt",
+      "name": "Skills Management",
       "prereqs": [
-        "hl_psychology"
-      ]
-    },
-    {
-      "id": "hl_first_aid",
-      "name": "First Aid",
-      "prereqs": []
-    },
-    {
-      "id": "hl_cpr",
-      "name": "CPR",
-      "prereqs": [
-        "hl_first_aid"
-      ]
-    },
-    {
-      "id": "hl_public_health",
-      "name": "Public Health",
-      "prereqs": [
-        "hl_anatomy",
-        "hl_nutrition"
-      ]
-    },
-    {
-      "id": "hl_epidemiology",
-      "name": "Epidemiology",
-      "prereqs": [
-        "hl_public_health"
-      ]
-    },
-    {
-      "id": "hl_healthcare_management",
-      "name": "Healthcare Management",
-      "prereqs": [
-        "hl_public_health"
-      ]
-    },
-    {
-      "id": "hl_medical_terminology",
-      "name": "Medical Terminology",
-      "prereqs": []
-    },
-    {
-      "id": "hl_health_informatics",
-      "name": "Health Informatics",
-      "prereqs": [
-        "hl_medical_terminology"
-      ]
-    }
-  ],
-  "Mathematics": [
-    {
-      "id": "math_algebra",
-      "name": "Algebra",
-      "prereqs": []
-    },
-    {
-      "id": "math_calculus",
-      "name": "Calculus",
-      "prereqs": [
-        "math_algebra"
-      ]
-    },
-    {
-      "id": "math_linear_algebra",
-      "name": "Linear Algebra",
-      "prereqs": [
-        "math_algebra"
-      ]
-    },
-    {
-      "id": "math_statistics",
-      "name": "Statistics",
-      "prereqs": []
-    },
-    {
-      "id": "math_probability",
-      "name": "Probability",
-      "prereqs": [
-        "math_statistics"
-      ]
-    },
-    {
-      "id": "math_discrete",
-      "name": "Discrete Mathematics",
-      "prereqs": [
-        "math_algebra"
-      ]
-    },
-    {
-      "id": "math_logic",
-      "name": "Mathematical Logic",
-      "prereqs": [
-        "math_discrete"
-      ]
-    },
-    {
-      "id": "math_differential_equations",
-      "name": "Differential Equations",
-      "prereqs": [
-        "math_calculus"
-      ]
-    },
-    {
-      "id": "math_numerical_methods",
-      "name": "Numerical Methods",
-      "prereqs": [
-        "math_calculus",
-        "math_linear_algebra"
-      ]
-    },
-    {
-      "id": "math_optimization",
-      "name": "Optimization",
-      "prereqs": [
-        "math_calculus",
-        "math_linear_algebra"
-      ]
-    },
-    {
-      "id": "math_cryptography",
-      "name": "Cryptography",
-      "prereqs": [
-        "math_discrete",
-        "math_algebra"
-      ]
-    },
-    {
-      "id": "math_data_science",
-      "name": "Mathematics for Data Science",
-      "prereqs": [
-        "math_linear_algebra",
-        "math_statistics",
-        "math_calculus"
-      ]
-    },
-    {
-      "id": "math_mathematics",
-      "name": "Mathematics",
-      "prereqs": [
-        "math_calculus",
-        "math_linear_algebra",
-        "math_statistics"
+        "pd_goalsetting",
+        "pd_profdev"
       ]
     }
   ]
