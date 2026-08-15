@@ -499,5 +499,667 @@
         "cy_crypto"
       ]
     }
+  ],
+  "Business": [
+    {
+      "id": "biz_fundamentals",
+      "name": "Business Fundamentals",
+      "prereqs": []
+    },
+    {
+      "id": "biz_marketing",
+      "name": "Marketing",
+      "prereqs": [
+        "biz_fundamentals"
+      ]
+    },
+    {
+      "id": "biz_digital_marketing",
+      "name": "Digital Marketing",
+      "prereqs": [
+        "biz_marketing"
+      ]
+    },
+    {
+      "id": "biz_seo",
+      "name": "Search Engine Optimization (SEO)",
+      "prereqs": [
+        "biz_digital_marketing"
+      ]
+    },
+    {
+      "id": "biz_finance",
+      "name": "Finance",
+      "prereqs": []
+    },
+    {
+      "id": "biz_accounting",
+      "name": "Accounting",
+      "prereqs": [
+        "biz_finance"
+      ]
+    },
+    {
+      "id": "biz_financial_analysis",
+      "name": "Financial Analysis",
+      "prereqs": [
+        "biz_accounting",
+        "biz_finance"
+      ]
+    },
+    {
+      "id": "biz_management",
+      "name": "Management",
+      "prereqs": [
+        "biz_fundamentals"
+      ]
+    },
+    {
+      "id": "biz_project_management",
+      "name": "Project Management",
+      "prereqs": [
+        "biz_management"
+      ]
+    },
+    {
+      "id": "biz_leadership",
+      "name": "Leadership",
+      "prereqs": [
+        "biz_management"
+      ]
+    },
+    {
+      "id": "biz_strategy",
+      "name": "Business Strategy",
+      "prereqs": [
+        "biz_management",
+        "biz_finance"
+      ]
+    },
+    {
+      "id": "biz_entrepreneurship",
+      "name": "Entrepreneurship",
+      "prereqs": [
+        "biz_fundamentals",
+        "biz_finance"
+      ]
+    },
+    {
+      "id": "biz_sales",
+      "name": "Sales",
+      "prereqs": [
+        "biz_marketing"
+      ]
+    },
+    {
+      "id": "biz_communication",
+      "name": "Business Communication",
+      "prereqs": []
+    },
+    {
+      "id": "biz_analytics",
+      "name": "Business Analytics",
+      "prereqs": [
+        "biz_fundamentals"
+      ]
+    },
+    {
+      "id": "biz_excel",
+      "name": "Microsoft Excel",
+      "prereqs": []
+    },
+    {
+      "id": "biz_powerbi",
+      "name": "Power BI",
+      "prereqs": [
+        "biz_excel",
+        "biz_analytics"
+      ]
+    },
+    {
+      "id": "biz_operations",
+      "name": "Operations Management",
+      "prereqs": [
+        "biz_management"
+      ]
+    },
+    {
+      "id": "biz_supply_chain",
+      "name": "Supply Chain Management",
+      "prereqs": [
+        "biz_operations"
+      ]
+    },
+    {
+      "id": "biz_admin",
+      "name": "Business Administration",
+      "prereqs": [
+        "biz_fundamentals",
+        "biz_management",
+        "biz_finance"
+      ]
+    }
+  ],
+  "Graphic Design": [
+    {
+      "id": "gd_basics",
+      "name": "Design Basics",
+      "prereqs": []
+    },
+    {
+      "id": "gd_color_theory",
+      "name": "Color Theory",
+      "prereqs": [
+        "gd_basics"
+      ]
+    },
+    {
+      "id": "gd_typography",
+      "name": "Typography",
+      "prereqs": [
+        "gd_basics"
+      ]
+    },
+    {
+      "id": "gd_photoshop",
+      "name": "Adobe Photoshop",
+      "prereqs": []
+    },
+    {
+      "id": "gd_illustrator",
+      "name": "Adobe Illustrator",
+      "prereqs": [
+        "gd_basics"
+      ]
+    },
+    {
+      "id": "gd_indesign",
+      "name": "Adobe InDesign",
+      "prereqs": [
+        "gd_typography"
+      ]
+    },
+    {
+      "id": "gd_figma",
+      "name": "Figma",
+      "prereqs": [
+        "gd_basics"
+      ]
+    },
+    {
+      "id": "gd_ui_design",
+      "name": "UI Design",
+      "prereqs": [
+        "gd_figma",
+        "gd_color_theory"
+      ]
+    },
+    {
+      "id": "gd_logo_design",
+      "name": "Logo Design",
+      "prereqs": [
+        "gd_illustrator",
+        "gd_color_theory"
+      ]
+    },
+    {
+      "id": "gd_branding",
+      "name": "Branding",
+      "prereqs": [
+        "gd_logo_design"
+      ]
+    },
+    {
+      "id": "gd_layout",
+      "name": "Layout Design",
+      "prereqs": [
+        "gd_indesign",
+        "gd_typography"
+      ]
+    },
+    {
+      "id": "gd_digital_illustration",
+      "name": "Digital Illustration",
+      "prereqs": [
+        "gd_illustrator"
+      ]
+    },
+    {
+      "id": "gd_photo_editing",
+      "name": "Photo Editing",
+      "prereqs": [
+        "gd_photoshop"
+      ]
+    },
+    {
+      "id": "gd_graphic_design",
+      "name": "Graphic Design",
+      "prereqs": [
+        "gd_ui_design",
+        "gd_branding",
+        "gd_layout"
+      ]
+    }
+  ],
+  "Personal Development": [
+    {
+      "id": "pd_communication",
+      "name": "Communication Skills",
+      "prereqs": []
+    },
+    {
+      "id": "pd_public_speaking",
+      "name": "Public Speaking",
+      "prereqs": [
+        "pd_communication"
+      ]
+    },
+    {
+      "id": "pd_time_management",
+      "name": "Time Management",
+      "prereqs": []
+    },
+    {
+      "id": "pd_productivity",
+      "name": "Productivity",
+      "prereqs": [
+        "pd_time_management"
+      ]
+    },
+    {
+      "id": "pd_critical_thinking",
+      "name": "Critical Thinking",
+      "prereqs": []
+    },
+    {
+      "id": "pd_problem_solving",
+      "name": "Problem Solving",
+      "prereqs": [
+        "pd_critical_thinking"
+      ]
+    },
+    {
+      "id": "pd_emotional_intelligence",
+      "name": "Emotional Intelligence",
+      "prereqs": []
+    },
+    {
+      "id": "pd_leadership",
+      "name": "Leadership Skills",
+      "prereqs": [
+        "pd_emotional_intelligence",
+        "pd_communication"
+      ]
+    },
+    {
+      "id": "pd_negotiation",
+      "name": "Negotiation",
+      "prereqs": [
+        "pd_communication"
+      ]
+    },
+    {
+      "id": "pd_conflict_resolution",
+      "name": "Conflict Resolution",
+      "prereqs": [
+        "pd_emotional_intelligence"
+      ]
+    },
+    {
+      "id": "pd_stress_management",
+      "name": "Stress Management",
+      "prereqs": []
+    },
+    {
+      "id": "pd_mindfulness",
+      "name": "Mindfulness",
+      "prereqs": [
+        "pd_stress_management"
+      ]
+    },
+    {
+      "id": "pd_career_development",
+      "name": "Career Development",
+      "prereqs": []
+    },
+    {
+      "id": "pd_networking",
+      "name": "Professional Networking",
+      "prereqs": [
+        "pd_communication"
+      ]
+    },
+    {
+      "id": "pd_personal_development",
+      "name": "Personal Development",
+      "prereqs": [
+        "pd_productivity",
+        "pd_leadership",
+        "pd_career_development"
+      ]
+    }
+  ],
+  "Health": [
+    {
+      "id": "hl_anatomy",
+      "name": "Anatomy",
+      "prereqs": []
+    },
+    {
+      "id": "hl_physiology",
+      "name": "Physiology",
+      "prereqs": [
+        "hl_anatomy"
+      ]
+    },
+    {
+      "id": "hl_nutrition",
+      "name": "Nutrition",
+      "prereqs": []
+    },
+    {
+      "id": "hl_dietetics",
+      "name": "Dietetics",
+      "prereqs": [
+        "hl_nutrition"
+      ]
+    },
+    {
+      "id": "hl_exercise",
+      "name": "Exercise Science",
+      "prereqs": [
+        "hl_physiology"
+      ]
+    },
+    {
+      "id": "hl_fitness",
+      "name": "Personal Fitness",
+      "prereqs": [
+        "hl_exercise"
+      ]
+    },
+    {
+      "id": "hl_psychology",
+      "name": "Psychology",
+      "prereqs": []
+    },
+    {
+      "id": "hl_mental_health",
+      "name": "Mental Health",
+      "prereqs": [
+        "hl_psychology"
+      ]
+    },
+    {
+      "id": "hl_first_aid",
+      "name": "First Aid",
+      "prereqs": []
+    },
+    {
+      "id": "hl_cpr",
+      "name": "CPR",
+      "prereqs": [
+        "hl_first_aid"
+      ]
+    },
+    {
+      "id": "hl_public_health",
+      "name": "Public Health",
+      "prereqs": [
+        "hl_anatomy",
+        "hl_nutrition"
+      ]
+    },
+    {
+      "id": "hl_epidemiology",
+      "name": "Epidemiology",
+      "prereqs": [
+        "hl_public_health"
+      ]
+    },
+    {
+      "id": "hl_healthcare_management",
+      "name": "Healthcare Management",
+      "prereqs": [
+        "hl_public_health"
+      ]
+    },
+    {
+      "id": "hl_medical_terminology",
+      "name": "Medical Terminology",
+      "prereqs": []
+    },
+    {
+      "id": "hl_health_informatics",
+      "name": "Health Informatics",
+      "prereqs": [
+        "hl_medical_terminology"
+      ]
+    }
+  ],
+  "Computer Science": [
+    {
+      "id": "cs_programming",
+      "name": "Programming Fundamentals",
+      "prereqs": []
+    },
+    {
+      "id": "cs_python",
+      "name": "Python",
+      "prereqs": [
+        "cs_programming"
+      ]
+    },
+    {
+      "id": "cs_java",
+      "name": "Java",
+      "prereqs": [
+        "cs_programming"
+      ]
+    },
+    {
+      "id": "cs_cpp",
+      "name": "C++",
+      "prereqs": [
+        "cs_programming"
+      ]
+    },
+    {
+      "id": "cs_data_structures",
+      "name": "Data Structures",
+      "prereqs": [
+        "cs_programming"
+      ]
+    },
+    {
+      "id": "cs_algorithms",
+      "name": "Algorithms",
+      "prereqs": [
+        "cs_data_structures"
+      ]
+    },
+    {
+      "id": "cs_oop",
+      "name": "Object-Oriented Programming",
+      "prereqs": [
+        "cs_java"
+      ]
+    },
+    {
+      "id": "cs_databases",
+      "name": "Databases",
+      "prereqs": []
+    },
+    {
+      "id": "cs_sql",
+      "name": "SQL",
+      "prereqs": [
+        "cs_databases"
+      ]
+    },
+    {
+      "id": "cs_os",
+      "name": "Operating Systems",
+      "prereqs": [
+        "cs_programming"
+      ]
+    },
+    {
+      "id": "cs_networks",
+      "name": "Computer Networks",
+      "prereqs": []
+    },
+    {
+      "id": "cs_software_engineering",
+      "name": "Software Engineering",
+      "prereqs": [
+        "cs_oop",
+        "cs_algorithms"
+      ]
+    },
+    {
+      "id": "cs_compilers",
+      "name": "Compiler Design",
+      "prereqs": [
+        "cs_algorithms"
+      ]
+    },
+    {
+      "id": "cs_ai",
+      "name": "Artificial Intelligence",
+      "prereqs": [
+        "cs_algorithms",
+        "cs_python"
+      ]
+    },
+    {
+      "id": "cs_ml",
+      "name": "Machine Learning",
+      "prereqs": [
+        "cs_ai",
+        "cs_python"
+      ]
+    },
+    {
+      "id": "cs_cloud",
+      "name": "Cloud Computing",
+      "prereqs": [
+        "cs_networks",
+        "cs_os"
+      ]
+    },
+    {
+      "id": "cs_distributed",
+      "name": "Distributed Systems",
+      "prereqs": [
+        "cs_networks",
+        "cs_algorithms"
+      ]
+    },
+    {
+      "id": "cs_computer_science",
+      "name": "Computer Science",
+      "prereqs": [
+        "cs_software_engineering",
+        "cs_algorithms",
+        "cs_databases"
+      ]
+    }
+  ],
+  "Mathematics": [
+    {
+      "id": "math_algebra",
+      "name": "Algebra",
+      "prereqs": []
+    },
+    {
+      "id": "math_calculus",
+      "name": "Calculus",
+      "prereqs": [
+        "math_algebra"
+      ]
+    },
+    {
+      "id": "math_linear_algebra",
+      "name": "Linear Algebra",
+      "prereqs": [
+        "math_algebra"
+      ]
+    },
+    {
+      "id": "math_statistics",
+      "name": "Statistics",
+      "prereqs": []
+    },
+    {
+      "id": "math_probability",
+      "name": "Probability",
+      "prereqs": [
+        "math_statistics"
+      ]
+    },
+    {
+      "id": "math_discrete",
+      "name": "Discrete Mathematics",
+      "prereqs": [
+        "math_algebra"
+      ]
+    },
+    {
+      "id": "math_logic",
+      "name": "Mathematical Logic",
+      "prereqs": [
+        "math_discrete"
+      ]
+    },
+    {
+      "id": "math_differential_equations",
+      "name": "Differential Equations",
+      "prereqs": [
+        "math_calculus"
+      ]
+    },
+    {
+      "id": "math_numerical_methods",
+      "name": "Numerical Methods",
+      "prereqs": [
+        "math_calculus",
+        "math_linear_algebra"
+      ]
+    },
+    {
+      "id": "math_optimization",
+      "name": "Optimization",
+      "prereqs": [
+        "math_calculus",
+        "math_linear_algebra"
+      ]
+    },
+    {
+      "id": "math_cryptography",
+      "name": "Cryptography",
+      "prereqs": [
+        "math_discrete",
+        "math_algebra"
+      ]
+    },
+    {
+      "id": "math_data_science",
+      "name": "Mathematics for Data Science",
+      "prereqs": [
+        "math_linear_algebra",
+        "math_statistics",
+        "math_calculus"
+      ]
+    },
+    {
+      "id": "math_mathematics",
+      "name": "Mathematics",
+      "prereqs": [
+        "math_calculus",
+        "math_linear_algebra",
+        "math_statistics"
+      ]
+    }
   ]
 }
