@@ -26,7 +26,8 @@ class ChatIntakeRequest(BaseModel):
 
 class ChatIntakeResponse(BaseModel):
     domain: Optional[str] = None
-    known_skills: List[str] = Field(default_factory=list)
+    known_skills: List[str] = Field(default_factory=list, description="Skill IDs the learner knows")
+    known_skill_names: List[str] = Field(default_factory=list, description="Human-readable skill names")
     goal_skill_id: Optional[str] = None
     goal_skill_name: Optional[str] = None
     time_per_week_hours: Optional[int] = None

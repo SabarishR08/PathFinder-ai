@@ -6,8 +6,15 @@ import { api } from "../api";
 
 const DOMAIN_ICONS = {
   "Data Science": "📊",
+  "Machine Learning": "🤖",
   "Web Development": "🌐",
-  Cybersecurity: "🔐",
+  "Cybersecurity": "🔐",
+  "Computer Science": "💻",
+  "Business": "💼",
+  "Graphic Design": "🎨",
+  "Personal Development": "🧠",
+  "Health": "❤️",
+  "Mathematics": "📐",
 };
 
 /**
