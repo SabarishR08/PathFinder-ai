@@ -30,9 +30,22 @@ app = FastAPI(
     version="1.0.0",
 )
 
+import os
+
+# In production, set ALLOWED_ORIGINS env var to your deployed frontend URL
+# (e.g. "https://pathfinder-ai.vercel.app"). Comma-separate multiple origins.
+# Falls back to "*" (all origins) if unset — safe here since allow_credentials=False
+# and there is no auth/cookie/session mechanism in this prototype.
+_allowed_origins_env = os.getenv("ALLOWED_ORIGINS")
+allowed_origins = (
+    [o.strip() for o in _allowed_origins_env.split(",")]
+    if _allowed_origins_env
+    else ["*"]
+)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Permissive for dev; lock down in production
+    allow_origins=allowed_origins,
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
