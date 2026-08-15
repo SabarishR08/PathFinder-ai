@@ -184,7 +184,7 @@ Output JSON schema:
 
 Respond with ONLY the JSON object."""
 
-    raw = call_llm(system_prompt, message, max_tokens=400)
+    raw = call_llm(system_prompt, message, max_tokens=600)
 
     if raw.startswith("LLM_ERROR"):
         return {"error": raw}
