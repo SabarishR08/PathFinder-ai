@@ -19,7 +19,8 @@ Two path-generation algorithms are provided:
 
 CORE_DOMAINS are the primary, fully-supported product surface (CSE-aligned,
 matching the Coursera/Udacity CSE-heavy source data and this hackathon's
-sponsor profile). EXTENDED_DOMAINS (Business, Health, Personal Development)
+sponsor profile). Machine Learning and Cloud Computing are now first-class
+core CSE domains. EXTENDED_DOMAINS (Business, Health, Personal Development)
 exist in the data to demonstrate the pipeline is domain-agnostic, and are
 available via the API for anyone who wants them, but are not the default
 UI surface.
@@ -34,7 +35,7 @@ from pathlib import Path
 BASE = Path(__file__).parent
 DATA = BASE / "data"
 
-CORE_DOMAINS = ["Data Science", "Web Development", "Cybersecurity"]
+CORE_DOMAINS = ["Data Science", "Machine Learning", "Cloud Computing", "Web Development", "Cybersecurity"]
 EXTENDED_DOMAINS = ["Business", "Health", "Personal Development"]
 
 

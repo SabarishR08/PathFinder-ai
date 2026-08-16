@@ -1,18 +1,10 @@
 {
-  "C0001": [
-    "ds_ai",
-    "ds_linreg",
-    "ds_ml",
-    "ds_regression",
-    "ds_tensorflow"
-  ],
   "C0002": [
     "ds_bigdata",
-    "ds_cloud",
+    "ds_datamgmt",
     "ds_datascience",
-    "ds_dbms",
-    "ds_dl",
-    "ds_ml",
+    "ds_jupyter",
+    "ds_ml_intro",
     "ds_python",
     "ds_rstudio",
     "ds_sql"
@@ -21,33 +13,12 @@
     "ds_analysis",
     "ds_datascience",
     "ds_hypothesis",
+    "ds_jupyter",
     "ds_python",
     "ds_regression",
     "ds_rstudio",
     "ds_stats",
     "ds_viz"
-  ],
-  "C0004": [
-    "ds_ai",
-    "ds_dl",
-    "ds_python",
-    "ds_tensorflow"
-  ],
-  "C0005": [
-    "ds_ai",
-    "ds_analysis",
-    "ds_cloud",
-    "ds_datascience",
-    "ds_dl",
-    "ds_ml"
-  ],
-  "C0006": [
-    "ds_ai",
-    "ds_bigdata",
-    "ds_datamgmt",
-    "ds_datascience",
-    "ds_dl",
-    "ds_ml"
   ],
   "C0007": [
     "ds_analysis",
@@ -55,50 +26,28 @@
     "ds_excel",
     "ds_viz"
   ],
-  "C0008": [
-    "ds_analysis",
-    "ds_datascience",
-    "ds_python",
-    "ds_viz"
-  ],
   "C0009": [
     "ds_analysis",
+    "ds_datamgmt",
     "ds_datascience",
     "ds_dbms",
+    "ds_jupyter",
     "ds_python",
     "ds_sql"
-  ],
-  "C0013": [
-    "ds_cloud",
-    "ds_python",
-    "ds_tableau"
-  ],
-  "C0015": [
-    "ds_cloud",
-    "ds_datamgmt",
-    "ds_tableau"
   ],
   "C0016": [
-    "ds_cloud",
-    "ds_dbms",
+    "ds_datamgmt",
+    "ds_jupyter",
     "ds_python",
     "ds_sql"
   ],
-  "C0017": [
-    "ds_analysis",
-    "ds_ml"
-  ],
   "C0020": [
-    "ds_ai",
     "ds_datascience",
-    "ds_dl",
-    "ds_ml",
+    "ds_ml_intro",
     "ds_r"
   ],
-  "C0021": [
-    "ds_ml"
-  ],
   "C0022": [
+    "ds_analysis",
     "ds_datamgmt",
     "ds_regression"
   ],
@@ -106,49 +55,36 @@
     "ds_analysis",
     "ds_datascience",
     "ds_eda",
+    "ds_hypothesis",
     "ds_sql"
   ],
   "C0026": [
     "ds_analysis",
     "ds_cleansing",
     "ds_datascience",
-    "ds_ml",
+    "ds_linreg",
+    "ds_ml_intro",
     "ds_r",
     "ds_regression",
     "ds_rstudio"
   ],
-  "C0027": [
-    "ds_ai",
-    "ds_datamgmt",
-    "ds_datascience",
-    "ds_ml"
-  ],
   "C0029": [
-    "ds_ai",
     "ds_eda",
     "ds_hypothesis",
     "ds_linreg",
-    "ds_ml",
+    "ds_ml_intro",
     "ds_regression"
-  ],
-  "C0030": [
-    "ds_cloud",
-    "ds_datamgmt"
   ],
   "C0031": [
     "ds_analysis",
     "ds_cleansing",
     "ds_datascience",
     "ds_eda",
-    "ds_ml",
+    "ds_linreg",
+    "ds_ml_intro",
     "ds_r",
     "ds_rstudio"
   ],
-  "C0033": [
-    "ds_ai",
-    "ds_ml"
-  ],
-  "C0036": [],
   "C0037": [
     "ds_analysis",
     "ds_tableau",
@@ -156,7 +92,7 @@
   ],
   "C0039": [
     "ds_cleansing",
-    "ds_ml",
+    "ds_ml_intro",
     "ds_python",
     "ds_viz"
   ],
@@ -169,35 +105,6 @@
     "ds_bigdata",
     "ds_dbms",
     "ds_sql"
-  ],
-  "C0044": [
-    "ds_ml"
-  ],
-  "C0045": [
-    "ds_cloud",
-    "ds_gcp",
-    "ds_tensorflow"
-  ],
-  "C0046": [
-    "ds_linreg",
-    "ds_python"
-  ],
-  "C0048": [
-    "ds_eda",
-    "ds_ml",
-    "ds_stats"
-  ],
-  "C0049": [
-    "ds_cloud",
-    "ds_datamgmt",
-    "ds_dbms",
-    "ds_gcp",
-    "ds_sql"
-  ],
-  "C0050": [
-    "ds_cloud",
-    "ds_gcp",
-    "ds_ml"
   ],
   "C0052": [
     "ds_analysis",
@@ -215,18 +122,10 @@
     "ds_tableau",
     "ds_viz"
   ],
-  "C0056": [
-    "ds_cloud",
-    "ds_gcp"
-  ],
   "C0063": [
     "ds_analysis",
     "ds_datamgmt",
     "ds_rstudio"
-  ],
-  "C0064": [
-    "ds_dl",
-    "ds_ml"
   ],
   "C0068": [
     "ds_eda",
@@ -261,27 +160,11 @@
     "ds_dbms",
     "ds_sql"
   ],
-  "C0077": [
-    "ds_datascience",
-    "ds_dl",
-    "ds_ml",
-    "ds_stats"
-  ],
-  "C0078": [],
   "C0082": [
-    "ds_azure",
     "ds_datamgmt",
     "ds_dbms",
+    "ds_excel",
     "ds_sql"
-  ],
-  "C0083": [
-    "ds_cleansing",
-    "ds_cloud",
-    "ds_gcp",
-    "ds_ml",
-    "ds_python",
-    "ds_r",
-    "ds_tensorflow"
   ],
   "C0087": [
     "ds_analysis"
@@ -290,16 +173,6 @@
     "ds_analysis",
     "ds_datascience",
     "ds_viz"
-  ],
-  "C0101": [
-    "ds_cloud",
-    "ds_viz"
-  ],
-  "C0102": [
-    "ds_ai",
-    "ds_azure",
-    "ds_cloud",
-    "ds_ml"
   ],
   "C0104": [
     "ds_analysis",
@@ -312,12 +185,7 @@
   "C0105": [
     "ds_bigdata",
     "ds_datamgmt",
-    "ds_ml"
-  ],
-  "C0107": [
-    "ds_ml",
-    "ds_tableau",
-    "ds_viz"
+    "ds_ml_intro"
   ],
   "C0108": [
     "ds_datamgmt",
@@ -326,31 +194,16 @@
     "ds_rstudio",
     "ds_sql"
   ],
-  "C0109": [
-    "ds_sql"
-  ],
-  "C0110": [
-    "ds_ml",
-    "ds_python"
-  ],
+  "C0109": [],
   "C0112": [],
-  "C0115": [
-    "ds_tableau"
-  ],
-  "C0117": [
-    "ds_datamgmt",
-    "ds_ml",
-    "ds_tensorflow"
-  ],
   "C0119": [
     "ds_analysis",
     "ds_datamgmt",
     "ds_datascience",
     "ds_eda",
-    "ds_ml"
+    "ds_ml_intro"
   ],
   "C0121": [
-    "ds_ai",
     "ds_dbms",
     "ds_sql",
     "ds_viz"
@@ -358,7 +211,7 @@
   "C0122": [
     "ds_hypothesis",
     "ds_linreg",
-    "ds_ml",
+    "ds_ml_intro",
     "ds_r",
     "ds_regression",
     "ds_stats",
@@ -372,23 +225,11 @@
     "ds_analysis",
     "ds_r"
   ],
-  "C0128": [
-    "ds_cloud",
-    "ds_gcp"
-  ],
-  "C0130": [
-    "ds_ai",
-    "ds_ml",
-    "ds_tensorflow"
-  ],
-  "C0131": [
-    "ds_analysis"
-  ],
   "C0134": [
     "ds_analysis",
     "ds_eda",
     "ds_linreg",
-    "ds_ml",
+    "ds_ml_intro",
     "ds_python",
     "ds_sql",
     "ds_viz"
@@ -396,7 +237,6 @@
   "C0135": [
     "ds_analysis",
     "ds_bigdata",
-    "ds_cloud",
     "ds_datamgmt",
     "ds_dbms",
     "ds_sql"
@@ -405,54 +245,21 @@
     "ds_datascience",
     "ds_r"
   ],
-  "C0138": [
-    "ds_dl",
-    "ds_r",
-    "ds_tensorflow"
-  ],
-  "C0139": [
-    "ds_analysis"
-  ],
   "C0140": [
     "ds_analysis",
     "ds_datascience",
-    "ds_ml",
+    "ds_ml_intro",
     "ds_sql"
-  ],
-  "C0144": [
-    "ds_analysis",
-    "ds_datamgmt"
-  ],
-  "C0145": [
-    "ds_ai",
-    "ds_datascience",
-    "ds_ml",
-    "ds_python"
   ],
   "C0147": [
     "ds_analysis",
     "ds_datascience",
     "ds_stats"
   ],
-  "C0148": [
-    "ds_cloud",
-    "ds_gcp",
-    "ds_ml"
-  ],
-  "C0149": [
-    "ds_gcp"
-  ],
   "C0151": [
     "ds_analysis"
   ],
-  "C0152": [],
   "C0157": [],
-  "C0159": [],
-  "C0163": [
-    "ds_bigdata",
-    "ds_dl",
-    "ds_ml"
-  ],
   "C0164": [
     "ds_analysis",
     "ds_cleansing",
@@ -465,19 +272,15 @@
   "C0165": [
     "ds_analysis",
     "ds_bigdata",
-    "ds_cloud",
+    "ds_datamgmt",
     "ds_datascience",
-    "ds_dbms",
-    "ds_dl",
-    "ds_ml",
+    "ds_jupyter",
+    "ds_ml_intro",
     "ds_python",
     "ds_regression",
     "ds_rstudio",
     "ds_sql",
     "ds_viz"
-  ],
-  "C0167": [
-    "ds_cloud"
   ],
   "C0168": [
     "ds_analysis",
@@ -485,17 +288,6 @@
     "ds_python",
     "ds_sql",
     "ds_viz"
-  ],
-  "C0170": [
-    "ds_ai",
-    "ds_analysis",
-    "ds_azure",
-    "ds_cloud",
-    "ds_datascience",
-    "ds_dbms",
-    "ds_python",
-    "ds_sql",
-    "ds_tableau"
   ],
   "C0171": [
     "ds_bigdata",
@@ -513,50 +305,22 @@
     "ds_analysis",
     "ds_datascience",
     "ds_eda",
-    "ds_ml",
+    "ds_jupyter",
+    "ds_ml_intro",
     "ds_python",
     "ds_regression",
     "ds_stats",
     "ds_tableau",
     "ds_viz"
   ],
-  "C0176": [
-    "ds_ai",
-    "ds_analysis",
-    "ds_datascience",
-    "ds_dl",
-    "ds_ml",
-    "ds_python",
-    "ds_r"
-  ],
-  "C0177": [
-    "ds_cloud",
-    "ds_tableau"
-  ],
-  "C0178": [
-    "ds_datamgmt",
-    "ds_python"
-  ],
   "C0179": [
-    "ds_ai",
     "ds_analysis",
+    "ds_datamgmt",
     "ds_datascience",
     "ds_dbms",
     "ds_sql"
   ],
-  "C0180": [
-    "ds_ai",
-    "ds_cloud",
-    "ds_dl",
-    "ds_ml",
-    "ds_regression"
-  ],
-  "C0182": [
-    "ds_cloud",
-    "ds_ml"
-  ],
   "C0185": [
-    "ds_ai",
     "ds_analysis",
     "ds_sql",
     "ds_tableau",
@@ -564,26 +328,8 @@
   ],
   "C0187": [
     "ds_datamgmt",
+    "ds_python",
     "ds_sql"
-  ],
-  "C0188": [
-    "ds_datamgmt"
-  ],
-  "C0189": [
-    "ds_cloud",
-    "ds_gcp",
-    "ds_ml",
-    "ds_tensorflow"
-  ],
-  "C0190": [
-    "ds_cloud",
-    "ds_gcp",
-    "ds_tensorflow"
-  ],
-  "C0191": [
-    "ds_cloud",
-    "ds_gcp",
-    "ds_ml"
   ],
   "C0192": [
     "ds_r",
@@ -592,27 +338,6 @@
     "ds_tableau",
     "ds_viz"
   ],
-  "C0193": [
-    "ds_cloud",
-    "ds_gcp",
-    "ds_ml"
-  ],
-  "C0194": [
-    "ds_cloud",
-    "ds_gcp"
-  ],
-  "C0195": [
-    "ds_cloud",
-    "ds_gcp"
-  ],
-  "C0196": [
-    "ds_cloud",
-    "ds_gcp"
-  ],
-  "C0197": [
-    "ds_cloud",
-    "ds_gcp"
-  ],
   "C0198": [
     "ds_r",
     "ds_rstudio"
@@ -620,25 +345,15 @@
   "C0201": [
     "ds_rstudio",
     "ds_sql",
-    "ds_tableau",
-    "ds_viz"
+    "ds_tableau"
   ],
   "C0202": [],
-  "C0204": [
-    "ds_cloud"
-  ],
-  "C0205": [
-    "ds_cloud",
-    "ds_gcp",
-    "ds_tensorflow"
-  ],
   "C0206": [
     "ds_analysis",
     "ds_cleansing",
     "ds_r",
     "ds_rstudio",
     "ds_sql",
-    "ds_tableau",
     "ds_viz"
   ],
   "C0207": [
@@ -649,21 +364,8 @@
     "ds_tableau",
     "ds_viz"
   ],
-  "C0208": [
-    "ds_ai",
-    "ds_analysis",
-    "ds_dl",
-    "ds_eda",
-    "ds_hypothesis",
-    "ds_linreg",
-    "ds_ml",
-    "ds_python",
-    "ds_regression"
-  ],
   "C0209": [],
-  "C0211": [],
   "C0212": [],
-  "C0213": [],
   "C0216": [],
   "C0218": [
     "ds_analysis",
@@ -671,54 +373,29 @@
     "ds_stats"
   ],
   "C0221": [],
-  "C0228": [],
-  "C0233": [],
   "C0239": [],
-  "C0240": [],
-  "C0241": [],
-  "C0242": [],
-  "C0246": [
-    "ds_linreg",
-    "ds_ml",
-    "ds_regression"
-  ],
   "C0247": [
     "ds_analysis",
     "ds_cleansing",
     "ds_sql",
     "ds_viz"
   ],
-  "C0248": [],
   "C0250": [
     "ds_analysis"
-  ],
-  "C0251": [
-    "ds_ai",
-    "ds_tensorflow"
-  ],
-  "C0252": [
-    "ds_ai",
-    "ds_dl",
-    "ds_python"
   ],
   "C0254": [
     "ds_sql"
   ],
-  "C0255": [],
   "C0256": [
     "ds_bigdata",
     "ds_datascience",
-    "ds_dl",
-    "ds_ml"
+    "ds_ml_intro"
   ],
   "C0260": [
     "ds_analysis",
     "ds_datascience",
     "ds_excel",
     "ds_viz"
-  ],
-  "C0261": [
-    "ds_ml"
   ],
   "C0262": [
     "ds_cleansing",
@@ -729,6 +406,7 @@
   ],
   "C0264": [
     "ds_datascience",
+    "ds_jupyter",
     "ds_python",
     "ds_rstudio"
   ],
@@ -740,79 +418,47 @@
   "C0266": [
     "ds_datamgmt"
   ],
-  "C0267": [],
   "C0269": [
     "ds_analysis",
     "ds_sql"
-  ],
-  "C0270": [
-    "ds_analysis",
-    "ds_ml"
-  ],
-  "C0271": [
-    "ds_dl",
-    "ds_tensorflow"
-  ],
-  "C0273": [
-    "ds_python",
-    "ds_r"
   ],
   "C0274": [
     "ds_analysis",
     "ds_datascience",
     "ds_sql"
   ],
-  "C0275": [
-    "ds_ai",
-    "ds_datascience",
-    "ds_dl",
-    "ds_ml"
-  ],
   "C0276": [
+    "ds_jupyter",
     "ds_python",
     "ds_viz"
   ],
-  "C0277": [],
   "C0278": [
     "ds_analysis",
     "ds_datascience",
     "ds_excel"
-  ],
-  "C0279": [
-    "ds_cloud"
   ],
   "C0280": [
     "ds_analysis",
     "ds_tableau",
     "ds_viz"
   ],
-  "C0281": [
-    "ds_cloud"
-  ],
-  "C0282": [],
   "C0284": [
     "ds_analysis",
     "ds_r",
     "ds_rstudio",
     "ds_viz"
   ],
-  "C0285": [
-    "ds_dl",
-    "ds_tensorflow"
-  ],
   "C0286": [
     "ds_analysis",
-    "ds_dbms",
+    "ds_datamgmt",
     "ds_sql"
   ],
   "C0287": [
-    "ds_dl",
-    "ds_ml"
+    "ds_ml_intro"
   ],
-  "C0290": [],
   "C0292": [
-    "ds_cloud",
-    "ds_dbms",
+    "ds_datamgmt",
+    "ds_jupyter",
     "ds_python",
     "ds_sql"
   ],
@@ -820,11 +466,6 @@
     "ds_analysis",
     "ds_datascience"
   ],
-  "C0294": [
-    "ds_ml",
-    "ds_regression"
-  ],
-  "C0295": [],
   "C0297": [
     "ds_analysis",
     "ds_cleansing",
@@ -833,12 +474,8 @@
   "C0298": [
     "ds_analysis",
     "ds_datascience",
+    "ds_jupyter",
     "ds_python"
-  ],
-  "C0300": [
-    "ds_ai",
-    "ds_datascience",
-    "ds_ml"
   ],
   "C0301": [
     "ds_analysis",
@@ -846,32 +483,17 @@
     "ds_viz"
   ],
   "C0303": [
-    "ds_datamgmt",
-    "ds_dbms",
-    "ds_gcp"
+    "ds_datamgmt"
   ],
   "C0307": [
     "ds_datascience",
     "ds_dbms",
     "ds_sql"
   ],
-  "C0308": [
-    "ds_cloud",
-    "ds_datamgmt"
-  ],
-  "C0310": [
-    "ds_datamgmt"
-  ],
-  "C0311": [],
-  "C0312": [],
   "C0314": [
     "ds_analysis",
     "ds_excel",
     "ds_viz"
-  ],
-  "C0316": [
-    "ds_ml",
-    "ds_tensorflow"
   ],
   "C0317": [
     "ds_eda",
@@ -879,90 +501,23 @@
     "ds_tableau",
     "ds_viz"
   ],
-  "C0318": [
-    "ds_tensorflow"
-  ],
-  "C0324": [
-    "ds_ml"
-  ],
-  "C0325": [],
   "C0328": [
     "ds_sql",
     "ds_viz"
-  ],
-  "C0329": [
-    "ds_ai",
-    "ds_ml"
   ],
   "C0331": [
     "ds_python",
     "ds_viz"
   ],
-  "C0332": [
-    "ds_linreg"
-  ],
-  "C0333": [
-    "ds_ml",
-    "ds_tensorflow"
-  ],
   "C0334": [],
-  "C0335": [
-    "ds_ml",
-    "ds_tensorflow"
-  ],
-  "C0339": [
-    "ds_eda",
-    "ds_ml",
-    "ds_stats"
-  ],
   "C0340": [
     "ds_hypothesis",
     "ds_python",
     "ds_stats"
   ],
-  "C0341": [
-    "ds_ai",
-    "ds_eda",
-    "ds_hypothesis",
-    "ds_ml"
-  ],
-  "C0344": [
-    "ds_azure"
-  ],
-  "C0345": [
-    "ds_dl",
-    "ds_ml"
-  ],
   "C0346": [
     "ds_tableau",
     "ds_viz"
-  ],
-  "C0347": [
-    "ds_datamgmt"
-  ],
-  "C0348": [],
-  "C0350": [
-    "ds_ai",
-    "ds_dl",
-    "ds_ml",
-    "ds_r"
-  ],
-  "C0351": [
-    "ds_analysis",
-    "ds_viz"
-  ],
-  "C0352": [
-    "ds_ai",
-    "ds_dl",
-    "ds_ml"
-  ],
-  "C0354": [
-    "ds_ai",
-    "ds_dl",
-    "ds_ml"
-  ],
-  "C0357": [
-    "ds_python"
   ],
   "C0358": [
     "ds_cleansing",
@@ -983,45 +538,15 @@
     "ds_bigdata",
     "ds_viz"
   ],
-  "C0369": [
-    "ds_analysis",
-    "ds_cloud"
-  ],
-  "C0371": [],
-  "C0373": [
-    "ds_ai",
-    "ds_cloud",
-    "ds_dl"
-  ],
-  "C0374": [
-    "ds_ml",
-    "ds_tensorflow"
-  ],
-  "C0377": [
-    "ds_cloud",
-    "ds_gcp"
-  ],
   "C0378": [
     "ds_linreg",
     "ds_python",
     "ds_stats"
   ],
-  "C0379": [
-    "ds_cloud",
-    "ds_tableau"
-  ],
-  "C0380": [
-    "ds_ai",
-    "ds_datascience",
-    "ds_ml"
-  ],
   "C0382": [],
   "C0383": [
-    "ds_datascience"
-  ],
-  "C0385": [
-    "ds_ml",
-    "ds_python"
+    "ds_datascience",
+    "ds_jupyter"
   ],
   "C0386": [
     "ds_r",
@@ -1031,68 +556,27 @@
     "ds_linreg",
     "ds_regression"
   ],
-  "C0389": [
-    "ds_azure"
-  ],
-  "C0391": [],
-  "C0392": [
-    "ds_tableau"
-  ],
   "C0395": [],
   "C0396": [
     "ds_sql"
   ],
-  "C0397": [
-    "ds_dbms",
-    "ds_gcp",
-    "ds_sql"
-  ],
   "C0398": [
     "ds_datamgmt",
-    "ds_dbms",
-    "ds_gcp"
-  ],
-  "C0399": [
-    "ds_gcp",
-    "ds_sql"
-  ],
-  "C0400": [
-    "ds_datamgmt",
-    "ds_dbms",
-    "ds_gcp"
+    "ds_dbms"
   ],
   "C0401": [
     "ds_sql"
   ],
   "C0402": [
     "ds_datamgmt",
-    "ds_dbms",
-    "ds_gcp"
+    "ds_dbms"
   ],
   "C0403": [
-    "ds_dbms",
-    "ds_gcp"
-  ],
-  "C0404": [
-    "ds_cloud",
-    "ds_gcp"
-  ],
-  "C0405": [
-    "ds_dbms",
-    "ds_gcp",
-    "ds_sql"
-  ],
-  "C0406": [
-    "ds_cloud",
-    "ds_dbms",
-    "ds_gcp"
+    "ds_dbms"
   ],
   "C0408": [
     "ds_analysis",
     "ds_sql"
-  ],
-  "C0409": [
-    "ds_ml"
   ],
   "C0410": [
     "ds_linreg",
@@ -1104,26 +588,20 @@
     "ds_stats"
   ],
   "C0414": [
-    "ds_azure",
     "ds_sql"
   ],
   "C0415": [
     "ds_bigdata"
   ],
-  "C0418": [],
-  "C0420": [],
   "C0424": [
     "ds_analysis",
     "ds_datamgmt",
     "ds_datascience",
     "ds_stats"
   ],
-  "C0426": [
-    "ds_cloud",
-    "ds_gcp"
-  ],
   "C0427": [],
   "C0429": [
+    "ds_analysis",
     "ds_dbms"
   ],
   "C0432": [
@@ -1135,58 +613,34 @@
     "ds_python"
   ],
   "C0436": [
-    "ds_azure",
-    "ds_datamgmt"
+    "ds_datamgmt",
+    "ds_excel"
   ],
-  "C0437": [],
   "C0439": [
     "ds_excel",
     "ds_viz"
   ],
   "C0442": [],
-  "C0444": [],
   "C0445": [
     "ds_dbms",
     "ds_python",
     "ds_sql"
   ],
   "C0447": [
-    "ds_azure",
+    "ds_analysis",
+    "ds_excel",
     "ds_viz"
-  ],
-  "C0448": [],
-  "C0451": [
-    "ds_cloud",
-    "ds_viz"
-  ],
-  "C0453": [],
-  "C0454": [
-    "ds_linreg",
-    "ds_regression",
-    "ds_stats"
   ],
   "C0455": [],
   "C0456": [
     "ds_analysis",
+    "ds_hypothesis",
     "ds_sql"
   ],
-  "C0461": [],
   "C0462": [],
-  "C0463": [
-    "ds_dl",
-    "ds_ml"
-  ],
   "C0464": [
     "ds_hypothesis",
     "ds_stats"
-  ],
-  "C0465": [],
-  "C0466": [
-    "ds_regression",
-    "ds_stats"
-  ],
-  "C0469": [
-    "ds_ml"
   ],
   "C0471": [
     "ds_datamgmt",
@@ -1201,27 +655,18 @@
     "ds_analysis",
     "ds_sql"
   ],
-  "C0480": [],
-  "C0482": [],
   "C0483": [
     "ds_analysis"
   ],
-  "C0484": [],
   "C0489": [
     "ds_analysis",
     "ds_tableau",
     "ds_viz"
   ],
-  "C0491": [],
-  "C0492": [
-    "ds_cloud",
-    "ds_gcp"
-  ],
   "C0495": [
     "ds_datascience",
     "ds_r"
   ],
-  "C0497": [],
   "C0499": [
     "ds_datascience",
     "ds_stats"
@@ -1233,17 +678,10 @@
     "ds_viz"
   ],
   "C0505": [],
-  "C0506": [
-    "ds_ml"
-  ],
   "C0510": [
     "ds_analysis",
     "ds_tableau",
     "ds_viz"
-  ],
-  "C0511": [
-    "ds_dl",
-    "ds_tensorflow"
   ],
   "C0513": [],
   "C0514": [],
@@ -1257,7 +695,7 @@
     "ds_stats"
   ],
   "C0519": [
-    "ds_ml",
+    "ds_ml_intro",
     "ds_python"
   ],
   "C0521": [],
@@ -1273,10 +711,9 @@
   "C0532": [],
   "C0534": [
     "ds_datascience",
-    "ds_ml"
+    "ds_ml_intro"
   ],
   "C0535": [
-    "ds_cloud",
     "ds_r"
   ],
   "C0536": [
@@ -1291,47 +728,24 @@
     "ds_datascience",
     "ds_stats"
   ],
-  "C0541": [
-    "ds_ai",
-    "ds_datascience",
-    "ds_ml",
-    "ds_python"
-  ],
-  "C0543": [
-    "ds_cloud",
-    "ds_gcp"
-  ],
   "C0545": [
     "ds_hypothesis",
     "ds_stats"
   ],
-  "C0547": [],
   "C0548": [
     "ds_analysis",
     "ds_sql"
   ],
   "C0549": [],
   "C0551": [],
-  "C0552": [],
-  "C0553": [
-    "ds_datamgmt"
-  ],
   "C0554": [
     "ds_r",
     "ds_stats"
   ],
-  "C0559": [],
-  "C0561": [
-    "ds_ai",
-    "ds_azure",
-    "ds_ml"
-  ],
-  "C0562": [],
   "C0563": [
     "ds_cleansing",
     "ds_rstudio"
   ],
-  "C0564": [],
   "C0566": [],
   "C0570": [
     "ds_r",
@@ -1339,7 +753,6 @@
   ],
   "C0571": [],
   "C0573": [],
-  "C0574": [],
   "C0575": [],
   "C0579": [],
   "C0581": [
@@ -1352,20 +765,6 @@
   "C0582": [
     "ds_datascience",
     "ds_stats"
-  ],
-  "C0583": [
-    "ds_ai",
-    "ds_ml"
-  ],
-  "C0585": [
-    "ds_ai",
-    "ds_datascience",
-    "ds_ml",
-    "ds_python"
-  ],
-  "C0587": [
-    "ds_ml",
-    "ds_r"
   ],
   "C0589": [
     "ds_analysis",
@@ -1383,26 +782,16 @@
   "C0592": [
     "ds_analysis"
   ],
-  "C0596": [
-    "ds_ai",
-    "ds_azure",
-    "ds_ml"
-  ],
   "C0599": [
     "ds_r"
   ],
-  "C0601": [
-    "ds_datamgmt",
-    "ds_ml"
-  ],
-  "C0602": [],
   "C0606": [
     "ds_dbms"
   ],
   "C0610": [
     "ds_analysis",
     "ds_datascience",
-    "ds_ml"
+    "ds_ml_intro"
   ],
   "C0612": [
     "ds_r"
@@ -1417,31 +806,12 @@
     "ds_tableau",
     "ds_viz"
   ],
-  "C0622": [],
-  "C0624": [
-    "ds_gcp"
-  ],
   "C0625": [],
-  "C0627": [
-    "ds_linreg",
-    "ds_python"
-  ],
-  "C0628": [
-    "ds_dl",
-    "ds_ml",
-    "ds_python"
-  ],
-  "C0629": [],
-  "C0631": [
-    "ds_ai"
-  ],
-  "C0634": [],
-  "C0636": [],
+  "C0631": [],
   "C0637": [
     "ds_analysis",
     "ds_viz"
   ],
-  "C0640": [],
   "C0642": [
     "ds_analysis",
     "ds_tableau",
@@ -1453,80 +823,23 @@
     "ds_dbms",
     "ds_r"
   ],
-  "C0646": [],
-  "C0647": [],
-  "C0653": [],
-  "C0654": [],
-  "C0655": [
-    "ds_datamgmt"
-  ],
-  "C0656": [
-    "ds_ai",
-    "ds_datascience",
-    "ds_ml",
-    "ds_python"
-  ],
   "C0657": [],
   "C0658": [],
-  "C0660": [
-    "ds_cleansing",
-    "ds_ml",
-    "ds_tensorflow"
-  ],
   "C0663": [
     "ds_analysis",
     "ds_r"
   ],
-  "C0664": [
-    "ds_azure",
-    "ds_cloud"
-  ],
-  "C0669": [
-    "ds_linreg",
-    "ds_ml",
-    "ds_regression"
-  ],
-  "C0670": [
-    "ds_dl"
-  ],
   "C0672": [
     "ds_stats"
-  ],
-  "C0673": [],
-  "C0674": [
-    "ds_ai",
-    "ds_datascience",
-    "ds_ml",
-    "ds_python"
-  ],
-  "C0679": [
-    "ds_ml"
-  ],
-  "C0681": [
-    "ds_ai",
-    "ds_azure"
-  ],
-  "C0684": [
-    "ds_ai",
-    "ds_ml"
   ],
   "C0685": [
     "ds_hypothesis",
     "ds_python",
     "ds_stats"
   ],
-  "C0687": [
-    "ds_analysis",
-    "ds_ml",
-    "ds_python"
-  ],
-  "C0689": [],
-  "C0691": [
-    "ds_azure"
-  ],
   "C0692": [
     "ds_analysis",
-    "ds_ml",
+    "ds_ml_intro",
     "ds_python",
     "ds_viz"
   ],
@@ -1535,7 +848,6 @@
     "ds_r",
     "ds_rstudio"
   ],
-  "C0698": [],
   "C0700": [
     "ds_datascience",
     "ds_dbms"
@@ -1546,11 +858,11 @@
   "C0703": [
     "ds_analysis",
     "ds_datascience",
-    "ds_ml"
+    "ds_ml_intro"
   ],
   "C0704": [
     "ds_datascience",
-    "ds_ml",
+    "ds_ml_intro",
     "ds_r"
   ],
   "C0707": [],
@@ -1558,10 +870,6 @@
     "ds_dbms",
     "ds_sql"
   ],
-  "C0709": [
-    "ds_tableau"
-  ],
-  "C0710": [],
   "C0711": [
     "ds_python",
     "ds_viz"
@@ -1569,7 +877,6 @@
   "C0714": [
     "ds_analysis"
   ],
-  "C0715": [],
   "C0716": [
     "ds_analysis",
     "ds_datascience",
@@ -1582,38 +889,13 @@
     "ds_python",
     "ds_viz"
   ],
-  "C0722": [
-    "ds_cloud",
-    "ds_gcp",
-    "ds_tensorflow"
-  ],
   "C0723": [
-    "ds_ml"
-  ],
-  "C0724": [
-    "ds_ml",
-    "ds_python"
-  ],
-  "C0725": [
-    "ds_cloud",
-    "ds_ml",
-    "ds_tensorflow"
+    "ds_ml_intro"
   ],
   "C0726": [
     "ds_analysis"
   ],
-  "C0729": [
-    "ds_dl",
-    "ds_ml"
-  ],
-  "C0731": [
-    "ds_analysis"
-  ],
   "C0734": [],
-  "C0740": [
-    "ds_ai",
-    "ds_azure"
-  ],
   "C0742": [
     "ds_analysis",
     "ds_excel",
@@ -1624,50 +906,26 @@
     "ds_r",
     "ds_stats"
   ],
-  "C0753": [
-    "ds_cloud"
-  ],
-  "C0754": [],
   "C0756": [],
-  "C0758": [],
   "C0760": [
     "ds_analysis",
     "ds_excel",
     "ds_hypothesis"
-  ],
-  "C0761": [
-    "ds_datascience",
-    "ds_tensorflow"
   ],
   "C0765": [
     "ds_analysis",
     "ds_python"
   ],
   "C0767": [],
-  "C0769": [
-    "ds_cloud",
-    "ds_gcp"
-  ],
-  "C0770": [],
   "C0772": [
     "ds_analysis",
     "ds_datamgmt"
   ],
-  "C0773": [],
-  "C0774": [
-    "ds_ai",
-    "ds_datascience",
-    "ds_ml",
-    "ds_python"
-  ],
   "C0775": [],
   "C0776": [
+    "ds_datamgmt",
     "ds_dbms",
     "ds_sql"
-  ],
-  "C0778": [],
-  "C0779": [
-    "ds_ml"
   ],
   "C0781": [
     "ds_analysis",
@@ -1680,31 +938,14 @@
     "ds_tableau"
   ],
   "C0788": [
-    "ds_azure",
-    "ds_datamgmt"
+    "ds_datamgmt",
+    "ds_excel"
   ],
   "C0789": [
     "ds_bigdata"
   ],
-  "C0790": [
-    "ds_datamgmt"
-  ],
-  "C0791": [],
-  "C0794": [],
-  "C0798": [
-    "ds_cloud",
-    "ds_gcp"
-  ],
   "C0800": [],
-  "C0802": [
-    "ds_cloud",
-    "ds_gcp",
-    "ds_tensorflow"
-  ],
-  "C0803": [],
-  "C0805": [],
   "C0806": [],
-  "C0807": [],
   "C0809": [],
   "C0813": [
     "ds_datamgmt",
@@ -1712,7 +953,7 @@
   ],
   "C0814": [],
   "C0818": [
-    "ds_ml"
+    "ds_ml_intro"
   ],
   "C0819": [
     "ds_datascience",
@@ -1720,32 +961,21 @@
   ],
   "C0821": [],
   "C0823": [],
-  "C0824": [
-    "ds_dl"
-  ],
-  "C0826": [],
   "C0828": [],
-  "C0830": [
-    "ds_ml",
-    "ds_python",
-    "ds_tensorflow"
-  ],
-  "C0832": [
-    "ds_cloud"
-  ],
   "C0833": [
     "ds_datascience",
     "ds_r",
     "ds_rstudio"
   ],
-  "C0837": [],
+  "C0837": [
+    "ds_analysis"
+  ],
   "C0838": [
     "ds_linreg",
     "ds_python",
     "ds_sql",
     "ds_viz"
   ],
-  "C0840": [],
   "C0841": [],
   "C0847": [
     "ds_analysis"
@@ -1754,28 +984,17 @@
     "ds_analysis",
     "ds_excel"
   ],
-  "C0850": [
-    "ds_ai",
-    "ds_ml"
-  ],
   "C0852": [
     "ds_bigdata",
-    "ds_cloud",
     "ds_datamgmt",
     "ds_sql"
   ],
-  "C0858": [],
   "C0859": [
     "ds_stats"
   ],
   "C0860": [
     "ds_analysis",
     "ds_viz"
-  ],
-  "C0862": [],
-  "C0864": [],
-  "C0866": [
-    "ds_datamgmt"
   ],
   "C0867": [
     "ds_bigdata",
@@ -1786,11 +1005,9 @@
     "ds_tableau",
     "ds_viz"
   ],
-  "C0873": [
-    "ds_dl"
-  ],
   "C0878": [
     "ds_cleansing",
+    "ds_linreg",
     "ds_r"
   ],
   "C0879": [
@@ -1799,7 +1016,6 @@
     "ds_python",
     "ds_viz"
   ],
-  "C0882": [],
   "C0886": [
     "ds_analysis",
     "ds_datascience",
@@ -1808,18 +1024,10 @@
     "ds_viz"
   ],
   "C0887": [
-    "ds_azure"
+    "ds_excel"
   ],
   "C0888": [],
   "C0892": [],
-  "C0894": [
-    "ds_gcp",
-    "ds_ml",
-    "ds_r"
-  ],
-  "C0896": [
-    "ds_azure"
-  ],
   "C0897": [
     "ds_python"
   ],
@@ -1828,31 +1036,24 @@
     "ds_viz"
   ],
   "C0899": [
-    "ds_azure",
     "ds_datamgmt",
     "ds_dbms",
+    "ds_excel",
     "ds_sql"
   ],
   "C0900": [
     "ds_sql"
   ],
-  "C0902": [],
   "C0905": [
     "ds_bigdata",
     "ds_sql"
-  ],
-  "C0906": [
-    "ds_ai",
-    "ds_datascience",
-    "ds_ml",
-    "ds_python"
   ],
   "C0909": [
     "ds_analysis",
     "ds_viz"
   ],
-  "C0910": [],
   "C0914": [
+    "ds_jupyter",
     "ds_python"
   ],
   "C0917": [
@@ -1860,19 +1061,13 @@
     "ds_r",
     "ds_stats"
   ],
-  "C0918": [
-    "ds_azure",
-    "ds_cloud"
-  ],
   "C0921": [
     "ds_linreg",
     "ds_r",
     "ds_stats"
   ],
   "C0923": [
-    "ds_ai",
     "ds_analysis",
-    "ds_azure",
     "ds_viz"
   ],
   "C0927": [
@@ -1889,18 +1084,6 @@
     "ds_python",
     "ds_rstudio"
   ],
-  "C0930": [
-    "ds_datamgmt"
-  ],
-  "C0931": [
-    "ds_gcp",
-    "ds_ml"
-  ],
-  "C0932": [
-    "ds_dl",
-    "ds_r",
-    "ds_tensorflow"
-  ],
   "C0933": [
     "ds_r",
     "ds_stats"
@@ -1909,33 +1092,19 @@
     "ds_bigdata",
     "ds_datamgmt"
   ],
-  "C0938": [],
-  "C0939": [
-    "ds_ai",
-    "ds_azure",
-    "ds_cloud"
-  ],
   "C0941": [],
   "C0943": [
     "ds_analysis",
     "ds_datamgmt"
   ],
-  "C0947": [],
-  "C0948": [],
-  "C0949": [],
-  "C0953": [],
   "C0955": [
+    "ds_jupyter",
     "ds_python"
   ],
   "C0960": [
     "ds_analysis",
     "ds_bigdata",
     "ds_sql"
-  ],
-  "C0961": [
-    "ds_ai",
-    "ds_azure",
-    "ds_cloud"
   ],
   "C0963": [],
   "C0965": [
@@ -1950,6 +1119,569 @@
   ],
   "C0975": [],
   "C0977": [],
+  "C0001": [
+    "ml_ann",
+    "ml_intelsys",
+    "ml_linreg",
+    "ml_supervised",
+    "ml_tensorflow"
+  ],
+  "C0004": [
+    "ml_ann",
+    "ml_cnn",
+    "ml_dl",
+    "ml_python",
+    "ml_tensorflow"
+  ],
+  "C0005": [
+    "ml_ai",
+    "ml_cloud",
+    "ml_datascience",
+    "ml_dl",
+    "ml_ml"
+  ],
+  "C0006": [
+    "ml_ai",
+    "ml_datascience",
+    "ml_dl",
+    "ml_ml"
+  ],
+  "C0008": [
+    "ml_datascience",
+    "ml_python"
+  ],
+  "C0017": [
+    "ml_ml",
+    "ml_nlp"
+  ],
+  "C0021": [
+    "ml_cnn",
+    "ml_ml"
+  ],
+  "C0027": [
+    "ml_ai",
+    "ml_ann",
+    "ml_datascience",
+    "ml_ml"
+  ],
+  "C0033": [
+    "ml_ai",
+    "ml_funcapprox",
+    "ml_intelsys",
+    "ml_ml",
+    "ml_rl"
+  ],
+  "C0036": [],
+  "C0044": [
+    "ml_funcapprox",
+    "ml_ml"
+  ],
+  "C0045": [
+    "ml_bigquery",
+    "ml_cloud",
+    "ml_gcp",
+    "ml_tensorflow"
+  ],
+  "C0046": [
+    "ml_linreg",
+    "ml_python"
+  ],
+  "C0048": [
+    "ml_ml",
+    "ml_nlp"
+  ],
+  "C0064": [
+    "ml_dl",
+    "ml_ml",
+    "ml_nlp"
+  ],
+  "C0077": [
+    "ml_datascience",
+    "ml_dl",
+    "ml_ml"
+  ],
+  "C0078": [],
+  "C0083": [
+    "ml_bigquery",
+    "ml_cloud",
+    "ml_gcp",
+    "ml_infoeng",
+    "ml_ml",
+    "ml_python",
+    "ml_tensorflow"
+  ],
+  "C0102": [
+    "ml_ai",
+    "ml_cloud",
+    "ml_ml",
+    "ml_nlp"
+  ],
+  "C0107": [
+    "ml_infoeng",
+    "ml_intelsys",
+    "ml_ml"
+  ],
+  "C0110": [
+    "ml_ml",
+    "ml_python",
+    "ml_rl"
+  ],
+  "C0117": [
+    "ml_infoeng",
+    "ml_ml",
+    "ml_rl",
+    "ml_tensorflow"
+  ],
+  "C0130": [
+    "ml_ann",
+    "ml_cnn",
+    "ml_ml",
+    "ml_tensorflow"
+  ],
+  "C0138": [
+    "ml_ann",
+    "ml_dl",
+    "ml_keras",
+    "ml_python",
+    "ml_tensorflow"
+  ],
+  "C0145": [
+    "ml_ai",
+    "ml_datascience",
+    "ml_infoeng",
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0163": [
+    "ml_dl",
+    "ml_ml",
+    "ml_unsupervised"
+  ],
+  "C0176": [
+    "ml_ai",
+    "ml_datascience",
+    "ml_dl",
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0180": [
+    "ml_ai",
+    "ml_ann",
+    "ml_cloud",
+    "ml_dl",
+    "ml_keras",
+    "ml_linreg",
+    "ml_ml",
+    "ml_nlp"
+  ],
+  "C0182": [
+    "ml_cloud",
+    "ml_cnn",
+    "ml_ml",
+    "ml_nlp"
+  ],
+  "C0190": [
+    "ml_bigquery",
+    "ml_cloud",
+    "ml_gcp",
+    "ml_infoeng",
+    "ml_tensorflow"
+  ],
+  "C0205": [
+    "ml_bigquery",
+    "ml_cloud",
+    "ml_gcp",
+    "ml_tensorflow"
+  ],
+  "C0208": [
+    "ml_ai",
+    "ml_ann",
+    "ml_dl",
+    "ml_infoeng",
+    "ml_keras",
+    "ml_linreg",
+    "ml_ml",
+    "ml_python",
+    "ml_rl",
+    "ml_supervised",
+    "ml_unsupervised"
+  ],
+  "C0233": [],
+  "C0240": [],
+  "C0241": [],
+  "C0242": [],
+  "C0246": [
+    "ml_linreg",
+    "ml_supervised"
+  ],
+  "C0251": [
+    "ml_ann",
+    "ml_tensorflow"
+  ],
+  "C0252": [
+    "ml_ann",
+    "ml_dl",
+    "ml_python"
+  ],
+  "C0261": [
+    "ml_intelsys",
+    "ml_rl",
+    "ml_unsupervised"
+  ],
+  "C0270": [
+    "ml_ml"
+  ],
+  "C0271": [
+    "ml_dl",
+    "ml_tensorflow"
+  ],
+  "C0275": [
+    "ml_ai",
+    "ml_datascience",
+    "ml_dl",
+    "ml_ml"
+  ],
+  "C0282": [],
+  "C0285": [
+    "ml_cnn",
+    "ml_dl",
+    "ml_tensorflow"
+  ],
+  "C0294": [
+    "ml_linreg",
+    "ml_ml"
+  ],
+  "C0295": [
+    "ml_ann",
+    "ml_nlp"
+  ],
+  "C0300": [
+    "ml_ann",
+    "ml_datascience",
+    "ml_ml"
+  ],
+  "C0311": [],
+  "C0312": [
+    "ml_nlp"
+  ],
+  "C0316": [
+    "ml_ml",
+    "ml_tensorflow"
+  ],
+  "C0318": [
+    "ml_cnn",
+    "ml_tensorflow"
+  ],
+  "C0324": [
+    "ml_ml"
+  ],
+  "C0329": [
+    "ml_ai",
+    "ml_funcapprox",
+    "ml_intelsys",
+    "ml_ml",
+    "ml_rl"
+  ],
+  "C0332": [
+    "ml_linreg"
+  ],
+  "C0333": [
+    "ml_ml",
+    "ml_tensorflow"
+  ],
+  "C0335": [
+    "ml_ml",
+    "ml_nlp",
+    "ml_tensorflow"
+  ],
+  "C0339": [
+    "ml_ml"
+  ],
+  "C0341": [
+    "ml_ai",
+    "ml_infoeng",
+    "ml_ml"
+  ],
+  "C0345": [
+    "ml_dl",
+    "ml_ml"
+  ],
+  "C0348": [
+    "ml_nlp"
+  ],
+  "C0350": [
+    "ml_ai",
+    "ml_dl",
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0352": [
+    "ml_ai",
+    "ml_dl",
+    "ml_ml",
+    "ml_rl"
+  ],
+  "C0354": [
+    "ml_ai",
+    "ml_ann",
+    "ml_dl",
+    "ml_keras",
+    "ml_ml"
+  ],
+  "C0369": [
+    "ml_cloud"
+  ],
+  "C0371": [
+    "ml_funcapprox"
+  ],
+  "C0373": [
+    "ml_ai",
+    "ml_cloud",
+    "ml_dl",
+    "ml_nlp"
+  ],
+  "C0374": [
+    "ml_ml",
+    "ml_tensorflow"
+  ],
+  "C0380": [
+    "ml_ann",
+    "ml_datascience",
+    "ml_rl"
+  ],
+  "C0385": [
+    "ml_cnn",
+    "ml_ml",
+    "ml_nlp",
+    "ml_python"
+  ],
+  "C0391": [],
+  "C0409": [
+    "ml_ml",
+    "ml_nlp"
+  ],
+  "C0448": [],
+  "C0454": [
+    "ml_linreg"
+  ],
+  "C0463": [
+    "ml_dl",
+    "ml_ml"
+  ],
+  "C0465": [],
+  "C0466": [
+    "ml_linreg"
+  ],
+  "C0469": [
+    "ml_ml",
+    "ml_supervised"
+  ],
+  "C0482": [
+    "ml_rl"
+  ],
+  "C0506": [
+    "ml_ml"
+  ],
+  "C0511": [
+    "ml_dl",
+    "ml_keras",
+    "ml_tensorflow"
+  ],
+  "C0541": [
+    "ml_ai",
+    "ml_datascience",
+    "ml_infoeng",
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0547": [],
+  "C0561": [
+    "ml_ai",
+    "ml_ml",
+    "ml_nlp"
+  ],
+  "C0564": [],
+  "C0574": [
+    "ml_cnn"
+  ],
+  "C0583": [
+    "ml_ai",
+    "ml_funcapprox",
+    "ml_intelsys",
+    "ml_ml",
+    "ml_rl"
+  ],
+  "C0585": [
+    "ml_ai",
+    "ml_datascience",
+    "ml_infoeng",
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0587": [
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0596": [
+    "ml_ai",
+    "ml_ml"
+  ],
+  "C0601": [
+    "ml_ml"
+  ],
+  "C0622": [],
+  "C0627": [
+    "ml_linreg",
+    "ml_python"
+  ],
+  "C0628": [
+    "ml_dl",
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0636": [],
+  "C0640": [],
+  "C0646": [],
+  "C0653": [],
+  "C0654": [],
+  "C0655": [],
+  "C0656": [
+    "ml_ai",
+    "ml_datascience",
+    "ml_infoeng",
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0660": [
+    "ml_bigquery",
+    "ml_ml",
+    "ml_tensorflow"
+  ],
+  "C0669": [
+    "ml_linreg",
+    "ml_ml",
+    "ml_supervised"
+  ],
+  "C0670": [
+    "ml_dl",
+    "ml_unsupervised"
+  ],
+  "C0674": [
+    "ml_ai",
+    "ml_datascience",
+    "ml_infoeng",
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0679": [
+    "ml_ml"
+  ],
+  "C0681": [
+    "ml_ai",
+    "ml_nlp"
+  ],
+  "C0684": [
+    "ml_ai",
+    "ml_funcapprox",
+    "ml_intelsys",
+    "ml_ml",
+    "ml_rl"
+  ],
+  "C0687": [
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0710": [],
+  "C0715": [
+    "ml_infoeng"
+  ],
+  "C0722": [
+    "ml_bigquery",
+    "ml_cloud",
+    "ml_gcp",
+    "ml_tensorflow"
+  ],
+  "C0724": [
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0725": [
+    "ml_cloud",
+    "ml_ml",
+    "ml_tensorflow"
+  ],
+  "C0729": [
+    "ml_dl",
+    "ml_ml"
+  ],
+  "C0731": [
+    "ml_unsupervised"
+  ],
+  "C0761": [
+    "ml_datascience",
+    "ml_tensorflow"
+  ],
+  "C0773": [],
+  "C0774": [
+    "ml_ai",
+    "ml_datascience",
+    "ml_infoeng",
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0779": [
+    "ml_ml"
+  ],
+  "C0802": [
+    "ml_bigquery",
+    "ml_cloud",
+    "ml_gcp",
+    "ml_tensorflow"
+  ],
+  "C0824": [
+    "ml_dl",
+    "ml_unsupervised"
+  ],
+  "C0830": [
+    "ml_keras",
+    "ml_ml",
+    "ml_python",
+    "ml_tensorflow"
+  ],
+  "C0850": [
+    "ml_ai",
+    "ml_funcapprox",
+    "ml_intelsys",
+    "ml_ml",
+    "ml_rl"
+  ],
+  "C0862": [],
+  "C0873": [
+    "ml_dl",
+    "ml_unsupervised"
+  ],
+  "C0882": [],
+  "C0894": [
+    "ml_bigquery",
+    "ml_gcp",
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0902": [],
+  "C0906": [
+    "ml_ai",
+    "ml_datascience",
+    "ml_infoeng",
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0932": [
+    "ml_ann",
+    "ml_dl",
+    "ml_python",
+    "ml_tensorflow"
+  ],
+  "C0949": [],
   "C0011": [
     "wd_agile",
     "wd_bash",
@@ -3474,6 +3206,383 @@
     "cy_bc",
     "cy_dr",
     "cy_incident"
+  ],
+  "C0013": [
+    "cloud_apps",
+    "cloud_computing",
+    "cloud_devops",
+    "cloud_python"
+  ],
+  "C0015": [
+    "cloud_apps",
+    "cloud_computing",
+    "cloud_dbms",
+    "cloud_netarch",
+    "cloud_techsupport"
+  ],
+  "C0030": [
+    "cloud_apps",
+    "cloud_computing",
+    "cloud_storage"
+  ],
+  "C0049": [
+    "cloud_app_engine",
+    "cloud_compute_engine",
+    "cloud_computing",
+    "cloud_dbms",
+    "cloud_gcp",
+    "cloud_platforms",
+    "cloud_storage"
+  ],
+  "C0050": [
+    "cloud_app_engine",
+    "cloud_compute_engine",
+    "cloud_computing",
+    "cloud_datastore",
+    "cloud_debugging",
+    "cloud_gcp",
+    "cloud_loadbalancing",
+    "cloud_netarch",
+    "cloud_storage",
+    "cloud_vm",
+    "cloud_vpn"
+  ],
+  "C0056": [
+    "cloud_app_engine",
+    "cloud_compute_engine",
+    "cloud_computing",
+    "cloud_gcp"
+  ],
+  "C0101": [
+    "cloud_computing",
+    "cloud_linux",
+    "cloud_vm"
+  ],
+  "C0115": [],
+  "C0128": [
+    "cloud_apps",
+    "cloud_computing",
+    "cloud_kubernetes",
+    "cloud_platforms"
+  ],
+  "C0131": [],
+  "C0139": [],
+  "C0144": [],
+  "C0148": [
+    "cloud_apps",
+    "cloud_computing",
+    "cloud_dbms",
+    "cloud_devops",
+    "cloud_platforms",
+    "cloud_vm"
+  ],
+  "C0149": [
+    "cloud_apps",
+    "cloud_compute_engine"
+  ],
+  "C0152": [],
+  "C0159": [],
+  "C0167": [
+    "cloud_computing",
+    "cloud_debugging",
+    "cloud_netarch"
+  ],
+  "C0170": [
+    "cloud_apps",
+    "cloud_azure",
+    "cloud_compute_engine",
+    "cloud_computing",
+    "cloud_dbms",
+    "cloud_devops",
+    "cloud_kubernetes",
+    "cloud_python"
+  ],
+  "C0177": [
+    "cloud_computing",
+    "cloud_techsupport"
+  ],
+  "C0178": [
+    "cloud_debugging",
+    "cloud_python"
+  ],
+  "C0188": [
+    "cloud_netarch"
+  ],
+  "C0189": [
+    "cloud_computing",
+    "cloud_gcp",
+    "cloud_vm"
+  ],
+  "C0191": [
+    "cloud_app_engine",
+    "cloud_compute_engine",
+    "cloud_computing",
+    "cloud_datastore",
+    "cloud_debugging",
+    "cloud_gcp",
+    "cloud_loadbalancing",
+    "cloud_netarch",
+    "cloud_storage",
+    "cloud_vm",
+    "cloud_vpn"
+  ],
+  "C0193": [
+    "cloud_app_engine",
+    "cloud_compute_engine",
+    "cloud_computing",
+    "cloud_datastore",
+    "cloud_debugging",
+    "cloud_gcp",
+    "cloud_loadbalancing",
+    "cloud_netarch",
+    "cloud_storage",
+    "cloud_vm",
+    "cloud_vpn"
+  ],
+  "C0194": [
+    "cloud_app_engine",
+    "cloud_compute_engine",
+    "cloud_computing",
+    "cloud_gcp",
+    "cloud_kubernetes"
+  ],
+  "C0195": [
+    "cloud_apps",
+    "cloud_computing",
+    "cloud_debugging",
+    "cloud_gcp",
+    "cloud_storage"
+  ],
+  "C0196": [
+    "cloud_app_engine",
+    "cloud_compute_engine",
+    "cloud_computing",
+    "cloud_gcp",
+    "cloud_kubernetes"
+  ],
+  "C0197": [
+    "cloud_app_engine",
+    "cloud_compute_engine",
+    "cloud_computing",
+    "cloud_gcp"
+  ],
+  "C0204": [
+    "cloud_computing",
+    "cloud_debugging",
+    "cloud_netarch"
+  ],
+  "C0211": [],
+  "C0213": [
+    "cloud_linux"
+  ],
+  "C0228": [],
+  "C0248": [
+    "cloud_linux",
+    "cloud_techsupport"
+  ],
+  "C0255": [],
+  "C0267": [
+    "cloud_linux"
+  ],
+  "C0273": [
+    "cloud_python"
+  ],
+  "C0277": [],
+  "C0279": [
+    "cloud_computing",
+    "cloud_netarch"
+  ],
+  "C0281": [
+    "cloud_computing",
+    "cloud_devops"
+  ],
+  "C0290": [],
+  "C0308": [
+    "cloud_computing"
+  ],
+  "C0310": [
+    "cloud_techsupport"
+  ],
+  "C0325": [
+    "cloud_techsupport"
+  ],
+  "C0344": [
+    "cloud_azure"
+  ],
+  "C0347": [
+    "cloud_techsupport"
+  ],
+  "C0351": [],
+  "C0357": [
+    "cloud_python"
+  ],
+  "C0377": [
+    "cloud_app_engine",
+    "cloud_compute_engine",
+    "cloud_computing",
+    "cloud_gcp"
+  ],
+  "C0379": [
+    "cloud_computing",
+    "cloud_techsupport"
+  ],
+  "C0389": [
+    "cloud_azure",
+    "cloud_kubernetes"
+  ],
+  "C0392": [],
+  "C0397": [
+    "cloud_dbms",
+    "cloud_gcp"
+  ],
+  "C0399": [
+    "cloud_gcp",
+    "cloud_storage"
+  ],
+  "C0400": [
+    "cloud_dbms",
+    "cloud_gcp"
+  ],
+  "C0404": [
+    "cloud_gcp",
+    "cloud_platforms",
+    "cloud_storage"
+  ],
+  "C0405": [
+    "cloud_dbms",
+    "cloud_gcp"
+  ],
+  "C0406": [
+    "cloud_computing",
+    "cloud_dbms",
+    "cloud_gcp"
+  ],
+  "C0418": [],
+  "C0420": [],
+  "C0426": [
+    "cloud_apps",
+    "cloud_computing",
+    "cloud_kubernetes",
+    "cloud_platforms"
+  ],
+  "C0437": [],
+  "C0444": [],
+  "C0451": [
+    "cloud_computing",
+    "cloud_linux",
+    "cloud_vm"
+  ],
+  "C0453": [],
+  "C0461": [],
+  "C0480": [],
+  "C0484": [],
+  "C0491": [],
+  "C0492": [
+    "cloud_datastore",
+    "cloud_debugging",
+    "cloud_gcp",
+    "cloud_storage"
+  ],
+  "C0497": [],
+  "C0543": [
+    "cloud_apps",
+    "cloud_computing",
+    "cloud_kubernetes",
+    "cloud_platforms"
+  ],
+  "C0552": [],
+  "C0553": [],
+  "C0559": [],
+  "C0562": [],
+  "C0602": [],
+  "C0624": [
+    "cloud_gcp",
+    "cloud_loadbalancing",
+    "cloud_vpn"
+  ],
+  "C0629": [],
+  "C0634": [],
+  "C0647": [],
+  "C0664": [
+    "cloud_azure",
+    "cloud_computing"
+  ],
+  "C0673": [],
+  "C0689": [],
+  "C0691": [
+    "cloud_azure"
+  ],
+  "C0698": [],
+  "C0709": [],
+  "C0740": [
+    "cloud_azure"
+  ],
+  "C0753": [
+    "cloud_computing",
+    "cloud_devops"
+  ],
+  "C0754": [],
+  "C0758": [],
+  "C0769": [
+    "cloud_apps",
+    "cloud_computing",
+    "cloud_kubernetes",
+    "cloud_platforms"
+  ],
+  "C0770": [],
+  "C0778": [],
+  "C0790": [
+    "cloud_apps",
+    "cloud_storage"
+  ],
+  "C0791": [],
+  "C0794": [],
+  "C0798": [
+    "cloud_computing",
+    "cloud_gcp"
+  ],
+  "C0803": [],
+  "C0805": [],
+  "C0807": [],
+  "C0826": [],
+  "C0832": [
+    "cloud_computing"
+  ],
+  "C0840": [],
+  "C0858": [],
+  "C0864": [],
+  "C0866": [],
+  "C0896": [
+    "cloud_azure"
+  ],
+  "C0910": [],
+  "C0918": [
+    "cloud_apps",
+    "cloud_azure",
+    "cloud_computing"
+  ],
+  "C0930": [
+    "cloud_apps"
+  ],
+  "C0931": [
+    "cloud_compute_engine",
+    "cloud_gcp",
+    "cloud_netarch",
+    "cloud_vm"
+  ],
+  "C0938": [
+    "cloud_netarch"
+  ],
+  "C0939": [
+    "cloud_azure",
+    "cloud_computing"
+  ],
+  "C0947": [],
+  "C0948": [],
+  "C0953": [],
+  "C0961": [
+    "cloud_azure",
+    "cloud_computing"
   ],
   "E0001": [
     "biz_bizstrategy",

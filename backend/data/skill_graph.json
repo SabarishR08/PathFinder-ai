@@ -1,23 +1,18 @@
 {
   "Data Science": [
     {
+      "id": "ds_excel",
+      "name": "Microsoft Excel",
+      "prereqs": []
+    },
+    {
       "id": "ds_python",
       "name": "Python Programming",
       "prereqs": []
     },
     {
-      "id": "ds_stats",
-      "name": "Statistics",
-      "prereqs": []
-    },
-    {
       "id": "ds_sql",
       "name": "SQL",
-      "prereqs": []
-    },
-    {
-      "id": "ds_excel",
-      "name": "Microsoft Excel",
       "prereqs": []
     },
     {
@@ -28,11 +23,37 @@
       ]
     },
     {
+      "id": "ds_stats",
+      "name": "Statistics",
+      "prereqs": []
+    },
+    {
+      "id": "ds_r",
+      "name": "R Programming",
+      "prereqs": [
+        "ds_stats"
+      ]
+    },
+    {
+      "id": "ds_rstudio",
+      "name": "Rstudio",
+      "prereqs": [
+        "ds_r"
+      ]
+    },
+    {
       "id": "ds_cleansing",
       "name": "Data Cleansing",
       "prereqs": [
         "ds_python",
         "ds_excel"
+      ]
+    },
+    {
+      "id": "ds_jupyter",
+      "name": "Jupyter notebooks",
+      "prereqs": [
+        "ds_python"
       ]
     },
     {
@@ -87,33 +108,11 @@
       ]
     },
     {
-      "id": "ds_ml",
+      "id": "ds_ml_intro",
       "name": "Machine Learning",
       "prereqs": [
         "ds_analysis",
         "ds_linreg"
-      ]
-    },
-    {
-      "id": "ds_ai",
-      "name": "Artificial Intelligence (AI)",
-      "prereqs": [
-        "ds_ml"
-      ]
-    },
-    {
-      "id": "ds_tensorflow",
-      "name": "Tensorflow",
-      "prereqs": [
-        "ds_ml"
-      ]
-    },
-    {
-      "id": "ds_dl",
-      "name": "Deep Learning",
-      "prereqs": [
-        "ds_ml",
-        "ds_tensorflow"
       ]
     },
     {
@@ -133,47 +132,154 @@
       ]
     },
     {
-      "id": "ds_r",
-      "name": "R Programming",
-      "prereqs": [
-        "ds_stats"
-      ]
-    },
-    {
-      "id": "ds_rstudio",
-      "name": "Rstudio",
-      "prereqs": [
-        "ds_r"
-      ]
-    },
-    {
-      "id": "ds_cloud",
-      "name": "Cloud Computing",
-      "prereqs": [
-        "ds_python"
-      ]
-    },
-    {
-      "id": "ds_gcp",
-      "name": "Google Cloud Platform",
-      "prereqs": [
-        "ds_cloud"
-      ]
-    },
-    {
-      "id": "ds_azure",
-      "name": "Microsoft Azure",
-      "prereqs": [
-        "ds_cloud"
-      ]
-    },
-    {
       "id": "ds_datascience",
       "name": "Data Science",
       "prereqs": [
-        "ds_ml",
+        "ds_ml_intro",
         "ds_viz",
         "ds_bigdata"
+      ]
+    }
+  ],
+  "Machine Learning": [
+    {
+      "id": "ml_python",
+      "name": "Python Programming",
+      "prereqs": []
+    },
+    {
+      "id": "ml_infoeng",
+      "name": "Information Engineering",
+      "prereqs": []
+    },
+    {
+      "id": "ml_datascience",
+      "name": "Data Science",
+      "prereqs": [
+        "ml_python"
+      ]
+    },
+    {
+      "id": "ml_supervised",
+      "name": "Supervised Learning",
+      "prereqs": [
+        "ml_datascience"
+      ]
+    },
+    {
+      "id": "ml_unsupervised",
+      "name": "Unsupervised Learning",
+      "prereqs": [
+        "ml_datascience"
+      ]
+    },
+    {
+      "id": "ml_linreg",
+      "name": "Linear Regression",
+      "prereqs": [
+        "ml_supervised"
+      ]
+    },
+    {
+      "id": "ml_funcapprox",
+      "name": "Function Approximation",
+      "prereqs": [
+        "ml_supervised"
+      ]
+    },
+    {
+      "id": "ml_ml",
+      "name": "Machine Learning",
+      "prereqs": [
+        "ml_supervised",
+        "ml_unsupervised"
+      ]
+    },
+    {
+      "id": "ml_intelsys",
+      "name": "Intelligent Systems",
+      "prereqs": [
+        "ml_ml"
+      ]
+    },
+    {
+      "id": "ml_ai",
+      "name": "Artificial Intelligence (AI)",
+      "prereqs": [
+        "ml_ml",
+        "ml_intelsys"
+      ]
+    },
+    {
+      "id": "ml_ann",
+      "name": "Artificial Neural Network",
+      "prereqs": [
+        "ml_ml"
+      ]
+    },
+    {
+      "id": "ml_tensorflow",
+      "name": "Tensorflow",
+      "prereqs": [
+        "ml_ann"
+      ]
+    },
+    {
+      "id": "ml_keras",
+      "name": "keras",
+      "prereqs": [
+        "ml_tensorflow"
+      ]
+    },
+    {
+      "id": "ml_dl",
+      "name": "Deep Learning",
+      "prereqs": [
+        "ml_ann",
+        "ml_tensorflow"
+      ]
+    },
+    {
+      "id": "ml_cnn",
+      "name": "Convolutional Neural Network",
+      "prereqs": [
+        "ml_dl"
+      ]
+    },
+    {
+      "id": "ml_nlp",
+      "name": "Natural Language Processing",
+      "prereqs": [
+        "ml_dl"
+      ]
+    },
+    {
+      "id": "ml_rl",
+      "name": "Reinforcement Learning",
+      "prereqs": [
+        "ml_ml",
+        "ml_funcapprox"
+      ]
+    },
+    {
+      "id": "ml_cloud",
+      "name": "Cloud Computing",
+      "prereqs": [
+        "ml_python"
+      ]
+    },
+    {
+      "id": "ml_gcp",
+      "name": "Google Cloud Platform",
+      "prereqs": [
+        "ml_cloud"
+      ]
+    },
+    {
+      "id": "ml_bigquery",
+      "name": "Bigquery",
+      "prereqs": [
+        "ml_gcp"
       ]
     }
   ],
@@ -497,6 +603,144 @@
         "cy_infosec",
         "cy_netsec",
         "cy_crypto"
+      ]
+    }
+  ],
+  "Cloud Computing": [
+    {
+      "id": "cloud_linux",
+      "name": "Linux",
+      "prereqs": []
+    },
+    {
+      "id": "cloud_python",
+      "name": "Python Programming",
+      "prereqs": []
+    },
+    {
+      "id": "cloud_dbms",
+      "name": "Database (DBMS)",
+      "prereqs": []
+    },
+    {
+      "id": "cloud_netarch",
+      "name": "Network Architecture",
+      "prereqs": []
+    },
+    {
+      "id": "cloud_vpn",
+      "name": "Virtual Private Network (VPN)",
+      "prereqs": [
+        "cloud_netarch"
+      ]
+    },
+    {
+      "id": "cloud_vm",
+      "name": "Virtual Machine",
+      "prereqs": [
+        "cloud_linux"
+      ]
+    },
+    {
+      "id": "cloud_computing",
+      "name": "Cloud Computing",
+      "prereqs": [
+        "cloud_vm",
+        "cloud_netarch"
+      ]
+    },
+    {
+      "id": "cloud_platforms",
+      "name": "Cloud Platforms",
+      "prereqs": [
+        "cloud_computing"
+      ]
+    },
+    {
+      "id": "cloud_storage",
+      "name": "Cloud Storage",
+      "prereqs": [
+        "cloud_computing"
+      ]
+    },
+    {
+      "id": "cloud_datastore",
+      "name": "Data Store",
+      "prereqs": [
+        "cloud_storage",
+        "cloud_dbms"
+      ]
+    },
+    {
+      "id": "cloud_apps",
+      "name": "Cloud Applications",
+      "prereqs": [
+        "cloud_platforms"
+      ]
+    },
+    {
+      "id": "cloud_gcp",
+      "name": "Google Cloud Platform",
+      "prereqs": [
+        "cloud_platforms"
+      ]
+    },
+    {
+      "id": "cloud_compute_engine",
+      "name": "Google Compute Engine",
+      "prereqs": [
+        "cloud_gcp"
+      ]
+    },
+    {
+      "id": "cloud_app_engine",
+      "name": "Google App Engine (GAE)",
+      "prereqs": [
+        "cloud_gcp"
+      ]
+    },
+    {
+      "id": "cloud_azure",
+      "name": "Microsoft Azure",
+      "prereqs": [
+        "cloud_platforms"
+      ]
+    },
+    {
+      "id": "cloud_loadbalancing",
+      "name": "Load Balancing",
+      "prereqs": [
+        "cloud_netarch",
+        "cloud_platforms"
+      ]
+    },
+    {
+      "id": "cloud_kubernetes",
+      "name": "Kubernetes",
+      "prereqs": [
+        "cloud_apps",
+        "cloud_loadbalancing"
+      ]
+    },
+    {
+      "id": "cloud_devops",
+      "name": "Devops",
+      "prereqs": [
+        "cloud_kubernetes"
+      ]
+    },
+    {
+      "id": "cloud_debugging",
+      "name": "Debugging",
+      "prereqs": [
+        "cloud_python"
+      ]
+    },
+    {
+      "id": "cloud_techsupport",
+      "name": "Technical Support",
+      "prereqs": [
+        "cloud_debugging"
       ]
     }
   ],
