@@ -91,7 +91,7 @@ export default function ExplainModal({ skill, domain, goal, onClose }) {
 
         {error && (
           <div className="alert alert-error">
-            ⚠️ {error.startsWith("LLM_ERROR") ? "LLM unavailable — check your GROQ_API_KEY" : error}
+            {error.startsWith("LLM_ERROR") ? "Explanation service is unavailable. Please try again later." : error}
           </div>
         )}
 
@@ -107,7 +107,6 @@ export default function ExplainModal({ skill, domain, goal, onClose }) {
               fontSize: "0.97rem",
             }}
           >
-            <span style={{ fontSize: "1.5rem", marginRight: 8 }}>💡</span>
             {explanation}
           </div>
         )}

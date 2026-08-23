@@ -23,7 +23,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from path_engine import PathEngine
-from llm_service import extract_intake_json, explain_recommendation
+from llm_service import extract_intake_json, explain_recommendation, explain_resources_batch
 from models import (
     ProfileCreateRequest, ProfileResponse,
     ChatIntakeRequest, ChatIntakeResponse,
@@ -351,6 +351,33 @@ def get_path(req: PathRequest):
 
     logger.info("get_path: domain=%s target=%s milestones=%d", req.domain, req.target_skill_id, len(plan))
     return {"domain": req.domain, "target_skill_id": req.target_skill_id, "plan": plan}
+
+
+@app.post("/api/resources/for-path")
+def get_free_resources_for_path(req: PathRequest, resource_format: Optional[str] = None):
+    """Return relevant free resources and batched, grounded explanations for a path."""
+    _stats["get_free_resources_for_path"] += 1
+    _validate_domain(req.domain)
+    _validate_skill_id(req.domain, req.target_skill_id)
+    if resource_format not in (None, "video", "reading", "interactive", "reference"):
+        raise HTTPException(status_code=400, detail="Invalid resource format.")
+
+    path = engine.generate_path(req.domain, req.target_skill_id, req.known_skills)
+    resources_by_skill = engine.get_free_resources_for_skills(
+        [step["skill_id"] for step in path], resource_format=resource_format
+    )
+    explanation_inputs = [
+        {"learner_gap": step["name"], "resource": resource}
+        for step in path
+        for resource in resources_by_skill.get(step["skill_id"], [])
+    ]
+    explanations = explain_resources_batch(explanation_inputs)
+    for resources in resources_by_skill.values():
+        for resource in resources:
+            resource["why_this_resource"] = explanations.get(
+                resource["resource_id"], resource["description_raw"]
+            )
+    return {"resources_by_skill": resources_by_skill}
 
 
 @lru_cache(maxsize=256)

@@ -4,20 +4,6 @@ import Navbar from "../components/Navbar";
 import SkillPathMap from "../components/SkillPathMap";
 import { api } from "../api";
 
-const DOMAIN_ICONS = {
-  "Data Science": "📊",
-  "Machine Learning": "🤖",
-  "Cloud Computing": "☁️",
-  "Web Development": "🌐",
-  "Cybersecurity": "🔐",
-  "Computer Science": "💻",
-  "Business": "💼",
-  "Graphic Design": "🎨",
-  "Personal Development": "🧠",
-  "Health": "❤️",
-  "Mathematics": "📐",
-};
-
 // ML clarification — shown when goal is ML-related but domain is Data Science
 const ML_SKILLS = ["machine learning", "deep learning", "tensorflow", "neural", "ai ", "artificial intelligence"];
 function isMlGoal(goalName) {
@@ -41,6 +27,8 @@ export default function Dashboard({ profile, intake, onClearProfile }) {
   const [plan, setPlan] = useState(null);
   const [optimalMeta, setOptimalMeta] = useState(null); // total_estimated_months etc.
   const [planLoading, setPlanLoading] = useState(true);
+  const [resourcesBySkill, setResourcesBySkill] = useState({});
+  const [resourceFormat, setResourceFormat] = useState(null);
 
   // ── Progress ──────────────────────────────────────────────────────────────
   const [completedSkills, setCompletedSkills] = useState([]);
@@ -97,6 +85,24 @@ export default function Dashboard({ profile, intake, onClearProfile }) {
       .finally(() => setPlanLoading(false));
   }, [p, pathMode, navigate, handleSessionExpired]);
 
+  // Resource explanations are batched by the backend, so one request covers
+  // the full path even when several milestones have matching resources.
+  useEffect(() => {
+    if (!p) return;
+    const params = {
+      domain: p.domain,
+      target_skill_id: p.goal_skill_id,
+      known_skills: p.known_skills || [],
+      courses_per_skill: 2,
+    };
+    api.getFreeResourcesForPath(params, resourceFormat)
+      .then((response) => setResourcesBySkill(response.resources_by_skill || {}))
+      .catch((error) => {
+        console.error("Could not load free resources", error);
+        setResourcesBySkill({});
+      });
+  }, [p, resourceFormat]);
+
   // Toggle skill complete/incomplete
   const handleToggleSkill = useCallback(
     async (skillId) => {
@@ -126,7 +132,6 @@ export default function Dashboard({ profile, intake, onClearProfile }) {
   const progressPercent = progressData?.progress_percent ?? 0;
   const totalCount = progressData?.total_count ?? plan?.length ?? 0;
   const completedCount = progressData?.completed_count ?? completedSkills.length;
-  const domainIcon = DOMAIN_ICONS[p?.domain] || "📚";
   const goalName = intake?.goal_skill_name || plan?.find((m) => m.skill_id === p?.goal_skill_id)?.skill_name || p?.goal_skill_id;
   const showMlNote = p?.domain === "Data Science" && isMlGoal(goalName);
 
@@ -141,7 +146,7 @@ export default function Dashboard({ profile, intake, onClearProfile }) {
           <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", flexWrap: "wrap", gap: 20 }}>
             <div>
               <div className="badge badge-accent" style={{ marginBottom: 12 }}>
-                {domainIcon} {p?.domain}
+                {p?.domain}
               </div>
               <h2 style={{ marginBottom: 6 }}>Hey {p?.name || "there"} 👋</h2>
               <p style={{ color: "var(--text-secondary)", maxWidth: 480 }}>
@@ -181,7 +186,7 @@ export default function Dashboard({ profile, intake, onClearProfile }) {
               color: "var(--text-secondary)",
             }}
           >
-            🤖 <strong style={{ color: "var(--text-primary)" }}>Machine Learning path:</strong>{" "}
+            <strong style={{ color: "var(--text-primary)" }}>Machine Learning path:</strong>{" "}
             ML engineering is covered within our Data Science domain — your path includes{" "}
             <strong style={{ color: "var(--accent)" }}>Machine Learning, Linear Regression, Deep Learning, and TensorFlow</strong>{" "}
             as dedicated milestones, built on real Coursera prerequisites.
@@ -191,13 +196,12 @@ export default function Dashboard({ profile, intake, onClearProfile }) {
         {/* Stats row */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 16, marginBottom: 36 }} className="stagger">
           {[
-            { label: "Total milestones", val: totalCount, icon: "🎯" },
-            { label: "Completed", val: completedCount, icon: "✅" },
-            { label: "Remaining", val: totalCount - completedCount, icon: "⏳" },
-            { label: "Hours/week", val: p?.time_per_week_hours || "—", icon: "🕐" },
+            { label: "Total milestones", val: totalCount },
+            { label: "Completed", val: completedCount },
+            { label: "Remaining", val: totalCount - completedCount },
+            { label: "Hours/week", val: p?.time_per_week_hours || "—" },
           ].map((s) => (
             <div key={s.label} className="card animate-fade-up">
-              <div style={{ fontSize: "1.5rem", marginBottom: 8 }}>{s.icon}</div>
               <div style={{ fontSize: "1.8rem", fontWeight: 700, fontFamily: "Space Grotesk, sans-serif", color: "var(--text-primary)" }}>
                 {s.val}
               </div>
@@ -223,8 +227,8 @@ export default function Dashboard({ profile, intake, onClearProfile }) {
               }}
             >
               {[
-                { key: "standard", label: "📋 Standard", title: "DFS topological sort — valid prerequisite order" },
-                { key: "optimal", label: "⚡ Time-Optimal", title: "Kahn's algorithm + min-heap (SPT scheduling) — front-loads faster skills" },
+                { key: "standard", label: "Standard", title: "DFS topological sort — valid prerequisite order" },
+                { key: "optimal", label: "Time-optimal", title: "Kahn's algorithm + min-heap (SPT scheduling) — front-loads faster skills" },
               ].map((m) => (
                 <button
                   key={m.key}
@@ -253,6 +257,25 @@ export default function Dashboard({ profile, intake, onClearProfile }) {
           </div>
         </div>
 
+        <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", margin: "-8px 0 20px" }}>
+          <span style={{ color: "var(--text-muted)", fontSize: "0.8rem" }}>Free resource format:</span>
+          {[
+            { value: null, label: "All" },
+            { value: "video", label: "Video" },
+            { value: "reading", label: "Reading" },
+            { value: "interactive", label: "Interactive" },
+            { value: "reference", label: "Reference" },
+          ].map((filter) => (
+            <button
+              key={filter.label}
+              className={`btn btn-sm ${resourceFormat === filter.value ? "btn-primary" : "btn-ghost"}`}
+              onClick={() => setResourceFormat(filter.value)}
+            >
+              {filter.label}
+            </button>
+          ))}
+        </div>
+
         {/* Optimal mode info banner */}
         {pathMode === "optimal" && optimalMeta && !planLoading && (
           <div
@@ -272,7 +295,7 @@ export default function Dashboard({ profile, intake, onClearProfile }) {
             }}
           >
             <span>
-              ⚡ <strong style={{ color: "var(--accent)" }}>{optimalMeta.algorithm}</strong>
+              <strong style={{ color: "var(--accent)" }}>{optimalMeta.algorithm}</strong>
               {" — "}skills scheduled by estimated duration, shortest first.
             </span>
             <span style={{ color: "var(--text-muted)", fontSize: "0.8rem" }}>
@@ -290,6 +313,7 @@ export default function Dashboard({ profile, intake, onClearProfile }) {
           goal={goalName}
           loading={planLoading}
           showTimeEstimates={pathMode === "optimal"}
+          resourcesBySkill={resourcesBySkill}
         />
 
         {/* Optimal caveat footnote */}
@@ -305,7 +329,7 @@ export default function Dashboard({ profile, intake, onClearProfile }) {
             className="btn btn-secondary"
             onClick={() => { onClearProfile?.(); navigate("/onboarding"); }}
           >
-            ← Start a new path
+            Start a new path
           </button>
         </div>
       </div>

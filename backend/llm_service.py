@@ -365,3 +365,43 @@ Real prerequisite chain leading to this skill: {prereq_chain}
 Explain why this skill matters next."""
 
     return call_llm(system_prompt, user_prompt, max_tokens=200)
+
+
+def explain_resources_batch(learner_gaps: list[dict]) -> dict[str, str]:
+    """Create all resource explanations in one LLM request for a path."""
+    if not learner_gaps:
+        return {}
+
+    payload = [
+        {
+            "resource_id": item["resource"]["resource_id"],
+            "learner_gap": item["learner_gap"],
+            "title": item["resource"]["title"],
+            "type": item["resource"]["resource_type"],
+            "provider": item["resource"]["provider"],
+            "format": item["resource"]["format"],
+            "difficulty": item["resource"]["difficulty"],
+            "description": item["resource"]["description_raw"],
+        }
+        for item in learner_gaps
+    ]
+    system_prompt = """You are a learning advisor. For each supplied resource, write one concrete sentence of at most 25 words explaining what the learner can do after using it. Do not use the words 'great' or 'amazing'. Return ONLY a JSON array, in the same order, with objects shaped exactly as {\"resource_id\": \"...\", \"explanation\": \"...\"}."""
+    raw = call_llm(system_prompt, json.dumps(payload), max_tokens=min(60 * len(payload), 600))
+    if raw.startswith("LLM_ERROR"):
+        return {}
+    cleaned = raw.strip()
+    if cleaned.startswith("```"):
+        cleaned = re.sub(r"^```(?:json)?\s*|\s*```$", "", cleaned).strip()
+    try:
+        rows = json.loads(cleaned)
+        if not isinstance(rows, list):
+            return {}
+        return {
+            row["resource_id"]: row["explanation"].strip()
+            for row in rows
+            if isinstance(row, dict) and isinstance(row.get("resource_id"), str)
+            and isinstance(row.get("explanation"), str)
+        }
+    except (json.JSONDecodeError, TypeError, KeyError):
+        logger.warning("Could not parse batched resource explanations")
+        return {}

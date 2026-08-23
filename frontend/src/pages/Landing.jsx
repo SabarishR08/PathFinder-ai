@@ -3,31 +3,27 @@ import Navbar from "../components/Navbar";
 
 const FEATURES = [
   {
-    icon: "🧠",
     title: "AI-Powered Intake",
     desc: "Just describe your goal in plain English. Our LLM extracts your domain, known skills, and target — no forms needed.",
   },
   {
-    icon: "🗺️",
     title: "Prerequisite-Aware Paths",
     desc: "Built on a real skill graph with topological ordering, so every milestone has the right foundations first.",
   },
   {
-    icon: "🎓",
     title: "Real Course Recommendations",
     desc: "979 actual Coursera & Udacity courses, semantically matched to skills — not placeholders.",
   },
   {
-    icon: "📈",
     title: "Progress Tracking",
     desc: "Mark skills complete, watch your path shrink in real time, and stay motivated with live progress %.",
   },
 ];
 
 const DOMAINS = [
-  { name: "Data Science", icon: "📊", color: "#3b82f6", skills: 25 },
-  { name: "Web Development", icon: "🌐", color: "#8b5cf6", skills: 25 },
-  { name: "Cybersecurity", icon: "🔐", color: "#ef4444", skills: 21 },
+  { name: "Data Science", color: "#3b82f6", skills: 25 },
+  { name: "Web Development", color: "#8b5cf6", skills: 25 },
+  { name: "Cybersecurity", color: "#ef4444", skills: 21 },
 ];
 
 export default function Landing() {
@@ -63,7 +59,7 @@ export default function Landing() {
             className="badge badge-accent animate-fade-up"
             style={{ marginBottom: 24, display: "inline-flex" }}
           >
-            🚀 AI-Powered Learning Paths
+            Personalized learning paths
           </div>
 
           <h1 className="animate-fade-up" style={{ animationDelay: "0.1s", marginBottom: 24 }}>
@@ -106,7 +102,7 @@ export default function Landing() {
             }}
           >
             <Link to="/onboarding" className="btn btn-primary btn-lg">
-              ✨ Start My Path
+              Start my path
             </Link>
             <a
               href="#how-it-works"
@@ -130,9 +126,9 @@ export default function Landing() {
           >
             {[
               { val: "979", label: "Real courses" },
-              { val: "71", label: "Mapped skills" },
+              { val: "106", label: "Mapped skills" },
               { val: "3", label: "Domains" },
-              { val: "68.8%", label: "Coverage" },
+              { val: "100%", label: "Coverage" },
             ].map((s) => (
               <div key={s.label} style={{ textAlign: "center" }}>
                 <div
@@ -187,9 +183,6 @@ export default function Landing() {
                     padding: 36,
                   }}
                 >
-                  <div style={{ fontSize: "3rem", marginBottom: 16 }}>
-                    {d.icon}
-                  </div>
                   <h3 style={{ marginBottom: 8, color: "var(--text-primary)" }}>
                     {d.name}
                   </h3>
@@ -228,7 +221,7 @@ export default function Landing() {
           >
             {FEATURES.map((f, i) => (
               <div key={i} className="card animate-fade-up">
-                <div style={{ fontSize: "2rem", marginBottom: 16 }}>{f.icon}</div>
+                <div className="badge badge-accent" style={{ marginBottom: 16 }}>0{i + 1}</div>
                 <h3 style={{ marginBottom: 10, color: "var(--text-primary)" }}>
                   {f.title}
                 </h3>
@@ -255,7 +248,7 @@ export default function Landing() {
             It takes 30 seconds to describe your goal.
           </p>
           <Link to="/onboarding" className="btn btn-primary btn-lg">
-            ✨ Get Started — It's Free
+            Get started
           </Link>
         </div>
       </section>

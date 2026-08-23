@@ -42,6 +42,7 @@ graph TD
 - `/api/profile` (POST): Registers the learner profile.
 - `/api/path` (POST): Triggers path generation via `PathEngine`.
 - `/api/explain` (POST): Generates customized, grounded explanations for recommendations using `llm_service.py`.
+- `/api/resources/for-path` (POST): Returns free resources for all skills on a path, optionally filtered by format.
 - `/api/progress` (POST): Updates marked-off milestones and recalculates the remaining path.
 
 ### 3. LLM Wrapper Service (`backend/llm_service.py`)
@@ -49,6 +50,11 @@ graph TD
 - **Functions**:
   - `extract_intake_json(...)`: Uses system prompt constraints to force JSON outputs matching only valid skills in our graph.
   - `explain_recommendation(...)`: Grinds explanations from the exact prerequisite chain to prevent hallucinations.
+  - `explain_resources_batch(...)`: Produces resource-fit explanations for a path in one request; source descriptions remain available as a fallback.
+
+### Free-resources layer
+
+`backend/data/free_resources_mapping.json` is intentionally independent of `course_skill_mapping.json`. `PathEngine` loads it as a separate resource index, validates every mapped skill ID at startup, and filters results by format before the dashboard renders its resource cards.
 
 ### 4. React Frontend (`frontend/src/`)
 - `api.js`: Standardized helper using relative paths mapped to the Vite development server proxy.

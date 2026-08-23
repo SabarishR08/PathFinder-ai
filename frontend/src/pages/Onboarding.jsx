@@ -3,20 +3,6 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { api } from "../api";
 
-const DOMAIN_ICONS = {
-  "Data Science": "📊",
-  "Machine Learning": "🤖",
-  "Cloud Computing": "☁️",
-  "Web Development": "🌐",
-  "Cybersecurity": "🔐",
-  "Computer Science": "💻",
-  "Business": "💼",
-  "Graphic Design": "🎨",
-  "Personal Development": "🧠",
-  "Health": "❤️",
-  "Mathematics": "📐",
-};
-
 /**
  * Onboarding — two paths:
  *  1. Chat intake: type goal in plain English → LLM extracts fields
@@ -188,14 +174,14 @@ export default function Onboarding({ onProfileSet }) {
               id="tab-chat"
               onClick={() => setTab("chat")}
             >
-              ✨ Chat Intake
+              Guided intake
             </button>
             <button
               className={`tab ${tab === "manual" ? "active" : ""}`}
               id="tab-manual"
               onClick={() => setTab("manual")}
             >
-              ⚙️ Manual Setup
+              Manual setup
             </button>
           </div>
 
@@ -225,14 +211,14 @@ export default function Onboarding({ onProfileSet }) {
                       <div className="spinner" /> Analyzing your goal...
                     </>
                   ) : (
-                    "✨ Analyze My Goal"
+                    "Analyze my goal"
                   )}
                 </button>
               </form>
 
               {chatError && (
                 <div className="alert alert-error" style={{ marginTop: 20 }}>
-                  ⚠️ {chatError}
+                  {chatError}
                 </div>
               )}
 
@@ -243,21 +229,19 @@ export default function Onboarding({ onProfileSet }) {
                 >
                   <div style={{ marginBottom: 16 }}>
                     <div className="badge badge-accent" style={{ marginBottom: 12 }}>
-                      ✅ Extracted profile
+                      Extracted profile
                     </div>
 
                     {chatResult.warning && (
                       <div className="alert alert-warning" style={{ marginBottom: 16 }}>
-                        ⚠️ {chatResult.warning}
+                        {chatResult.warning}
                       </div>
                     )}
 
                     <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.9rem" }}>
                       <tbody>
                         {[
-                          ["Domain", chatResult.domain
-                            ? `${DOMAIN_ICONS[chatResult.domain] || "📚"} ${chatResult.domain}`
-                            : "—"],
+                          ["Domain", chatResult.domain || "—"],
                           ["Target Skill", chatResult.goal_skill_name || "—"],
                           ["Known Skills", (chatResult.known_skill_names?.length
                             ? chatResult.known_skill_names
@@ -303,7 +287,7 @@ export default function Onboarding({ onProfileSet }) {
                     {chatLoading ? (
                       <><div className="spinner" /> Building path...</>
                     ) : (
-                      "🗺️ Build My Learning Path →"
+                      "Build my learning path"
                     )}
                   </button>
                 </div>
@@ -334,7 +318,7 @@ export default function Onboarding({ onProfileSet }) {
                   >
                     {domains.map((d) => (
                       <option key={d} value={d}>
-                        {DOMAIN_ICONS[d] || "📚"} {d}
+                        {d}
                       </option>
                     ))}
                   </select>
@@ -407,7 +391,7 @@ export default function Onboarding({ onProfileSet }) {
                 {manualLoading ? (
                   <><div className="spinner" /> Building path...</>
                 ) : (
-                  "🗺️ Build My Learning Path →"
+                  "Build my learning path"
                 )}
               </button>
             </form>

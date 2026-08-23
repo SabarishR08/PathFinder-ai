@@ -1,20 +1,7 @@
 import { useState } from "react";
 import ExplainModal from "./ExplainModal";
 
-const SITE_COLORS = {
-  Coursera: "#0056d2",
-  Udacity: "#02b3e4",
-  default: "var(--text-muted)",
-};
-
-const SITE_ICONS = {
-  Coursera: "🎓",
-  Udacity: "🚀",
-  default: "📘",
-};
-
 function CourseChip({ course }) {
-  const icon = SITE_ICONS[course.Site] || SITE_ICONS.default;
   const rating = course.Rating ? course.Rating.toFixed(1) : null;
 
   return (
@@ -29,11 +16,11 @@ function CourseChip({ course }) {
         </span>
       )}
       <div className="course-meta">
-        <span>{icon} {course.Site}</span>
+        <span>{course.Site}</span>
         {rating && (
           <>
             <span>·</span>
-            <span className="star-rating">★ {rating}</span>
+            <span className="star-rating">Rating {rating}</span>
           </>
         )}
         {course.Level && course.Level !== "Not specified" && (
@@ -44,6 +31,34 @@ function CourseChip({ course }) {
         )}
       </div>
     </div>
+  );
+}
+
+function ResourceCard({ resource }) {
+  const typeLabel = resource.resource_type.replaceAll("_", " ");
+  const stars = resource.metadata?.stars;
+  const checkedOn = resource.metadata?.checked_on;
+  return (
+    <a
+      href={resource.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="course-chip"
+      style={{ textDecoration: "none", borderColor: "var(--border-accent)" }}
+    >
+      <div style={{ display: "flex", justifyContent: "space-between", gap: 8, marginBottom: 5 }}>
+        <span style={{ color: "var(--text-primary)", fontWeight: 600 }}>{resource.title}</span>
+        <span className="badge badge-accent" style={{ fontSize: "0.65rem" }}>FREE</span>
+      </div>
+      <div className="course-meta">
+        <span>{resource.provider}</span><span>·</span><span>{typeLabel}</span>
+        {stars && <><span>·</span><span>{(stars / 1000).toFixed(1)}k stars</span></>}
+        {checkedOn && <><span>·</span><span>checked {checkedOn}</span></>}
+      </div>
+      <p style={{ color: "var(--text-secondary)", fontSize: "0.8rem", margin: "8px 0 0", lineHeight: 1.45 }}>
+        {resource.why_this_resource}
+      </p>
+    </a>
   );
 }
 
@@ -59,6 +74,7 @@ export default function SkillPathMap({
   goal,
   loading,
   showTimeEstimates = false,
+  resourcesBySkill = {},
 }) {
   const [explainSkill, setExplainSkill] = useState(null);
 
@@ -83,7 +99,7 @@ export default function SkillPathMap({
   if (!plan || plan.length === 0) {
     return (
       <div className="alert alert-warning" style={{ marginTop: 24 }}>
-        ⚠️ No path generated. Try choosing a different target skill or reducing known skills.
+        No path generated. Try a different target skill or adjust the skills you already know.
       </div>
     );
   }
@@ -112,7 +128,7 @@ export default function SkillPathMap({
                 style={{ cursor: "pointer" }}
                 title={isCompleted ? "Mark incomplete" : "Mark complete"}
               >
-                {isCompleted ? "✓" : milestone.milestone}
+                {isCompleted ? "Done" : milestone.milestone}
               </div>
 
               {/* Card body */}
@@ -123,12 +139,11 @@ export default function SkillPathMap({
                       Step {milestone.milestone}
                     </div>
                     <div className="milestone-title">
-                      {isCompleted && <span style={{ color: "var(--accent)", marginRight: 8 }}>✓</span>}
                       {milestone.skill_name}
                     </div>
                     {showTimeEstimates && milestone.estimated_months_for_skill && (
                       <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", marginTop: 3 }}>
-                        ⏱ ~{milestone.estimated_months_for_skill} mo
+                        Estimated {milestone.estimated_months_for_skill} mo
                         {milestone.cumulative_estimated_months && (
                           <span style={{ marginLeft: 8, color: "var(--accent)", opacity: 0.7 }}>
                             ({milestone.cumulative_estimated_months} mo cumulative)
@@ -144,7 +159,7 @@ export default function SkillPathMap({
                       onClick={() => setExplainSkill(milestone.skill_name)}
                       title="Why is this skill recommended?"
                     >
-                      💡 Why?
+                      Why this skill
                     </button>
                     <button
                       className={`btn btn-sm ${isCompleted ? "btn-secondary" : "btn-primary"}`}
@@ -172,6 +187,19 @@ export default function SkillPathMap({
                   >
                     No courses matched yet for this skill.
                   </p>
+                )}
+
+                {resourcesBySkill[milestone.skill_id]?.length > 0 && (
+                  <div style={{ marginTop: 18 }}>
+                    <div style={{ fontSize: "0.75rem", color: "var(--accent)", fontWeight: 700, letterSpacing: "0.05em", marginBottom: 8 }}>
+                      FREE RESOURCES
+                    </div>
+                    <div className="course-grid">
+                      {resourcesBySkill[milestone.skill_id].map((resource) => (
+                        <ResourceCard key={resource.resource_id} resource={resource} />
+                      ))}
+                    </div>
+                  </div>
                 )}
               </div>
             </div>

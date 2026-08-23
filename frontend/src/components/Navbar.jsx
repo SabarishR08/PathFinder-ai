@@ -7,7 +7,7 @@ export default function Navbar({ progress }) {
   return (
     <nav className="navbar">
       <Link to="/" className="navbar-logo">
-        <div className="logo-icon">🧭</div>
+        <div className="logo-icon" aria-hidden="true">PF</div>
         PathFinder<span className="text-accent"> AI</span>
       </Link>
 

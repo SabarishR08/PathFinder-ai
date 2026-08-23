@@ -51,7 +51,8 @@ class PathEngine:
     def __init__(self,
                  skill_graph_path=DATA / "skill_graph.json",
                  courses_path=DATA / "courses_clean.csv",
-                 mapping_path=DATA / "course_skill_mapping.json"):
+                 mapping_path=DATA / "course_skill_mapping.json",
+                 resources_path=DATA / "free_resources_mapping.json"):
         with open(skill_graph_path) as f:
             self.graph = json.load(f)
 
@@ -62,6 +63,12 @@ class PathEngine:
         with open(mapping_path) as f:
             self.course_skill_map = json.load(f)
 
+        # Free resources are deliberately loaded from their own mapping file.
+        # Course recommendation logic continues to use course_skill_mapping.json.
+        with open(resources_path, encoding="utf-8") as f:
+            resource_data = json.load(f)
+        self.free_resources = resource_data.get("resources", [])
+
         # skill_id -> domain / skill object lookup
         self.skill_domain = {}
         self.skill_by_id = {}
@@ -69,6 +76,18 @@ class PathEngine:
             for s in skills:
                 self.skill_domain[s["id"]] = domain
                 self.skill_by_id[s["id"]] = s
+
+        unknown_resource_skill_ids = sorted({
+            skill_id
+            for resource in self.free_resources
+            for skill_id in resource.get("skill_ids", [])
+            if skill_id not in self.skill_by_id
+        })
+        if unknown_resource_skill_ids:
+            raise ValueError(
+                "free_resources_mapping.json contains unknown skill IDs: "
+                + ", ".join(unknown_resource_skill_ids)
+            )
 
         # reverse index: skill_id -> [course_id, ...]
         self.skill_to_courses = {}
@@ -89,6 +108,19 @@ class PathEngine:
         for domain_skills in self.graph.values():
             for s in domain_skills:
                 self.skill_weight.setdefault(s["id"], float(global_median))
+
+    def get_free_resources_for_skills(self, skill_ids, resource_format=None, limit_per_skill=3):
+        """Return free resources indexed by skill, with optional format filtering."""
+        selected = {}
+        for skill_id in skill_ids:
+            matches = [
+                resource.copy() for resource in self.free_resources
+                if skill_id in resource.get("skill_ids", [])
+                and (resource_format is None or resource.get("format") == resource_format)
+            ]
+            if matches:
+                selected[skill_id] = matches[:limit_per_skill]
+        return selected
 
     def get_domains(self, include_extended: bool = False):
         """

@@ -100,6 +100,10 @@ What we use instead: **Kahn's algorithm with a priority queue**, applying the Sh
 
 Source: Coursera/Udacity course catalogue (real titles, ratings, durations, skill tags).
 
+### Free resources
+
+`backend/data/free_resources_mapping.json` is an additive, skill-to-resource catalog kept separate from `course_skill_mapping.json`. `POST /api/resources/for-path` returns relevant free resources for a learner path, supports the `video`, `reading`, `interactive`, and `reference` format filters, and creates all "why this resource" explanations in one batched LLM request. If the LLM is unavailable, cards fall back to their curated source descriptions.
+
 ---
 
 ## Stack
@@ -154,4 +158,5 @@ ALLOWED_ORIGINS=https://your-frontend.vercel.app
 | POST | `/api/path` | Standard learning path (DFS topological sort) |
 | POST | `/api/path/optimal` | Time-optimal path (Kahn's + SPT) with duration estimates |
 | POST | `/api/explain` | LLM: grounded explanation for why a skill is recommended |
+| POST | `/api/resources/for-path` | Free resources for a path; optional `resource_format` filter and batched explanations |
 | POST | `/api/progress` | Mark skills complete, recompute remaining path |
