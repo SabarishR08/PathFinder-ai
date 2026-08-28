@@ -35,38 +35,15 @@ export async function POST(request: Request) {
     }
 
     const generator = (async function* () {
-      const { result, state } = await runAgentStream(body.learnerId, body.message.trim());
+      const { fullReply: apiReply } = await runAgentStream(body.learnerId, body.message.trim());
       
-      let replyBuffer = "";
+      const replyBuffer = apiReply || "";
       let phaseComplete = false;
       let extracted: ExtractedProfile = {};
 
-      for await (const part of result.fullStream) {
-        if (part.type === "text-delta") {
-          if (!phaseComplete) {
-            replyBuffer += part.text || "";
-            yield { type: "delta", text: part.text || "" };
-          }
-        } else if (part.type === "tool-call") {
-          if (part.toolName === "markPhaseComplete") {
-            phaseComplete = true;
-            extracted = (typeof part.args === 'object' && part.args !== null) ? { ...part.args } as any : {};
-            extracted.phaseComplete = true;
-            
-            const msg = "\n\nI think we have enough info. Do you have anything to add, or is this enough?";
-            replyBuffer += msg;
-            yield { type: "delta", text: msg };
-          } else {
-            yield { type: "tool-call", toolName: part.toolName, args: part.args };
-          }
-        } else if (part.type === "tool-result") {
-          if (part.toolName !== "markPhaseComplete") {
-            yield { type: "tool-result", toolName: part.toolName, result: part.result };
-          }
-        }
-      }
-
-      if (!replyBuffer.trim()) {
+      if (replyBuffer) {
+        yield { type: "delta", text: replyBuffer };
+      } else {
         yield { type: "delta", text: "…" };
       }
 

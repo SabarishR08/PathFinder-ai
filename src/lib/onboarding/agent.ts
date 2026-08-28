@@ -2,8 +2,6 @@ import { db } from "@/lib/db";
 import { loadSkillGraph } from "@/lib/engine/data";
 import { fuseEvidence, logEvidence } from "@/lib/evidence/fuse";
 import type { SkillClaim } from "@/lib/evidence/types";
-import { streamText, tool } from "ai";
-import { createGroq } from "@ai-sdk/groq";
 import { z } from "zod";
 
 export const AGENT_SEPARATOR = "---PATHFINDER-JSON---";
@@ -75,9 +73,7 @@ CRITICAL INSTRUCTIONS ON TOOLS:
 - You have access to the markPhaseComplete tool. Use this tool ONLY when you have fully satisfied the Phase goal and are ready to move to the next phase. When you call this tool, you must provide the profile fields you have extracted. Calling this tool pauses the interview and asks the user for confirmation.`;
 }
 
-const groqProvider = createGroq({
-  apiKey: process.env.GROQ_API_KEY,
-});
+
 
 export async function runAgentStream(learnerId: string, userMessage: string) {
   const state = await db.agentState.findUnique({ where: { learnerId } });
@@ -99,80 +95,75 @@ export async function runAgentStream(learnerId: string, userMessage: string) {
     { role: "user", content: userMessage },
   ];
 
-  const result = streamText({
-    model: groqProvider(process.env.GROQ_MODEL || "openai/gpt-oss-120b"),
-    system: systemPrompt,
-    messages,
-    tools: {
-      exaSearch: tool({
-        description: "Search the web for current information. Use this if the learner asks about something you need to verify.",
-        parameters: z.object({ query: z.string() }),
-        execute: async ({ query }) => {
-          return { query, note: "Web search not available in this environment" };
-        }
-      }),
-      fetchGitHubProfile: tool({
-        description: "Fetch public profile stats and top languages for a GitHub user. Use this when the learner mentions their GitHub username to verify their experience.",
-        parameters: z.object({ username: z.string() }),
-        execute: async ({ username }) => {
-          try {
-            const res = await fetch(`https://api.github.com/users/${username}`);
-            if (!res.ok) return { error: "User not found" };
-            const data = await res.json();
-            return {
-              login: data.login,
-              publicRepos: data.public_repos,
-              followers: data.followers,
-              bio: data.bio,
-              company: data.company
-            };
-          } catch {
-            return { error: "Failed to fetch" };
-          }
-        }
-      }),
-      getTechStackTrends: tool({
-        description: "Get a simulated trend analysis for a specific technology to advise the learner if it is worth learning.",
-        parameters: z.object({ technology: z.string() }),
-        execute: async ({ technology }) => {
-          // Simulated data for the sake of the interview
-          return {
-            technology,
-            trend: "growing",
-            demand: "high",
-            commonRoles: ["Frontend Engineer", "Fullstack Developer"],
-            advice: `${technology} is heavily adopted in the industry right now. A solid choice.`
-          };
-        }
-      }),
-      markPhaseComplete: tool({
-        description: "Call this tool when you have successfully gathered all the required information for the current phase and are ready to move to the next phase.",
-        parameters: z.object({
-          name: z.string().optional(),
-          goalStatement: z.string().optional(),
-          targetRole: z.string().optional(),
-          domain: z.string().optional(),
-          goalSkillId: z.string().optional(),
-          hoursPerWeek: z.number().optional(),
-          timelineWeeks: z.number().optional(),
-          learningStyle: z.string().optional(),
-          motivation: z.string().optional(),
-          constraints: z.array(z.string()).optional(),
-          skillsClaimed: z.array(z.object({
-            skillId: z.string(),
-            skillName: z.string(),
-            level: z.number()
-          })).optional()
-        }),
-        execute: async (args) => {
-          return { success: true };
-        }
-      })
+  const apiMessages = [
+    { role: "system", content: systemPrompt },
+    ...messages,
+  ];
+
+  const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${process.env.GROQ_API_KEY}`,
+      "Content-Type": "application/json",
     },
-    maxSteps: 3,
+    body: JSON.stringify({
+      model: process.env.GROQ_MODEL || "openai/gpt-oss-120b",
+      messages: apiMessages,
+      max_tokens: 500,
+      temperature: 0.7,
+      stream: true,
+    }),
   });
 
-  return { result, state, learnerId, userMessage };
+  if (!response.ok) {
+    const errText = await response.text();
+    throw new Error(`Groq API error ${response.status}: ${errText}`);
+  }
+
+  // Parse the SSE stream and yield deltas as an async iterable
+  const reader = response.body!.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+  let fullReply = "";
+  const deltas: string[] = [];
+
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+    const lines = buffer.split("\n");
+    buffer = lines.pop() ?? "";
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (!trimmed.startsWith("data: ")) continue;
+      const data = trimmed.slice(6);
+      if (data === "[DONE]") continue;
+      try {
+        const parsed = JSON.parse(data);
+        const delta = parsed.choices?.[0]?.delta?.content;
+        if (delta) {
+          fullReply += delta;
+          deltas.push(delta);
+        }
+      } catch { /* skip malformed */ }
+    }
+  }
+
+  // Return a result-like object that the route handler can consume
+  return {
+    result: {
+      fullStream: (async function* () {
+        for (const d of deltas) {
+          yield { type: "text-delta", text: d };
+        }
+      })(),
+      text: Promise.resolve(fullReply),
+    },
+    state,
+    learnerId,
+    userMessage,
+    fullReply,
+  };
 }
 
 export async function persistAgentTurn(
