@@ -4,7 +4,6 @@ import { fuseEvidence, logEvidence } from "@/lib/evidence/fuse";
 import type { SkillClaim } from "@/lib/evidence/types";
 import { streamText, tool } from "ai";
 import { createGroq } from "@ai-sdk/groq";
-import { gateway } from "@ai-sdk/gateway";
 import { z } from "zod";
 
 export const AGENT_SEPARATOR = "---PATHFINDER-JSON---";
@@ -76,8 +75,6 @@ CRITICAL INSTRUCTIONS ON TOOLS:
 - You have access to the markPhaseComplete tool. Use this tool ONLY when you have fully satisfied the Phase goal and are ready to move to the next phase. When you call this tool, you must provide the profile fields you have extracted. Calling this tool pauses the interview and asks the user for confirmation.`;
 }
 
-// Ensure we have a provider. In production on Vercel, use Vercel Gateway.
-// We fallback to standard OpenAI config if needed.
 const groqProvider = createGroq({
   apiKey: process.env.GROQ_API_KEY,
 });
@@ -103,11 +100,17 @@ export async function runAgentStream(learnerId: string, userMessage: string) {
   ];
 
   const result = streamText({
-    model: (process.env.AI_GATEWAY_API_KEY || process.env.VERCEL_ENV) ? gateway.languageModel("groq/openai/gpt-oss-120b") : groqProvider(process.env.GROQ_MODEL || "openai/gpt-oss-120b"),
+    model: groqProvider(process.env.GROQ_MODEL || "openai/gpt-oss-120b"),
     system: systemPrompt,
     messages,
     tools: {
-      exaSearch: gateway.tools.exaSearch(),
+      exaSearch: tool({
+        description: "Search the web for current information. Use this if the learner asks about something you need to verify.",
+        parameters: z.object({ query: z.string() }),
+        execute: async ({ query }) => {
+          return { query, note: "Web search not available in this environment" };
+        }
+      }),
       fetchGitHubProfile: tool({
         description: "Fetch public profile stats and top languages for a GitHub user. Use this when the learner mentions their GitHub username to verify their experience.",
         parameters: z.object({ username: z.string() }),
