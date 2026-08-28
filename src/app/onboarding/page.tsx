@@ -73,6 +73,7 @@ export default function OnboardingPage() {
   const [input, setInput] = useState("");
   const [streaming, setStreaming] = useState(false);
   const [streamText, setStreamText] = useState("");
+  const [activeTools, setActiveTools] = useState<string[]>([]);
   const chatBottomRef = useRef<HTMLDivElement>(null);
   const [waitingForConfirmation, setWaitingForConfirmation] = useState(false);
 
@@ -140,10 +141,15 @@ export default function OnboardingPage() {
     setChat((c) => [...c, { role: "user", content: message }]);
     setStreaming(true);
     setStreamText("");
+      setActiveTools([]);
     try {
-      const final = await streamOnboardingMessage(learnerId, message, (delta) => {
-        setStreamText((t) => t + delta);
-      });
+      const final = await streamOnboardingMessage(
+        learnerId, 
+        message, 
+        (delta) => setStreamText((t) => t + delta),
+        (tool) => setActiveTools((prev) => [...prev, tool]),
+        (tool) => setActiveTools((prev) => prev.filter(t => t !== tool))
+      );
       setStreamText("");
       setChat((c) => [...c, { role: "assistant", content: final.reply || "…" }]);
       if (final.waitingForConfirmation) {
@@ -386,9 +392,20 @@ export default function OnboardingPage() {
                 </div>
               ))}
               {streaming && (
-                <div className="flex justify-start">
-                  <div className="max-w-[85%] rounded-2xl rounded-bl-md bg-secondary px-4 py-2.5 text-sm leading-relaxed whitespace-pre-wrap">
-                    {streamText || <span className="stream-caret" />}
+                <div className="flex flex-col justify-start gap-2">
+                  {activeTools.length > 0 && (
+                    <div className="flex flex-col gap-1 pl-1">
+                      {activeTools.map((t, i) => (
+                        <div key={i} className="text-xs text-muted-foreground flex items-center gap-2">
+                          <Loader2 className="h-3 w-3 animate-spin" /> Aria is using {t}...
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  <div className="flex justify-start">
+                    <div className="max-w-[85%] rounded-2xl rounded-bl-md bg-secondary px-4 py-2.5 text-sm leading-relaxed whitespace-pre-wrap">
+                      {streamText || <span className="stream-caret" />}
+                    </div>
                   </div>
                 </div>
               )}

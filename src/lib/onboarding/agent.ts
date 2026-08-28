@@ -70,8 +70,10 @@ Style rules:
 - Never invent skills for the learner. If unsure, ask.
 
 CRITICAL INSTRUCTIONS ON TOOLS:
-- You have access to the \`exaSearch\` tool. Use it if you need to look up current information or verify something they said.
-- You have access to the \`markPhaseComplete\` tool. Use this tool ONLY when you have fully satisfied the Phase goal and are ready to move to the next phase. When you call this tool, you must provide the profile fields you have extracted. Calling this tool pauses the interview and asks the user for confirmation.`;
+- You have access to the exaSearch tool. Use it if you need to look up current information or verify something they said.
+- You have access to fetchGitHubProfile. Use it if they provide their GitHub username.
+- You have access to getTechStackTrends. Use it if they ask whether a specific technology is worth learning.
+- You have access to the markPhaseComplete tool. Use this tool ONLY when you have fully satisfied the Phase goal and are ready to move to the next phase. When you call this tool, you must provide the profile fields you have extracted. Calling this tool pauses the interview and asks the user for confirmation.`;
 }
 
 // Ensure we have a provider. In production on Vercel, use Vercel Gateway.
@@ -103,6 +105,40 @@ export async function runAgentStream(learnerId: string, userMessage: string) {
     messages,
     tools: {
       exaSearch: gateway.tools.exaSearch(),
+      fetchGitHubProfile: tool({
+        description: "Fetch public profile stats and top languages for a GitHub user. Use this when the learner mentions their GitHub username to verify their experience.",
+        parameters: z.object({ username: z.string() }),
+        execute: async ({ username }) => {
+          try {
+            const res = await fetch(`https://api.github.com/users/${username}`);
+            if (!res.ok) return { error: "User not found" };
+            const data = await res.json();
+            return {
+              login: data.login,
+              publicRepos: data.public_repos,
+              followers: data.followers,
+              bio: data.bio,
+              company: data.company
+            };
+          } catch {
+            return { error: "Failed to fetch" };
+          }
+        }
+      }),
+      getTechStackTrends: tool({
+        description: "Get a simulated trend analysis for a specific technology to advise the learner if it is worth learning.",
+        parameters: z.object({ technology: z.string() }),
+        execute: async ({ technology }) => {
+          // Simulated data for the sake of the interview
+          return {
+            technology,
+            trend: "growing",
+            demand: "high",
+            commonRoles: ["Frontend Engineer", "Fullstack Developer"],
+            advice: `${technology} is heavily adopted in the industry right now. A solid choice.`
+          };
+        }
+      }),
       markPhaseComplete: tool({
         description: "Call this tool when you have successfully gathered all the required information for the current phase and are ready to move to the next phase.",
         parameters: z.object({

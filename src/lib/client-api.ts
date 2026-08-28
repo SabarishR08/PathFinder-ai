@@ -454,11 +454,17 @@ export async function streamOnboardingMessage(
   learnerId: string,
   message: string,
   onDelta: (text: string) => void,
+  onToolCall?: (toolName: string) => void,
+  onToolResult?: (toolName: string) => void,
 ): Promise<{ reply: string; phase: string; extracted: Record<string, unknown>; waitingForConfirmation?: boolean }> {
   let final = { reply: "", phase: "", extracted: {} as Record<string, unknown>, waitingForConfirmation: false };
   for await (const event of consumeSse("/api/onboarding/message", { learnerId, message })) {
     if (event.type === "delta" && typeof event.text === "string") {
       onDelta(event.text as string);
+    } else if (event.type === "tool-call" && typeof event.toolName === "string" && onToolCall) {
+      onToolCall(event.toolName);
+    } else if (event.type === "tool-result" && typeof event.toolName === "string" && onToolResult) {
+      onToolResult(event.toolName);
     } else if (event.type === "done") {
       final = {
         reply: (event.reply as string) ?? "",
