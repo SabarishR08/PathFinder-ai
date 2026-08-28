@@ -153,10 +153,25 @@
       "prereqs": []
     },
     {
+      "id": "ml_data_collection",
+      "name": "Data Collection & Sources",
+      "prereqs": [
+        "ml_python"
+      ]
+    },
+    {
+      "id": "ml_data_cleaning",
+      "name": "Data Cleaning & Preprocessing",
+      "prereqs": [
+        "ml_data_collection"
+      ]
+    },
+    {
       "id": "ml_datascience",
       "name": "Data Science",
       "prereqs": [
-        "ml_python"
+        "ml_python",
+        "ml_data_cleaning"
       ]
     },
     {
@@ -193,6 +208,13 @@
       "prereqs": [
         "ml_supervised",
         "ml_unsupervised"
+      ]
+    },
+    {
+      "id": "ml_model_evaluation",
+      "name": "Model Evaluation & Validation",
+      "prereqs": [
+        "ml_ml"
       ]
     },
     {
@@ -285,6 +307,13 @@
   ],
   "Web Development": [
     {
+      "id": "wd_git",
+      "name": "Version Control (Git)",
+      "prereqs": [
+        "wd_programming"
+      ]
+    },
+    {
       "id": "wd_programming",
       "name": "Computer Programming",
       "prereqs": []
@@ -307,6 +336,13 @@
       "prereqs": [
         "wd_html",
         "wd_css"
+      ]
+    },
+    {
+      "id": "wd_build_tools",
+      "name": "Build Tools & Bundlers",
+      "prereqs": [
+        "wd_js"
       ]
     },
     {
@@ -400,9 +436,10 @@
       "id": "wd_webdev",
       "name": "Web Development",
       "prereqs": [
-        "wd_js",
+        "wd_html",
         "wd_css",
-        "wd_html"
+        "wd_build_tools",
+        "wd_js"
       ]
     },
     {
@@ -456,9 +493,16 @@
   ],
   "Cybersecurity": [
     {
+      "id": "cy_os",
+      "name": "Operating Systems",
+      "prereqs": []
+    },
+    {
       "id": "cy_networking",
       "name": "networking basics",
-      "prereqs": []
+      "prereqs": [
+        "cy_os"
+      ]
     },
     {
       "id": "cy_scripting",
@@ -657,6 +701,14 @@
       ]
     },
     {
+      "id": "cloud_config_mgmt",
+      "name": "Configuration Management",
+      "prereqs": [
+        "cloud_platforms",
+        "cloud_linux"
+      ]
+    },
+    {
       "id": "cloud_storage",
       "name": "Cloud Storage",
       "prereqs": [
@@ -726,6 +778,7 @@
       "id": "cloud_devops",
       "name": "Devops",
       "prereqs": [
+        "cloud_config_mgmt",
         "cloud_kubernetes"
       ]
     },
