@@ -83,10 +83,14 @@ export async function runAgentStream(learnerId: string, userMessage: string) {
   const history: AgentHistoryTurn[] = JSON.parse(state.historyJson || "[]");
   const extractedSoFar: ExtractedProfile = JSON.parse(state.extractedJson || "{}");
 
+  const graph = await loadSkillGraph();
+  const domains = graph.domains.join(", ");
+  const compactSkills = Object.values(graph.skills).slice(0, 30).map((s) => `${s.id}|${s.name}`).join(", ");
+
   const systemPrompt = [
     agentSystemPrompt(state.phase as AgentPhase, learner.name),
-    `Skill catalogue (id|name) — the ONLY valid skillIds:\n${await skillCatalogText(extractedSoFar.domain)}`,
-    `Available domains: ${await domainOptionsText()}`,
+    `Available domains: ${domains}`,
+    `Some skill examples (id|name): ${compactSkills}`,
     `Profile captured so far: ${JSON.stringify(extractedSoFar)}`
   ].join("\n\n");
 
