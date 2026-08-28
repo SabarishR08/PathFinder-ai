@@ -50,7 +50,7 @@ export async function POST(request: Request) {
         } else if (part.type === "tool-call") {
           if (part.toolName === "markPhaseComplete") {
             phaseComplete = true;
-            extracted = part.args;
+            extracted = (typeof part.args === 'object' && part.args !== null) ? { ...part.args } as any : {};
             extracted.phaseComplete = true;
             
             const msg = "\n\nI think we have enough info. Do you have anything to add, or is this enough?";

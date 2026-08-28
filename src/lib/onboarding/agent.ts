@@ -103,7 +103,7 @@ export async function runAgentStream(learnerId: string, userMessage: string) {
   ];
 
   const result = streamText({
-    model: groqProvider(process.env.GROQ_MODEL || "openai/gpt-oss-120b"),
+    model: (process.env.AI_GATEWAY_API_KEY || process.env.VERCEL_ENV) ? gateway.languageModel("groq/openai/gpt-oss-120b") : groqProvider(process.env.GROQ_MODEL || "openai/gpt-oss-120b"),
     system: systemPrompt,
     messages,
     tools: {
