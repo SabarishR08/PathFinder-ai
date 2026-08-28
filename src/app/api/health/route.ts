@@ -25,12 +25,23 @@ export async function GET() {
     /* data not loadable */
   }
 
+  // Check Render ML backend
+  let mlBackend = "unavailable";
+  try {
+    const renderUrl = process.env.RENDER_BACKEND_URL || "https://pathfinder-backend-yagz.onrender.com";
+    const res = await fetch(`${renderUrl}/health`, { signal: AbortSignal.timeout(5000) });
+    if (res.ok) mlBackend = "connected";
+  } catch {
+    mlBackend = "unavailable";
+  }
+
   return json({
     status: "ok",
     service: "PathFinder AI",
     time: new Date().toISOString(),
     db: dbOk ? "connected" : "unavailable",
     llm: llmProviders.length ? llmProviders : "zai-sdk-or-fallback",
+    ml_backend: mlBackend,
     catalogue,
   });
 }

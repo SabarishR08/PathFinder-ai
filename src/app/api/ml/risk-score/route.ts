@@ -1,0 +1,25 @@
+import { proxyToRender } from "@/lib/ml-proxy";
+import { json, apiError } from "@/lib/api-helpers";
+
+export const dynamic = "force-dynamic";
+
+/**
+ * POST /api/ml/risk-score
+ *
+ * Predicts completion-risk using the trained LightGBM model on Render.
+ * Proxies the request to the Python backend.
+ */
+export async function POST(request: Request) {
+  try {
+    const body = await request.json();
+    const result = await proxyToRender("/api/risk-score", body);
+
+    if (!result.ok) {
+      return apiError(result.error || "ML backend error", result.status);
+    }
+
+    return json(result.data);
+  } catch {
+    return apiError("Invalid request body", 400);
+  }
+}
