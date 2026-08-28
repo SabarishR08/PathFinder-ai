@@ -1,0 +1,1485 @@
+{
+  "Data Science": [
+    {
+      "id": "ds_excel",
+      "name": "Microsoft Excel",
+      "prereqs": []
+    },
+    {
+      "id": "ds_python",
+      "name": "Python Programming",
+      "prereqs": []
+    },
+    {
+      "id": "ds_sql",
+      "name": "SQL",
+      "prereqs": []
+    },
+    {
+      "id": "ds_dbms",
+      "name": "Database (DBMS)",
+      "prereqs": [
+        "ds_sql"
+      ]
+    },
+    {
+      "id": "ds_stats",
+      "name": "Statistics",
+      "prereqs": []
+    },
+    {
+      "id": "ds_r",
+      "name": "R Programming",
+      "prereqs": [
+        "ds_stats"
+      ]
+    },
+    {
+      "id": "ds_rstudio",
+      "name": "Rstudio",
+      "prereqs": [
+        "ds_r"
+      ]
+    },
+    {
+      "id": "ds_cleansing",
+      "name": "Data Cleansing",
+      "prereqs": [
+        "ds_python",
+        "ds_excel"
+      ]
+    },
+    {
+      "id": "ds_jupyter",
+      "name": "Jupyter notebooks",
+      "prereqs": [
+        "ds_python"
+      ]
+    },
+    {
+      "id": "ds_eda",
+      "name": "Exploratory Data Analysis",
+      "prereqs": [
+        "ds_python",
+        "ds_stats",
+        "ds_cleansing"
+      ]
+    },
+    {
+      "id": "ds_analysis",
+      "name": "Data Analysis",
+      "prereqs": [
+        "ds_eda"
+      ]
+    },
+    {
+      "id": "ds_viz",
+      "name": "Data Visualization (DataViz)",
+      "prereqs": [
+        "ds_analysis"
+      ]
+    },
+    {
+      "id": "ds_tableau",
+      "name": "Tableau Software",
+      "prereqs": [
+        "ds_viz"
+      ]
+    },
+    {
+      "id": "ds_hypothesis",
+      "name": "Statistical Hypothesis Testing",
+      "prereqs": [
+        "ds_stats"
+      ]
+    },
+    {
+      "id": "ds_regression",
+      "name": "Regression Analysis",
+      "prereqs": [
+        "ds_hypothesis"
+      ]
+    },
+    {
+      "id": "ds_linreg",
+      "name": "Linear Regression",
+      "prereqs": [
+        "ds_regression"
+      ]
+    },
+    {
+      "id": "ds_ml_intro",
+      "name": "Machine Learning",
+      "prereqs": [
+        "ds_analysis",
+        "ds_linreg"
+      ]
+    },
+    {
+      "id": "ds_bigdata",
+      "name": "Big Data",
+      "prereqs": [
+        "ds_analysis",
+        "ds_dbms"
+      ]
+    },
+    {
+      "id": "ds_datamgmt",
+      "name": "Data Management",
+      "prereqs": [
+        "ds_dbms",
+        "ds_bigdata"
+      ]
+    },
+    {
+      "id": "ds_datascience",
+      "name": "Data Science",
+      "prereqs": [
+        "ds_ml_intro",
+        "ds_viz",
+        "ds_bigdata"
+      ]
+    }
+  ],
+  "Machine Learning": [
+    {
+      "id": "ml_python",
+      "name": "Python Programming",
+      "prereqs": []
+    },
+    {
+      "id": "ml_infoeng",
+      "name": "Information Engineering",
+      "prereqs": []
+    },
+    {
+      "id": "ml_datascience",
+      "name": "Data Science",
+      "prereqs": [
+        "ml_python"
+      ]
+    },
+    {
+      "id": "ml_supervised",
+      "name": "Supervised Learning",
+      "prereqs": [
+        "ml_datascience"
+      ]
+    },
+    {
+      "id": "ml_unsupervised",
+      "name": "Unsupervised Learning",
+      "prereqs": [
+        "ml_datascience"
+      ]
+    },
+    {
+      "id": "ml_linreg",
+      "name": "Linear Regression",
+      "prereqs": [
+        "ml_supervised"
+      ]
+    },
+    {
+      "id": "ml_funcapprox",
+      "name": "Function Approximation",
+      "prereqs": [
+        "ml_supervised"
+      ]
+    },
+    {
+      "id": "ml_ml",
+      "name": "Machine Learning",
+      "prereqs": [
+        "ml_supervised",
+        "ml_unsupervised"
+      ]
+    },
+    {
+      "id": "ml_intelsys",
+      "name": "Intelligent Systems",
+      "prereqs": [
+        "ml_ml"
+      ]
+    },
+    {
+      "id": "ml_ai",
+      "name": "Artificial Intelligence (AI)",
+      "prereqs": [
+        "ml_ml",
+        "ml_intelsys"
+      ]
+    },
+    {
+      "id": "ml_ann",
+      "name": "Artificial Neural Network",
+      "prereqs": [
+        "ml_ml"
+      ]
+    },
+    {
+      "id": "ml_tensorflow",
+      "name": "Tensorflow",
+      "prereqs": [
+        "ml_ann"
+      ]
+    },
+    {
+      "id": "ml_keras",
+      "name": "keras",
+      "prereqs": [
+        "ml_tensorflow"
+      ]
+    },
+    {
+      "id": "ml_dl",
+      "name": "Deep Learning",
+      "prereqs": [
+        "ml_ann",
+        "ml_tensorflow"
+      ]
+    },
+    {
+      "id": "ml_cnn",
+      "name": "Convolutional Neural Network",
+      "prereqs": [
+        "ml_dl"
+      ]
+    },
+    {
+      "id": "ml_nlp",
+      "name": "Natural Language Processing",
+      "prereqs": [
+        "ml_dl"
+      ]
+    },
+    {
+      "id": "ml_rl",
+      "name": "Reinforcement Learning",
+      "prereqs": [
+        "ml_ml",
+        "ml_funcapprox"
+      ]
+    },
+    {
+      "id": "ml_cloud",
+      "name": "Cloud Computing",
+      "prereqs": [
+        "ml_python"
+      ]
+    },
+    {
+      "id": "ml_gcp",
+      "name": "Google Cloud Platform",
+      "prereqs": [
+        "ml_cloud"
+      ]
+    },
+    {
+      "id": "ml_bigquery",
+      "name": "Bigquery",
+      "prereqs": [
+        "ml_gcp"
+      ]
+    }
+  ],
+  "Web Development": [
+    {
+      "id": "wd_programming",
+      "name": "Computer Programming",
+      "prereqs": []
+    },
+    {
+      "id": "wd_html",
+      "name": "HTML",
+      "prereqs": []
+    },
+    {
+      "id": "wd_css",
+      "name": "Cascading Style Sheets (CSS)",
+      "prereqs": [
+        "wd_html"
+      ]
+    },
+    {
+      "id": "wd_js",
+      "name": "JavaScript",
+      "prereqs": [
+        "wd_html",
+        "wd_css"
+      ]
+    },
+    {
+      "id": "wd_python",
+      "name": "Python Programming",
+      "prereqs": [
+        "wd_programming"
+      ]
+    },
+    {
+      "id": "wd_pysyntax",
+      "name": "Python Syntax And Semantics",
+      "prereqs": [
+        "wd_python"
+      ]
+    },
+    {
+      "id": "wd_java",
+      "name": "Java Programming",
+      "prereqs": [
+        "wd_programming"
+      ]
+    },
+    {
+      "id": "wd_c",
+      "name": "C Programming",
+      "prereqs": [
+        "wd_programming"
+      ]
+    },
+    {
+      "id": "wd_cpp",
+      "name": "C++",
+      "prereqs": [
+        "wd_c"
+      ]
+    },
+    {
+      "id": "wd_ds",
+      "name": "Data Structure",
+      "prereqs": [
+        "wd_programming"
+      ]
+    },
+    {
+      "id": "wd_algo",
+      "name": "Algorithms",
+      "prereqs": [
+        "wd_ds"
+      ]
+    },
+    {
+      "id": "wd_oop",
+      "name": "Object-Oriented Programming (OOP)",
+      "prereqs": [
+        "wd_java"
+      ]
+    },
+    {
+      "id": "wd_debug",
+      "name": "Debugging",
+      "prereqs": [
+        "wd_programming"
+      ]
+    },
+    {
+      "id": "wd_testing",
+      "name": "Software Testing",
+      "prereqs": [
+        "wd_debug"
+      ]
+    },
+    {
+      "id": "wd_linux",
+      "name": "Linux",
+      "prereqs": []
+    },
+    {
+      "id": "wd_bash",
+      "name": "Bash (Unix Shell)",
+      "prereqs": [
+        "wd_linux"
+      ]
+    },
+    {
+      "id": "wd_sql",
+      "name": "SQL",
+      "prereqs": []
+    },
+    {
+      "id": "wd_webdev",
+      "name": "Web Development",
+      "prereqs": [
+        "wd_js",
+        "wd_css",
+        "wd_html"
+      ]
+    },
+    {
+      "id": "wd_uxd",
+      "name": "User Experience Design (UXD)",
+      "prereqs": []
+    },
+    {
+      "id": "wd_ux",
+      "name": "User Experience (UX)",
+      "prereqs": [
+        "wd_uxd"
+      ]
+    },
+    {
+      "id": "wd_research",
+      "name": "User Research",
+      "prereqs": [
+        "wd_ux"
+      ]
+    },
+    {
+      "id": "wd_agile",
+      "name": "Agile Software Development",
+      "prereqs": [
+        "wd_algo"
+      ]
+    },
+    {
+      "id": "wd_problem",
+      "name": "Problem Solving",
+      "prereqs": []
+    },
+    {
+      "id": "wd_cs",
+      "name": "Computer Science",
+      "prereqs": [
+        "wd_algo",
+        "wd_ds",
+        "wd_oop"
+      ]
+    },
+    {
+      "id": "wd_ml",
+      "name": "Machine Learning",
+      "prereqs": [
+        "wd_python",
+        "wd_algo"
+      ]
+    }
+  ],
+  "Cybersecurity": [
+    {
+      "id": "cy_networking",
+      "name": "networking basics",
+      "prereqs": []
+    },
+    {
+      "id": "cy_scripting",
+      "name": "scripting",
+      "prereqs": []
+    },
+    {
+      "id": "cy_python",
+      "name": "Python Programming",
+      "prereqs": [
+        "cy_scripting"
+      ]
+    },
+    {
+      "id": "cy_security_basic",
+      "name": "security",
+      "prereqs": [
+        "cy_networking"
+      ]
+    },
+    {
+      "id": "cy_infosec",
+      "name": "Information Security (INFOSEC)",
+      "prereqs": [
+        "cy_security_basic"
+      ]
+    },
+    {
+      "id": "cy_netsec",
+      "name": "Network Security",
+      "prereqs": [
+        "cy_networking",
+        "cy_infosec"
+      ]
+    },
+    {
+      "id": "cy_cyberattacks",
+      "name": "Cyberattacks",
+      "prereqs": [
+        "cy_netsec"
+      ]
+    },
+    {
+      "id": "cy_sqli",
+      "name": "Sql Injection",
+      "prereqs": [
+        "cy_python",
+        "cy_infosec"
+      ]
+    },
+    {
+      "id": "cy_dbvuln",
+      "name": "database vulnerabilities",
+      "prereqs": [
+        "cy_sqli"
+      ]
+    },
+    {
+      "id": "cy_appsec",
+      "name": "Application Security",
+      "prereqs": [
+        "cy_infosec"
+      ]
+    },
+    {
+      "id": "cy_crypto",
+      "name": "Cryptography",
+      "prereqs": [
+        "cy_infosec"
+      ]
+    },
+    {
+      "id": "cy_pkc",
+      "name": "Public-Key Cryptography",
+      "prereqs": [
+        "cy_crypto"
+      ]
+    },
+    {
+      "id": "cy_pentest",
+      "name": "Penetration Test",
+      "prereqs": [
+        "cy_netsec",
+        "cy_appsec"
+      ]
+    },
+    {
+      "id": "cy_forensics",
+      "name": "Digital Forensics",
+      "prereqs": [
+        "cy_infosec"
+      ]
+    },
+    {
+      "id": "cy_incident",
+      "name": "Computer Security Incident Management",
+      "prereqs": [
+        "cy_netsec",
+        "cy_forensics"
+      ]
+    },
+    {
+      "id": "cy_threat",
+      "name": "threat intelligence",
+      "prereqs": [
+        "cy_cyberattacks"
+      ]
+    },
+    {
+      "id": "cy_analyst",
+      "name": "security analyst",
+      "prereqs": [
+        "cy_infosec",
+        "cy_netsec"
+      ]
+    },
+    {
+      "id": "cy_risk",
+      "name": "Risk Management",
+      "prereqs": [
+        "cy_infosec"
+      ]
+    },
+    {
+      "id": "cy_bc",
+      "name": "Business Continuity",
+      "prereqs": [
+        "cy_risk"
+      ]
+    },
+    {
+      "id": "cy_dr",
+      "name": "Disaster Recovery",
+      "prereqs": [
+        "cy_bc"
+      ]
+    },
+    {
+      "id": "cy_cybersecurity",
+      "name": "Cybersecurity",
+      "prereqs": [
+        "cy_infosec",
+        "cy_netsec",
+        "cy_crypto"
+      ]
+    }
+  ],
+  "Cloud Computing": [
+    {
+      "id": "cloud_linux",
+      "name": "Linux",
+      "prereqs": []
+    },
+    {
+      "id": "cloud_python",
+      "name": "Python Programming",
+      "prereqs": []
+    },
+    {
+      "id": "cloud_dbms",
+      "name": "Database (DBMS)",
+      "prereqs": []
+    },
+    {
+      "id": "cloud_netarch",
+      "name": "Network Architecture",
+      "prereqs": []
+    },
+    {
+      "id": "cloud_vpn",
+      "name": "Virtual Private Network (VPN)",
+      "prereqs": [
+        "cloud_netarch"
+      ]
+    },
+    {
+      "id": "cloud_vm",
+      "name": "Virtual Machine",
+      "prereqs": [
+        "cloud_linux"
+      ]
+    },
+    {
+      "id": "cloud_computing",
+      "name": "Cloud Computing",
+      "prereqs": [
+        "cloud_vm",
+        "cloud_netarch"
+      ]
+    },
+    {
+      "id": "cloud_platforms",
+      "name": "Cloud Platforms",
+      "prereqs": [
+        "cloud_computing"
+      ]
+    },
+    {
+      "id": "cloud_storage",
+      "name": "Cloud Storage",
+      "prereqs": [
+        "cloud_computing"
+      ]
+    },
+    {
+      "id": "cloud_datastore",
+      "name": "Data Store",
+      "prereqs": [
+        "cloud_storage",
+        "cloud_dbms"
+      ]
+    },
+    {
+      "id": "cloud_apps",
+      "name": "Cloud Applications",
+      "prereqs": [
+        "cloud_platforms"
+      ]
+    },
+    {
+      "id": "cloud_gcp",
+      "name": "Google Cloud Platform",
+      "prereqs": [
+        "cloud_platforms"
+      ]
+    },
+    {
+      "id": "cloud_compute_engine",
+      "name": "Google Compute Engine",
+      "prereqs": [
+        "cloud_gcp"
+      ]
+    },
+    {
+      "id": "cloud_app_engine",
+      "name": "Google App Engine (GAE)",
+      "prereqs": [
+        "cloud_gcp"
+      ]
+    },
+    {
+      "id": "cloud_azure",
+      "name": "Microsoft Azure",
+      "prereqs": [
+        "cloud_platforms"
+      ]
+    },
+    {
+      "id": "cloud_loadbalancing",
+      "name": "Load Balancing",
+      "prereqs": [
+        "cloud_netarch",
+        "cloud_platforms"
+      ]
+    },
+    {
+      "id": "cloud_kubernetes",
+      "name": "Kubernetes",
+      "prereqs": [
+        "cloud_apps",
+        "cloud_loadbalancing"
+      ]
+    },
+    {
+      "id": "cloud_devops",
+      "name": "Devops",
+      "prereqs": [
+        "cloud_kubernetes"
+      ]
+    },
+    {
+      "id": "cloud_debugging",
+      "name": "Debugging",
+      "prereqs": [
+        "cloud_python"
+      ]
+    },
+    {
+      "id": "cloud_techsupport",
+      "name": "Technical Support",
+      "prereqs": [
+        "cloud_debugging"
+      ]
+    }
+  ],
+  "Business": [
+    {
+      "id": "biz_communication",
+      "name": "Communication",
+      "prereqs": []
+    },
+    {
+      "id": "biz_excel",
+      "name": "Microsoft Excel",
+      "prereqs": []
+    },
+    {
+      "id": "biz_planning",
+      "name": "Planning",
+      "prereqs": []
+    },
+    {
+      "id": "biz_accounting",
+      "name": "Accounting",
+      "prereqs": [
+        "biz_excel"
+      ]
+    },
+    {
+      "id": "biz_finaccounting",
+      "name": "Financial Accounting",
+      "prereqs": [
+        "biz_accounting"
+      ]
+    },
+    {
+      "id": "biz_finstatement",
+      "name": "Financial Statement",
+      "prereqs": [
+        "biz_finaccounting"
+      ]
+    },
+    {
+      "id": "biz_finance",
+      "name": "Finance",
+      "prereqs": [
+        "biz_finstatement"
+      ]
+    },
+    {
+      "id": "biz_dataanalysis",
+      "name": "Data Analysis",
+      "prereqs": [
+        "biz_excel"
+      ]
+    },
+    {
+      "id": "biz_management",
+      "name": "Management",
+      "prereqs": [
+        "biz_communication",
+        "biz_planning"
+      ]
+    },
+    {
+      "id": "biz_projmgmt",
+      "name": "Project Management",
+      "prereqs": [
+        "biz_management",
+        "biz_planning"
+      ]
+    },
+    {
+      "id": "biz_projplanning",
+      "name": "Project Planning",
+      "prereqs": [
+        "biz_projmgmt"
+      ]
+    },
+    {
+      "id": "biz_changemgmt",
+      "name": "Change Management",
+      "prereqs": [
+        "biz_management"
+      ]
+    },
+    {
+      "id": "biz_leadership",
+      "name": "Leadership",
+      "prereqs": [
+        "biz_management",
+        "biz_communication"
+      ]
+    },
+    {
+      "id": "biz_strategicthinking",
+      "name": "Strategic Thinking",
+      "prereqs": [
+        "biz_leadership"
+      ]
+    },
+    {
+      "id": "biz_strategicmgmt",
+      "name": "Strategic Management",
+      "prereqs": [
+        "biz_strategicthinking",
+        "biz_planning"
+      ]
+    },
+    {
+      "id": "biz_bizstrategy",
+      "name": "Business Strategy",
+      "prereqs": [
+        "biz_strategicmgmt"
+      ]
+    },
+    {
+      "id": "biz_innovation",
+      "name": "Innovation",
+      "prereqs": [
+        "biz_strategicthinking"
+      ]
+    },
+    {
+      "id": "biz_riskmgmt",
+      "name": "Risk Management",
+      "prereqs": [
+        "biz_finance",
+        "biz_strategicmgmt"
+      ]
+    },
+    {
+      "id": "biz_marketing",
+      "name": "Marketing",
+      "prereqs": [
+        "biz_communication"
+      ]
+    },
+    {
+      "id": "biz_socialmedia",
+      "name": "Social Media Marketing",
+      "prereqs": [
+        "biz_marketing"
+      ]
+    }
+  ],
+  "Health": [
+    {
+      "id": "health_communication",
+      "name": "Communication",
+      "prereqs": []
+    },
+    {
+      "id": "health_biology",
+      "name": "Biology",
+      "prereqs": []
+    },
+    {
+      "id": "health_dataanalysis",
+      "name": "Data Analysis",
+      "prereqs": []
+    },
+    {
+      "id": "health_datacollection",
+      "name": "Data Collection",
+      "prereqs": [
+        "health_dataanalysis"
+      ]
+    },
+    {
+      "id": "health_epidemiology",
+      "name": "Epidemiology",
+      "prereqs": [
+        "health_biology",
+        "health_dataanalysis"
+      ]
+    },
+    {
+      "id": "health_publichealth",
+      "name": "Public Health",
+      "prereqs": [
+        "health_epidemiology"
+      ]
+    },
+    {
+      "id": "health_immunology",
+      "name": "Immunology",
+      "prereqs": [
+        "health_biology"
+      ]
+    },
+    {
+      "id": "health_autoimmunity",
+      "name": "Autoimmunity",
+      "prereqs": [
+        "health_immunology"
+      ]
+    },
+    {
+      "id": "health_tumourimmunity",
+      "name": "Tumour immunity",
+      "prereqs": [
+        "health_immunology"
+      ]
+    },
+    {
+      "id": "health_infectious",
+      "name": "Infectious Diseases",
+      "prereqs": [
+        "health_immunology",
+        "health_epidemiology"
+      ]
+    },
+    {
+      "id": "health_patientcare",
+      "name": "Patient Care",
+      "prereqs": [
+        "health_communication"
+      ]
+    },
+    {
+      "id": "health_patientcentered",
+      "name": "patient-centered care",
+      "prereqs": [
+        "health_patientcare"
+      ]
+    },
+    {
+      "id": "health_symptommgmt",
+      "name": "symptom management",
+      "prereqs": [
+        "health_patientcare"
+      ]
+    },
+    {
+      "id": "health_improvedsymptom",
+      "name": "improved symptom management",
+      "prereqs": [
+        "health_symptommgmt"
+      ]
+    },
+    {
+      "id": "health_ebp",
+      "name": "evidence-based practice",
+      "prereqs": [
+        "health_dataanalysis",
+        "health_patientcare"
+      ]
+    },
+    {
+      "id": "health_wellbeing",
+      "name": "wellbeing",
+      "prereqs": [
+        "health_communication"
+      ]
+    },
+    {
+      "id": "health_nutrition",
+      "name": "Nutrition",
+      "prereqs": [
+        "health_wellbeing"
+      ]
+    },
+    {
+      "id": "health_informatics",
+      "name": "Health Informatics",
+      "prereqs": [
+        "health_dataanalysis"
+      ]
+    },
+    {
+      "id": "health_education",
+      "name": "Health Education",
+      "prereqs": [
+        "health_communication",
+        "health_publichealth"
+      ]
+    },
+    {
+      "id": "health_clinicaltrial",
+      "name": "Clinical Trial Design",
+      "prereqs": [
+        "health_epidemiology",
+        "health_dataanalysis"
+      ]
+    }
+  ],
+  "Personal Development": [
+    {
+      "id": "pd_communication",
+      "name": "Communication",
+      "prereqs": []
+    },
+    {
+      "id": "pd_listening",
+      "name": "Listening Skills",
+      "prereqs": [
+        "pd_communication"
+      ]
+    },
+    {
+      "id": "pd_softskills",
+      "name": "Soft skills",
+      "prereqs": [
+        "pd_communication"
+      ]
+    },
+    {
+      "id": "pd_criticalthinking",
+      "name": "Critical Thinking",
+      "prereqs": []
+    },
+    {
+      "id": "pd_problemsolving",
+      "name": "Problem Solving",
+      "prereqs": [
+        "pd_criticalthinking"
+      ]
+    },
+    {
+      "id": "pd_creativity",
+      "name": "Creativity",
+      "prereqs": []
+    },
+    {
+      "id": "pd_writing",
+      "name": "Writing",
+      "prereqs": [
+        "pd_communication"
+      ]
+    },
+    {
+      "id": "pd_editing",
+      "name": "Editing",
+      "prereqs": [
+        "pd_writing"
+      ]
+    },
+    {
+      "id": "pd_persuasion",
+      "name": "Persuasion",
+      "prereqs": [
+        "pd_communication",
+        "pd_criticalthinking"
+      ]
+    },
+    {
+      "id": "pd_negotiation",
+      "name": "Negotiation",
+      "prereqs": [
+        "pd_persuasion"
+      ]
+    },
+    {
+      "id": "pd_delegation",
+      "name": "Delegation",
+      "prereqs": [
+        "pd_communication"
+      ]
+    },
+    {
+      "id": "pd_timemgmt",
+      "name": "Time management",
+      "prereqs": []
+    },
+    {
+      "id": "pd_goalsetting",
+      "name": "goal setting",
+      "prereqs": [
+        "pd_timemgmt"
+      ]
+    },
+    {
+      "id": "pd_resilience",
+      "name": "Resilience",
+      "prereqs": []
+    },
+    {
+      "id": "pd_happiness",
+      "name": "Happiness",
+      "prereqs": [
+        "pd_resilience"
+      ]
+    },
+    {
+      "id": "pd_personaldev",
+      "name": "Personal Development",
+      "prereqs": [
+        "pd_goalsetting",
+        "pd_resilience",
+        "pd_softskills"
+      ]
+    },
+    {
+      "id": "pd_profdev",
+      "name": "Professional Development",
+      "prereqs": [
+        "pd_personaldev",
+        "pd_softskills"
+      ]
+    },
+    {
+      "id": "pd_videoproduction",
+      "name": "Video Production",
+      "prereqs": [
+        "pd_creativity"
+      ]
+    },
+    {
+      "id": "pd_videoediting",
+      "name": "Video Editing",
+      "prereqs": [
+        "pd_videoproduction"
+      ]
+    },
+    {
+      "id": "pd_skillsmgmt",
+      "name": "Skills Management",
+      "prereqs": [
+        "pd_goalsetting",
+        "pd_profdev"
+      ]
+    }
+  ],
+  "AI Engineering": [
+    {
+      "id": "aie_python",
+      "name": "Python for AI Systems",
+      "prereqs": []
+    },
+    {
+      "id": "aie_llm_fundamentals",
+      "name": "LLM Fundamentals",
+      "prereqs": [
+        "aie_python"
+      ]
+    },
+    {
+      "id": "aie_api_integration",
+      "name": "LLM API Integration",
+      "prereqs": [
+        "aie_llm_fundamentals"
+      ]
+    },
+    {
+      "id": "aie_data_pipelines",
+      "name": "Data Pipelines for AI",
+      "prereqs": [
+        "aie_python"
+      ]
+    },
+    {
+      "id": "aie_finetuning",
+      "name": "Fine-Tuning & Model Adaptation",
+      "prereqs": [
+        "aie_llm_fundamentals"
+      ]
+    },
+    {
+      "id": "aie_agent_design",
+      "name": "AI Agent Design Patterns",
+      "prereqs": [
+        "aie_api_integration"
+      ]
+    },
+    {
+      "id": "aie_tool_use",
+      "name": "Tool Use & Function Calling",
+      "prereqs": [
+        "aie_agent_design"
+      ]
+    },
+    {
+      "id": "aie_memory_systems",
+      "name": "Agent Memory Systems",
+      "prereqs": [
+        "aie_tool_use"
+      ]
+    },
+    {
+      "id": "aie_orchestration",
+      "name": "Multi-Agent Orchestration",
+      "prereqs": [
+        "aie_memory_systems"
+      ]
+    },
+    {
+      "id": "aie_evaluation",
+      "name": "LLM Evaluation & Testing",
+      "prereqs": [
+        "aie_api_integration"
+      ]
+    },
+    {
+      "id": "aie_observability",
+      "name": "AI Observability & Tracing",
+      "prereqs": [
+        "aie_evaluation"
+      ]
+    },
+    {
+      "id": "aie_mlops_basics",
+      "name": "MLOps Fundamentals",
+      "prereqs": [
+        "aie_data_pipelines"
+      ]
+    },
+    {
+      "id": "aie_deployment",
+      "name": "Model Serving & Deployment",
+      "prereqs": [
+        "aie_api_integration",
+        "aie_mlops_basics"
+      ]
+    },
+    {
+      "id": "aie_scaling",
+      "name": "Scaling Inference Infrastructure",
+      "prereqs": [
+        "aie_deployment"
+      ]
+    },
+    {
+      "id": "aie_cost_optimization",
+      "name": "Cost & Latency Optimization",
+      "prereqs": [
+        "aie_scaling"
+      ]
+    },
+    {
+      "id": "aie_security",
+      "name": "AI System Security",
+      "prereqs": [
+        "aie_deployment"
+      ]
+    }
+  ],
+  "Prompt Engineering & LLMOps": [
+    {
+      "id": "pe_llm_basics",
+      "name": "How LLMs Work",
+      "prereqs": []
+    },
+    {
+      "id": "pe_prompt_fundamentals",
+      "name": "Prompt Design Fundamentals",
+      "prereqs": [
+        "pe_llm_basics"
+      ]
+    },
+    {
+      "id": "pe_fewshot",
+      "name": "Few-Shot & In-Context Learning",
+      "prereqs": [
+        "pe_prompt_fundamentals"
+      ]
+    },
+    {
+      "id": "pe_cot",
+      "name": "Chain-of-Thought Reasoning",
+      "prereqs": [
+        "pe_fewshot"
+      ]
+    },
+    {
+      "id": "pe_structured_output",
+      "name": "Structured Output & Function Calling",
+      "prereqs": [
+        "pe_prompt_fundamentals"
+      ]
+    },
+    {
+      "id": "pe_prompt_chaining",
+      "name": "Prompt Chaining & Pipelines",
+      "prereqs": [
+        "pe_cot",
+        "pe_structured_output"
+      ]
+    },
+    {
+      "id": "pe_eval_metrics",
+      "name": "Prompt Evaluation Metrics",
+      "prereqs": [
+        "pe_prompt_fundamentals"
+      ]
+    },
+    {
+      "id": "pe_ab_testing",
+      "name": "A/B Testing Prompts",
+      "prereqs": [
+        "pe_eval_metrics"
+      ]
+    },
+    {
+      "id": "pe_guardrails",
+      "name": "Guardrails & Safety Filters",
+      "prereqs": [
+        "pe_structured_output"
+      ]
+    },
+    {
+      "id": "pe_jailbreak_defense",
+      "name": "Adversarial Prompt Defense",
+      "prereqs": [
+        "pe_guardrails"
+      ]
+    },
+    {
+      "id": "pe_versioning",
+      "name": "Prompt Versioning & Registry",
+      "prereqs": [
+        "pe_ab_testing"
+      ]
+    },
+    {
+      "id": "pe_cicd",
+      "name": "LLMOps CI/CD Pipelines",
+      "prereqs": [
+        "pe_versioning",
+        "pe_jailbreak_defense"
+      ]
+    },
+    {
+      "id": "pe_monitoring",
+      "name": "Production Prompt Monitoring",
+      "prereqs": [
+        "pe_cicd"
+      ]
+    },
+    {
+      "id": "pe_cost_latency",
+      "name": "Token Cost & Latency Tuning",
+      "prereqs": [
+        "pe_monitoring"
+      ]
+    }
+  ],
+  "Generative AI & RAG Systems": [
+    {
+      "id": "rag_python",
+      "name": "Python for GenAI",
+      "prereqs": []
+    },
+    {
+      "id": "rag_embeddings",
+      "name": "Embeddings & Vector Representations",
+      "prereqs": [
+        "rag_python"
+      ]
+    },
+    {
+      "id": "rag_vector_db",
+      "name": "Vector Databases & Indexing",
+      "prereqs": [
+        "rag_embeddings"
+      ]
+    },
+    {
+      "id": "rag_chunking",
+      "name": "Document Chunking Strategies",
+      "prereqs": [
+        "rag_embeddings"
+      ]
+    },
+    {
+      "id": "rag_retrieval",
+      "name": "Retrieval Strategies (Dense/Sparse/Hybrid)",
+      "prereqs": [
+        "rag_vector_db"
+      ]
+    },
+    {
+      "id": "rag_reranking",
+      "name": "Re-ranking & Retrieval Quality",
+      "prereqs": [
+        "rag_retrieval"
+      ]
+    },
+    {
+      "id": "rag_prompt_construction",
+      "name": "Context-Augmented Prompt Construction",
+      "prereqs": [
+        "rag_chunking"
+      ]
+    },
+    {
+      "id": "rag_pipeline",
+      "name": "End-to-End RAG Pipeline Design",
+      "prereqs": [
+        "rag_reranking",
+        "rag_prompt_construction"
+      ]
+    },
+    {
+      "id": "rag_evaluation",
+      "name": "RAG Evaluation (Faithfulness & Relevance)",
+      "prereqs": [
+        "rag_pipeline"
+      ]
+    },
+    {
+      "id": "rag_agentic_rag",
+      "name": "Agentic RAG & Multi-Hop Retrieval",
+      "prereqs": [
+        "rag_evaluation"
+      ]
+    },
+    {
+      "id": "rag_graphrag",
+      "name": "Graph-Based RAG",
+      "prereqs": [
+        "rag_agentic_rag"
+      ]
+    },
+    {
+      "id": "rag_multimodal",
+      "name": "Multimodal RAG (Text + Image)",
+      "prereqs": [
+        "rag_pipeline"
+      ]
+    },
+    {
+      "id": "rag_caching",
+      "name": "Retrieval Caching & Latency Optimization",
+      "prereqs": [
+        "rag_pipeline"
+      ]
+    },
+    {
+      "id": "rag_security",
+      "name": "RAG Data Security & Access Control",
+      "prereqs": [
+        "rag_pipeline"
+      ]
+    },
+    {
+      "id": "rag_deployment",
+      "name": "Deploying RAG in Production",
+      "prereqs": [
+        "rag_evaluation"
+      ]
+    }
+  ]
+}
