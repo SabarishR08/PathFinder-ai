@@ -1,0 +1,276 @@
+/**
+ * Path generation — assembles engine output into milestone-based roadmaps.
+ *
+ * Pipeline:
+ *   1. Known skills = assessments with evidencedLevel >= 3 (proof-backed).
+ *   2. Engine orders the prerequisite closure (DFS topo or Kahn/SPT).
+ *   3. Skills are grouped into milestones by graph-depth bands.
+ *   4. Time model schedules milestones against the learner's weekly hours.
+ *   5. Scenario variants tune: algorithm, breadth, project cadence.
+ *
+ * Project specs and gate quizzes are generated lazily (on milestone open)
+ * to keep generation sub-second.
+ */
+import { db } from "@/lib/db";
+import { buildGeneratedPath, computeDepths, phasePartitions } from "@/lib/engine";
+import { scheduleMilestones, milestoneHours } from "@/lib/engine/time";
+import type { MilestoneDraft } from "./types";
+
+export type Scenario = "balanced" | "intensive" | "exploratory";
+
+export const SCENARIO_META: Record<Scenario, { label: string; tagline: string; description: string }> = {
+  balanced: {
+    label: "Balanced",
+    tagline: "Steady climb, project every other phase",
+    description: "Classic prerequisite ordering (DFS topological). A hands-on project every second phase, gate quiz at every phase end. The default recommendation for most learners.",
+  },
+  intensive: {
+    label: "Intensive",
+    tagline: "Quick wins first, compressed schedule",
+    description: "SPT-scheduled ordering (Kahn + min-heap) front-loads short skills so you bank visible progress early. Focused course picks, projects at the midpoint and finale only. Best when your deadline is tight.",
+  },
+  exploratory: {
+    label: "Exploratory",
+    tagline: "Breadth around the goal, portfolio capstone",
+    description: "Same prerequisite ordering, plus an adjacent-skills phase sampling sibling skills in your domain, ending in a portfolio-grade capstone. Best when you want options, not just the fastest route.",
+  },
+};
+
+const DEPTH_THEMES: Array<{ maxDepth: number; theme: string }> = [
+  { maxDepth: 0, theme: "Foundations" },
+  { maxDepth: 1, theme: "Core Practice" },
+  { maxDepth: 2, theme: "Applied Work" },
+  { maxDepth: 3, theme: "Integration" },
+  { maxDepth: 4, theme: "Specialisation" },
+  { maxDepth: Infinity, theme: "Mastery" },
+];
+
+function themeForDepth(depth: number): string {
+  return DEPTH_THEMES.find((t) => depth <= t.maxDepth)?.theme ?? "Mastery";
+}
+
+export interface PathGenerationInput {
+  learnerId: string;
+  goalSkillId: string;
+  scenario: Scenario;
+  hoursPerWeek: number;
+  /** Skills already known (evidencedLevel >= 3). */
+  knownSkillIds: string[];
+  /** skillId -> evidenced level, for course level affinity + ZPD. */
+  evidencedLevels: Record<string, number>;
+}
+
+export interface GenerationOutcome {
+  pathId: string;
+  version: number;
+  totalSkills: number;
+  totalHours: number;
+  milestones: MilestoneDraft[];
+  algorithm: string;
+  etaDate: string;
+}
+
+export async function generatePath(input: PathGenerationInput): Promise<GenerationOutcome> {
+  const { learnerId, goalSkillId, scenario, hoursPerWeek, knownSkillIds, evidencedLevels } = input;
+
+  const algorithm = scenario === "intensive" ? "kahn-spt" : "dfs-topological";
+  const generated = await buildGeneratedPath({
+    targetSkillId: goalSkillId,
+    knownSkillIds,
+    algorithm,
+    coursesPerSkill: scenario === "intensive" ? 1 : 2,
+    evidencedLevels,
+  });
+
+  const depths = computeDepths(generated.graph);
+  const phases = phasePartitions(
+    generated.skills.map((s) => s.skillId),
+    depths,
+  );
+
+  // Exploratory: append an adjacent-skills phase from the goal's domain
+  // siblings (same depth band, not already on the path).
+  let adjacentSkills: string[] = [];
+  if (scenario === "exploratory") {
+    const goalDepth = depths[goalSkillId] ?? 0;
+    const onPath = new Set(generated.skills.map((s) => s.skillId));
+    adjacentSkills = Object.values(generated.graph.skills)
+      .filter(
+        (s) =>
+          s.domain === generated.domain &&
+          !onPath.has(s.id) &&
+          !knownSkillIds.includes(s.id) &&
+          (depths[s.id] ?? 0) <= goalDepth,
+      )
+      .sort((a, b) => (depths[b.id] ?? 0) - (depths[a.id] ?? 0))
+      .slice(0, 3)
+      .map((s) => s.id);
+  }
+
+  const drafts: MilestoneDraft[] = [];
+  let phaseIndex = 1;
+
+  const buildDraft = (skillIds: string[], opts: { theme: string; adjacent?: boolean }): MilestoneDraft => {
+    const skillMeta = skillIds.map((id) => generated.skills.find((s) => s.skillId === id)).filter(Boolean);
+    const named = skillIds.map((id) => generated.graph.skills[id]?.name ?? id);
+    const primaryDepth = Math.max(...skillIds.map((id) => depths[id] ?? 0));
+    const hours = skillMeta.reduce((sum, s) => sum + (s?.estimatedHours ?? 8), 0);
+    const meanLevel =
+      skillIds.reduce((sum, id) => sum + (evidencedLevels[id] ?? 0), 0) / Math.max(1, skillIds.length);
+    const hasProject = opts.adjacent
+      ? false
+      : scenario === "intensive"
+        ? phaseIndex === Math.ceil(phases.length / 2) || phaseIndex === phases.length
+        : phaseIndex % 2 === 0 || phaseIndex === phases.length;
+    const totalHours = milestoneHours({ skillHours: hours, hasProject, hasQuiz: true });
+    return {
+      order: 0, // assigned below
+      phase: `${phaseIndex}. ${opts.theme}${opts.adjacent ? " (Adjacent)" : ""}`,
+      title: named.slice(0, 3).join(" · ") + (named.length > 3 ? ` +${named.length - 3}` : ""),
+      description: `Build ${opts.theme.toLowerCase()} strength in ${named.join(", ")}. ${
+        hasProject ? "This phase ends with a hands-on project." : "This phase ends with a gate quiz."
+      } Mean evidenced level ${meanLevel.toFixed(1)}/5.`,
+      skillIds,
+      skillNames: named,
+      estimatedHours: totalHours,
+      hasProject,
+      hasGateQuiz: true,
+      meanEvidencedLevel: meanLevel,
+    };
+  };
+
+  for (const phaseSkills of phases) {
+    if (!phaseSkills.length) continue;
+    const primaryDepth = Math.max(...phaseSkills.map((id) => depths[id] ?? 0));
+    drafts.push(buildDraft(phaseSkills, { theme: themeForDepth(primaryDepth) }));
+    phaseIndex += 1;
+  }
+
+  if (adjacentSkills.length) {
+    drafts.push(buildDraft(adjacentSkills, { theme: "Adjacent Skills", adjacent: true }));
+    phaseIndex += 1;
+  }
+
+  drafts.forEach((d, i) => (d.order = i + 1));
+  const firstMilestoneAvailable = drafts.length ? 1 : 0;
+
+  // Schedule against weekly hours.
+  const scheduled = scheduleMilestones(
+    drafts.map((d) => ({ item: d, hours: d.estimatedHours })),
+    hoursPerWeek,
+    new Date(),
+  );
+
+  const learner = await db.learner.findUnique({ where: { id: learnerId } });
+  const activeVersion = await db.learningPath.count({ where: { learnerId } });
+  const assessments = await db.skillAssessment.findMany({ where: { learnerId } });
+
+  const path = await db.learningPath.create({
+    data: {
+      learnerId,
+      version: activeVersion + 1,
+      scenario,
+      algorithm,
+      isActive: true,
+      totalSkills: generated.skills.length,
+      totalHours: drafts.reduce((s, d) => s + d.estimatedHours, 0),
+      hoursPerWeek,
+      snapshotJson: JSON.stringify({
+        goalSkillId,
+        knownSkillIds,
+        evidencedLevels,
+        assessments: assessments.map((a) => ({
+          skillId: a.skillId,
+          claimed: a.claimedLevel,
+          evidenced: a.evidencedLevel,
+          tier: a.tier,
+        })),
+        generatedAt: new Date().toISOString(),
+      }),
+    },
+  });
+
+  await db.learningPath.updateMany({ where: { learnerId, id: { not: path.id } }, data: { isActive: false } });
+
+  await db.milestone.createMany({
+    data: drafts.map((d, i) => ({
+      pathId: path.id,
+      order: d.order,
+      phase: d.phase,
+      title: d.title,
+      description: d.description,
+      skillIdsJson: JSON.stringify(d.skillIds),
+      skillNamesJson: JSON.stringify(d.skillNames),
+      estimatedHours: d.estimatedHours,
+      status: d.order === firstMilestoneAvailable ? "available" : "locked",
+      hasProject: d.hasProject,
+      hasGateQuiz: d.hasGateQuiz,
+      targetStartAt: scheduled[i].startAt,
+      targetEndAt: scheduled[i].endAt,
+    })),
+  });
+
+  await db.activityLog.create({
+    data: {
+      learnerId,
+      kind: "path_generated",
+      detailJson: JSON.stringify({
+        pathId: path.id,
+        scenario,
+        version: path.version,
+        milestones: drafts.length,
+        totalHours: path.totalHours,
+        goalSkillId,
+      }),
+    },
+  });
+
+  const lastEnd = scheduled.length ? scheduled[scheduled.length - 1].endAt : new Date();
+
+  return {
+    pathId: path.id,
+    version: path.version,
+    totalSkills: generated.skills.length,
+    totalHours: path.totalHours,
+    milestones: drafts,
+    algorithm,
+    etaDate: lastEnd.toISOString().slice(0, 10),
+  };
+}
+
+/** The set of skills the engine treats as already known. */
+export async function knownSkillIdsFor(learnerId: string): Promise<{ known: string[]; levels: Record<string, number> }> {
+  const assessments = await db.skillAssessment.findMany({ where: { learnerId } });
+  const known = assessments.filter((a) => a.evidencedLevel >= 3).map((a) => a.skillId);
+  const levels: Record<string, number> = {};
+  for (const a of assessments) levels[a.skillId] = a.evidencedLevel;
+  return { known, levels };
+}
+
+/** Scenario preview (no persistence) for the scenario picker UI. */
+export async function previewScenarios(input: Omit<PathGenerationInput, "scenario">): Promise<
+  Array<{ scenario: Scenario; totalSkills: number; totalHours: number; etaWeeks: number; algorithm: string; milestones: number }>
+> {
+  const outcomes = [];
+  for (const scenario of ["balanced", "intensive", "exploratory"] as Scenario[]) {
+    const generated = await buildGeneratedPath({
+      targetSkillId: input.goalSkillId,
+      knownSkillIds: input.knownSkillIds,
+      algorithm: scenario === "intensive" ? "kahn-spt" : "dfs-topological",
+      coursesPerSkill: scenario === "intensive" ? 1 : 2,
+      evidencedLevels: input.evidencedLevels,
+    });
+    const depths = computeDepths(generated.graph);
+    const phases = phasePartitions(generated.skills.map((s) => s.skillId), depths);
+    const totalHours = generated.totalEstimatedHours + phases.length; // + quiz hours
+    outcomes.push({
+      scenario,
+      totalSkills: generated.skills.length,
+      totalHours,
+      etaWeeks: Math.max(1, Math.round(totalHours / Math.max(1, input.hoursPerWeek))),
+      algorithm: generated.algorithm,
+      milestones: phases.length,
+    });
+  }
+  return outcomes;
+}
