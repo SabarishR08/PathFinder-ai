@@ -2,7 +2,7 @@ import { db } from "@/lib/db";
 import { loadSkillGraph } from "@/lib/engine/data";
 import { fuseEvidence, logEvidence } from "@/lib/evidence/fuse";
 import type { SkillClaim } from "@/lib/evidence/types";
-import { streamText, tool, stepCountIs } from "ai";
+import { streamText, tool } from "ai";
 import { createOpenAI } from "@ai-sdk/openai";
 import { gateway } from "@ai-sdk/gateway";
 import { z } from "zod";
@@ -163,7 +163,7 @@ export async function runAgentStream(learnerId: string, userMessage: string) {
         }
       })
     },
-    stopWhen: stepCountIs(3),
+    maxSteps: 3,
   });
 
   return { result, state, learnerId, userMessage };
