@@ -78,7 +78,7 @@ export async function buildContextDigest(learnerId: string): Promise<MentorConte
 }
 
 export function mentorSystemPrompt(digest: MentorContextDigest, socratic: boolean): string {
-  return `You are Aria, the learner's personal mentor inside PathFinder.
+  return `You are Nexus, the learner's personal mentor inside PathFinder.
 
 LEARNER CONTEXT (real data — use it, reference it):
 ${JSON.stringify(digest, null, 1)}

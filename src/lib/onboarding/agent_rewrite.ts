@@ -2,7 +2,7 @@ import { db } from "@/lib/db";
 import { loadSkillGraph } from "@/lib/engine/data";
 import { fuseEvidence, logEvidence } from "@/lib/evidence/fuse";
 import type { SkillClaim } from "@/lib/evidence/types";
-import { streamText, tool, stepCountIs } from "ai";
+import { streamText, tool, type CoreMessage } from "ai";
 import { createOpenAI } from "@ai-sdk/openai";
 import { gateway } from "@ai-sdk/gateway";
 import { z } from "zod";
@@ -10,7 +10,6 @@ import { z } from "zod";
 export const AGENT_SEPARATOR = "---PATHFINDER-JSON---";
 
 export type AgentPhase = "intro" | "goal" | "background" | "time" | "style" | "wrap_up" | "done";
-
 export const PHASE_ORDER: AgentPhase[] = ["intro", "goal", "background", "time", "style", "wrap_up", "done"];
 
 export interface AgentHistoryTurn {
@@ -68,16 +67,10 @@ Style rules:
 - Reference what the learner already told you without over-explaining — never re-ask.
 - If an answer is vague, probe once with a concrete example question, then move on.
 - Never invent skills for the learner. If unsure, ask.
-
-CRITICAL INSTRUCTIONS ON TOOLS:
-- You have access to the exaSearch tool. Use it if you need to look up current information or verify something they said.
-- You have access to fetchGitHubProfile. Use it if they provide their GitHub username.
-- You have access to getTechStackTrends. Use it if they ask whether a specific technology is worth learning.
-- You have access to the markPhaseComplete tool. Use this tool ONLY when you have fully satisfied the Phase goal and are ready to move to the next phase. When you call this tool, you must provide the profile fields you have extracted. Calling this tool pauses the interview and asks the user for confirmation.`;
+- Call the \`exaSearch\` tool if you need to look up current information or verify something they said.
+- Call the \`markPhaseComplete\` tool ONLY when you have fully satisfied the Phase goal and are ready to move to the next phase.`;
 }
 
-// Ensure we have a provider. In production on Vercel, use Vercel Gateway.
-// We fallback to standard OpenAI config if needed.
 const openaiProvider = createOpenAI({
   apiKey: process.env.GROQ_API_KEY || process.env.OPENAI_API_KEY,
   baseURL: process.env.GROQ_BASE_URL || "https://api.groq.com/openai/v1",
@@ -91,12 +84,12 @@ export async function runAgentStream(learnerId: string, userMessage: string) {
   const history: AgentHistoryTurn[] = JSON.parse(state.historyJson || "[]");
   const extractedSoFar: ExtractedProfile = JSON.parse(state.extractedJson || "{}");
 
-  const messages: any[] = [
+  const messages: CoreMessage[] = [
     { role: "system", content: agentSystemPrompt(state.phase as AgentPhase, learner.name) },
     { role: "system", content: `Skill catalogue (id|name) — the ONLY valid skillIds:\n${await skillCatalogText(extractedSoFar.domain)}` },
     { role: "system", content: `Available domains: ${await domainOptionsText()}` },
     { role: "system", content: `Profile captured so far: ${JSON.stringify(extractedSoFar)}` },
-    ...history.slice(-10).map((t) => ({ role: t.role, content: t.content })),
+    ...history.slice(-10).map((t) => ({ role: t.role, content: t.content } as CoreMessage)),
     { role: "user", content: userMessage },
   ];
 
@@ -105,40 +98,6 @@ export async function runAgentStream(learnerId: string, userMessage: string) {
     messages,
     tools: {
       exaSearch: gateway.tools.exaSearch(),
-      fetchGitHubProfile: tool({
-        description: "Fetch public profile stats and top languages for a GitHub user. Use this when the learner mentions their GitHub username to verify their experience.",
-        parameters: z.object({ username: z.string() }),
-        execute: async ({ username }) => {
-          try {
-            const res = await fetch(`https://api.github.com/users/${username}`);
-            if (!res.ok) return { error: "User not found" };
-            const data = await res.json();
-            return {
-              login: data.login,
-              publicRepos: data.public_repos,
-              followers: data.followers,
-              bio: data.bio,
-              company: data.company
-            };
-          } catch {
-            return { error: "Failed to fetch" };
-          }
-        }
-      }),
-      getTechStackTrends: tool({
-        description: "Get a simulated trend analysis for a specific technology to advise the learner if it is worth learning.",
-        parameters: z.object({ technology: z.string() }),
-        execute: async ({ technology }) => {
-          // Simulated data for the sake of the interview
-          return {
-            technology,
-            trend: "growing",
-            demand: "high",
-            commonRoles: ["Frontend Engineer", "Fullstack Developer"],
-            advice: `${technology} is heavily adopted in the industry right now. A solid choice.`
-          };
-        }
-      }),
       markPhaseComplete: tool({
         description: "Call this tool when you have successfully gathered all the required information for the current phase and are ready to move to the next phase.",
         parameters: z.object({
@@ -163,7 +122,7 @@ export async function runAgentStream(learnerId: string, userMessage: string) {
         }
       })
     },
-    stopWhen: stepCountIs(3),
+    maxSteps: 3,
   });
 
   return { result, state, learnerId, userMessage };
@@ -186,7 +145,7 @@ export async function persistAgentTurn(
 
   const merged: ExtractedProfile = { ...running };
   for (const key of ["name", "goalStatement", "targetRole", "domain", "goalSkillId", "learningStyle", "motivation"] as const) {
-    const v = (extractedNew as any)[key];
+    const v = extractedNew[key];
     if (typeof v === "string" && v) (merged as any)[key] = v;
   }
   if (extractedNew.hoursPerWeek != null) merged.hoursPerWeek = extractedNew.hoursPerWeek;
@@ -197,6 +156,15 @@ export async function persistAgentTurn(
 
   const roundsInPhase = history.filter((h, i) => h.role === "user" && i >= history.length - 6).length;
   let phase = state.phase as AgentPhase;
+  const wantsSkipRegex = /skip|next question|move on|let'?s move/i.test(userMessage);
+  
+  // Phase is done if they explicitly skipped or the tool was called.
+  const phaseDone = extractedNew.phaseComplete === true || wantsSkip || wantsSkipRegex;
+
+  if (phaseDone && phase !== "done") {
+    const idx = PHASE_ORDER.indexOf(phase);
+    phase = PHASE_ORDER[Math.min(idx + 1, PHASE_ORDER.length - 1)];
+  }
 
   await db.agentState.update({
     where: { learnerId },
@@ -204,7 +172,7 @@ export async function persistAgentTurn(
       phase,
       historyJson: JSON.stringify(history.slice(-30)),
       extractedJson: JSON.stringify(merged),
-      roundsCompleted: wantsSkip ? 0 : state.roundsCompleted + 1,
+      roundsCompleted: phaseDone ? 0 : state.roundsCompleted + 1,
     },
   });
 

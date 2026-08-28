@@ -355,7 +355,7 @@ export default function OnboardingPage() {
               />
               <Button className="w-full h-11" size="lg" onClick={begin} disabled={starting || !name.trim()}>
                 {starting ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}
-                {starting ? "Setting up…" : "Meet Aria, your coach"}
+                {starting ? "Setting up…" : "Meet Nexus, your coach"}
               </Button>
               <p className="text-xs text-center text-muted-foreground">
                 Interview → evidence → calibration → roadmap. No accounts, no passwords — your
@@ -373,7 +373,7 @@ export default function OnboardingPage() {
             <CardHeader className="pb-3 border-b border-border/60">
               <div className="flex items-center justify-between">
                 <CardTitle className="text-base flex items-center gap-2">
-                  <MessageSquare className="h-4 w-4 text-primary" /> Aria — onboarding interview
+                  <MessageSquare className="h-4 w-4 text-primary" /> Nexus — onboarding interview
                 </CardTitle>
                 <Badge variant="secondary" className="text-xs">streaming</Badge>
               </div>
@@ -384,7 +384,7 @@ export default function OnboardingPage() {
                   <div
                     className={cn(
                       "max-w-[85%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed whitespace-pre-wrap",
-                      turn.role === "user" ? "bg-primary text-primary-foreground rounded-br-md" : "bg-secondary rounded-bl-md",
+                      turn.role === "user" ? "bg-[#3A3A3C] text-white rounded-br-md" : "bg-[#1C1C1E] text-white rounded-bl-md border border-white/5",
                     )}
                   >
                     {turn.content}
@@ -397,13 +397,13 @@ export default function OnboardingPage() {
                     <div className="flex flex-col gap-1 pl-1">
                       {activeTools.map((t, i) => (
                         <div key={i} className="text-xs text-muted-foreground flex items-center gap-2">
-                          <Loader2 className="h-3 w-3 animate-spin" /> Aria is using {t}...
+                          <Loader2 className="h-3 w-3 animate-spin" /> Nexus is using {t}...
                         </div>
                       ))}
                     </div>
                   )}
                   <div className="flex justify-start">
-                    <div className="max-w-[85%] rounded-2xl rounded-bl-md bg-secondary px-4 py-2.5 text-sm leading-relaxed whitespace-pre-wrap">
+                    <div className="max-w-[85%] rounded-2xl rounded-bl-md bg-[#1C1C1E] border border-white/5 text-white px-4 py-2.5 text-sm leading-relaxed whitespace-pre-wrap">
                       {streamText || <span className="stream-caret" />}
                     </div>
                   </div>
@@ -435,7 +435,7 @@ export default function OnboardingPage() {
           </Card>
           <div className="mt-4 flex items-center justify-between">
             <p className="text-xs text-muted-foreground">
-              Aria asks one question at a time and adapts to your answers. Type &quot;skip&quot; to move faster.
+              Nexus asks one question at a time and adapts to your answers. Type &quot;skip&quot; to move faster.
             </p>
             <Button variant="outline" size="sm" onClick={() => setStage("evidence")}>
               Skip to evidence <ArrowRight className="ml-1 h-3.5 w-3.5" />

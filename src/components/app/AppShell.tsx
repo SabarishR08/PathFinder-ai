@@ -24,15 +24,13 @@ export function AppShell({
   const pathname = usePathname();
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="sticky top-0 z-40 border-b border-border/70 bg-background/80 backdrop-blur-md">
+      <header className="sticky top-0 z-40 border-b border-white/5 bg-black/60 backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 h-14 flex items-center gap-3">
           <Link href="/" className="flex items-center gap-2 mr-2">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/15 border border-primary/30">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 border border-white/5">
               <Compass className="h-4.5 w-4.5 text-primary" />
             </span>
-            <span className="font-semibold tracking-tight">
-              PathFinder<span className="text-primary"> AI</span>
-            </span>
+            <span className="font-semibold tracking-tight text-primary">PathFinder</span>
           </Link>
           <nav className="flex items-center gap-1 flex-1">
             {NAV.map(({ href, label, icon: Icon }) => {
@@ -43,7 +41,7 @@ export function AppShell({
                   href={href}
                   className={cn(
                     "flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm transition-colors",
-                    active ? "bg-primary/12 text-primary" : "text-muted-foreground hover:text-foreground hover:bg-secondary",
+                    active ? "bg-primary/10 text-primary border border-white/5" : "text-muted-foreground hover:text-primary hover:bg-white/5 border border-transparent",
                   )}
                 >
                   <Icon className="h-3.5 w-3.5" />
@@ -65,12 +63,13 @@ export function AppShell({
         </div>
       </header>
       <main className="flex-1 mx-auto w-full max-w-7xl px-4 sm:px-6 py-6">{children}</main>
-      <footer className="border-t border-border/70 py-4 mt-auto">
+      <footer className="border-t border-white/5 bg-black/40 py-4 mt-auto">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 flex items-center justify-between text-xs text-muted-foreground">
-          <span>PathFinder AI — evidence-based adaptive learning paths</span>
-          <span>
-            {typeof window !== "undefined" ? new Date().getFullYear() : ""} · deterministic engine · real course data
-          </span>
+          <span>PathFinder — built for the AI hackathon</span>
+          <div className="flex gap-4">
+            <span className="hover:text-primary transition-colors cursor-default">Experimental Build</span>
+            <span className="hover:text-primary transition-colors cursor-default">Nexus Engine</span>
+          </div>
         </div>
       </footer>
     </div>

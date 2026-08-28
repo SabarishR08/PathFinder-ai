@@ -29,7 +29,7 @@ export async function POST(request: Request) {
     });
 
     const greeting =
-      `Hey${name !== "Learner" ? ` ${name}` : ""} — I'm Aria, your learning coach. ` +
+      `Hey${name !== "Learner" ? ` ${name}` : ""} — I'm Nexus, your learning coach. ` +
       `I'm going to ask a few sharp questions about where you are and where you want to be, ` +
       `then we'll prove your skills with real evidence and build a roadmap that actually fits.\n\n` +
       `Let's start simple: what do you want to be able to DO six months from now?`;

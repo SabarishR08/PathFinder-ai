@@ -92,7 +92,7 @@ export default function MentorPage() {
           <CardHeader className="pb-3 border-b border-border/60">
             <div className="flex items-center justify-between">
               <CardTitle className="text-base flex items-center gap-2">
-                <BrainCircuit className="h-4 w-4 text-primary" /> Aria — your mentor
+                <BrainCircuit className="h-4 w-4 text-primary" /> Nexus — your mentor
               </CardTitle>
               <div className="flex items-center gap-2">
                 <span className="text-xs text-muted-foreground">Socratic</span>
@@ -108,7 +108,7 @@ export default function MentorPage() {
               <div className="text-center py-10">
                 <MessageSquare className="h-10 w-10 text-primary/40 mx-auto mb-3" />
                 <p className="text-sm text-muted-foreground">
-                  Ask Aria anything about your path, your skills, your goal.
+                  Ask Nexus anything about your path, your skills, your goal.
                   She&apos;s grounded in your real profile and progress.
                 </p>
                 <div className="mt-4 grid gap-2 max-w-md mx-auto text-left">
@@ -152,7 +152,7 @@ export default function MentorPage() {
           </CardContent>
           <div className="border-t border-border/60 p-3 flex gap-2">
             <Input
-              placeholder="Ask Aria anything…"
+              placeholder="Ask Nexus anything…"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => {
