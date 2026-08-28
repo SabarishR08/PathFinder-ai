@@ -1,6 +1,6 @@
 import { db } from "@/lib/db";
 import { apiError, sseStream, readJson } from "@/lib/api-helpers";
-import { runAgentTurn, persistAgentTurn, AGENT_SEPARATOR, type AgentPhase } from "@/lib/onboarding/agent";
+import { runAgentStream, persistAgentTurn, type AgentPhase, type ExtractedProfile, PHASE_ORDER } from "@/lib/onboarding/agent";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
@@ -10,11 +10,6 @@ interface MessageBody {
   message: string;
 }
 
-/**
- * Streaming interview turn. Emits:
- *   { type: "delta", text }        — reply tokens (client hides the JSON tail)
- *   { type: "done", reply, extracted, phase } — final state after persistence
- */
 export async function POST(request: Request) {
   try {
     const body = await readJson<MessageBody>(request);
@@ -22,31 +17,68 @@ export async function POST(request: Request) {
       return apiError("learnerId and message are required");
     }
 
+
     const learner = await db.learner.findUnique({ where: { id: body.learnerId } });
     if (!learner) return apiError("Learner not found", 404);
 
-    const generator = (async function* () {
-      const turn = await runAgentTurn(body.learnerId, body.message.trim());
-      // Stream the conversational part, token-safely: cut at the separator.
-      let sent = 0;
-      const sepIdx = turn.raw.indexOf(AGENT_SEPARATOR);
-      const visible = sepIdx >= 0 ? turn.raw.slice(0, sepIdx) : turn.raw;
-      // Chunk into small deltas so the UI animates naturally.
-      const CHUNK = 24;
-      for (let i = 0; i < visible.length; i += CHUNK) {
-        yield { type: "delta", text: visible.slice(i, i + CHUNK) };
+    const wantsSkip = /skip|next question|move on|let'?s move/i.test(body.message.trim());
+    if (wantsSkip) {
+      const currentState = await db.agentState.findUnique({ where: { learnerId: body.learnerId } });
+      if (currentState && currentState.phase !== "done") {
+        const idx = PHASE_ORDER.indexOf(currentState.phase as AgentPhase);
+        const nextPhase = PHASE_ORDER[Math.min(idx + 1, PHASE_ORDER.length - 1)];
+        await db.agentState.update({
+          where: { learnerId: body.learnerId },
+          data: { phase: nextPhase }
+        });
       }
-      if (!visible.trim()) {
+    }
+
+    const generator = (async function* () {
+      const { result, state } = await runAgentStream(body.learnerId, body.message.trim());
+      
+      let replyBuffer = "";
+      let phaseComplete = false;
+      let extracted: ExtractedProfile = {};
+
+      for await (const part of result.fullStream) {
+        if (part.type === "text-delta") {
+          replyBuffer += part.textDelta;
+          yield { type: "delta", text: part.textDelta };
+        } else if (part.type === "tool-call" && part.toolName === "markPhaseComplete") {
+          phaseComplete = true;
+          extracted = part.args;
+          extracted.phaseComplete = true;
+          
+          const msg = "\n\nI think we have enough info. Do you have anything to add, or is this enough?";
+          replyBuffer += msg;
+          yield { type: "delta", text: msg };
+        }
+      }
+
+      if (!replyBuffer.trim()) {
         yield { type: "delta", text: "…" };
       }
 
-      const persisted = await persistAgentTurn(body.learnerId, body.message.trim(), turn);
+      const wantsSkip = /skip|next question|move on|let'?s move/i.test(body.message.trim());
+      if (wantsSkip) {
+        phaseComplete = true;
+      }
+
+      const persisted = await persistAgentTurn(
+        body.learnerId,
+        body.message.trim(),
+        replyBuffer.trim(),
+        extracted,
+        wantsSkip
+      );
+
       yield {
         type: "done",
-        reply: visible.trim(),
+        reply: replyBuffer.trim(),
         extracted: persisted.extracted,
         phase: persisted.phase as AgentPhase,
-        provider: turn.provider,
+        waitingForConfirmation: phaseComplete && !wantsSkip, // Ask confirmation unless they explicitly skipped
       };
     })();
 

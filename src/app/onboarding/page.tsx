@@ -74,6 +74,7 @@ export default function OnboardingPage() {
   const [streaming, setStreaming] = useState(false);
   const [streamText, setStreamText] = useState("");
   const chatBottomRef = useRef<HTMLDivElement>(null);
+  const [waitingForConfirmation, setWaitingForConfirmation] = useState(false);
 
   // Evidence state
   const [ghUser, setGhUser] = useState("");
@@ -132,9 +133,9 @@ export default function OnboardingPage() {
     }
   };
 
-  const send = useCallback(async () => {
-    if (!input.trim() || !learnerId || streaming) return;
-    const message = input.trim();
+  const send = useCallback(async (forcedMessage?: string) => {
+    const msg = forcedMessage || input; if (!msg.trim() || !learnerId || streaming) return;
+    const message = msg.trim();
     setInput("");
     setChat((c) => [...c, { role: "user", content: message }]);
     setStreaming(true);
@@ -145,6 +146,9 @@ export default function OnboardingPage() {
       });
       setStreamText("");
       setChat((c) => [...c, { role: "assistant", content: final.reply || "…" }]);
+      if (final.waitingForConfirmation) {
+        setWaitingForConfirmation(true);
+      }
       if (final.phase === "done" || final.phase === "wrap_up") {
         setTimeout(() => setStage("evidence"), 1200);
       }
@@ -155,6 +159,13 @@ export default function OnboardingPage() {
       setStreaming(false);
     }
   }, [input, learnerId, streaming, toast]);
+
+  const handleConfirmation = (isEnough: boolean) => {
+    setWaitingForConfirmation(false);
+    if (isEnough) {
+      send("That's enough, let's move on.");
+    }
+  };
 
   const addFeed = (line: string) => setEvidenceFeed((f) => [...f, line]);
 
@@ -383,7 +394,14 @@ export default function OnboardingPage() {
               )}
               <div ref={chatBottomRef} />
             </CardContent>
-            <div className="border-t border-border/60 p-3 flex gap-2">
+            <div className="border-t border-border/60 p-3 flex flex-col gap-2">
+              {waitingForConfirmation ? (
+                <div className="flex gap-2 w-full">
+                  <Button variant="outline" className="flex-1" onClick={() => handleConfirmation(false)}>Yes, I have more to add</Button>
+                  <Button className="flex-1" onClick={() => handleConfirmation(true)}>No, that's enough</Button>
+                </div>
+              ) : (
+                <div className="flex gap-2 w-full">
               <Input
                 placeholder="Answer naturally — details help…"
                 value={input}
@@ -392,9 +410,11 @@ export default function OnboardingPage() {
                 disabled={streaming}
                 autoFocus
               />
-              <Button onClick={send} disabled={streaming || !input.trim()} size="icon" className="h-10 w-10 shrink-0">
+              <Button onClick={() => send()} disabled={streaming || !input.trim()} size="icon" className="h-10 w-10 shrink-0">
                 {streaming ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
               </Button>
+                </div>
+              )}
             </div>
           </Card>
           <div className="mt-4 flex items-center justify-between">
