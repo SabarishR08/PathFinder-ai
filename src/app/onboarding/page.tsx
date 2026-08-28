@@ -395,26 +395,25 @@ export default function OnboardingPage() {
               <div ref={chatBottomRef} />
             </CardContent>
             <div className="border-t border-border/60 p-3 flex flex-col gap-2">
-              {waitingForConfirmation ? (
-                <div className="flex gap-2 w-full">
+              {waitingForConfirmation && (
+                <div className="flex gap-2 w-full mb-2">
                   <Button variant="outline" className="flex-1" onClick={() => handleConfirmation(false)}>Yes, I have more to add</Button>
                   <Button className="flex-1" onClick={() => handleConfirmation(true)}>No, that's enough</Button>
                 </div>
-              ) : (
-                <div className="flex gap-2 w-full">
+              )}
+              <div className="flex gap-2 w-full">
               <Input
                 placeholder="Answer naturally — details help…"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && send()}
-                disabled={streaming}
+                disabled={streaming || waitingForConfirmation}
                 autoFocus
               />
-              <Button onClick={() => send()} disabled={streaming || !input.trim()} size="icon" className="h-10 w-10 shrink-0">
+              <Button onClick={() => send()} disabled={streaming || !input.trim() || waitingForConfirmation} size="icon" className="h-10 w-10 shrink-0">
                 {streaming ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
               </Button>
-                </div>
-              )}
+              </div>
             </div>
           </Card>
           <div className="mt-4 flex items-center justify-between">
