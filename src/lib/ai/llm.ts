@@ -9,7 +9,7 @@
  * rate-limit / transient errors):
  *
  *   1. Groq            — GROQ_API_KEY            (OpenAI-compatible)
- *   2. OpenAI-compat   — OPENAI_API_KEY (+ OPENAI_API_BASE, defaults to
+ *   2. OpenAI-compat   — OPENAI_API_KEY (+ OPENAI_BASE, defaults to
  *                        OpenAI; also covers NVIDIA via NVIDIA_API_KEY,
  *                        OpenRouter, Together, local Ollama…)
  *   3. Z.AI            — via z-ai-web-dev-sdk (optional dependency; resolved
@@ -77,7 +77,7 @@ function resolveProviders(): Provider[] {
     providers.push({
       name: "openai-compatible",
       model: process.env.OPENAI_MODEL || "gpt-4o-mini",
-      baseUrl: process.env.OPENAI_API_BASE || "https://api.openai.com/v1",
+      baseUrl: process.env.OPENAI_BASE || "https://api.openai.com/v1",
       apiKey: openaiKey,
     });
   }

@@ -156,7 +156,7 @@ the **graph** structure, and your **goal** — plus the counterfactual.
 |---|---|
 | Framework | Next.js 16 (App Router) + TypeScript 5 |
 | UI | Tailwind CSS 4, shadcn/ui (New York style), Lucide icons, Framer Motion |
-| Database | Prisma ORM + SQLite (swap to Postgres via `DATABASE_URL`) |
+| Database | Prisma ORM + PostgreSQL (Supabase) |
 | Visualisation | React Flow (`@xyflow/react`) for the skill DAG, Recharts for radar/momentum |
 | AI | Multi-provider LLM gateway: Groq → OpenAI-compatible (NVIDIA, OpenRouter, OpenAI) → optional Z.AI SDK |
 | PDF | `unpdf` (serverless-friendly PDF.js build, no native deps) |
@@ -189,9 +189,9 @@ cp .env.example .env.local
 
 | Variable | Purpose | Required? |
 |---|---|---|
-| `DATABASE_URL` | Prisma SQLite path (default: `file:./db/custom.db`) | yes |
+| `DATABASE_URL` | PostgreSQL connection string (Supabase pooler) | yes |
 | `GROQ_API_KEY` | Groq provider (primary). Free at console.groq.com | optional (recommended) |
-| `OPENAI_API_KEY` + `OPENAI_API_BASE` | Any OpenAI-compatible (OpenRouter, Together, NVIDIA, local Ollama) | optional |
+| `OPENAI_API_KEY` + `OPENAI_BASE` | Any OpenAI-compatible (OpenRouter, Together, NVIDIA, local Ollama) | optional |
 | `NVIDIA_API_KEY` | NVIDIA NIM endpoint | optional |
 | `GITHUB_TOKEN` | Raises GitHub rate limit from 60/h to 5,000/h | optional |
 
