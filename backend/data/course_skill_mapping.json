@@ -1,0 +1,6918 @@
+{
+  "C0002": [
+    "ds_bigdata",
+    "ds_datamgmt",
+    "ds_datascience",
+    "ds_jupyter",
+    "ds_ml_intro",
+    "ds_python",
+    "ds_rstudio",
+    "ds_sql"
+  ],
+  "C0003": [
+    "ds_analysis",
+    "ds_datascience",
+    "ds_hypothesis",
+    "ds_jupyter",
+    "ds_python",
+    "ds_regression",
+    "ds_rstudio",
+    "ds_stats",
+    "ds_viz"
+  ],
+  "C0007": [
+    "ds_analysis",
+    "ds_datascience",
+    "ds_excel",
+    "ds_viz"
+  ],
+  "C0009": [
+    "ds_analysis",
+    "ds_datamgmt",
+    "ds_datascience",
+    "ds_dbms",
+    "ds_jupyter",
+    "ds_python",
+    "ds_sql"
+  ],
+  "C0016": [
+    "ds_datamgmt",
+    "ds_jupyter",
+    "ds_python",
+    "ds_sql"
+  ],
+  "C0020": [
+    "ds_datascience",
+    "ds_ml_intro",
+    "ds_r"
+  ],
+  "C0022": [
+    "ds_analysis",
+    "ds_datamgmt",
+    "ds_regression"
+  ],
+  "C0023": [
+    "ds_analysis",
+    "ds_datascience",
+    "ds_eda",
+    "ds_hypothesis",
+    "ds_sql"
+  ],
+  "C0026": [
+    "ds_analysis",
+    "ds_cleansing",
+    "ds_datascience",
+    "ds_linreg",
+    "ds_ml_intro",
+    "ds_r",
+    "ds_regression",
+    "ds_rstudio"
+  ],
+  "C0029": [
+    "ds_eda",
+    "ds_hypothesis",
+    "ds_linreg",
+    "ds_ml_intro",
+    "ds_regression"
+  ],
+  "C0031": [
+    "ds_analysis",
+    "ds_cleansing",
+    "ds_datascience",
+    "ds_eda",
+    "ds_linreg",
+    "ds_ml_intro",
+    "ds_r",
+    "ds_rstudio"
+  ],
+  "C0037": [
+    "ds_analysis",
+    "ds_tableau",
+    "ds_viz"
+  ],
+  "C0039": [
+    "ds_cleansing",
+    "ds_ml_intro",
+    "ds_python",
+    "ds_viz"
+  ],
+  "C0042": [
+    "ds_datascience",
+    "ds_python",
+    "ds_stats"
+  ],
+  "C0043": [
+    "ds_bigdata",
+    "ds_dbms",
+    "ds_sql"
+  ],
+  "C0052": [
+    "ds_analysis",
+    "ds_datascience",
+    "ds_dbms",
+    "ds_linreg",
+    "ds_r",
+    "ds_sql",
+    "ds_stats",
+    "ds_viz"
+  ],
+  "C0053": [
+    "ds_analysis",
+    "ds_datamgmt",
+    "ds_tableau",
+    "ds_viz"
+  ],
+  "C0063": [
+    "ds_analysis",
+    "ds_datamgmt",
+    "ds_rstudio"
+  ],
+  "C0068": [
+    "ds_eda",
+    "ds_hypothesis",
+    "ds_linreg",
+    "ds_r",
+    "ds_regression",
+    "ds_rstudio",
+    "ds_stats"
+  ],
+  "C0069": [
+    "ds_analysis",
+    "ds_datascience",
+    "ds_linreg",
+    "ds_r",
+    "ds_stats"
+  ],
+  "C0071": [
+    "ds_datascience",
+    "ds_r",
+    "ds_stats"
+  ],
+  "C0073": [
+    "ds_analysis",
+    "ds_excel",
+    "ds_hypothesis",
+    "ds_linreg",
+    "ds_stats"
+  ],
+  "C0075": [
+    "ds_datascience",
+    "ds_dbms",
+    "ds_sql"
+  ],
+  "C0082": [
+    "ds_datamgmt",
+    "ds_dbms",
+    "ds_excel",
+    "ds_sql"
+  ],
+  "C0087": [
+    "ds_analysis"
+  ],
+  "C0099": [
+    "ds_analysis",
+    "ds_datascience",
+    "ds_viz"
+  ],
+  "C0104": [
+    "ds_analysis",
+    "ds_hypothesis",
+    "ds_python",
+    "ds_regression",
+    "ds_stats",
+    "ds_viz"
+  ],
+  "C0105": [
+    "ds_bigdata",
+    "ds_datamgmt",
+    "ds_ml_intro"
+  ],
+  "C0108": [
+    "ds_datamgmt",
+    "ds_dbms",
+    "ds_python",
+    "ds_rstudio",
+    "ds_sql"
+  ],
+  "C0109": [],
+  "C0112": [],
+  "C0119": [
+    "ds_analysis",
+    "ds_datamgmt",
+    "ds_datascience",
+    "ds_eda",
+    "ds_ml_intro"
+  ],
+  "C0121": [
+    "ds_dbms",
+    "ds_sql",
+    "ds_viz"
+  ],
+  "C0122": [
+    "ds_hypothesis",
+    "ds_linreg",
+    "ds_ml_intro",
+    "ds_r",
+    "ds_regression",
+    "ds_stats",
+    "ds_viz"
+  ],
+  "C0123": [
+    "ds_datascience",
+    "ds_stats"
+  ],
+  "C0125": [
+    "ds_analysis",
+    "ds_r"
+  ],
+  "C0134": [
+    "ds_analysis",
+    "ds_eda",
+    "ds_linreg",
+    "ds_ml_intro",
+    "ds_python",
+    "ds_sql",
+    "ds_viz"
+  ],
+  "C0135": [
+    "ds_analysis",
+    "ds_bigdata",
+    "ds_datamgmt",
+    "ds_dbms",
+    "ds_sql"
+  ],
+  "C0136": [
+    "ds_datascience",
+    "ds_r"
+  ],
+  "C0140": [
+    "ds_analysis",
+    "ds_datascience",
+    "ds_ml_intro",
+    "ds_sql"
+  ],
+  "C0147": [
+    "ds_analysis",
+    "ds_datascience",
+    "ds_stats"
+  ],
+  "C0151": [
+    "ds_analysis"
+  ],
+  "C0157": [],
+  "C0164": [
+    "ds_analysis",
+    "ds_cleansing",
+    "ds_r",
+    "ds_rstudio",
+    "ds_sql",
+    "ds_tableau",
+    "ds_viz"
+  ],
+  "C0165": [
+    "ds_analysis",
+    "ds_bigdata",
+    "ds_datamgmt",
+    "ds_datascience",
+    "ds_jupyter",
+    "ds_ml_intro",
+    "ds_python",
+    "ds_regression",
+    "ds_rstudio",
+    "ds_sql",
+    "ds_viz"
+  ],
+  "C0168": [
+    "ds_analysis",
+    "ds_excel",
+    "ds_python",
+    "ds_sql",
+    "ds_viz"
+  ],
+  "C0171": [
+    "ds_bigdata",
+    "ds_dbms",
+    "ds_sql"
+  ],
+  "C0172": [
+    "ds_analysis",
+    "ds_dbms",
+    "ds_excel",
+    "ds_r",
+    "ds_viz"
+  ],
+  "C0174": [
+    "ds_analysis",
+    "ds_datascience",
+    "ds_eda",
+    "ds_jupyter",
+    "ds_ml_intro",
+    "ds_python",
+    "ds_regression",
+    "ds_stats",
+    "ds_tableau",
+    "ds_viz"
+  ],
+  "C0179": [
+    "ds_analysis",
+    "ds_datamgmt",
+    "ds_datascience",
+    "ds_dbms",
+    "ds_sql"
+  ],
+  "C0185": [
+    "ds_analysis",
+    "ds_sql",
+    "ds_tableau",
+    "ds_viz"
+  ],
+  "C0187": [
+    "ds_datamgmt",
+    "ds_python",
+    "ds_sql"
+  ],
+  "C0192": [
+    "ds_r",
+    "ds_rstudio",
+    "ds_sql",
+    "ds_tableau",
+    "ds_viz"
+  ],
+  "C0198": [
+    "ds_r",
+    "ds_rstudio"
+  ],
+  "C0201": [
+    "ds_rstudio",
+    "ds_sql",
+    "ds_tableau"
+  ],
+  "C0202": [],
+  "C0206": [
+    "ds_analysis",
+    "ds_cleansing",
+    "ds_r",
+    "ds_rstudio",
+    "ds_sql",
+    "ds_viz"
+  ],
+  "C0207": [
+    "ds_analysis",
+    "ds_r",
+    "ds_rstudio",
+    "ds_sql",
+    "ds_tableau",
+    "ds_viz"
+  ],
+  "C0209": [],
+  "C0212": [],
+  "C0216": [],
+  "C0218": [
+    "ds_analysis",
+    "ds_datascience",
+    "ds_stats"
+  ],
+  "C0221": [],
+  "C0239": [],
+  "C0247": [
+    "ds_analysis",
+    "ds_cleansing",
+    "ds_sql",
+    "ds_viz"
+  ],
+  "C0250": [
+    "ds_analysis"
+  ],
+  "C0254": [
+    "ds_sql"
+  ],
+  "C0256": [
+    "ds_bigdata",
+    "ds_datascience",
+    "ds_ml_intro"
+  ],
+  "C0260": [
+    "ds_analysis",
+    "ds_datascience",
+    "ds_excel",
+    "ds_viz"
+  ],
+  "C0262": [
+    "ds_cleansing",
+    "ds_sql"
+  ],
+  "C0263": [
+    "ds_datamgmt"
+  ],
+  "C0264": [
+    "ds_datascience",
+    "ds_jupyter",
+    "ds_python",
+    "ds_rstudio"
+  ],
+  "C0265": [
+    "ds_analysis",
+    "ds_datascience",
+    "ds_python"
+  ],
+  "C0266": [
+    "ds_datamgmt"
+  ],
+  "C0269": [
+    "ds_analysis",
+    "ds_sql"
+  ],
+  "C0274": [
+    "ds_analysis",
+    "ds_datascience",
+    "ds_sql"
+  ],
+  "C0276": [
+    "ds_jupyter",
+    "ds_python",
+    "ds_viz"
+  ],
+  "C0278": [
+    "ds_analysis",
+    "ds_datascience",
+    "ds_excel"
+  ],
+  "C0280": [
+    "ds_analysis",
+    "ds_tableau",
+    "ds_viz"
+  ],
+  "C0284": [
+    "ds_analysis",
+    "ds_r",
+    "ds_rstudio",
+    "ds_viz"
+  ],
+  "C0286": [
+    "ds_analysis",
+    "ds_datamgmt",
+    "ds_sql"
+  ],
+  "C0287": [
+    "ds_ml_intro"
+  ],
+  "C0292": [
+    "ds_datamgmt",
+    "ds_jupyter",
+    "ds_python",
+    "ds_sql"
+  ],
+  "C0293": [
+    "ds_analysis",
+    "ds_datascience"
+  ],
+  "C0297": [
+    "ds_analysis",
+    "ds_cleansing",
+    "ds_viz"
+  ],
+  "C0298": [
+    "ds_analysis",
+    "ds_datascience",
+    "ds_jupyter",
+    "ds_python"
+  ],
+  "C0301": [
+    "ds_analysis",
+    "ds_python",
+    "ds_viz"
+  ],
+  "C0303": [
+    "ds_datamgmt"
+  ],
+  "C0307": [
+    "ds_datascience",
+    "ds_dbms",
+    "ds_sql"
+  ],
+  "C0314": [
+    "ds_analysis",
+    "ds_excel",
+    "ds_viz"
+  ],
+  "C0317": [
+    "ds_eda",
+    "ds_python",
+    "ds_tableau",
+    "ds_viz"
+  ],
+  "C0328": [
+    "ds_sql",
+    "ds_viz"
+  ],
+  "C0331": [
+    "ds_python",
+    "ds_viz"
+  ],
+  "C0334": [],
+  "C0340": [
+    "ds_hypothesis",
+    "ds_python",
+    "ds_stats"
+  ],
+  "C0346": [
+    "ds_tableau",
+    "ds_viz"
+  ],
+  "C0358": [
+    "ds_cleansing",
+    "ds_python"
+  ],
+  "C0360": [
+    "ds_tableau",
+    "ds_viz"
+  ],
+  "C0361": [
+    "ds_eda",
+    "ds_r",
+    "ds_rstudio",
+    "ds_stats"
+  ],
+  "C0366": [
+    "ds_analysis",
+    "ds_bigdata",
+    "ds_viz"
+  ],
+  "C0378": [
+    "ds_linreg",
+    "ds_python",
+    "ds_stats"
+  ],
+  "C0382": [],
+  "C0383": [
+    "ds_datascience",
+    "ds_jupyter"
+  ],
+  "C0386": [
+    "ds_r",
+    "ds_rstudio"
+  ],
+  "C0388": [
+    "ds_linreg",
+    "ds_regression"
+  ],
+  "C0395": [],
+  "C0396": [
+    "ds_sql"
+  ],
+  "C0398": [
+    "ds_datamgmt",
+    "ds_dbms"
+  ],
+  "C0401": [
+    "ds_sql"
+  ],
+  "C0402": [
+    "ds_datamgmt",
+    "ds_dbms"
+  ],
+  "C0403": [
+    "ds_dbms"
+  ],
+  "C0408": [
+    "ds_analysis",
+    "ds_sql"
+  ],
+  "C0410": [
+    "ds_linreg",
+    "ds_regression"
+  ],
+  "C0412": [
+    "ds_analysis",
+    "ds_r",
+    "ds_stats"
+  ],
+  "C0414": [
+    "ds_sql"
+  ],
+  "C0415": [
+    "ds_bigdata"
+  ],
+  "C0424": [
+    "ds_analysis",
+    "ds_datamgmt",
+    "ds_datascience",
+    "ds_stats"
+  ],
+  "C0427": [],
+  "C0429": [
+    "ds_analysis",
+    "ds_dbms"
+  ],
+  "C0432": [
+    "ds_analysis",
+    "ds_eda",
+    "ds_sql"
+  ],
+  "C0434": [
+    "ds_python"
+  ],
+  "C0436": [
+    "ds_datamgmt",
+    "ds_excel"
+  ],
+  "C0439": [
+    "ds_excel",
+    "ds_viz"
+  ],
+  "C0442": [],
+  "C0445": [
+    "ds_dbms",
+    "ds_python",
+    "ds_sql"
+  ],
+  "C0447": [
+    "ds_analysis",
+    "ds_excel",
+    "ds_viz"
+  ],
+  "C0455": [],
+  "C0456": [
+    "ds_analysis",
+    "ds_hypothesis",
+    "ds_sql"
+  ],
+  "C0462": [],
+  "C0464": [
+    "ds_hypothesis",
+    "ds_stats"
+  ],
+  "C0471": [
+    "ds_datamgmt",
+    "ds_datascience"
+  ],
+  "C0472": [
+    "ds_analysis",
+    "ds_eda",
+    "ds_r"
+  ],
+  "C0478": [
+    "ds_analysis",
+    "ds_sql"
+  ],
+  "C0483": [
+    "ds_analysis"
+  ],
+  "C0489": [
+    "ds_analysis",
+    "ds_tableau",
+    "ds_viz"
+  ],
+  "C0495": [
+    "ds_datascience",
+    "ds_r"
+  ],
+  "C0499": [
+    "ds_datascience",
+    "ds_stats"
+  ],
+  "C0502": [
+    "ds_hypothesis",
+    "ds_regression",
+    "ds_stats",
+    "ds_viz"
+  ],
+  "C0505": [],
+  "C0510": [
+    "ds_analysis",
+    "ds_tableau",
+    "ds_viz"
+  ],
+  "C0513": [],
+  "C0514": [],
+  "C0515": [
+    "ds_datascience"
+  ],
+  "C0517": [],
+  "C0518": [
+    "ds_python",
+    "ds_regression",
+    "ds_stats"
+  ],
+  "C0519": [
+    "ds_ml_intro",
+    "ds_python"
+  ],
+  "C0521": [],
+  "C0522": [],
+  "C0529": [],
+  "C0530": [
+    "ds_analysis",
+    "ds_python",
+    "ds_stats",
+    "ds_viz"
+  ],
+  "C0531": [],
+  "C0532": [],
+  "C0534": [
+    "ds_datascience",
+    "ds_ml_intro"
+  ],
+  "C0535": [
+    "ds_r"
+  ],
+  "C0536": [
+    "ds_bigdata"
+  ],
+  "C0537": [
+    "ds_analysis",
+    "ds_regression",
+    "ds_stats"
+  ],
+  "C0538": [
+    "ds_datascience",
+    "ds_stats"
+  ],
+  "C0545": [
+    "ds_hypothesis",
+    "ds_stats"
+  ],
+  "C0548": [
+    "ds_analysis",
+    "ds_sql"
+  ],
+  "C0549": [],
+  "C0551": [],
+  "C0554": [
+    "ds_r",
+    "ds_stats"
+  ],
+  "C0563": [
+    "ds_cleansing",
+    "ds_rstudio"
+  ],
+  "C0566": [],
+  "C0570": [
+    "ds_r",
+    "ds_stats"
+  ],
+  "C0571": [],
+  "C0573": [],
+  "C0575": [],
+  "C0579": [],
+  "C0581": [
+    "ds_datascience",
+    "ds_eda",
+    "ds_linreg",
+    "ds_r",
+    "ds_viz"
+  ],
+  "C0582": [
+    "ds_datascience",
+    "ds_stats"
+  ],
+  "C0589": [
+    "ds_analysis",
+    "ds_datamgmt"
+  ],
+  "C0590": [
+    "ds_analysis"
+  ],
+  "C0591": [
+    "ds_analysis",
+    "ds_bigdata",
+    "ds_dbms",
+    "ds_sql"
+  ],
+  "C0592": [
+    "ds_analysis"
+  ],
+  "C0599": [
+    "ds_r"
+  ],
+  "C0606": [
+    "ds_dbms"
+  ],
+  "C0610": [
+    "ds_analysis",
+    "ds_datascience",
+    "ds_ml_intro"
+  ],
+  "C0612": [
+    "ds_r"
+  ],
+  "C0614": [],
+  "C0617": [
+    "ds_cleansing",
+    "ds_eda",
+    "ds_regression"
+  ],
+  "C0619": [
+    "ds_tableau",
+    "ds_viz"
+  ],
+  "C0625": [],
+  "C0631": [],
+  "C0637": [
+    "ds_analysis",
+    "ds_viz"
+  ],
+  "C0642": [
+    "ds_analysis",
+    "ds_tableau",
+    "ds_viz"
+  ],
+  "C0645": [
+    "ds_analysis",
+    "ds_datascience",
+    "ds_dbms",
+    "ds_r"
+  ],
+  "C0657": [],
+  "C0658": [],
+  "C0663": [
+    "ds_analysis",
+    "ds_r"
+  ],
+  "C0672": [
+    "ds_stats"
+  ],
+  "C0685": [
+    "ds_hypothesis",
+    "ds_python",
+    "ds_stats"
+  ],
+  "C0692": [
+    "ds_analysis",
+    "ds_ml_intro",
+    "ds_python",
+    "ds_viz"
+  ],
+  "C0695": [
+    "ds_analysis",
+    "ds_r",
+    "ds_rstudio"
+  ],
+  "C0700": [
+    "ds_datascience",
+    "ds_dbms"
+  ],
+  "C0701": [
+    "ds_python"
+  ],
+  "C0703": [
+    "ds_analysis",
+    "ds_datascience",
+    "ds_ml_intro"
+  ],
+  "C0704": [
+    "ds_datascience",
+    "ds_ml_intro",
+    "ds_r"
+  ],
+  "C0707": [],
+  "C0708": [
+    "ds_dbms",
+    "ds_sql"
+  ],
+  "C0711": [
+    "ds_python",
+    "ds_viz"
+  ],
+  "C0714": [
+    "ds_analysis"
+  ],
+  "C0716": [
+    "ds_analysis",
+    "ds_datascience",
+    "ds_r",
+    "ds_viz"
+  ],
+  "C0718": [
+    "ds_analysis",
+    "ds_dbms",
+    "ds_python",
+    "ds_viz"
+  ],
+  "C0723": [
+    "ds_ml_intro"
+  ],
+  "C0726": [
+    "ds_analysis"
+  ],
+  "C0734": [],
+  "C0742": [
+    "ds_analysis",
+    "ds_excel",
+    "ds_linreg"
+  ],
+  "C0747": [
+    "ds_hypothesis",
+    "ds_r",
+    "ds_stats"
+  ],
+  "C0756": [],
+  "C0760": [
+    "ds_analysis",
+    "ds_excel",
+    "ds_hypothesis"
+  ],
+  "C0765": [
+    "ds_analysis",
+    "ds_python"
+  ],
+  "C0767": [],
+  "C0772": [
+    "ds_analysis",
+    "ds_datamgmt"
+  ],
+  "C0775": [],
+  "C0776": [
+    "ds_datamgmt",
+    "ds_dbms",
+    "ds_sql"
+  ],
+  "C0781": [
+    "ds_analysis",
+    "ds_cleansing",
+    "ds_excel"
+  ],
+  "C0785": [
+    "ds_analysis",
+    "ds_sql",
+    "ds_tableau"
+  ],
+  "C0788": [
+    "ds_datamgmt",
+    "ds_excel"
+  ],
+  "C0789": [
+    "ds_bigdata"
+  ],
+  "C0800": [],
+  "C0806": [],
+  "C0809": [],
+  "C0813": [
+    "ds_datamgmt",
+    "ds_dbms"
+  ],
+  "C0814": [],
+  "C0818": [
+    "ds_ml_intro"
+  ],
+  "C0819": [
+    "ds_datascience",
+    "ds_sql"
+  ],
+  "C0821": [],
+  "C0823": [],
+  "C0828": [],
+  "C0833": [
+    "ds_datascience",
+    "ds_r",
+    "ds_rstudio"
+  ],
+  "C0837": [
+    "ds_analysis"
+  ],
+  "C0838": [
+    "ds_linreg",
+    "ds_python",
+    "ds_sql",
+    "ds_viz"
+  ],
+  "C0841": [],
+  "C0847": [
+    "ds_analysis"
+  ],
+  "C0849": [
+    "ds_analysis",
+    "ds_excel"
+  ],
+  "C0852": [
+    "ds_bigdata",
+    "ds_datamgmt",
+    "ds_sql"
+  ],
+  "C0859": [
+    "ds_stats"
+  ],
+  "C0860": [
+    "ds_analysis",
+    "ds_viz"
+  ],
+  "C0867": [
+    "ds_bigdata",
+    "ds_dbms",
+    "ds_sql"
+  ],
+  "C0871": [
+    "ds_tableau",
+    "ds_viz"
+  ],
+  "C0878": [
+    "ds_cleansing",
+    "ds_linreg",
+    "ds_r"
+  ],
+  "C0879": [
+    "ds_analysis",
+    "ds_datascience",
+    "ds_python",
+    "ds_viz"
+  ],
+  "C0886": [
+    "ds_analysis",
+    "ds_datascience",
+    "ds_r",
+    "ds_stats",
+    "ds_viz"
+  ],
+  "C0887": [
+    "ds_excel"
+  ],
+  "C0888": [],
+  "C0892": [],
+  "C0897": [
+    "ds_python"
+  ],
+  "C0898": [
+    "ds_tableau",
+    "ds_viz"
+  ],
+  "C0899": [
+    "ds_datamgmt",
+    "ds_dbms",
+    "ds_excel",
+    "ds_sql"
+  ],
+  "C0900": [
+    "ds_sql"
+  ],
+  "C0905": [
+    "ds_bigdata",
+    "ds_sql"
+  ],
+  "C0909": [
+    "ds_analysis",
+    "ds_viz"
+  ],
+  "C0914": [
+    "ds_jupyter",
+    "ds_python"
+  ],
+  "C0917": [
+    "ds_linreg",
+    "ds_r",
+    "ds_stats"
+  ],
+  "C0921": [
+    "ds_linreg",
+    "ds_r",
+    "ds_stats"
+  ],
+  "C0923": [
+    "ds_analysis",
+    "ds_viz"
+  ],
+  "C0927": [
+    "ds_linreg",
+    "ds_regression",
+    "ds_stats"
+  ],
+  "C0928": [
+    "ds_analysis",
+    "ds_excel",
+    "ds_regression"
+  ],
+  "C0929": [
+    "ds_python",
+    "ds_rstudio"
+  ],
+  "C0933": [
+    "ds_r",
+    "ds_stats"
+  ],
+  "C0936": [
+    "ds_bigdata",
+    "ds_datamgmt"
+  ],
+  "C0941": [],
+  "C0943": [
+    "ds_analysis",
+    "ds_datamgmt"
+  ],
+  "C0955": [
+    "ds_jupyter",
+    "ds_python"
+  ],
+  "C0960": [
+    "ds_analysis",
+    "ds_bigdata",
+    "ds_sql"
+  ],
+  "C0963": [],
+  "C0965": [
+    "ds_r"
+  ],
+  "C0966": [],
+  "C0974": [
+    "ds_linreg",
+    "ds_r",
+    "ds_regression",
+    "ds_stats"
+  ],
+  "C0975": [],
+  "C0977": [],
+  "C0001": [
+    "ml_ann",
+    "ml_intelsys",
+    "ml_linreg",
+    "ml_supervised",
+    "ml_tensorflow"
+  ],
+  "C0004": [
+    "ml_ann",
+    "ml_cnn",
+    "ml_dl",
+    "ml_python",
+    "ml_tensorflow"
+  ],
+  "C0005": [
+    "ml_ai",
+    "ml_cloud",
+    "ml_datascience",
+    "ml_dl",
+    "ml_ml"
+  ],
+  "C0006": [
+    "ml_ai",
+    "ml_datascience",
+    "ml_dl",
+    "ml_ml"
+  ],
+  "C0008": [
+    "ml_datascience",
+    "ml_python"
+  ],
+  "C0017": [
+    "ml_ml",
+    "ml_nlp"
+  ],
+  "C0021": [
+    "ml_cnn",
+    "ml_ml"
+  ],
+  "C0027": [
+    "ml_ai",
+    "ml_ann",
+    "ml_datascience",
+    "ml_ml"
+  ],
+  "C0033": [
+    "ml_ai",
+    "ml_funcapprox",
+    "ml_intelsys",
+    "ml_ml",
+    "ml_rl"
+  ],
+  "C0036": [],
+  "C0044": [
+    "ml_funcapprox",
+    "ml_ml"
+  ],
+  "C0045": [
+    "ml_bigquery",
+    "ml_cloud",
+    "ml_gcp",
+    "ml_tensorflow"
+  ],
+  "C0046": [
+    "ml_linreg",
+    "ml_python"
+  ],
+  "C0048": [
+    "ml_ml",
+    "ml_nlp"
+  ],
+  "C0064": [
+    "ml_dl",
+    "ml_ml",
+    "ml_nlp"
+  ],
+  "C0077": [
+    "ml_datascience",
+    "ml_dl",
+    "ml_ml"
+  ],
+  "C0078": [],
+  "C0083": [
+    "ml_bigquery",
+    "ml_cloud",
+    "ml_gcp",
+    "ml_infoeng",
+    "ml_ml",
+    "ml_python",
+    "ml_tensorflow"
+  ],
+  "C0102": [
+    "ml_ai",
+    "ml_cloud",
+    "ml_ml",
+    "ml_nlp"
+  ],
+  "C0107": [
+    "ml_infoeng",
+    "ml_intelsys",
+    "ml_ml"
+  ],
+  "C0110": [
+    "ml_ml",
+    "ml_python",
+    "ml_rl"
+  ],
+  "C0117": [
+    "ml_infoeng",
+    "ml_ml",
+    "ml_rl",
+    "ml_tensorflow"
+  ],
+  "C0130": [
+    "ml_ann",
+    "ml_cnn",
+    "ml_ml",
+    "ml_tensorflow"
+  ],
+  "C0138": [
+    "ml_ann",
+    "ml_dl",
+    "ml_keras",
+    "ml_python",
+    "ml_tensorflow"
+  ],
+  "C0145": [
+    "ml_ai",
+    "ml_datascience",
+    "ml_infoeng",
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0163": [
+    "ml_dl",
+    "ml_ml",
+    "ml_unsupervised"
+  ],
+  "C0176": [
+    "ml_ai",
+    "ml_datascience",
+    "ml_dl",
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0180": [
+    "ml_ai",
+    "ml_ann",
+    "ml_cloud",
+    "ml_dl",
+    "ml_keras",
+    "ml_linreg",
+    "ml_ml",
+    "ml_nlp"
+  ],
+  "C0182": [
+    "ml_cloud",
+    "ml_cnn",
+    "ml_ml",
+    "ml_nlp"
+  ],
+  "C0190": [
+    "ml_bigquery",
+    "ml_cloud",
+    "ml_gcp",
+    "ml_infoeng",
+    "ml_tensorflow"
+  ],
+  "C0205": [
+    "ml_bigquery",
+    "ml_cloud",
+    "ml_gcp",
+    "ml_tensorflow"
+  ],
+  "C0208": [
+    "ml_ai",
+    "ml_ann",
+    "ml_dl",
+    "ml_infoeng",
+    "ml_keras",
+    "ml_linreg",
+    "ml_ml",
+    "ml_python",
+    "ml_rl",
+    "ml_supervised",
+    "ml_unsupervised"
+  ],
+  "C0233": [],
+  "C0240": [],
+  "C0241": [],
+  "C0242": [],
+  "C0246": [
+    "ml_linreg",
+    "ml_supervised"
+  ],
+  "C0251": [
+    "ml_ann",
+    "ml_tensorflow"
+  ],
+  "C0252": [
+    "ml_ann",
+    "ml_dl",
+    "ml_python"
+  ],
+  "C0261": [
+    "ml_intelsys",
+    "ml_rl",
+    "ml_unsupervised"
+  ],
+  "C0270": [
+    "ml_ml"
+  ],
+  "C0271": [
+    "ml_dl",
+    "ml_tensorflow"
+  ],
+  "C0275": [
+    "ml_ai",
+    "ml_datascience",
+    "ml_dl",
+    "ml_ml"
+  ],
+  "C0282": [],
+  "C0285": [
+    "ml_cnn",
+    "ml_dl",
+    "ml_tensorflow"
+  ],
+  "C0294": [
+    "ml_linreg",
+    "ml_ml"
+  ],
+  "C0295": [
+    "ml_ann",
+    "ml_nlp"
+  ],
+  "C0300": [
+    "ml_ann",
+    "ml_datascience",
+    "ml_ml"
+  ],
+  "C0311": [],
+  "C0312": [
+    "ml_nlp"
+  ],
+  "C0316": [
+    "ml_ml",
+    "ml_tensorflow"
+  ],
+  "C0318": [
+    "ml_cnn",
+    "ml_tensorflow"
+  ],
+  "C0324": [
+    "ml_ml"
+  ],
+  "C0329": [
+    "ml_ai",
+    "ml_funcapprox",
+    "ml_intelsys",
+    "ml_ml",
+    "ml_rl"
+  ],
+  "C0332": [
+    "ml_linreg"
+  ],
+  "C0333": [
+    "ml_ml",
+    "ml_tensorflow"
+  ],
+  "C0335": [
+    "ml_ml",
+    "ml_nlp",
+    "ml_tensorflow"
+  ],
+  "C0339": [
+    "ml_ml"
+  ],
+  "C0341": [
+    "ml_ai",
+    "ml_infoeng",
+    "ml_ml"
+  ],
+  "C0345": [
+    "ml_dl",
+    "ml_ml"
+  ],
+  "C0348": [
+    "ml_nlp"
+  ],
+  "C0350": [
+    "ml_ai",
+    "ml_dl",
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0352": [
+    "ml_ai",
+    "ml_dl",
+    "ml_ml",
+    "ml_rl"
+  ],
+  "C0354": [
+    "ml_ai",
+    "ml_ann",
+    "ml_dl",
+    "ml_keras",
+    "ml_ml"
+  ],
+  "C0369": [
+    "ml_cloud"
+  ],
+  "C0371": [
+    "ml_funcapprox"
+  ],
+  "C0373": [
+    "ml_ai",
+    "ml_cloud",
+    "ml_dl",
+    "ml_nlp"
+  ],
+  "C0374": [
+    "ml_ml",
+    "ml_tensorflow"
+  ],
+  "C0380": [
+    "ml_ann",
+    "ml_datascience",
+    "ml_rl"
+  ],
+  "C0385": [
+    "ml_cnn",
+    "ml_ml",
+    "ml_nlp",
+    "ml_python"
+  ],
+  "C0391": [],
+  "C0409": [
+    "ml_ml",
+    "ml_nlp"
+  ],
+  "C0448": [],
+  "C0454": [
+    "ml_linreg"
+  ],
+  "C0463": [
+    "ml_dl",
+    "ml_ml"
+  ],
+  "C0465": [],
+  "C0466": [
+    "ml_linreg"
+  ],
+  "C0469": [
+    "ml_ml",
+    "ml_supervised"
+  ],
+  "C0482": [
+    "ml_rl"
+  ],
+  "C0506": [
+    "ml_ml"
+  ],
+  "C0511": [
+    "ml_dl",
+    "ml_keras",
+    "ml_tensorflow"
+  ],
+  "C0541": [
+    "ml_ai",
+    "ml_datascience",
+    "ml_infoeng",
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0547": [],
+  "C0561": [
+    "ml_ai",
+    "ml_ml",
+    "ml_nlp"
+  ],
+  "C0564": [],
+  "C0574": [
+    "ml_cnn"
+  ],
+  "C0583": [
+    "ml_ai",
+    "ml_funcapprox",
+    "ml_intelsys",
+    "ml_ml",
+    "ml_rl"
+  ],
+  "C0585": [
+    "ml_ai",
+    "ml_datascience",
+    "ml_infoeng",
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0587": [
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0596": [
+    "ml_ai",
+    "ml_ml"
+  ],
+  "C0601": [
+    "ml_ml"
+  ],
+  "C0622": [],
+  "C0627": [
+    "ml_linreg",
+    "ml_python"
+  ],
+  "C0628": [
+    "ml_dl",
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0636": [],
+  "C0640": [],
+  "C0646": [],
+  "C0653": [],
+  "C0654": [],
+  "C0655": [],
+  "C0656": [
+    "ml_ai",
+    "ml_datascience",
+    "ml_infoeng",
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0660": [
+    "ml_bigquery",
+    "ml_ml",
+    "ml_tensorflow"
+  ],
+  "C0669": [
+    "ml_linreg",
+    "ml_ml",
+    "ml_supervised"
+  ],
+  "C0670": [
+    "ml_dl",
+    "ml_unsupervised"
+  ],
+  "C0674": [
+    "ml_ai",
+    "ml_datascience",
+    "ml_infoeng",
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0679": [
+    "ml_ml"
+  ],
+  "C0681": [
+    "ml_ai",
+    "ml_nlp"
+  ],
+  "C0684": [
+    "ml_ai",
+    "ml_funcapprox",
+    "ml_intelsys",
+    "ml_ml",
+    "ml_rl"
+  ],
+  "C0687": [
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0710": [],
+  "C0715": [
+    "ml_infoeng"
+  ],
+  "C0722": [
+    "ml_bigquery",
+    "ml_cloud",
+    "ml_gcp",
+    "ml_tensorflow"
+  ],
+  "C0724": [
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0725": [
+    "ml_cloud",
+    "ml_ml",
+    "ml_tensorflow"
+  ],
+  "C0729": [
+    "ml_dl",
+    "ml_ml"
+  ],
+  "C0731": [
+    "ml_unsupervised"
+  ],
+  "C0761": [
+    "ml_datascience",
+    "ml_tensorflow"
+  ],
+  "C0773": [],
+  "C0774": [
+    "ml_ai",
+    "ml_datascience",
+    "ml_infoeng",
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0779": [
+    "ml_ml"
+  ],
+  "C0802": [
+    "ml_bigquery",
+    "ml_cloud",
+    "ml_gcp",
+    "ml_tensorflow"
+  ],
+  "C0824": [
+    "ml_dl",
+    "ml_unsupervised"
+  ],
+  "C0830": [
+    "ml_keras",
+    "ml_ml",
+    "ml_python",
+    "ml_tensorflow"
+  ],
+  "C0850": [
+    "ml_ai",
+    "ml_funcapprox",
+    "ml_intelsys",
+    "ml_ml",
+    "ml_rl"
+  ],
+  "C0862": [],
+  "C0873": [
+    "ml_dl",
+    "ml_unsupervised"
+  ],
+  "C0882": [],
+  "C0894": [
+    "ml_bigquery",
+    "ml_gcp",
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0902": [],
+  "C0906": [
+    "ml_ai",
+    "ml_datascience",
+    "ml_infoeng",
+    "ml_ml",
+    "ml_python"
+  ],
+  "C0932": [
+    "ml_ann",
+    "ml_dl",
+    "ml_python",
+    "ml_tensorflow"
+  ],
+  "C0949": [],
+  "C0011": [
+    "wd_agile",
+    "wd_bash",
+    "wd_c",
+    "wd_js",
+    "wd_linux",
+    "wd_python",
+    "wd_testing"
+  ],
+  "C0012": [
+    "wd_agile",
+    "wd_programming",
+    "wd_webdev"
+  ],
+  "C0014": [
+    "wd_c",
+    "wd_ds",
+    "wd_programming",
+    "wd_pysyntax",
+    "wd_python",
+    "wd_sql"
+  ],
+  "C0018": [
+    "wd_bash",
+    "wd_html",
+    "wd_js",
+    "wd_linux",
+    "wd_oop",
+    "wd_webdev"
+  ],
+  "C0019": [
+    "wd_ml"
+  ],
+  "C0024": [
+    "wd_agile",
+    "wd_testing",
+    "wd_uxd",
+    "wd_webdev"
+  ],
+  "C0028": [
+    "wd_c",
+    "wd_cs",
+    "wd_ds",
+    "wd_java",
+    "wd_programming",
+    "wd_pysyntax",
+    "wd_python"
+  ],
+  "C0032": [
+    "wd_programming",
+    "wd_python"
+  ],
+  "C0034": [
+    "wd_algo",
+    "wd_ds",
+    "wd_oop"
+  ],
+  "C0035": [
+    "wd_programming"
+  ],
+  "C0040": [
+    "wd_algo",
+    "wd_c",
+    "wd_debug",
+    "wd_ds",
+    "wd_programming",
+    "wd_research",
+    "wd_testing"
+  ],
+  "C0041": [
+    "wd_agile",
+    "wd_testing"
+  ],
+  "C0047": [
+    "wd_agile",
+    "wd_testing",
+    "wd_ux",
+    "wd_uxd",
+    "wd_webdev"
+  ],
+  "C0051": [
+    "wd_algo",
+    "wd_c",
+    "wd_ds"
+  ],
+  "C0054": [
+    "wd_algo",
+    "wd_c",
+    "wd_cs",
+    "wd_css",
+    "wd_ds",
+    "wd_html",
+    "wd_java",
+    "wd_js",
+    "wd_problem"
+  ],
+  "C0055": [
+    "wd_c",
+    "wd_oop",
+    "wd_problem",
+    "wd_programming"
+  ],
+  "C0058": [
+    "wd_algo",
+    "wd_c",
+    "wd_cpp",
+    "wd_programming"
+  ],
+  "C0059": [
+    "wd_c",
+    "wd_debug",
+    "wd_ds",
+    "wd_programming",
+    "wd_webdev"
+  ],
+  "C0060": [
+    "wd_testing"
+  ],
+  "C0065": [
+    "wd_programming",
+    "wd_research",
+    "wd_ux",
+    "wd_uxd"
+  ],
+  "C0066": [
+    "wd_css",
+    "wd_html",
+    "wd_js",
+    "wd_webdev"
+  ],
+  "C0067": [
+    "wd_programming"
+  ],
+  "C0070": [
+    "wd_algo",
+    "wd_ds",
+    "wd_python"
+  ],
+  "C0072": [
+    "wd_debug",
+    "wd_problem",
+    "wd_programming"
+  ],
+  "C0074": [
+    "wd_algo",
+    "wd_c",
+    "wd_cs",
+    "wd_ds",
+    "wd_java",
+    "wd_oop",
+    "wd_problem"
+  ],
+  "C0076": [
+    "wd_sql"
+  ],
+  "C0079": [],
+  "C0080": [
+    "wd_java",
+    "wd_oop",
+    "wd_testing"
+  ],
+  "C0081": [
+    "wd_c",
+    "wd_ds"
+  ],
+  "C0084": [],
+  "C0085": [
+    "wd_java",
+    "wd_oop",
+    "wd_programming",
+    "wd_webdev"
+  ],
+  "C0088": [
+    "wd_css",
+    "wd_html",
+    "wd_js",
+    "wd_sql",
+    "wd_webdev"
+  ],
+  "C0089": [
+    "wd_js",
+    "wd_problem",
+    "wd_programming"
+  ],
+  "C0090": [
+    "wd_c",
+    "wd_webdev"
+  ],
+  "C0091": [
+    "wd_ml"
+  ],
+  "C0092": [
+    "wd_problem",
+    "wd_programming"
+  ],
+  "C0093": [
+    "wd_algo",
+    "wd_c",
+    "wd_cs",
+    "wd_debug",
+    "wd_linux",
+    "wd_programming",
+    "wd_testing"
+  ],
+  "C0096": [
+    "wd_c",
+    "wd_research",
+    "wd_testing",
+    "wd_ux",
+    "wd_uxd"
+  ],
+  "C0097": [
+    "wd_agile",
+    "wd_algo",
+    "wd_c",
+    "wd_debug",
+    "wd_problem",
+    "wd_programming",
+    "wd_testing"
+  ],
+  "C0098": [
+    "wd_java"
+  ],
+  "C0100": [
+    "wd_testing"
+  ],
+  "C0106": [],
+  "C0111": [
+    "wd_agile",
+    "wd_testing"
+  ],
+  "C0113": [
+    "wd_ml"
+  ],
+  "C0114": [
+    "wd_linux",
+    "wd_ml"
+  ],
+  "C0116": [],
+  "C0118": [
+    "wd_algo",
+    "wd_c",
+    "wd_ds",
+    "wd_oop",
+    "wd_programming",
+    "wd_pysyntax",
+    "wd_python"
+  ],
+  "C0120": [
+    "wd_css",
+    "wd_html",
+    "wd_js",
+    "wd_oop",
+    "wd_sql"
+  ],
+  "C0127": [
+    "wd_agile",
+    "wd_c",
+    "wd_java",
+    "wd_oop",
+    "wd_programming",
+    "wd_testing"
+  ],
+  "C0129": [
+    "wd_c",
+    "wd_webdev"
+  ],
+  "C0133": [
+    "wd_algo",
+    "wd_c",
+    "wd_ds",
+    "wd_java",
+    "wd_oop",
+    "wd_problem"
+  ],
+  "C0137": [
+    "wd_webdev"
+  ],
+  "C0141": [
+    "wd_research",
+    "wd_uxd"
+  ],
+  "C0142": [
+    "wd_js"
+  ],
+  "C0143": [
+    "wd_programming"
+  ],
+  "C0146": [
+    "wd_cpp",
+    "wd_cs",
+    "wd_oop",
+    "wd_programming"
+  ],
+  "C0150": [
+    "wd_webdev"
+  ],
+  "C0153": [
+    "wd_debug",
+    "wd_pysyntax",
+    "wd_python"
+  ],
+  "C0154": [],
+  "C0155": [],
+  "C0156": [],
+  "C0158": [],
+  "C0160": [],
+  "C0161": [
+    "wd_agile",
+    "wd_c",
+    "wd_js",
+    "wd_linux",
+    "wd_testing"
+  ],
+  "C0162": [
+    "wd_algo",
+    "wd_cpp",
+    "wd_cs",
+    "wd_ml",
+    "wd_python"
+  ],
+  "C0166": [
+    "wd_research",
+    "wd_testing",
+    "wd_ux",
+    "wd_uxd"
+  ],
+  "C0169": [
+    "wd_agile",
+    "wd_bash",
+    "wd_c",
+    "wd_cs",
+    "wd_debug",
+    "wd_ds",
+    "wd_js",
+    "wd_linux",
+    "wd_programming",
+    "wd_python",
+    "wd_testing",
+    "wd_webdev"
+  ],
+  "C0175": [
+    "wd_python",
+    "wd_webdev"
+  ],
+  "C0181": [],
+  "C0183": [
+    "wd_algo",
+    "wd_bash",
+    "wd_c",
+    "wd_cs",
+    "wd_css",
+    "wd_debug",
+    "wd_ds",
+    "wd_html",
+    "wd_js",
+    "wd_linux",
+    "wd_programming",
+    "wd_python",
+    "wd_sql",
+    "wd_webdev"
+  ],
+  "C0184": [
+    "wd_algo",
+    "wd_bash",
+    "wd_c",
+    "wd_cs",
+    "wd_ds",
+    "wd_js",
+    "wd_linux",
+    "wd_testing",
+    "wd_ux",
+    "wd_webdev"
+  ],
+  "C0186": [
+    "wd_algo",
+    "wd_bash",
+    "wd_cs",
+    "wd_ds",
+    "wd_js",
+    "wd_linux",
+    "wd_ux",
+    "wd_webdev"
+  ],
+  "C0199": [
+    "wd_ux",
+    "wd_uxd"
+  ],
+  "C0200": [
+    "wd_ml"
+  ],
+  "C0210": [
+    "wd_agile",
+    "wd_ds",
+    "wd_programming",
+    "wd_testing"
+  ],
+  "C0214": [
+    "wd_js"
+  ],
+  "C0217": [
+    "wd_bash",
+    "wd_c",
+    "wd_linux",
+    "wd_programming",
+    "wd_python",
+    "wd_webdev"
+  ],
+  "C0219": [
+    "wd_ml"
+  ],
+  "C0224": [],
+  "C0226": [],
+  "C0227": [],
+  "C0230": [],
+  "C0231": [],
+  "C0234": [],
+  "C0236": [],
+  "C0237": [],
+  "C0238": [],
+  "C0243": [],
+  "C0244": [],
+  "C0249": [
+    "wd_research",
+    "wd_ux",
+    "wd_uxd"
+  ],
+  "C0257": [
+    "wd_research",
+    "wd_ux",
+    "wd_uxd"
+  ],
+  "C0258": [
+    "wd_ml"
+  ],
+  "C0259": [
+    "wd_css",
+    "wd_html",
+    "wd_js"
+  ],
+  "C0268": [
+    "wd_c",
+    "wd_programming",
+    "wd_pysyntax",
+    "wd_python"
+  ],
+  "C0272": [
+    "wd_agile"
+  ],
+  "C0283": [
+    "wd_ml",
+    "wd_programming"
+  ],
+  "C0289": [
+    "wd_research",
+    "wd_ux",
+    "wd_uxd"
+  ],
+  "C0291": [
+    "wd_ux",
+    "wd_uxd"
+  ],
+  "C0296": [
+    "wd_html",
+    "wd_webdev"
+  ],
+  "C0302": [],
+  "C0304": [
+    "wd_programming",
+    "wd_pysyntax",
+    "wd_python"
+  ],
+  "C0305": [
+    "wd_ds",
+    "wd_pysyntax",
+    "wd_python"
+  ],
+  "C0306": [
+    "wd_ml"
+  ],
+  "C0309": [
+    "wd_research",
+    "wd_testing",
+    "wd_ux",
+    "wd_uxd"
+  ],
+  "C0313": [
+    "wd_algo",
+    "wd_problem",
+    "wd_programming",
+    "wd_python"
+  ],
+  "C0315": [
+    "wd_c",
+    "wd_programming",
+    "wd_pysyntax",
+    "wd_python"
+  ],
+  "C0320": [
+    "wd_programming"
+  ],
+  "C0321": [
+    "wd_webdev"
+  ],
+  "C0322": [
+    "wd_agile",
+    "wd_c",
+    "wd_testing"
+  ],
+  "C0323": [
+    "wd_research",
+    "wd_testing"
+  ],
+  "C0326": [
+    "wd_ux",
+    "wd_uxd"
+  ],
+  "C0327": [
+    "wd_js",
+    "wd_oop",
+    "wd_webdev"
+  ],
+  "C0330": [
+    "wd_c",
+    "wd_programming",
+    "wd_python"
+  ],
+  "C0336": [
+    "wd_c",
+    "wd_problem",
+    "wd_programming"
+  ],
+  "C0337": [
+    "wd_python"
+  ],
+  "C0338": [
+    "wd_css",
+    "wd_html",
+    "wd_js",
+    "wd_testing"
+  ],
+  "C0343": [
+    "wd_bash",
+    "wd_linux",
+    "wd_webdev"
+  ],
+  "C0349": [
+    "wd_bash",
+    "wd_js",
+    "wd_linux"
+  ],
+  "C0353": [
+    "wd_algo"
+  ],
+  "C0356": [
+    "wd_testing",
+    "wd_ux",
+    "wd_uxd"
+  ],
+  "C0359": [
+    "wd_debug",
+    "wd_problem",
+    "wd_programming"
+  ],
+  "C0362": [
+    "wd_testing"
+  ],
+  "C0363": [
+    "wd_agile",
+    "wd_uxd"
+  ],
+  "C0365": [
+    "wd_agile"
+  ],
+  "C0367": [
+    "wd_ux",
+    "wd_uxd"
+  ],
+  "C0370": [
+    "wd_testing",
+    "wd_ux",
+    "wd_uxd"
+  ],
+  "C0372": [
+    "wd_algo",
+    "wd_c",
+    "wd_debug",
+    "wd_programming",
+    "wd_testing"
+  ],
+  "C0375": [
+    "wd_css",
+    "wd_html",
+    "wd_js"
+  ],
+  "C0381": [
+    "wd_python",
+    "wd_sql"
+  ],
+  "C0384": [
+    "wd_algo",
+    "wd_c",
+    "wd_programming"
+  ],
+  "C0387": [
+    "wd_algo",
+    "wd_ds",
+    "wd_python"
+  ],
+  "C0390": [
+    "wd_webdev"
+  ],
+  "C0393": [
+    "wd_c",
+    "wd_programming",
+    "wd_python"
+  ],
+  "C0394": [],
+  "C0407": [],
+  "C0413": [
+    "wd_css",
+    "wd_js"
+  ],
+  "C0416": [],
+  "C0417": [
+    "wd_research",
+    "wd_uxd"
+  ],
+  "C0419": [
+    "wd_algo",
+    "wd_c",
+    "wd_programming"
+  ],
+  "C0422": [
+    "wd_research"
+  ],
+  "C0423": [],
+  "C0428": [],
+  "C0430": [
+    "wd_java",
+    "wd_oop",
+    "wd_pysyntax",
+    "wd_testing"
+  ],
+  "C0435": [],
+  "C0438": [
+    "wd_agile",
+    "wd_testing"
+  ],
+  "C0440": [
+    "wd_java"
+  ],
+  "C0441": [
+    "wd_ds",
+    "wd_sql",
+    "wd_testing"
+  ],
+  "C0446": [
+    "wd_algo",
+    "wd_ds",
+    "wd_python"
+  ],
+  "C0449": [],
+  "C0450": [
+    "wd_ml"
+  ],
+  "C0452": [],
+  "C0458": [],
+  "C0459": [],
+  "C0460": [
+    "wd_problem"
+  ],
+  "C0467": [],
+  "C0468": [
+    "wd_c"
+  ],
+  "C0470": [],
+  "C0473": [
+    "wd_oop"
+  ],
+  "C0474": [
+    "wd_ds",
+    "wd_java",
+    "wd_testing"
+  ],
+  "C0475": [],
+  "C0476": [
+    "wd_research",
+    "wd_ux"
+  ],
+  "C0477": [],
+  "C0479": [],
+  "C0481": [
+    "wd_algo",
+    "wd_programming",
+    "wd_python"
+  ],
+  "C0485": [],
+  "C0487": [
+    "wd_programming",
+    "wd_research",
+    "wd_ux"
+  ],
+  "C0488": [
+    "wd_agile"
+  ],
+  "C0490": [
+    "wd_html",
+    "wd_js",
+    "wd_webdev"
+  ],
+  "C0493": [],
+  "C0494": [
+    "wd_js",
+    "wd_webdev"
+  ],
+  "C0496": [
+    "wd_algo",
+    "wd_c",
+    "wd_java",
+    "wd_oop"
+  ],
+  "C0498": [],
+  "C0501": [
+    "wd_agile"
+  ],
+  "C0503": [
+    "wd_agile"
+  ],
+  "C0504": [],
+  "C0507": [],
+  "C0509": [],
+  "C0512": [],
+  "C0516": [
+    "wd_css",
+    "wd_html",
+    "wd_sql"
+  ],
+  "C0520": [],
+  "C0524": [],
+  "C0525": [],
+  "C0526": [],
+  "C0527": [
+    "wd_css",
+    "wd_webdev"
+  ],
+  "C0528": [],
+  "C0533": [
+    "wd_agile"
+  ],
+  "C0539": [],
+  "C0540": [],
+  "C0542": [],
+  "C0544": [
+    "wd_c",
+    "wd_js",
+    "wd_linux"
+  ],
+  "C0546": [
+    "wd_webdev"
+  ],
+  "C0550": [
+    "wd_algo",
+    "wd_cs",
+    "wd_java",
+    "wd_problem"
+  ],
+  "C0556": [
+    "wd_algo",
+    "wd_ds"
+  ],
+  "C0558": [
+    "wd_algo",
+    "wd_c",
+    "wd_problem"
+  ],
+  "C0565": [
+    "wd_debug",
+    "wd_ds",
+    "wd_java",
+    "wd_problem"
+  ],
+  "C0568": [
+    "wd_ds",
+    "wd_programming"
+  ],
+  "C0569": [
+    "wd_js"
+  ],
+  "C0572": [
+    "wd_cpp",
+    "wd_cs",
+    "wd_ml"
+  ],
+  "C0576": [
+    "wd_c",
+    "wd_debug"
+  ],
+  "C0580": [],
+  "C0584": [
+    "wd_testing"
+  ],
+  "C0586": [
+    "wd_sql"
+  ],
+  "C0588": [
+    "wd_ds"
+  ],
+  "C0593": [
+    "wd_ds",
+    "wd_java"
+  ],
+  "C0594": [],
+  "C0595": [],
+  "C0597": [],
+  "C0598": [],
+  "C0600": [],
+  "C0603": [],
+  "C0604": [],
+  "C0605": [
+    "wd_problem"
+  ],
+  "C0607": [],
+  "C0608": [],
+  "C0609": [],
+  "C0611": [],
+  "C0613": [
+    "wd_sql"
+  ],
+  "C0615": [
+    "wd_java",
+    "wd_programming"
+  ],
+  "C0616": [
+    "wd_algo",
+    "wd_cpp"
+  ],
+  "C0618": [],
+  "C0620": [],
+  "C0621": [
+    "wd_webdev"
+  ],
+  "C0623": [],
+  "C0626": [
+    "wd_testing"
+  ],
+  "C0630": [],
+  "C0632": [
+    "wd_agile",
+    "wd_linux"
+  ],
+  "C0633": [],
+  "C0635": [
+    "wd_algo",
+    "wd_ds"
+  ],
+  "C0638": [
+    "wd_uxd"
+  ],
+  "C0639": [],
+  "C0641": [],
+  "C0643": [],
+  "C0644": [
+    "wd_sql"
+  ],
+  "C0648": [],
+  "C0649": [],
+  "C0650": [
+    "wd_linux",
+    "wd_programming"
+  ],
+  "C0651": [
+    "wd_programming"
+  ],
+  "C0652": [],
+  "C0659": [
+    "wd_c",
+    "wd_python"
+  ],
+  "C0661": [
+    "wd_c",
+    "wd_oop",
+    "wd_pysyntax",
+    "wd_python"
+  ],
+  "C0662": [
+    "wd_algo",
+    "wd_c",
+    "wd_python"
+  ],
+  "C0665": [],
+  "C0666": [
+    "wd_html",
+    "wd_webdev"
+  ],
+  "C0667": [
+    "wd_c",
+    "wd_programming"
+  ],
+  "C0668": [],
+  "C0671": [
+    "wd_webdev"
+  ],
+  "C0675": [],
+  "C0676": [
+    "wd_research",
+    "wd_ux",
+    "wd_uxd"
+  ],
+  "C0678": [
+    "wd_c",
+    "wd_debug"
+  ],
+  "C0680": [
+    "wd_ds"
+  ],
+  "C0682": [],
+  "C0683": [],
+  "C0686": [
+    "wd_java"
+  ],
+  "C0688": [],
+  "C0690": [
+    "wd_algo",
+    "wd_programming",
+    "wd_python"
+  ],
+  "C0693": [],
+  "C0694": [
+    "wd_testing",
+    "wd_webdev"
+  ],
+  "C0696": [],
+  "C0699": [
+    "wd_cpp"
+  ],
+  "C0702": [
+    "wd_js",
+    "wd_webdev"
+  ],
+  "C0705": [
+    "wd_algo",
+    "wd_python"
+  ],
+  "C0706": [],
+  "C0712": [],
+  "C0713": [
+    "wd_debug",
+    "wd_programming"
+  ],
+  "C0720": [
+    "wd_algo",
+    "wd_cpp"
+  ],
+  "C0721": [
+    "wd_agile",
+    "wd_testing"
+  ],
+  "C0727": [
+    "wd_c",
+    "wd_ux",
+    "wd_uxd"
+  ],
+  "C0728": [
+    "wd_ml"
+  ],
+  "C0730": [
+    "wd_cpp",
+    "wd_cs"
+  ],
+  "C0732": [],
+  "C0733": [
+    "wd_research",
+    "wd_testing",
+    "wd_ux"
+  ],
+  "C0735": [
+    "wd_c"
+  ],
+  "C0736": [
+    "wd_algo"
+  ],
+  "C0737": [],
+  "C0738": [
+    "wd_oop"
+  ],
+  "C0739": [
+    "wd_c",
+    "wd_programming"
+  ],
+  "C0741": [
+    "wd_css",
+    "wd_html",
+    "wd_js",
+    "wd_webdev"
+  ],
+  "C0743": [
+    "wd_c",
+    "wd_js",
+    "wd_linux"
+  ],
+  "C0744": [],
+  "C0745": [],
+  "C0746": [
+    "wd_ux",
+    "wd_webdev"
+  ],
+  "C0748": [
+    "wd_programming"
+  ],
+  "C0750": [],
+  "C0751": [
+    "wd_algo",
+    "wd_cpp"
+  ],
+  "C0755": [],
+  "C0757": [
+    "wd_agile",
+    "wd_testing"
+  ],
+  "C0759": [
+    "wd_algo",
+    "wd_c",
+    "wd_problem"
+  ],
+  "C0762": [],
+  "C0763": [
+    "wd_c",
+    "wd_programming"
+  ],
+  "C0764": [
+    "wd_cpp",
+    "wd_cs",
+    "wd_oop"
+  ],
+  "C0766": [
+    "wd_agile",
+    "wd_testing"
+  ],
+  "C0768": [
+    "wd_cs",
+    "wd_js",
+    "wd_webdev"
+  ],
+  "C0771": [],
+  "C0777": [
+    "wd_algo"
+  ],
+  "C0780": [
+    "wd_algo",
+    "wd_c"
+  ],
+  "C0782": [],
+  "C0783": [],
+  "C0786": [],
+  "C0792": [],
+  "C0793": [],
+  "C0795": [
+    "wd_css",
+    "wd_html"
+  ],
+  "C0796": [
+    "wd_cpp",
+    "wd_cs"
+  ],
+  "C0799": [],
+  "C0801": [
+    "wd_c",
+    "wd_testing"
+  ],
+  "C0804": [],
+  "C0810": [
+    "wd_webdev"
+  ],
+  "C0811": [],
+  "C0812": [],
+  "C0815": [],
+  "C0817": [
+    "wd_cpp",
+    "wd_python"
+  ],
+  "C0820": [],
+  "C0822": [
+    "wd_linux"
+  ],
+  "C0831": [
+    "wd_ml"
+  ],
+  "C0834": [
+    "wd_python",
+    "wd_webdev"
+  ],
+  "C0836": [
+    "wd_testing",
+    "wd_ux",
+    "wd_uxd"
+  ],
+  "C0839": [],
+  "C0842": [],
+  "C0843": [
+    "wd_algo",
+    "wd_c",
+    "wd_ds"
+  ],
+  "C0844": [],
+  "C0846": [],
+  "C0848": [
+    "wd_webdev"
+  ],
+  "C0851": [
+    "wd_algo",
+    "wd_cs",
+    "wd_ds"
+  ],
+  "C0854": [],
+  "C0856": [
+    "wd_programming",
+    "wd_research",
+    "wd_ux",
+    "wd_uxd"
+  ],
+  "C0857": [
+    "wd_agile"
+  ],
+  "C0861": [
+    "wd_agile",
+    "wd_programming"
+  ],
+  "C0863": [
+    "wd_c",
+    "wd_programming"
+  ],
+  "C0865": [
+    "wd_c",
+    "wd_java",
+    "wd_oop"
+  ],
+  "C0868": [],
+  "C0869": [],
+  "C0870": [
+    "wd_js"
+  ],
+  "C0872": [],
+  "C0874": [],
+  "C0875": [],
+  "C0876": [
+    "wd_css",
+    "wd_html",
+    "wd_js"
+  ],
+  "C0877": [],
+  "C0880": [
+    "wd_c",
+    "wd_programming",
+    "wd_pysyntax",
+    "wd_python"
+  ],
+  "C0881": [
+    "wd_agile",
+    "wd_programming"
+  ],
+  "C0883": [
+    "wd_c",
+    "wd_sql"
+  ],
+  "C0884": [],
+  "C0885": [],
+  "C0889": [],
+  "C0890": [],
+  "C0891": [
+    "wd_c",
+    "wd_webdev"
+  ],
+  "C0893": [],
+  "C0895": [
+    "wd_c",
+    "wd_linux",
+    "wd_programming"
+  ],
+  "C0901": [],
+  "C0904": [
+    "wd_algo",
+    "wd_ds",
+    "wd_python"
+  ],
+  "C0907": [],
+  "C0908": [],
+  "C0911": [
+    "wd_agile",
+    "wd_testing"
+  ],
+  "C0912": [],
+  "C0913": [
+    "wd_testing"
+  ],
+  "C0915": [
+    "wd_c"
+  ],
+  "C0916": [],
+  "C0919": [],
+  "C0920": [],
+  "C0922": [
+    "wd_cpp",
+    "wd_cs"
+  ],
+  "C0925": [],
+  "C0926": [],
+  "C0934": [],
+  "C0935": [
+    "wd_ml"
+  ],
+  "C0937": [],
+  "C0940": [
+    "wd_js",
+    "wd_webdev"
+  ],
+  "C0942": [],
+  "C0944": [
+    "wd_algo",
+    "wd_ds"
+  ],
+  "C0945": [],
+  "C0946": [
+    "wd_debug",
+    "wd_python"
+  ],
+  "C0950": [
+    "wd_algo",
+    "wd_ds",
+    "wd_python"
+  ],
+  "C0954": [],
+  "C0956": [
+    "wd_java",
+    "wd_oop",
+    "wd_programming"
+  ],
+  "C0957": [],
+  "C0958": [
+    "wd_c",
+    "wd_java",
+    "wd_testing"
+  ],
+  "C0959": [
+    "wd_js"
+  ],
+  "C0964": [],
+  "C0967": [],
+  "C0968": [
+    "wd_programming",
+    "wd_python"
+  ],
+  "C0969": [
+    "wd_c",
+    "wd_testing"
+  ],
+  "C0970": [
+    "wd_sql"
+  ],
+  "C0972": [
+    "wd_debug",
+    "wd_pysyntax",
+    "wd_python"
+  ],
+  "C0973": [
+    "wd_ml"
+  ],
+  "C0976": [
+    "wd_testing"
+  ],
+  "C0979": [],
+  "C0010": [
+    "cy_cyberattacks",
+    "cy_cybersecurity",
+    "cy_dbvuln",
+    "cy_infosec",
+    "cy_netsec",
+    "cy_networking",
+    "cy_security_basic",
+    "cy_sqli"
+  ],
+  "C0025": [
+    "cy_analyst",
+    "cy_appsec",
+    "cy_cybersecurity",
+    "cy_forensics",
+    "cy_incident",
+    "cy_netsec",
+    "cy_pentest",
+    "cy_scripting",
+    "cy_threat"
+  ],
+  "C0038": [
+    "cy_bc",
+    "cy_cybersecurity",
+    "cy_dr",
+    "cy_incident",
+    "cy_infosec",
+    "cy_netsec",
+    "cy_risk",
+    "cy_security_basic"
+  ],
+  "C0057": [],
+  "C0061": [],
+  "C0062": [
+    "cy_crypto",
+    "cy_cyberattacks",
+    "cy_cybersecurity",
+    "cy_infosec",
+    "cy_pkc",
+    "cy_risk"
+  ],
+  "C0086": [
+    "cy_cyberattacks",
+    "cy_cybersecurity",
+    "cy_forensics",
+    "cy_netsec"
+  ],
+  "C0094": [
+    "cy_bc"
+  ],
+  "C0095": [
+    "cy_cybersecurity",
+    "cy_dbvuln",
+    "cy_incident",
+    "cy_netsec",
+    "cy_risk",
+    "cy_security_basic"
+  ],
+  "C0103": [
+    "cy_crypto",
+    "cy_cybersecurity",
+    "cy_pentest",
+    "cy_pkc",
+    "cy_sqli"
+  ],
+  "C0124": [
+    "cy_dr",
+    "cy_python"
+  ],
+  "C0126": [
+    "cy_cybersecurity",
+    "cy_infosec",
+    "cy_netsec"
+  ],
+  "C0132": [
+    "cy_cybersecurity",
+    "cy_python"
+  ],
+  "C0173": [
+    "cy_analyst"
+  ],
+  "C0203": [
+    "cy_dbvuln"
+  ],
+  "C0215": [],
+  "C0220": [],
+  "C0222": [],
+  "C0223": [],
+  "C0225": [],
+  "C0229": [],
+  "C0232": [],
+  "C0235": [],
+  "C0245": [],
+  "C0253": [
+    "cy_netsec"
+  ],
+  "C0288": [
+    "cy_crypto",
+    "cy_cybersecurity",
+    "cy_netsec",
+    "cy_security_basic"
+  ],
+  "C0299": [
+    "cy_crypto",
+    "cy_pkc"
+  ],
+  "C0319": [
+    "cy_infosec",
+    "cy_risk"
+  ],
+  "C0342": [
+    "cy_cybersecurity",
+    "cy_forensics",
+    "cy_incident",
+    "cy_pentest",
+    "cy_scripting"
+  ],
+  "C0355": [
+    "cy_cybersecurity",
+    "cy_dbvuln",
+    "cy_netsec",
+    "cy_networking",
+    "cy_sqli"
+  ],
+  "C0364": [
+    "cy_cybersecurity",
+    "cy_infosec",
+    "cy_risk"
+  ],
+  "C0368": [
+    "cy_infosec",
+    "cy_risk",
+    "cy_security_basic"
+  ],
+  "C0376": [
+    "cy_analyst",
+    "cy_appsec",
+    "cy_cybersecurity",
+    "cy_netsec",
+    "cy_threat"
+  ],
+  "C0411": [
+    "cy_netsec",
+    "cy_security_basic"
+  ],
+  "C0421": [
+    "cy_crypto",
+    "cy_cybersecurity",
+    "cy_pkc"
+  ],
+  "C0425": [
+    "cy_bc",
+    "cy_dr"
+  ],
+  "C0431": [],
+  "C0433": [],
+  "C0443": [
+    "cy_forensics"
+  ],
+  "C0457": [
+    "cy_cybersecurity",
+    "cy_python"
+  ],
+  "C0486": [
+    "cy_crypto"
+  ],
+  "C0500": [],
+  "C0508": [],
+  "C0523": [
+    "cy_crypto",
+    "cy_pkc"
+  ],
+  "C0555": [],
+  "C0557": [],
+  "C0560": [],
+  "C0567": [
+    "cy_python"
+  ],
+  "C0577": [],
+  "C0578": [],
+  "C0677": [
+    "cy_appsec",
+    "cy_crypto",
+    "cy_cyberattacks",
+    "cy_infosec",
+    "cy_security_basic"
+  ],
+  "C0697": [
+    "cy_cybersecurity",
+    "cy_infosec",
+    "cy_netsec"
+  ],
+  "C0717": [
+    "cy_cybersecurity",
+    "cy_risk"
+  ],
+  "C0719": [],
+  "C0749": [
+    "cy_pentest",
+    "cy_sqli"
+  ],
+  "C0752": [
+    "cy_cybersecurity"
+  ],
+  "C0784": [
+    "cy_cybersecurity",
+    "cy_risk"
+  ],
+  "C0787": [],
+  "C0797": [
+    "cy_analyst"
+  ],
+  "C0808": [],
+  "C0816": [
+    "cy_cybersecurity",
+    "cy_dbvuln"
+  ],
+  "C0825": [],
+  "C0827": [],
+  "C0829": [],
+  "C0835": [
+    "cy_cyberattacks",
+    "cy_netsec",
+    "cy_threat"
+  ],
+  "C0845": [
+    "cy_netsec",
+    "cy_networking"
+  ],
+  "C0853": [],
+  "C0855": [
+    "cy_analyst",
+    "cy_cyberattacks",
+    "cy_cybersecurity",
+    "cy_incident"
+  ],
+  "C0903": [],
+  "C0924": [
+    "cy_bc"
+  ],
+  "C0951": [
+    "cy_risk"
+  ],
+  "C0952": [],
+  "C0962": [],
+  "C0971": [
+    "cy_crypto",
+    "cy_security_basic"
+  ],
+  "C0978": [
+    "cy_bc",
+    "cy_dr",
+    "cy_incident"
+  ],
+  "C0013": [
+    "cloud_apps",
+    "cloud_computing",
+    "cloud_devops",
+    "cloud_python"
+  ],
+  "C0015": [
+    "cloud_apps",
+    "cloud_computing",
+    "cloud_dbms",
+    "cloud_netarch",
+    "cloud_techsupport"
+  ],
+  "C0030": [
+    "cloud_apps",
+    "cloud_computing",
+    "cloud_storage"
+  ],
+  "C0049": [
+    "cloud_app_engine",
+    "cloud_compute_engine",
+    "cloud_computing",
+    "cloud_dbms",
+    "cloud_gcp",
+    "cloud_platforms",
+    "cloud_storage"
+  ],
+  "C0050": [
+    "cloud_app_engine",
+    "cloud_compute_engine",
+    "cloud_computing",
+    "cloud_datastore",
+    "cloud_debugging",
+    "cloud_gcp",
+    "cloud_loadbalancing",
+    "cloud_netarch",
+    "cloud_storage",
+    "cloud_vm",
+    "cloud_vpn"
+  ],
+  "C0056": [
+    "cloud_app_engine",
+    "cloud_compute_engine",
+    "cloud_computing",
+    "cloud_gcp"
+  ],
+  "C0101": [
+    "cloud_computing",
+    "cloud_linux",
+    "cloud_vm"
+  ],
+  "C0115": [],
+  "C0128": [
+    "cloud_apps",
+    "cloud_computing",
+    "cloud_kubernetes",
+    "cloud_platforms"
+  ],
+  "C0131": [],
+  "C0139": [],
+  "C0144": [],
+  "C0148": [
+    "cloud_apps",
+    "cloud_computing",
+    "cloud_dbms",
+    "cloud_devops",
+    "cloud_platforms",
+    "cloud_vm"
+  ],
+  "C0149": [
+    "cloud_apps",
+    "cloud_compute_engine"
+  ],
+  "C0152": [],
+  "C0159": [],
+  "C0167": [
+    "cloud_computing",
+    "cloud_debugging",
+    "cloud_netarch"
+  ],
+  "C0170": [
+    "cloud_apps",
+    "cloud_azure",
+    "cloud_compute_engine",
+    "cloud_computing",
+    "cloud_dbms",
+    "cloud_devops",
+    "cloud_kubernetes",
+    "cloud_python"
+  ],
+  "C0177": [
+    "cloud_computing",
+    "cloud_techsupport"
+  ],
+  "C0178": [
+    "cloud_debugging",
+    "cloud_python"
+  ],
+  "C0188": [
+    "cloud_netarch"
+  ],
+  "C0189": [
+    "cloud_computing",
+    "cloud_gcp",
+    "cloud_vm"
+  ],
+  "C0191": [
+    "cloud_app_engine",
+    "cloud_compute_engine",
+    "cloud_computing",
+    "cloud_datastore",
+    "cloud_debugging",
+    "cloud_gcp",
+    "cloud_loadbalancing",
+    "cloud_netarch",
+    "cloud_storage",
+    "cloud_vm",
+    "cloud_vpn"
+  ],
+  "C0193": [
+    "cloud_app_engine",
+    "cloud_compute_engine",
+    "cloud_computing",
+    "cloud_datastore",
+    "cloud_debugging",
+    "cloud_gcp",
+    "cloud_loadbalancing",
+    "cloud_netarch",
+    "cloud_storage",
+    "cloud_vm",
+    "cloud_vpn"
+  ],
+  "C0194": [
+    "cloud_app_engine",
+    "cloud_compute_engine",
+    "cloud_computing",
+    "cloud_gcp",
+    "cloud_kubernetes"
+  ],
+  "C0195": [
+    "cloud_apps",
+    "cloud_computing",
+    "cloud_debugging",
+    "cloud_gcp",
+    "cloud_storage"
+  ],
+  "C0196": [
+    "cloud_app_engine",
+    "cloud_compute_engine",
+    "cloud_computing",
+    "cloud_gcp",
+    "cloud_kubernetes"
+  ],
+  "C0197": [
+    "cloud_app_engine",
+    "cloud_compute_engine",
+    "cloud_computing",
+    "cloud_gcp"
+  ],
+  "C0204": [
+    "cloud_computing",
+    "cloud_debugging",
+    "cloud_netarch"
+  ],
+  "C0211": [],
+  "C0213": [
+    "cloud_linux"
+  ],
+  "C0228": [],
+  "C0248": [
+    "cloud_linux",
+    "cloud_techsupport"
+  ],
+  "C0255": [],
+  "C0267": [
+    "cloud_linux"
+  ],
+  "C0273": [
+    "cloud_python"
+  ],
+  "C0277": [],
+  "C0279": [
+    "cloud_computing",
+    "cloud_netarch"
+  ],
+  "C0281": [
+    "cloud_computing",
+    "cloud_devops"
+  ],
+  "C0290": [],
+  "C0308": [
+    "cloud_computing"
+  ],
+  "C0310": [
+    "cloud_techsupport"
+  ],
+  "C0325": [
+    "cloud_techsupport"
+  ],
+  "C0344": [
+    "cloud_azure"
+  ],
+  "C0347": [
+    "cloud_techsupport"
+  ],
+  "C0351": [],
+  "C0357": [
+    "cloud_python"
+  ],
+  "C0377": [
+    "cloud_app_engine",
+    "cloud_compute_engine",
+    "cloud_computing",
+    "cloud_gcp"
+  ],
+  "C0379": [
+    "cloud_computing",
+    "cloud_techsupport"
+  ],
+  "C0389": [
+    "cloud_azure",
+    "cloud_kubernetes"
+  ],
+  "C0392": [],
+  "C0397": [
+    "cloud_dbms",
+    "cloud_gcp"
+  ],
+  "C0399": [
+    "cloud_gcp",
+    "cloud_storage"
+  ],
+  "C0400": [
+    "cloud_dbms",
+    "cloud_gcp"
+  ],
+  "C0404": [
+    "cloud_gcp",
+    "cloud_platforms",
+    "cloud_storage"
+  ],
+  "C0405": [
+    "cloud_dbms",
+    "cloud_gcp"
+  ],
+  "C0406": [
+    "cloud_computing",
+    "cloud_dbms",
+    "cloud_gcp"
+  ],
+  "C0418": [],
+  "C0420": [],
+  "C0426": [
+    "cloud_apps",
+    "cloud_computing",
+    "cloud_kubernetes",
+    "cloud_platforms"
+  ],
+  "C0437": [],
+  "C0444": [],
+  "C0451": [
+    "cloud_computing",
+    "cloud_linux",
+    "cloud_vm"
+  ],
+  "C0453": [],
+  "C0461": [],
+  "C0480": [],
+  "C0484": [],
+  "C0491": [],
+  "C0492": [
+    "cloud_datastore",
+    "cloud_debugging",
+    "cloud_gcp",
+    "cloud_storage"
+  ],
+  "C0497": [],
+  "C0543": [
+    "cloud_apps",
+    "cloud_computing",
+    "cloud_kubernetes",
+    "cloud_platforms"
+  ],
+  "C0552": [],
+  "C0553": [],
+  "C0559": [],
+  "C0562": [],
+  "C0602": [],
+  "C0624": [
+    "cloud_gcp",
+    "cloud_loadbalancing",
+    "cloud_vpn"
+  ],
+  "C0629": [],
+  "C0634": [],
+  "C0647": [],
+  "C0664": [
+    "cloud_azure",
+    "cloud_computing"
+  ],
+  "C0673": [],
+  "C0689": [],
+  "C0691": [
+    "cloud_azure"
+  ],
+  "C0698": [],
+  "C0709": [],
+  "C0740": [
+    "cloud_azure"
+  ],
+  "C0753": [
+    "cloud_computing",
+    "cloud_devops"
+  ],
+  "C0754": [],
+  "C0758": [],
+  "C0769": [
+    "cloud_apps",
+    "cloud_computing",
+    "cloud_kubernetes",
+    "cloud_platforms"
+  ],
+  "C0770": [],
+  "C0778": [],
+  "C0790": [
+    "cloud_apps",
+    "cloud_storage"
+  ],
+  "C0791": [],
+  "C0794": [],
+  "C0798": [
+    "cloud_computing",
+    "cloud_gcp"
+  ],
+  "C0803": [],
+  "C0805": [],
+  "C0807": [],
+  "C0826": [],
+  "C0832": [
+    "cloud_computing"
+  ],
+  "C0840": [],
+  "C0858": [],
+  "C0864": [],
+  "C0866": [],
+  "C0896": [
+    "cloud_azure"
+  ],
+  "C0910": [],
+  "C0918": [
+    "cloud_apps",
+    "cloud_azure",
+    "cloud_computing"
+  ],
+  "C0930": [
+    "cloud_apps"
+  ],
+  "C0931": [
+    "cloud_compute_engine",
+    "cloud_gcp",
+    "cloud_netarch",
+    "cloud_vm"
+  ],
+  "C0938": [
+    "cloud_netarch"
+  ],
+  "C0939": [
+    "cloud_azure",
+    "cloud_computing"
+  ],
+  "C0947": [],
+  "C0948": [],
+  "C0953": [],
+  "C0961": [
+    "cloud_azure",
+    "cloud_computing"
+  ],
+  "E0001": [
+    "biz_bizstrategy",
+    "biz_dataanalysis"
+  ],
+  "E0002": [
+    "biz_accounting",
+    "biz_changemgmt",
+    "biz_finaccounting",
+    "biz_finstatement",
+    "biz_marketing"
+  ],
+  "E0003": [
+    "biz_accounting",
+    "biz_dataanalysis",
+    "biz_finaccounting",
+    "biz_finance",
+    "biz_finstatement"
+  ],
+  "E0004": [
+    "biz_dataanalysis",
+    "biz_excel",
+    "biz_finaccounting",
+    "biz_finance"
+  ],
+  "E0005": [
+    "biz_dataanalysis",
+    "biz_excel",
+    "biz_finaccounting",
+    "biz_riskmgmt"
+  ],
+  "E0006": [
+    "biz_dataanalysis",
+    "biz_excel"
+  ],
+  "E0007": [
+    "biz_changemgmt",
+    "biz_finance"
+  ],
+  "E0008": [
+    "biz_management"
+  ],
+  "E0009": [
+    "biz_bizstrategy",
+    "biz_innovation",
+    "biz_leadership",
+    "biz_marketing",
+    "biz_strategicmgmt",
+    "biz_strategicthinking"
+  ],
+  "E0010": [
+    "biz_bizstrategy",
+    "biz_finance",
+    "biz_management",
+    "biz_marketing",
+    "biz_planning",
+    "biz_strategicmgmt"
+  ],
+  "E0011": [
+    "biz_communication",
+    "biz_planning"
+  ],
+  "E0012": [
+    "biz_excel",
+    "biz_management",
+    "biz_planning",
+    "biz_riskmgmt"
+  ],
+  "E0013": [
+    "biz_management"
+  ],
+  "E0014": [
+    "biz_excel"
+  ],
+  "E0015": [
+    "biz_marketing",
+    "biz_socialmedia"
+  ],
+  "E0016": [
+    "biz_finance",
+    "biz_management",
+    "biz_projmgmt",
+    "biz_projplanning"
+  ],
+  "E0017": [
+    "biz_communication",
+    "biz_dataanalysis",
+    "biz_excel"
+  ],
+  "E0018": [
+    "biz_dataanalysis",
+    "biz_marketing",
+    "biz_strategicmgmt"
+  ],
+  "E0019": [
+    "biz_bizstrategy",
+    "biz_dataanalysis",
+    "biz_innovation",
+    "biz_strategicmgmt",
+    "biz_strategicthinking"
+  ],
+  "E0020": [
+    "biz_bizstrategy",
+    "biz_management"
+  ],
+  "E0022": [
+    "biz_bizstrategy",
+    "biz_management",
+    "biz_planning",
+    "biz_riskmgmt"
+  ],
+  "E0023": [
+    "biz_dataanalysis",
+    "biz_finance"
+  ],
+  "E0024": [
+    "biz_dataanalysis",
+    "biz_innovation",
+    "biz_leadership",
+    "biz_management",
+    "biz_marketing"
+  ],
+  "E0025": [
+    "biz_accounting",
+    "biz_dataanalysis",
+    "biz_finance",
+    "biz_finstatement",
+    "biz_planning",
+    "biz_riskmgmt",
+    "biz_strategicmgmt"
+  ],
+  "E0026": [
+    "biz_accounting",
+    "biz_bizstrategy",
+    "biz_dataanalysis",
+    "biz_finaccounting",
+    "biz_finance",
+    "biz_finstatement",
+    "biz_leadership",
+    "biz_management",
+    "biz_marketing"
+  ],
+  "E0027": [
+    "biz_accounting",
+    "biz_bizstrategy",
+    "biz_dataanalysis",
+    "biz_finaccounting",
+    "biz_finance",
+    "biz_finstatement"
+  ],
+  "E0028": [
+    "biz_accounting",
+    "biz_communication",
+    "biz_finstatement",
+    "biz_leadership",
+    "biz_management",
+    "biz_planning",
+    "biz_projmgmt"
+  ],
+  "E0029": [],
+  "E0031": [
+    "biz_dataanalysis",
+    "biz_finstatement",
+    "biz_leadership",
+    "biz_riskmgmt"
+  ],
+  "E0032": [],
+  "E0033": [
+    "biz_accounting",
+    "biz_bizstrategy",
+    "biz_finaccounting",
+    "biz_finance",
+    "biz_finstatement",
+    "biz_innovation",
+    "biz_leadership"
+  ],
+  "E0034": [
+    "biz_dataanalysis",
+    "biz_projmgmt"
+  ],
+  "E0035": [
+    "biz_changemgmt",
+    "biz_communication"
+  ],
+  "E0036": [],
+  "E0037": [
+    "biz_changemgmt",
+    "biz_communication",
+    "biz_planning",
+    "biz_projmgmt",
+    "biz_projplanning",
+    "biz_riskmgmt"
+  ],
+  "E0038": [
+    "biz_changemgmt",
+    "biz_planning",
+    "biz_projmgmt",
+    "biz_projplanning",
+    "biz_riskmgmt"
+  ],
+  "E0039": [
+    "biz_innovation",
+    "biz_strategicthinking"
+  ],
+  "E0040": [
+    "biz_communication",
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E0041": [
+    "biz_marketing",
+    "biz_strategicmgmt"
+  ],
+  "E0042": [
+    "biz_bizstrategy",
+    "biz_management",
+    "biz_marketing",
+    "biz_planning",
+    "biz_strategicthinking"
+  ],
+  "E0043": [
+    "biz_accounting",
+    "biz_finaccounting",
+    "biz_finstatement"
+  ],
+  "E0045": [
+    "biz_bizstrategy",
+    "biz_dataanalysis",
+    "biz_management",
+    "biz_planning"
+  ],
+  "E0046": [],
+  "E0047": [
+    "biz_bizstrategy",
+    "biz_leadership",
+    "biz_strategicmgmt"
+  ],
+  "E0048": [
+    "biz_communication",
+    "biz_leadership",
+    "biz_management",
+    "biz_projmgmt",
+    "biz_projplanning",
+    "biz_riskmgmt",
+    "biz_strategicmgmt"
+  ],
+  "E0051": [
+    "biz_dataanalysis",
+    "biz_excel"
+  ],
+  "E0053": [
+    "biz_accounting",
+    "biz_finaccounting",
+    "biz_finstatement",
+    "biz_projmgmt",
+    "biz_strategicmgmt"
+  ],
+  "E0055": [
+    "biz_management",
+    "biz_riskmgmt"
+  ],
+  "E0056": [
+    "biz_bizstrategy",
+    "biz_dataanalysis",
+    "biz_excel"
+  ],
+  "E0058": [
+    "biz_bizstrategy",
+    "biz_communication"
+  ],
+  "E0059": [
+    "biz_accounting",
+    "biz_finaccounting",
+    "biz_finstatement",
+    "biz_riskmgmt"
+  ],
+  "E0060": [
+    "biz_communication",
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E0061": [],
+  "E0063": [
+    "biz_communication",
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E0064": [
+    "biz_finance",
+    "biz_finstatement",
+    "biz_management",
+    "biz_marketing",
+    "biz_riskmgmt"
+  ],
+  "E0065": [
+    "biz_accounting",
+    "biz_finstatement"
+  ],
+  "E0069": [
+    "biz_bizstrategy",
+    "biz_marketing",
+    "biz_socialmedia"
+  ],
+  "E0071": [
+    "biz_bizstrategy",
+    "biz_dataanalysis",
+    "biz_marketing",
+    "biz_strategicmgmt"
+  ],
+  "E0072": [],
+  "E0073": [],
+  "E0074": [
+    "biz_dataanalysis",
+    "biz_finstatement",
+    "biz_strategicmgmt"
+  ],
+  "E0076": [
+    "biz_innovation",
+    "biz_leadership",
+    "biz_planning",
+    "biz_strategicmgmt",
+    "biz_strategicthinking"
+  ],
+  "E0077": [
+    "biz_dataanalysis",
+    "biz_finance",
+    "biz_finstatement",
+    "biz_projmgmt",
+    "biz_riskmgmt"
+  ],
+  "E0078": [
+    "biz_management",
+    "biz_planning",
+    "biz_projmgmt",
+    "biz_projplanning",
+    "biz_riskmgmt"
+  ],
+  "E0080": [
+    "biz_communication",
+    "biz_dataanalysis",
+    "biz_innovation",
+    "biz_leadership",
+    "biz_management",
+    "biz_marketing"
+  ],
+  "E0081": [
+    "biz_communication",
+    "biz_leadership"
+  ],
+  "E0082": [
+    "biz_management",
+    "biz_marketing"
+  ],
+  "E0084": [
+    "biz_marketing"
+  ],
+  "E0085": [
+    "biz_dataanalysis",
+    "biz_management",
+    "biz_strategicthinking"
+  ],
+  "E0086": [
+    "biz_bizstrategy",
+    "biz_finstatement"
+  ],
+  "E0088": [
+    "biz_changemgmt",
+    "biz_communication",
+    "biz_leadership"
+  ],
+  "E0089": [
+    "biz_dataanalysis",
+    "biz_marketing",
+    "biz_planning"
+  ],
+  "E0091": [
+    "biz_bizstrategy",
+    "biz_dataanalysis",
+    "biz_management",
+    "biz_projmgmt"
+  ],
+  "E0092": [
+    "biz_planning",
+    "biz_strategicthinking"
+  ],
+  "E0094": [
+    "biz_marketing",
+    "biz_planning",
+    "biz_socialmedia"
+  ],
+  "E0095": [
+    "biz_dataanalysis"
+  ],
+  "E0096": [
+    "biz_dataanalysis",
+    "biz_finance",
+    "biz_finstatement",
+    "biz_riskmgmt"
+  ],
+  "E0097": [
+    "biz_communication",
+    "biz_management"
+  ],
+  "E0098": [
+    "biz_bizstrategy",
+    "biz_dataanalysis"
+  ],
+  "E0100": [
+    "biz_changemgmt",
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E0102": [
+    "biz_communication",
+    "biz_management"
+  ],
+  "E0104": [
+    "biz_accounting",
+    "biz_finance",
+    "biz_innovation",
+    "biz_management",
+    "biz_riskmgmt"
+  ],
+  "E0105": [
+    "biz_bizstrategy",
+    "biz_management",
+    "biz_planning",
+    "biz_strategicmgmt",
+    "biz_strategicthinking"
+  ],
+  "E0106": [
+    "biz_dataanalysis",
+    "biz_management"
+  ],
+  "E0107": [
+    "biz_finstatement",
+    "biz_leadership",
+    "biz_management",
+    "biz_planning"
+  ],
+  "E0108": [
+    "biz_bizstrategy",
+    "biz_dataanalysis",
+    "biz_excel",
+    "biz_finance"
+  ],
+  "E0109": [
+    "biz_communication",
+    "biz_planning"
+  ],
+  "E0110": [
+    "biz_bizstrategy",
+    "biz_marketing",
+    "biz_socialmedia"
+  ],
+  "E0111": [
+    "biz_changemgmt",
+    "biz_leadership",
+    "biz_management",
+    "biz_projmgmt"
+  ],
+  "E0113": [
+    "biz_communication",
+    "biz_leadership",
+    "biz_management",
+    "biz_planning",
+    "biz_strategicthinking"
+  ],
+  "E0114": [
+    "biz_finstatement"
+  ],
+  "E0115": [
+    "biz_accounting",
+    "biz_finstatement"
+  ],
+  "E0118": [
+    "biz_bizstrategy",
+    "biz_communication",
+    "biz_dataanalysis",
+    "biz_innovation",
+    "biz_leadership",
+    "biz_strategicthinking"
+  ],
+  "E0119": [
+    "biz_bizstrategy",
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E0120": [
+    "biz_bizstrategy",
+    "biz_changemgmt",
+    "biz_communication",
+    "biz_dataanalysis",
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E0122": [
+    "biz_bizstrategy",
+    "biz_leadership",
+    "biz_planning"
+  ],
+  "E0123": [
+    "biz_finaccounting",
+    "biz_finance",
+    "biz_management",
+    "biz_planning"
+  ],
+  "E0124": [
+    "biz_accounting",
+    "biz_finstatement"
+  ],
+  "E0125": [
+    "biz_management"
+  ],
+  "E0126": [
+    "biz_leadership",
+    "biz_planning"
+  ],
+  "E0128": [
+    "biz_bizstrategy",
+    "biz_dataanalysis"
+  ],
+  "E0129": [],
+  "E0130": [
+    "biz_bizstrategy",
+    "biz_marketing",
+    "biz_strategicmgmt",
+    "biz_strategicthinking"
+  ],
+  "E0131": [
+    "biz_bizstrategy",
+    "biz_communication"
+  ],
+  "E0132": [
+    "biz_management",
+    "biz_planning",
+    "biz_projmgmt",
+    "biz_projplanning",
+    "biz_riskmgmt"
+  ],
+  "E0133": [],
+  "E0134": [
+    "biz_bizstrategy",
+    "biz_innovation",
+    "biz_management"
+  ],
+  "E0135": [
+    "biz_bizstrategy",
+    "biz_communication",
+    "biz_management",
+    "biz_marketing",
+    "biz_strategicmgmt"
+  ],
+  "E0136": [
+    "biz_communication",
+    "biz_management",
+    "biz_marketing"
+  ],
+  "E0137": [
+    "biz_bizstrategy",
+    "biz_marketing",
+    "biz_planning",
+    "biz_socialmedia",
+    "biz_strategicthinking"
+  ],
+  "E0139": [
+    "biz_dataanalysis",
+    "biz_finance",
+    "biz_finstatement"
+  ],
+  "E0142": [
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E0145": [
+    "biz_bizstrategy",
+    "biz_finstatement",
+    "biz_innovation"
+  ],
+  "E0148": [
+    "biz_management"
+  ],
+  "E0149": [
+    "biz_accounting",
+    "biz_bizstrategy",
+    "biz_finaccounting",
+    "biz_leadership",
+    "biz_marketing"
+  ],
+  "E0151": [
+    "biz_dataanalysis",
+    "biz_marketing",
+    "biz_socialmedia"
+  ],
+  "E0152": [
+    "biz_management",
+    "biz_marketing"
+  ],
+  "E0154": [
+    "biz_bizstrategy",
+    "biz_management",
+    "biz_marketing",
+    "biz_strategicmgmt"
+  ],
+  "E0155": [
+    "biz_bizstrategy",
+    "biz_management"
+  ],
+  "E0156": [
+    "biz_excel",
+    "biz_leadership",
+    "biz_management",
+    "biz_planning",
+    "biz_projmgmt",
+    "biz_projplanning",
+    "biz_riskmgmt"
+  ],
+  "E0157": [],
+  "E0159": [],
+  "E0160": [],
+  "E0161": [],
+  "E0162": [],
+  "E0163": [],
+  "E0165": [],
+  "E0167": [],
+  "E0169": [
+    "biz_changemgmt",
+    "biz_leadership"
+  ],
+  "E0171": [
+    "biz_communication"
+  ],
+  "E0175": [
+    "biz_bizstrategy",
+    "biz_communication",
+    "biz_leadership",
+    "biz_strategicthinking"
+  ],
+  "E0176": [
+    "biz_bizstrategy",
+    "biz_changemgmt",
+    "biz_communication",
+    "biz_management",
+    "biz_projmgmt",
+    "biz_projplanning",
+    "biz_riskmgmt",
+    "biz_strategicthinking"
+  ],
+  "E0177": [
+    "biz_marketing"
+  ],
+  "E0178": [
+    "biz_management",
+    "biz_marketing",
+    "biz_socialmedia"
+  ],
+  "E0179": [
+    "biz_accounting"
+  ],
+  "E0180": [
+    "biz_bizstrategy",
+    "biz_communication"
+  ],
+  "E0181": [],
+  "E0182": [],
+  "E0183": [
+    "biz_management"
+  ],
+  "E0184": [],
+  "E0185": [
+    "biz_changemgmt",
+    "biz_communication",
+    "biz_marketing",
+    "biz_projplanning"
+  ],
+  "E0186": [
+    "biz_accounting",
+    "biz_finance"
+  ],
+  "E0187": [
+    "biz_bizstrategy",
+    "biz_management",
+    "biz_projmgmt",
+    "biz_riskmgmt"
+  ],
+  "E0188": [
+    "biz_marketing",
+    "biz_socialmedia"
+  ],
+  "E0189": [
+    "biz_management",
+    "biz_projmgmt",
+    "biz_projplanning"
+  ],
+  "E0190": [
+    "biz_bizstrategy",
+    "biz_dataanalysis"
+  ],
+  "E0191": [],
+  "E0193": [
+    "biz_innovation",
+    "biz_strategicthinking"
+  ],
+  "E0194": [],
+  "E0195": [],
+  "E0198": [],
+  "E0200": [],
+  "E0201": [],
+  "E0204": [],
+  "E0206": [],
+  "E0207": [],
+  "E0208": [],
+  "E0209": [],
+  "E0210": [],
+  "E0211": [],
+  "E0214": [],
+  "E0217": [],
+  "E0218": [],
+  "E0220": [],
+  "E0223": [],
+  "E0224": [],
+  "E0227": [],
+  "E0228": [],
+  "E0229": [],
+  "E0230": [],
+  "E0231": [],
+  "E0232": [],
+  "E0234": [],
+  "E0235": [],
+  "E0236": [],
+  "E0237": [],
+  "E0240": [],
+  "E0242": [],
+  "E0243": [],
+  "E0245": [],
+  "E0246": [],
+  "E0247": [],
+  "E0248": [],
+  "E0252": [],
+  "E0254": [],
+  "E0256": [],
+  "E0258": [],
+  "E0259": [],
+  "E0260": [],
+  "E0263": [],
+  "E0265": [],
+  "E0266": [],
+  "E0267": [],
+  "E0268": [],
+  "E0269": [],
+  "E0270": [
+    "biz_bizstrategy"
+  ],
+  "E0271": [
+    "biz_changemgmt",
+    "biz_projmgmt",
+    "biz_strategicthinking"
+  ],
+  "E0272": [
+    "biz_changemgmt",
+    "biz_communication"
+  ],
+  "E0273": [
+    "biz_finance",
+    "biz_finstatement"
+  ],
+  "E0275": [
+    "biz_marketing"
+  ],
+  "E0276": [
+    "biz_bizstrategy",
+    "biz_management",
+    "biz_projmgmt",
+    "biz_strategicthinking"
+  ],
+  "E0278": [
+    "biz_dataanalysis",
+    "biz_management",
+    "biz_planning",
+    "biz_projmgmt",
+    "biz_projplanning"
+  ],
+  "E0280": [
+    "biz_bizstrategy",
+    "biz_communication",
+    "biz_leadership",
+    "biz_planning"
+  ],
+  "E0283": [
+    "biz_communication",
+    "biz_strategicmgmt"
+  ],
+  "E0284": [
+    "biz_projplanning",
+    "biz_riskmgmt",
+    "biz_strategicthinking"
+  ],
+  "E0285": [
+    "biz_finance"
+  ],
+  "E0286": [
+    "biz_marketing"
+  ],
+  "E0287": [
+    "biz_accounting",
+    "biz_finstatement"
+  ],
+  "E0288": [
+    "biz_management"
+  ],
+  "E0289": [
+    "biz_dataanalysis",
+    "biz_management"
+  ],
+  "E0290": [
+    "biz_bizstrategy",
+    "biz_excel"
+  ],
+  "E0291": [
+    "biz_management",
+    "biz_marketing"
+  ],
+  "E0292": [
+    "biz_bizstrategy",
+    "biz_marketing"
+  ],
+  "E0293": [
+    "biz_management",
+    "biz_projmgmt",
+    "biz_riskmgmt",
+    "biz_strategicthinking"
+  ],
+  "E0294": [],
+  "E0295": [
+    "biz_management",
+    "biz_marketing"
+  ],
+  "E0297": [
+    "biz_bizstrategy",
+    "biz_management",
+    "biz_strategicmgmt"
+  ],
+  "E0301": [
+    "biz_marketing"
+  ],
+  "E0303": [
+    "biz_dataanalysis",
+    "biz_strategicmgmt"
+  ],
+  "E0304": [
+    "biz_dataanalysis"
+  ],
+  "E0306": [
+    "biz_marketing",
+    "biz_socialmedia"
+  ],
+  "E0308": [
+    "biz_excel"
+  ],
+  "E0309": [
+    "biz_accounting",
+    "biz_finaccounting",
+    "biz_finstatement"
+  ],
+  "E0310": [
+    "biz_bizstrategy",
+    "biz_communication",
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E0311": [
+    "biz_communication",
+    "biz_management",
+    "biz_marketing"
+  ],
+  "E0312": [
+    "biz_socialmedia"
+  ],
+  "E0313": [
+    "biz_dataanalysis",
+    "biz_marketing"
+  ],
+  "E0317": [
+    "biz_communication",
+    "biz_management",
+    "biz_projmgmt"
+  ],
+  "E0318": [
+    "biz_marketing"
+  ],
+  "E0319": [
+    "biz_innovation",
+    "biz_management",
+    "biz_strategicthinking"
+  ],
+  "E0320": [
+    "biz_finance"
+  ],
+  "E0321": [
+    "biz_finaccounting",
+    "biz_finance"
+  ],
+  "E0323": [
+    "biz_accounting"
+  ],
+  "E0325": [
+    "biz_dataanalysis",
+    "biz_management"
+  ],
+  "E0326": [
+    "biz_accounting",
+    "biz_finance",
+    "biz_finstatement",
+    "biz_riskmgmt"
+  ],
+  "E0328": [
+    "biz_communication",
+    "biz_projmgmt"
+  ],
+  "E0329": [
+    "biz_accounting"
+  ],
+  "E0330": [
+    "biz_dataanalysis"
+  ],
+  "E0331": [
+    "biz_accounting",
+    "biz_finaccounting",
+    "biz_finstatement"
+  ],
+  "E0335": [
+    "biz_dataanalysis",
+    "biz_finstatement"
+  ],
+  "E0336": [
+    "biz_management",
+    "biz_marketing"
+  ],
+  "E0337": [
+    "biz_finance",
+    "biz_finstatement",
+    "biz_leadership"
+  ],
+  "E0338": [
+    "biz_planning"
+  ],
+  "E0340": [
+    "biz_communication",
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E0341": [
+    "biz_marketing"
+  ],
+  "E0343": [
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E0346": [
+    "biz_changemgmt",
+    "biz_communication",
+    "biz_management"
+  ],
+  "E0349": [],
+  "E0350": [],
+  "E0351": [
+    "biz_dataanalysis",
+    "biz_finance"
+  ],
+  "E0352": [
+    "biz_bizstrategy",
+    "biz_leadership"
+  ],
+  "E0353": [
+    "biz_management",
+    "biz_projmgmt",
+    "biz_projplanning"
+  ],
+  "E0355": [],
+  "E0356": [
+    "biz_bizstrategy",
+    "biz_communication",
+    "biz_dataanalysis",
+    "biz_projplanning",
+    "biz_strategicthinking"
+  ],
+  "E0358": [
+    "biz_excel"
+  ],
+  "E0359": [
+    "biz_accounting",
+    "biz_finaccounting",
+    "biz_finstatement"
+  ],
+  "E0361": [
+    "biz_management",
+    "biz_marketing",
+    "biz_planning"
+  ],
+  "E0362": [
+    "biz_excel"
+  ],
+  "E0363": [
+    "biz_management",
+    "biz_planning"
+  ],
+  "E0364": [
+    "biz_communication",
+    "biz_management"
+  ],
+  "E0365": [
+    "biz_management",
+    "biz_marketing"
+  ],
+  "E0366": [
+    "biz_innovation",
+    "biz_management"
+  ],
+  "E0367": [
+    "biz_excel"
+  ],
+  "E0368": [
+    "biz_accounting",
+    "biz_finaccounting",
+    "biz_finstatement"
+  ],
+  "E0369": [
+    "biz_management",
+    "biz_marketing",
+    "biz_socialmedia"
+  ],
+  "E0371": [
+    "biz_projmgmt"
+  ],
+  "E0372": [],
+  "E0373": [
+    "biz_management",
+    "biz_planning",
+    "biz_riskmgmt"
+  ],
+  "E0374": [
+    "biz_dataanalysis",
+    "biz_finance",
+    "biz_projmgmt"
+  ],
+  "E0375": [
+    "biz_bizstrategy",
+    "biz_management"
+  ],
+  "E0376": [
+    "biz_accounting"
+  ],
+  "E0378": [
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E0379": [
+    "biz_bizstrategy",
+    "biz_strategicmgmt"
+  ],
+  "E0380": [
+    "biz_communication",
+    "biz_management",
+    "biz_projmgmt"
+  ],
+  "E0381": [
+    "biz_management",
+    "biz_marketing"
+  ],
+  "E0383": [
+    "biz_bizstrategy"
+  ],
+  "E0384": [
+    "biz_leadership"
+  ],
+  "E0387": [
+    "biz_leadership",
+    "biz_management",
+    "biz_strategicmgmt"
+  ],
+  "E0388": [
+    "biz_bizstrategy",
+    "biz_dataanalysis",
+    "biz_strategicmgmt"
+  ],
+  "E0389": [],
+  "E0392": [
+    "biz_management"
+  ],
+  "E0393": [],
+  "E0395": [
+    "biz_bizstrategy",
+    "biz_strategicmgmt"
+  ],
+  "E0396": [
+    "biz_dataanalysis"
+  ],
+  "E0397": [
+    "biz_marketing",
+    "biz_socialmedia"
+  ],
+  "E0398": [
+    "biz_dataanalysis",
+    "biz_excel"
+  ],
+  "E0400": [],
+  "E0401": [],
+  "E0402": [
+    "biz_strategicmgmt"
+  ],
+  "E0407": [
+    "biz_bizstrategy",
+    "biz_dataanalysis"
+  ],
+  "E0408": [
+    "biz_finstatement",
+    "biz_leadership",
+    "biz_riskmgmt"
+  ],
+  "E0409": [
+    "biz_planning",
+    "biz_projmgmt",
+    "biz_projplanning"
+  ],
+  "E0410": [
+    "biz_bizstrategy",
+    "biz_management"
+  ],
+  "E0415": [
+    "biz_management",
+    "biz_projmgmt"
+  ],
+  "E0416": [
+    "biz_management"
+  ],
+  "E0417": [
+    "biz_riskmgmt"
+  ],
+  "E0420": [
+    "biz_leadership",
+    "biz_management",
+    "biz_marketing"
+  ],
+  "E0421": [],
+  "E0422": [
+    "biz_finance",
+    "biz_marketing"
+  ],
+  "E0423": [
+    "biz_bizstrategy",
+    "biz_dataanalysis",
+    "biz_marketing"
+  ],
+  "E0424": [
+    "biz_bizstrategy",
+    "biz_dataanalysis"
+  ],
+  "E0425": [
+    "biz_excel"
+  ],
+  "E0426": [],
+  "E0430": [],
+  "E0431": [],
+  "E0432": [],
+  "E0433": [],
+  "E0435": [
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E0436": [],
+  "E0438": [],
+  "E0439": [
+    "biz_bizstrategy"
+  ],
+  "E0440": [
+    "biz_excel",
+    "biz_finance"
+  ],
+  "E0442": [
+    "biz_management",
+    "biz_planning"
+  ],
+  "E0443": [],
+  "E0444": [],
+  "E0445": [],
+  "E0446": [
+    "biz_dataanalysis",
+    "biz_finance"
+  ],
+  "E0447": [
+    "biz_dataanalysis"
+  ],
+  "E0448": [],
+  "E0449": [
+    "biz_excel",
+    "biz_planning"
+  ],
+  "E0452": [],
+  "E0453": [
+    "biz_management"
+  ],
+  "E0454": [],
+  "E0455": [
+    "biz_management",
+    "biz_projmgmt",
+    "biz_projplanning",
+    "biz_riskmgmt"
+  ],
+  "E0457": [],
+  "E0458": [],
+  "E0459": [
+    "biz_excel",
+    "biz_projmgmt",
+    "biz_riskmgmt"
+  ],
+  "E0462": [],
+  "E0463": [],
+  "E0464": [],
+  "E0465": [
+    "biz_innovation",
+    "biz_strategicthinking"
+  ],
+  "E0466": [],
+  "E0467": [],
+  "E0468": [],
+  "E0469": [],
+  "E0471": [],
+  "E0472": [],
+  "E0473": [],
+  "E0476": [
+    "biz_communication",
+    "biz_leadership",
+    "biz_management",
+    "biz_projmgmt"
+  ],
+  "E0478": [],
+  "E0479": [],
+  "E0480": [
+    "biz_communication",
+    "biz_management",
+    "biz_marketing"
+  ],
+  "E0481": [
+    "biz_finance"
+  ],
+  "E0482": [],
+  "E0483": [
+    "biz_communication",
+    "biz_leadership"
+  ],
+  "E0485": [],
+  "E0486": [],
+  "E0487": [],
+  "E0488": [
+    "biz_dataanalysis",
+    "biz_management"
+  ],
+  "E0489": [
+    "biz_bizstrategy",
+    "biz_communication",
+    "biz_dataanalysis"
+  ],
+  "E0490": [
+    "biz_accounting",
+    "biz_finstatement"
+  ],
+  "E0491": [
+    "biz_dataanalysis",
+    "biz_excel"
+  ],
+  "E0493": [
+    "biz_strategicmgmt"
+  ],
+  "E0494": [
+    "biz_bizstrategy"
+  ],
+  "E0495": [
+    "biz_projmgmt",
+    "biz_riskmgmt"
+  ],
+  "E0496": [
+    "biz_bizstrategy",
+    "biz_finance"
+  ],
+  "E0498": [],
+  "E0499": [],
+  "E0500": [
+    "biz_management"
+  ],
+  "E0502": [
+    "biz_changemgmt",
+    "biz_leadership"
+  ],
+  "E0503": [],
+  "E0504": [
+    "biz_strategicthinking"
+  ],
+  "E0505": [
+    "biz_bizstrategy",
+    "biz_marketing",
+    "biz_socialmedia"
+  ],
+  "E0506": [],
+  "E0508": [
+    "biz_finaccounting",
+    "biz_finstatement"
+  ],
+  "E0512": [
+    "biz_innovation",
+    "biz_management",
+    "biz_strategicthinking"
+  ],
+  "E0513": [
+    "biz_communication",
+    "biz_dataanalysis"
+  ],
+  "E0514": [
+    "biz_bizstrategy",
+    "biz_management"
+  ],
+  "E0515": [],
+  "E0517": [],
+  "E0518": [
+    "biz_planning"
+  ],
+  "E0520": [
+    "biz_changemgmt",
+    "biz_projmgmt",
+    "biz_riskmgmt"
+  ],
+  "E0522": [
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E0524": [
+    "biz_finance",
+    "biz_management",
+    "biz_riskmgmt"
+  ],
+  "E0526": [
+    "biz_dataanalysis",
+    "biz_management"
+  ],
+  "E0528": [
+    "biz_bizstrategy"
+  ],
+  "E0530": [
+    "biz_finstatement",
+    "biz_riskmgmt"
+  ],
+  "E0531": [],
+  "E0532": [],
+  "E0533": [
+    "biz_bizstrategy",
+    "biz_strategicmgmt"
+  ],
+  "E0534": [],
+  "E0535": [
+    "biz_bizstrategy",
+    "biz_planning",
+    "biz_strategicmgmt",
+    "biz_strategicthinking"
+  ],
+  "E0537": [
+    "biz_bizstrategy",
+    "biz_communication"
+  ],
+  "E0538": [],
+  "E0539": [
+    "biz_accounting",
+    "biz_finstatement"
+  ],
+  "E0540": [],
+  "E0541": [],
+  "E0542": [],
+  "E0544": [],
+  "E0545": [],
+  "E0547": [],
+  "E0551": [],
+  "E0553": [
+    "biz_marketing"
+  ],
+  "E0554": [
+    "biz_bizstrategy"
+  ],
+  "E0556": [],
+  "E0557": [],
+  "E0560": [
+    "biz_bizstrategy"
+  ],
+  "E0562": [
+    "biz_changemgmt",
+    "biz_leadership"
+  ],
+  "E0564": [],
+  "E0565": [],
+  "E0566": [
+    "biz_management",
+    "biz_marketing"
+  ],
+  "E0567": [],
+  "E0569": [],
+  "E0571": [],
+  "E0572": [],
+  "E0573": [
+    "biz_accounting",
+    "biz_finaccounting",
+    "biz_finance",
+    "biz_marketing"
+  ],
+  "E0574": [],
+  "E0575": [],
+  "E0576": [],
+  "E0577": [],
+  "E0578": [],
+  "E0579": [
+    "biz_marketing"
+  ],
+  "E0580": [],
+  "E0582": [],
+  "E0583": [],
+  "E0587": [
+    "biz_finstatement",
+    "biz_marketing"
+  ],
+  "E0588": [
+    "biz_dataanalysis",
+    "biz_marketing"
+  ],
+  "E0589": [],
+  "E0590": [
+    "biz_management",
+    "biz_marketing"
+  ],
+  "E0591": [
+    "biz_marketing",
+    "biz_socialmedia"
+  ],
+  "E0592": [
+    "biz_management",
+    "biz_planning"
+  ],
+  "E0593": [
+    "biz_management",
+    "biz_marketing"
+  ],
+  "E0594": [
+    "biz_bizstrategy",
+    "biz_riskmgmt"
+  ],
+  "E0595": [],
+  "E0596": [
+    "biz_management"
+  ],
+  "E0597": [],
+  "E0598": [
+    "biz_communication",
+    "biz_marketing",
+    "biz_socialmedia"
+  ],
+  "E0602": [
+    "biz_bizstrategy"
+  ],
+  "E0603": [
+    "biz_excel",
+    "biz_finance",
+    "biz_management"
+  ],
+  "E0604": [
+    "biz_finaccounting",
+    "biz_riskmgmt"
+  ],
+  "E0607": [],
+  "E0608": [],
+  "E0609": [
+    "biz_changemgmt",
+    "biz_leadership"
+  ],
+  "E0610": [],
+  "E0611": [
+    "biz_marketing",
+    "biz_socialmedia"
+  ],
+  "E0614": [
+    "biz_planning",
+    "biz_socialmedia"
+  ],
+  "E0615": [],
+  "E0616": [
+    "biz_strategicthinking"
+  ],
+  "E0617": [],
+  "E0618": [
+    "biz_management"
+  ],
+  "E0619": [
+    "biz_dataanalysis"
+  ],
+  "E0620": [],
+  "E0621": [
+    "biz_bizstrategy",
+    "biz_finance"
+  ],
+  "E0622": [
+    "biz_dataanalysis",
+    "biz_finstatement",
+    "biz_planning"
+  ],
+  "E0624": [
+    "biz_finstatement"
+  ],
+  "E0625": [
+    "biz_communication",
+    "biz_management"
+  ],
+  "E0626": [
+    "biz_management",
+    "biz_marketing"
+  ],
+  "E0628": [
+    "biz_innovation",
+    "biz_strategicthinking"
+  ],
+  "E0629": [],
+  "E0631": [
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E0632": [
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E0633": [
+    "biz_projmgmt",
+    "biz_riskmgmt"
+  ],
+  "E0634": [
+    "biz_accounting",
+    "biz_finance",
+    "biz_finstatement"
+  ],
+  "E0637": [],
+  "E0638": [
+    "biz_innovation",
+    "biz_strategicthinking"
+  ],
+  "E0639": [
+    "biz_bizstrategy",
+    "biz_communication"
+  ],
+  "E0640": [
+    "biz_dataanalysis",
+    "biz_planning"
+  ],
+  "E0641": [],
+  "E0642": [
+    "biz_changemgmt"
+  ],
+  "E0643": [],
+  "E0644": [
+    "biz_bizstrategy",
+    "biz_strategicmgmt",
+    "biz_strategicthinking"
+  ],
+  "E0645": [],
+  "E0646": [],
+  "E0649": [
+    "biz_bizstrategy",
+    "biz_dataanalysis"
+  ],
+  "E0650": [
+    "biz_strategicmgmt"
+  ],
+  "E0651": [
+    "biz_accounting",
+    "biz_bizstrategy",
+    "biz_dataanalysis",
+    "biz_finance"
+  ],
+  "E0652": [],
+  "E0653": [],
+  "E0654": [
+    "biz_management",
+    "biz_projmgmt"
+  ],
+  "E0655": [],
+  "E0656": [
+    "biz_changemgmt",
+    "biz_leadership"
+  ],
+  "E0657": [
+    "biz_bizstrategy",
+    "biz_strategicmgmt"
+  ],
+  "E0658": [
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E0659": [
+    "biz_changemgmt",
+    "biz_leadership"
+  ],
+  "E0660": [],
+  "E0661": [
+    "biz_dataanalysis"
+  ],
+  "E0664": [
+    "biz_management"
+  ],
+  "E0666": [
+    "biz_leadership"
+  ],
+  "E0667": [],
+  "E0668": [
+    "biz_changemgmt",
+    "biz_leadership"
+  ],
+  "E0669": [
+    "biz_communication"
+  ],
+  "E0671": [],
+  "E0673": [],
+  "E0674": [
+    "biz_management",
+    "biz_marketing"
+  ],
+  "E0675": [
+    "biz_excel",
+    "biz_finaccounting"
+  ],
+  "E0676": [
+    "biz_strategicmgmt",
+    "biz_strategicthinking"
+  ],
+  "E0677": [],
+  "E0678": [],
+  "E0679": [],
+  "E0680": [],
+  "E0681": [
+    "biz_bizstrategy",
+    "biz_management"
+  ],
+  "E0682": [
+    "biz_accounting",
+    "biz_bizstrategy",
+    "biz_dataanalysis",
+    "biz_innovation"
+  ],
+  "E0683": [
+    "biz_dataanalysis",
+    "biz_finstatement",
+    "biz_riskmgmt"
+  ],
+  "E0684": [
+    "biz_planning",
+    "biz_projmgmt",
+    "biz_projplanning"
+  ],
+  "E0685": [],
+  "E0687": [
+    "biz_management"
+  ],
+  "E0690": [],
+  "E0691": [],
+  "E0693": [
+    "biz_dataanalysis",
+    "biz_finance"
+  ],
+  "E0695": [
+    "biz_bizstrategy",
+    "biz_marketing"
+  ],
+  "E0696": [
+    "biz_changemgmt",
+    "biz_management"
+  ],
+  "E0697": [
+    "biz_bizstrategy",
+    "biz_innovation",
+    "biz_management"
+  ],
+  "E0698": [],
+  "E0699": [
+    "biz_management",
+    "biz_planning",
+    "biz_projmgmt"
+  ],
+  "E0700": [
+    "biz_bizstrategy",
+    "biz_communication",
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E0701": [
+    "biz_marketing"
+  ],
+  "E0702": [],
+  "E0703": [
+    "biz_marketing",
+    "biz_socialmedia"
+  ],
+  "E0704": [],
+  "E0706": [],
+  "E0707": [],
+  "E0708": [
+    "biz_marketing",
+    "biz_socialmedia"
+  ],
+  "E0712": [],
+  "E0713": [],
+  "E0714": [
+    "biz_accounting",
+    "biz_finstatement"
+  ],
+  "E0715": [],
+  "E0716": [],
+  "E0717": [],
+  "E0718": [
+    "biz_bizstrategy",
+    "biz_marketing"
+  ],
+  "E0719": [
+    "biz_dataanalysis",
+    "biz_marketing"
+  ],
+  "E0720": [
+    "biz_management",
+    "biz_strategicmgmt"
+  ],
+  "E0722": [],
+  "E0725": [],
+  "E0726": [
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E0727": [],
+  "E0728": [
+    "biz_marketing",
+    "biz_socialmedia"
+  ],
+  "E0730": [
+    "biz_communication",
+    "biz_leadership"
+  ],
+  "E0731": [
+    "biz_strategicmgmt"
+  ],
+  "E0732": [],
+  "E0733": [
+    "biz_changemgmt",
+    "biz_communication",
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E0735": [],
+  "E0738": [
+    "biz_innovation",
+    "biz_strategicthinking"
+  ],
+  "E0739": [
+    "biz_strategicmgmt"
+  ],
+  "E0740": [
+    "biz_leadership"
+  ],
+  "E0742": [],
+  "E0743": [
+    "biz_leadership"
+  ],
+  "E0745": [],
+  "E0746": [],
+  "E0747": [],
+  "E0750": [
+    "biz_management"
+  ],
+  "E0752": [],
+  "E0753": [
+    "biz_dataanalysis",
+    "biz_riskmgmt"
+  ],
+  "E0755": [],
+  "E0757": [],
+  "E0758": [
+    "biz_finstatement"
+  ],
+  "E0759": [],
+  "E0760": [],
+  "E0761": [],
+  "E0764": [],
+  "E0765": [
+    "biz_finance"
+  ],
+  "E0766": [
+    "biz_bizstrategy",
+    "biz_leadership"
+  ],
+  "E0767": [],
+  "E0768": [],
+  "E0769": [
+    "biz_management",
+    "biz_marketing"
+  ],
+  "E0771": [],
+  "E0776": [],
+  "E0777": [],
+  "E0779": [],
+  "E0780": [
+    "biz_accounting",
+    "biz_bizstrategy",
+    "biz_finaccounting"
+  ],
+  "E0782": [],
+  "E0783": [
+    "biz_accounting",
+    "biz_finaccounting",
+    "biz_finstatement"
+  ],
+  "E0784": [
+    "biz_socialmedia"
+  ],
+  "E0785": [
+    "biz_bizstrategy",
+    "biz_strategicmgmt"
+  ],
+  "E0787": [],
+  "E0788": [
+    "biz_leadership",
+    "biz_planning"
+  ],
+  "E0790": [
+    "biz_dataanalysis",
+    "biz_management"
+  ],
+  "E0792": [],
+  "E0795": [
+    "biz_bizstrategy",
+    "biz_leadership"
+  ],
+  "E0797": [
+    "biz_management",
+    "biz_marketing"
+  ],
+  "E0798": [
+    "biz_communication",
+    "biz_innovation",
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E0799": [],
+  "E0803": [
+    "biz_bizstrategy",
+    "biz_leadership",
+    "biz_management",
+    "biz_strategicmgmt"
+  ],
+  "E0804": [],
+  "E0806": [
+    "biz_dataanalysis"
+  ],
+  "E0807": [],
+  "E0808": [],
+  "E0811": [
+    "biz_accounting",
+    "biz_dataanalysis"
+  ],
+  "E0813": [
+    "biz_bizstrategy"
+  ],
+  "E0815": [],
+  "E0816": [
+    "biz_leadership"
+  ],
+  "E0817": [],
+  "E0818": [],
+  "E0819": [
+    "biz_dataanalysis",
+    "biz_strategicthinking"
+  ],
+  "E0820": [
+    "biz_excel",
+    "biz_management",
+    "biz_projplanning"
+  ],
+  "E0822": [
+    "biz_accounting",
+    "biz_finance",
+    "biz_innovation"
+  ],
+  "E0823": [
+    "biz_marketing",
+    "biz_planning"
+  ],
+  "E0824": [
+    "biz_accounting",
+    "biz_bizstrategy",
+    "biz_dataanalysis",
+    "biz_innovation"
+  ],
+  "E0826": [
+    "biz_dataanalysis"
+  ],
+  "E0828": [],
+  "E0829": [],
+  "E0830": [],
+  "E0832": [],
+  "E0836": [
+    "biz_dataanalysis",
+    "biz_innovation"
+  ],
+  "E0837": [],
+  "E0838": [
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E0839": [],
+  "E0840": [
+    "biz_dataanalysis",
+    "biz_marketing",
+    "biz_planning"
+  ],
+  "E0841": [
+    "biz_management",
+    "biz_projmgmt"
+  ],
+  "E0842": [],
+  "E0843": [
+    "biz_bizstrategy",
+    "biz_communication",
+    "biz_leadership",
+    "biz_strategicthinking"
+  ],
+  "E0844": [
+    "biz_riskmgmt"
+  ],
+  "E0845": [],
+  "E0846": [],
+  "E0847": [],
+  "E0848": [
+    "biz_leadership",
+    "biz_planning"
+  ],
+  "E0851": [],
+  "E0852": [],
+  "E0853": [
+    "biz_bizstrategy",
+    "biz_management",
+    "biz_planning",
+    "biz_strategicmgmt"
+  ],
+  "E0854": [
+    "biz_excel",
+    "biz_riskmgmt"
+  ],
+  "E0858": [
+    "biz_bizstrategy",
+    "biz_dataanalysis",
+    "biz_management"
+  ],
+  "E0859": [
+    "biz_leadership",
+    "biz_management",
+    "biz_marketing",
+    "biz_socialmedia"
+  ],
+  "E0860": [],
+  "E0862": [
+    "biz_excel"
+  ],
+  "E0863": [],
+  "E0864": [
+    "biz_dataanalysis",
+    "biz_management"
+  ],
+  "E0865": [],
+  "E0866": [],
+  "E0867": [
+    "biz_bizstrategy"
+  ],
+  "E0868": [
+    "biz_finance",
+    "biz_riskmgmt"
+  ],
+  "E0870": [],
+  "E0871": [
+    "biz_communication"
+  ],
+  "E0872": [],
+  "E0874": [],
+  "E0875": [
+    "biz_dataanalysis",
+    "biz_innovation"
+  ],
+  "E0877": [],
+  "E0879": [],
+  "E0880": [],
+  "E0881": [
+    "biz_communication",
+    "biz_leadership"
+  ],
+  "E0883": [
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E0884": [],
+  "E0885": [],
+  "E0886": [
+    "biz_dataanalysis",
+    "biz_strategicmgmt"
+  ],
+  "E0887": [
+    "biz_planning"
+  ],
+  "E0889": [
+    "biz_finance",
+    "biz_finstatement"
+  ],
+  "E0890": [],
+  "E0891": [],
+  "E0892": [
+    "biz_innovation",
+    "biz_strategicthinking"
+  ],
+  "E0893": [
+    "biz_dataanalysis",
+    "biz_excel"
+  ],
+  "E0894": [],
+  "E0895": [
+    "biz_innovation",
+    "biz_planning"
+  ],
+  "E0899": [
+    "biz_accounting",
+    "biz_finaccounting",
+    "biz_finstatement"
+  ],
+  "E0900": [],
+  "E0901": [],
+  "E0902": [],
+  "E0903": [
+    "biz_bizstrategy",
+    "biz_marketing",
+    "biz_strategicmgmt"
+  ],
+  "E0904": [],
+  "E0905": [],
+  "E0907": [
+    "biz_innovation",
+    "biz_leadership",
+    "biz_strategicthinking"
+  ],
+  "E0908": [],
+  "E0909": [
+    "biz_finance",
+    "biz_finstatement"
+  ],
+  "E0910": [],
+  "E0913": [
+    "biz_finaccounting"
+  ],
+  "E0914": [
+    "biz_dataanalysis",
+    "biz_finstatement"
+  ],
+  "E0915": [
+    "biz_management"
+  ],
+  "E0917": [
+    "biz_management"
+  ],
+  "E0918": [],
+  "E0919": [
+    "biz_finstatement"
+  ],
+  "E0920": [],
+  "E0921": [],
+  "E0922": [
+    "biz_communication",
+    "biz_marketing"
+  ],
+  "E0925": [
+    "biz_finance",
+    "biz_riskmgmt"
+  ],
+  "E0926": [
+    "biz_finance"
+  ],
+  "E0929": [],
+  "E0930": [],
+  "E0931": [
+    "biz_bizstrategy",
+    "biz_strategicmgmt",
+    "biz_strategicthinking"
+  ],
+  "E0933": [
+    "biz_finstatement",
+    "biz_riskmgmt"
+  ],
+  "E0934": [],
+  "E0935": [
+    "biz_management",
+    "biz_socialmedia"
+  ],
+  "E0936": [],
+  "E0939": [],
+  "E0941": [
+    "biz_communication",
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E0943": [],
+  "E0944": [],
+  "E0945": [],
+  "E0947": [
+    "biz_dataanalysis",
+    "biz_marketing",
+    "biz_planning"
+  ],
+  "E0949": [],
+  "E0951": [],
+  "E0952": [],
+  "E0953": [
+    "biz_bizstrategy",
+    "biz_management"
+  ],
+  "E0954": [
+    "biz_communication",
+    "biz_leadership"
+  ],
+  "E0956": [
+    "biz_bizstrategy",
+    "biz_communication"
+  ],
+  "E0958": [],
+  "E0959": [
+    "biz_finstatement"
+  ],
+  "E0961": [],
+  "E0962": [
+    "biz_leadership"
+  ],
+  "E0963": [],
+  "E0964": [
+    "biz_finance"
+  ],
+  "E0965": [
+    "biz_socialmedia"
+  ],
+  "E0966": [
+    "biz_bizstrategy",
+    "biz_communication",
+    "biz_strategicthinking"
+  ],
+  "E0967": [],
+  "E0968": [],
+  "E0969": [],
+  "E0970": [
+    "biz_finance",
+    "biz_management"
+  ],
+  "E0971": [],
+  "E0973": [
+    "biz_finance",
+    "biz_projmgmt"
+  ],
+  "E0974": [
+    "biz_marketing",
+    "biz_strategicmgmt"
+  ],
+  "E0975": [],
+  "E0977": [
+    "biz_dataanalysis"
+  ],
+  "E0978": [],
+  "E0979": [
+    "biz_socialmedia"
+  ],
+  "E0981": [
+    "biz_marketing",
+    "biz_strategicmgmt"
+  ],
+  "E0982": [],
+  "E0983": [],
+  "E0984": [
+    "biz_projmgmt"
+  ],
+  "E0985": [
+    "biz_management"
+  ],
+  "E0986": [],
+  "E0987": [
+    "biz_bizstrategy",
+    "biz_communication"
+  ],
+  "E0988": [
+    "biz_accounting",
+    "biz_finance",
+    "biz_management"
+  ],
+  "E0989": [],
+  "E0991": [
+    "biz_communication",
+    "biz_management"
+  ],
+  "E0992": [
+    "biz_bizstrategy",
+    "biz_dataanalysis"
+  ],
+  "E0994": [
+    "biz_dataanalysis",
+    "biz_marketing",
+    "biz_socialmedia"
+  ],
+  "E0996": [
+    "biz_bizstrategy",
+    "biz_innovation"
+  ],
+  "E0997": [
+    "biz_dataanalysis",
+    "biz_planning"
+  ],
+  "E0999": [],
+  "E1000": [],
+  "E1001": [
+    "biz_bizstrategy",
+    "biz_innovation"
+  ],
+  "E1003": [],
+  "E1004": [
+    "biz_communication"
+  ],
+  "E1005": [],
+  "E1006": [],
+  "E1007": [
+    "biz_communication",
+    "biz_marketing",
+    "biz_socialmedia"
+  ],
+  "E1008": [],
+  "E1010": [
+    "biz_dataanalysis",
+    "biz_marketing"
+  ],
+  "E1011": [
+    "biz_bizstrategy",
+    "biz_finstatement"
+  ],
+  "E1012": [
+    "biz_projmgmt",
+    "biz_projplanning"
+  ],
+  "E1013": [
+    "biz_marketing",
+    "biz_strategicmgmt"
+  ],
+  "E1014": [],
+  "E1015": [],
+  "E1016": [],
+  "E1018": [
+    "biz_management",
+    "biz_socialmedia"
+  ],
+  "E1020": [],
+  "E1021": [
+    "biz_accounting",
+    "biz_finance",
+    "biz_finstatement"
+  ],
+  "E1022": [
+    "biz_dataanalysis",
+    "biz_finstatement",
+    "biz_riskmgmt"
+  ],
+  "E1023": [
+    "biz_marketing",
+    "biz_strategicmgmt"
+  ],
+  "E1024": [],
+  "E1025": [],
+  "E1027": [
+    "biz_changemgmt"
+  ],
+  "E1029": [],
+  "E1031": [
+    "biz_bizstrategy",
+    "biz_finstatement"
+  ],
+  "E1032": [
+    "biz_finaccounting",
+    "biz_finance",
+    "biz_projmgmt"
+  ],
+  "E1033": [
+    "biz_planning"
+  ],
+  "E1035": [
+    "biz_leadership"
+  ],
+  "E1036": [],
+  "E1037": [],
+  "E1038": [],
+  "E1039": [
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E1040": [],
+  "E1043": [
+    "biz_management"
+  ],
+  "E1044": [],
+  "E1045": [],
+  "E1046": [
+    "biz_finance",
+    "biz_management"
+  ],
+  "E1047": [
+    "biz_communication",
+    "biz_dataanalysis"
+  ],
+  "E1048": [
+    "biz_bizstrategy",
+    "biz_marketing",
+    "biz_planning",
+    "biz_socialmedia"
+  ],
+  "E1049": [],
+  "E1050": [
+    "biz_management"
+  ],
+  "E1051": [],
+  "E1052": [
+    "biz_innovation",
+    "biz_management"
+  ],
+  "E1053": [],
+  "E1054": [],
+  "E1055": [
+    "biz_innovation",
+    "biz_leadership",
+    "biz_planning"
+  ],
+  "E1056": [],
+  "E1058": [
+    "biz_management",
+    "biz_riskmgmt"
+  ],
+  "E1060": [
+    "biz_bizstrategy",
+    "biz_dataanalysis"
+  ],
+  "E1061": [
+    "biz_dataanalysis",
+    "biz_marketing"
+  ],
+  "E1062": [
+    "biz_dataanalysis",
+    "biz_excel"
+  ],
+  "E1065": [],
+  "E1066": [
+    "biz_changemgmt"
+  ],
+  "E1067": [],
+  "E1068": [],
+  "E1072": [
+    "biz_strategicmgmt"
+  ],
+  "E1073": [
+    "biz_communication",
+    "biz_management"
+  ],
+  "E1074": [
+    "biz_marketing",
+    "biz_socialmedia"
+  ],
+  "E1076": [],
+  "E1077": [],
+  "E1078": [
+    "biz_communication",
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E1079": [],
+  "E1080": [],
+  "E1081": [],
+  "E1083": [
+    "biz_marketing",
+    "biz_socialmedia"
+  ],
+  "E1084": [],
+  "E1086": [],
+  "E1087": [
+    "biz_innovation",
+    "biz_leadership",
+    "biz_management"
+  ],
+  "E1088": [],
+  "E1089": [
+    "biz_management"
+  ],
+  "E1090": [],
+  "E1091": [],
+  "E1092": [
+    "biz_projmgmt"
+  ],
+  "E1093": [
+    "biz_communication"
+  ],
+  "E1094": [],
+  "E1095": [
+    "biz_bizstrategy",
+    "biz_innovation",
+    "biz_strategicthinking"
+  ],
+  "E1096": [
+    "biz_riskmgmt"
+  ],
+  "E1098": [],
+  "E1099": [],
+  "E1102": [
+    "biz_management",
+    "biz_planning",
+    "biz_riskmgmt"
+  ],
+  "E1105": [
+    "biz_marketing"
+  ],
+  "E1108": [],
+  "E1109": [
+    "biz_bizstrategy"
+  ],
+  "E1110": [
+    "biz_management"
+  ],
+  "E1113": [
+    "biz_management",
+    "biz_marketing",
+    "biz_strategicmgmt"
+  ],
+  "E1114": [],
+  "E1115": [],
+  "E1116": [
+    "biz_changemgmt",
+    "biz_dataanalysis",
+    "biz_innovation",
+    "biz_strategicthinking"
+  ],
+  "E1117": [],
+  "E1119": [
+    "biz_bizstrategy",
+    "biz_dataanalysis",
+    "biz_innovation",
+    "biz_leadership"
+  ],
+  "E1120": [],
+  "E1121": [
+    "biz_bizstrategy",
+    "biz_strategicmgmt",
+    "biz_strategicthinking"
+  ],
+  "E1122": [
+    "biz_marketing"
+  ],
+  "E1123": [
+    "biz_bizstrategy",
+    "biz_dataanalysis",
+    "biz_management"
+  ],
+  "E1124": [],
+  "E1125": [
+    "biz_management",
+    "biz_planning",
+    "biz_projmgmt"
+  ],
+  "E1130": [
+    "biz_bizstrategy"
+  ],
+  "E1131": [],
+  "E1133": [],
+  "E1134": [],
+  "E1136": [
+    "biz_communication",
+    "biz_leadership"
+  ],
+  "E1137": [],
+  "E1139": [
+    "biz_leadership",
+    "biz_planning",
+    "biz_projmgmt",
+    "biz_projplanning"
+  ],
+  "E0030": [],
+  "E0050": [
+    "health_clinicaltrial"
+  ],
+  "E0052": [],
+  "E0054": [
+    "health_clinicaltrial",
+    "health_dataanalysis",
+    "health_datacollection",
+    "health_symptommgmt"
+  ],
+  "E0057": [],
+  "E0066": [
+    "health_communication"
+  ],
+  "E0067": [
+    "health_nutrition"
+  ],
+  "E0068": [
+    "health_dataanalysis"
+  ],
+  "E0070": [
+    "health_informatics"
+  ],
+  "E0075": [
+    "health_ebp",
+    "health_improvedsymptom",
+    "health_patientcentered",
+    "health_symptommgmt",
+    "health_wellbeing"
+  ],
+  "E0079": [
+    "health_informatics"
+  ],
+  "E0083": [],
+  "E0087": [
+    "health_dataanalysis",
+    "health_publichealth",
+    "health_symptommgmt"
+  ],
+  "E0090": [
+    "health_dataanalysis",
+    "health_informatics",
+    "health_publichealth"
+  ],
+  "E0093": [
+    "health_dataanalysis",
+    "health_datacollection",
+    "health_epidemiology",
+    "health_publichealth"
+  ],
+  "E0099": [
+    "health_biology"
+  ],
+  "E0101": [
+    "health_biology"
+  ],
+  "E0103": [
+    "health_publichealth"
+  ],
+  "E0112": [
+    "health_communication",
+    "health_patientcentered",
+    "health_symptommgmt"
+  ],
+  "E0117": [],
+  "E0121": [
+    "health_clinicaltrial",
+    "health_dataanalysis",
+    "health_publichealth"
+  ],
+  "E0127": [
+    "health_clinicaltrial",
+    "health_communication",
+    "health_improvedsymptom",
+    "health_patientcare",
+    "health_symptommgmt"
+  ],
+  "E0138": [
+    "health_nutrition",
+    "health_publichealth"
+  ],
+  "E0140": [
+    "health_ebp",
+    "health_improvedsymptom",
+    "health_patientcentered",
+    "health_symptommgmt",
+    "health_wellbeing"
+  ],
+  "E0143": [
+    "health_dataanalysis"
+  ],
+  "E0144": [
+    "health_biology"
+  ],
+  "E0146": [
+    "health_dataanalysis",
+    "health_symptommgmt"
+  ],
+  "E0147": [
+    "health_autoimmunity",
+    "health_immunology",
+    "health_infectious",
+    "health_tumourimmunity"
+  ],
+  "E0150": [
+    "health_ebp",
+    "health_education",
+    "health_patientcare",
+    "health_publichealth"
+  ],
+  "E0153": [
+    "health_communication",
+    "health_patientcare",
+    "health_symptommgmt"
+  ],
+  "E0158": [],
+  "E0164": [],
+  "E0166": [],
+  "E0172": [
+    "health_infectious"
+  ],
+  "E0197": [],
+  "E0199": [],
+  "E0202": [],
+  "E0203": [],
+  "E0212": [],
+  "E0213": [],
+  "E0215": [],
+  "E0216": [],
+  "E0219": [],
+  "E0221": [],
+  "E0222": [],
+  "E0225": [],
+  "E0233": [],
+  "E0238": [],
+  "E0239": [],
+  "E0241": [],
+  "E0244": [],
+  "E0249": [],
+  "E0250": [],
+  "E0251": [],
+  "E0253": [],
+  "E0257": [],
+  "E0261": [],
+  "E0262": [],
+  "E0277": [],
+  "E0279": [
+    "health_communication"
+  ],
+  "E0281": [],
+  "E0282": [
+    "health_informatics",
+    "health_nutrition"
+  ],
+  "E0298": [
+    "health_nutrition"
+  ],
+  "E0300": [
+    "health_education"
+  ],
+  "E0302": [
+    "health_communication",
+    "health_epidemiology",
+    "health_publichealth"
+  ],
+  "E0305": [
+    "health_biology"
+  ],
+  "E0307": [
+    "health_biology"
+  ],
+  "E0314": [
+    "health_biology"
+  ],
+  "E0315": [
+    "health_communication",
+    "health_education"
+  ],
+  "E0316": [
+    "health_biology"
+  ],
+  "E0322": [
+    "health_clinicaltrial"
+  ],
+  "E0324": [
+    "health_clinicaltrial"
+  ],
+  "E0327": [
+    "health_clinicaltrial",
+    "health_datacollection",
+    "health_symptommgmt"
+  ],
+  "E0332": [],
+  "E0333": [
+    "health_clinicaltrial",
+    "health_dataanalysis"
+  ],
+  "E0334": [],
+  "E0339": [
+    "health_symptommgmt"
+  ],
+  "E0344": [
+    "health_ebp",
+    "health_publichealth"
+  ],
+  "E0345": [
+    "health_clinicaltrial"
+  ],
+  "E0347": [
+    "health_education"
+  ],
+  "E0348": [
+    "health_biology"
+  ],
+  "E0354": [
+    "health_nutrition",
+    "health_publichealth"
+  ],
+  "E0357": [],
+  "E0360": [],
+  "E0370": [
+    "health_epidemiology",
+    "health_publichealth"
+  ],
+  "E0377": [
+    "health_biology",
+    "health_informatics"
+  ],
+  "E0385": [
+    "health_clinicaltrial"
+  ],
+  "E0386": [
+    "health_biology"
+  ],
+  "E0390": [
+    "health_biology"
+  ],
+  "E0394": [
+    "health_communication"
+  ],
+  "E0403": [
+    "health_nutrition"
+  ],
+  "E0404": [],
+  "E0405": [
+    "health_biology"
+  ],
+  "E0406": [
+    "health_clinicaltrial",
+    "health_communication"
+  ],
+  "E0411": [
+    "health_biology"
+  ],
+  "E0412": [],
+  "E0413": [
+    "health_nutrition",
+    "health_symptommgmt"
+  ],
+  "E0414": [
+    "health_clinicaltrial",
+    "health_epidemiology"
+  ],
+  "E0418": [
+    "health_biology"
+  ],
+  "E0428": [],
+  "E0429": [],
+  "E0434": [],
+  "E0437": [
+    "health_dataanalysis",
+    "health_informatics"
+  ],
+  "E0441": [
+    "health_education",
+    "health_improvedsymptom",
+    "health_publichealth"
+  ],
+  "E0450": [],
+  "E0451": [],
+  "E0456": [
+    "health_patientcare"
+  ],
+  "E0460": [
+    "health_informatics"
+  ],
+  "E0461": [],
+  "E0470": [],
+  "E0475": [],
+  "E0484": [
+    "health_ebp",
+    "health_improvedsymptom",
+    "health_patientcentered",
+    "health_wellbeing"
+  ],
+  "E0492": [],
+  "E0507": [
+    "health_dataanalysis"
+  ],
+  "E0509": [
+    "health_autoimmunity",
+    "health_immunology",
+    "health_infectious",
+    "health_tumourimmunity"
+  ],
+  "E0511": [],
+  "E0516": [],
+  "E0519": [],
+  "E0521": [
+    "health_dataanalysis"
+  ],
+  "E0523": [
+    "health_publichealth"
+  ],
+  "E0525": [
+    "health_communication",
+    "health_patientcentered",
+    "health_symptommgmt"
+  ],
+  "E0529": [
+    "health_informatics",
+    "health_publichealth"
+  ],
+  "E0536": [
+    "health_infectious"
+  ],
+  "E0546": [
+    "health_communication",
+    "health_ebp"
+  ],
+  "E0549": [],
+  "E0552": [],
+  "E0555": [],
+  "E0558": [],
+  "E0559": [
+    "health_ebp",
+    "health_improvedsymptom",
+    "health_patientcentered",
+    "health_wellbeing"
+  ],
+  "E0561": [],
+  "E0563": [
+    "health_improvedsymptom",
+    "health_patientcare"
+  ],
+  "E0568": [
+    "health_dataanalysis",
+    "health_datacollection",
+    "health_epidemiology"
+  ],
+  "E0570": [],
+  "E0581": [],
+  "E0584": [],
+  "E0586": [],
+  "E0599": [],
+  "E0600": [],
+  "E0601": [],
+  "E0605": [],
+  "E0613": [
+    "health_clinicaltrial"
+  ],
+  "E0623": [],
+  "E0627": [],
+  "E0630": [],
+  "E0635": [],
+  "E0636": [
+    "health_ebp",
+    "health_patientcare",
+    "health_symptommgmt"
+  ],
+  "E0648": [],
+  "E0662": [
+    "health_communication"
+  ],
+  "E0663": [
+    "health_improvedsymptom",
+    "health_wellbeing"
+  ],
+  "E0665": [],
+  "E0672": [],
+  "E0686": [],
+  "E0688": [],
+  "E0689": [],
+  "E0692": [],
+  "E0694": [],
+  "E0705": [
+    "health_informatics"
+  ],
+  "E0709": [],
+  "E0710": [
+    "health_biology"
+  ],
+  "E0721": [],
+  "E0724": [
+    "health_communication",
+    "health_patientcare"
+  ],
+  "E0734": [
+    "health_publichealth"
+  ],
+  "E0736": [
+    "health_autoimmunity",
+    "health_immunology",
+    "health_infectious",
+    "health_tumourimmunity"
+  ],
+  "E0737": [
+    "health_symptommgmt"
+  ],
+  "E0741": [],
+  "E0751": [],
+  "E0754": [],
+  "E0756": [],
+  "E0762": [],
+  "E0763": [
+    "health_clinicaltrial",
+    "health_improvedsymptom",
+    "health_symptommgmt"
+  ],
+  "E0770": [],
+  "E0772": [
+    "health_informatics"
+  ],
+  "E0774": [
+    "health_ebp",
+    "health_education",
+    "health_patientcare",
+    "health_publichealth"
+  ],
+  "E0775": [],
+  "E0778": [
+    "health_ebp",
+    "health_patientcentered",
+    "health_wellbeing"
+  ],
+  "E0781": [
+    "health_communication"
+  ],
+  "E0786": [],
+  "E0789": [
+    "health_dataanalysis",
+    "health_informatics"
+  ],
+  "E0791": [],
+  "E0794": [],
+  "E0796": [
+    "health_symptommgmt",
+    "health_wellbeing"
+  ],
+  "E0800": [
+    "health_education",
+    "health_publichealth"
+  ],
+  "E0801": [],
+  "E0802": [],
+  "E0805": [],
+  "E0809": [
+    "health_autoimmunity",
+    "health_immunology",
+    "health_infectious",
+    "health_tumourimmunity"
+  ],
+  "E0810": [],
+  "E0812": [
+    "health_dataanalysis"
+  ],
+  "E0814": [
+    "health_clinicaltrial"
+  ],
+  "E0825": [],
+  "E0827": [
+    "health_infectious"
+  ],
+  "E0831": [],
+  "E0833": [],
+  "E0835": [
+    "health_education",
+    "health_patientcare",
+    "health_publichealth"
+  ],
+  "E0849": [
+    "health_datacollection",
+    "health_epidemiology"
+  ],
+  "E0850": [
+    "health_dataanalysis",
+    "health_ebp"
+  ],
+  "E0855": [
+    "health_autoimmunity",
+    "health_immunology",
+    "health_infectious",
+    "health_tumourimmunity"
+  ],
+  "E0857": [],
+  "E0861": [],
+  "E0869": [],
+  "E0873": [],
+  "E0876": [],
+  "E0878": [],
+  "E0882": [],
+  "E0888": [],
+  "E0896": [],
+  "E0897": [],
+  "E0898": [],
+  "E0906": [],
+  "E0911": [],
+  "E0912": [
+    "health_publichealth"
+  ],
+  "E0923": [
+    "health_symptommgmt"
+  ],
+  "E0924": [
+    "health_clinicaltrial"
+  ],
+  "E0927": [
+    "health_publichealth"
+  ],
+  "E0928": [],
+  "E0932": [],
+  "E0937": [],
+  "E0938": [],
+  "E0942": [
+    "health_dataanalysis",
+    "health_informatics",
+    "health_publichealth"
+  ],
+  "E0946": [],
+  "E0948": [],
+  "E0955": [
+    "health_patientcentered"
+  ],
+  "E0957": [],
+  "E0960": [],
+  "E0972": [
+    "health_communication",
+    "health_dataanalysis"
+  ],
+  "E0980": [],
+  "E0990": [
+    "health_autoimmunity",
+    "health_immunology",
+    "health_infectious",
+    "health_tumourimmunity"
+  ],
+  "E0993": [
+    "health_dataanalysis",
+    "health_datacollection",
+    "health_symptommgmt"
+  ],
+  "E0998": [
+    "health_improvedsymptom",
+    "health_patientcare"
+  ],
+  "E1017": [
+    "health_ebp",
+    "health_improvedsymptom",
+    "health_patientcentered",
+    "health_wellbeing"
+  ],
+  "E1019": [],
+  "E1028": [],
+  "E1030": [],
+  "E1034": [
+    "health_ebp",
+    "health_symptommgmt"
+  ],
+  "E1041": [
+    "health_epidemiology",
+    "health_publichealth"
+  ],
+  "E1042": [],
+  "E1057": [],
+  "E1063": [],
+  "E1070": [],
+  "E1075": [],
+  "E1082": [],
+  "E1085": [],
+  "E1097": [],
+  "E1100": [
+    "health_biology"
+  ],
+  "E1101": [],
+  "E1103": [],
+  "E1104": [],
+  "E1106": [],
+  "E1111": [],
+  "E1112": [],
+  "E1118": [],
+  "E1128": [],
+  "E1129": [],
+  "E1132": [],
+  "E1135": [],
+  "E1138": [
+    "health_dataanalysis",
+    "health_symptommgmt"
+  ],
+  "E0021": [
+    "pd_communication",
+    "pd_goalsetting",
+    "pd_happiness",
+    "pd_negotiation",
+    "pd_personaldev"
+  ],
+  "E0044": [
+    "pd_communication"
+  ],
+  "E0049": [
+    "pd_creativity",
+    "pd_editing",
+    "pd_persuasion",
+    "pd_timemgmt",
+    "pd_writing"
+  ],
+  "E0062": [
+    "pd_communication",
+    "pd_creativity",
+    "pd_criticalthinking",
+    "pd_listening",
+    "pd_profdev",
+    "pd_softskills"
+  ],
+  "E0116": [
+    "pd_communication",
+    "pd_creativity",
+    "pd_persuasion",
+    "pd_problemsolving",
+    "pd_resilience"
+  ],
+  "E0141": [
+    "pd_delegation"
+  ],
+  "E0168": [
+    "pd_editing",
+    "pd_videoediting",
+    "pd_videoproduction"
+  ],
+  "E0170": [
+    "pd_profdev",
+    "pd_softskills"
+  ],
+  "E0173": [
+    "pd_communication",
+    "pd_listening",
+    "pd_profdev",
+    "pd_softskills",
+    "pd_videoproduction"
+  ],
+  "E0174": [
+    "pd_communication",
+    "pd_creativity",
+    "pd_delegation",
+    "pd_negotiation",
+    "pd_resilience"
+  ],
+  "E0192": [
+    "pd_editing",
+    "pd_videoediting",
+    "pd_videoproduction"
+  ],
+  "E0196": [],
+  "E0205": [],
+  "E0226": [],
+  "E0255": [],
+  "E0264": [],
+  "E0274": [
+    "pd_happiness"
+  ],
+  "E0296": [
+    "pd_criticalthinking",
+    "pd_skillsmgmt",
+    "pd_timemgmt"
+  ],
+  "E0299": [],
+  "E0342": [
+    "pd_communication",
+    "pd_goalsetting",
+    "pd_negotiation"
+  ],
+  "E0382": [
+    "pd_communication"
+  ],
+  "E0391": [],
+  "E0399": [
+    "pd_creativity",
+    "pd_criticalthinking",
+    "pd_problemsolving"
+  ],
+  "E0419": [
+    "pd_creativity",
+    "pd_editing",
+    "pd_persuasion",
+    "pd_timemgmt",
+    "pd_writing"
+  ],
+  "E0427": [],
+  "E0474": [
+    "pd_personaldev",
+    "pd_skillsmgmt"
+  ],
+  "E0477": [
+    "pd_communication"
+  ],
+  "E0497": [
+    "pd_negotiation",
+    "pd_resilience"
+  ],
+  "E0501": [
+    "pd_personaldev",
+    "pd_skillsmgmt"
+  ],
+  "E0510": [
+    "pd_persuasion"
+  ],
+  "E0527": [
+    "pd_skillsmgmt"
+  ],
+  "E0543": [
+    "pd_problemsolving",
+    "pd_resilience"
+  ],
+  "E0548": [
+    "pd_videoediting",
+    "pd_videoproduction"
+  ],
+  "E0550": [
+    "pd_communication",
+    "pd_listening"
+  ],
+  "E0585": [
+    "pd_editing",
+    "pd_videoediting",
+    "pd_videoproduction"
+  ],
+  "E0606": [
+    "pd_criticalthinking",
+    "pd_problemsolving",
+    "pd_profdev",
+    "pd_softskills"
+  ],
+  "E0612": [],
+  "E0647": [
+    "pd_goalsetting",
+    "pd_happiness",
+    "pd_personaldev"
+  ],
+  "E0670": [
+    "pd_personaldev",
+    "pd_skillsmgmt"
+  ],
+  "E0711": [
+    "pd_personaldev",
+    "pd_skillsmgmt"
+  ],
+  "E0723": [
+    "pd_communication",
+    "pd_criticalthinking",
+    "pd_listening",
+    "pd_softskills"
+  ],
+  "E0729": [],
+  "E0744": [
+    "pd_goalsetting"
+  ],
+  "E0748": [
+    "pd_communication"
+  ],
+  "E0749": [
+    "pd_creativity",
+    "pd_editing",
+    "pd_persuasion",
+    "pd_timemgmt",
+    "pd_writing"
+  ],
+  "E0773": [
+    "pd_communication"
+  ],
+  "E0793": [
+    "pd_communication",
+    "pd_creativity",
+    "pd_softskills"
+  ],
+  "E0821": [],
+  "E0834": [],
+  "E0856": [],
+  "E0916": [
+    "pd_creativity",
+    "pd_delegation"
+  ],
+  "E0940": [
+    "pd_listening",
+    "pd_videoproduction"
+  ],
+  "E0950": [
+    "pd_creativity",
+    "pd_editing",
+    "pd_persuasion",
+    "pd_timemgmt",
+    "pd_writing"
+  ],
+  "E0976": [
+    "pd_creativity",
+    "pd_editing",
+    "pd_persuasion",
+    "pd_timemgmt",
+    "pd_writing"
+  ],
+  "E0995": [
+    "pd_communication",
+    "pd_listening",
+    "pd_softskills",
+    "pd_timemgmt"
+  ],
+  "E1002": [
+    "pd_skillsmgmt"
+  ],
+  "E1009": [],
+  "E1026": [
+    "pd_communication"
+  ],
+  "E1059": [
+    "pd_communication",
+    "pd_softskills",
+    "pd_timemgmt"
+  ],
+  "E1064": [],
+  "E1069": [],
+  "E1071": [
+    "pd_goalsetting"
+  ],
+  "E1107": [
+    "pd_communication",
+    "pd_profdev",
+    "pd_softskills"
+  ],
+  "E1126": [],
+  "E1127": [
+    "pd_communication"
+  ]
+}
