@@ -1,0 +1,257 @@
+// PathFinder AI — learner state model.
+//
+// The engine (skill graph, courses, algorithms) is stateless over static
+// data files; this database stores everything learner-specific: evidence,
+// tiered skill assessments, quizzes, generated paths and their revisions,
+// project submissions, feedback, activity and coach reports.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Learner {
+  id              String   @id @default(cuid())
+  name            String
+  goalStatement   String?
+  targetRole      String?
+  domain          String?
+  goalSkillId     String?
+  hoursPerWeek    Int      @default(10)
+  timelineWeeks   Int?
+  learningStyle   String?
+  motivation      String?
+  constraintsJson String? // JSON: string[]
+  onboardingStage String   @default("intake") // intake | interview | evidence | claims | calibration | scenarios | complete
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  evidence       EvidenceItem[]
+  assessments    SkillAssessment[]
+  quizzes        Quiz[]
+  paths          LearningPath[]
+  activities     ActivityLog[]
+  reports        WeeklyReport[]
+  feedbacks      FeedbackItem[]
+  mentorMessages MentorMessage[]
+  agentState     AgentState?
+}
+
+// ─── Evidence ────────────────────────────────────────────────────────────────
+
+model EvidenceItem {
+  id          String   @id @default(cuid())
+  learnerId   String
+  learner     Learner  @relation(fields: [learnerId], references: [id], onDelete: Cascade)
+  source      String // github | resume | leetcode | codeforces | interview | project | quiz
+  sourceRef   String? // repo name, file name, platform handle…
+  summary     String // human-readable finding
+  skillClaims String // JSON: Array<{ skillId, skillName, level, quote }>
+  strength    Int // 1-5 — how strong the signal is
+  url         String?
+  createdAt   DateTime @default(now())
+
+  @@index([learnerId, source])
+}
+
+model SkillAssessment {
+  id             String    @id @default(cuid())
+  learnerId      String
+  learner        Learner   @relation(fields: [learnerId], references: [id], onDelete: Cascade)
+  skillId        String
+  skillName      String
+  claimedLevel   Int       @default(0)
+  evidencedLevel Int       @default(0)
+  tier           String    @default("none") // proven | verified | claimed | inferred | none
+  confidence     Float     @default(0)
+  notes          String?
+  lastVerifiedAt DateTime?
+  updatedAt      DateTime  @updatedAt
+
+  @@unique([learnerId, skillId])
+  @@index([learnerId])
+}
+
+// ─── Agent interview ─────────────────────────────────────────────────────────
+
+model AgentState {
+  id              String  @id @default(cuid())
+  learnerId       String  @unique
+  learner         Learner @relation(fields: [learnerId], references: [id], onDelete: Cascade)
+  phase           String  @default("intro") // intro | goal | background | time | style | evidence_review | wrap_up | done
+  historyJson     String  @default("[]") // JSON: Array<{ role, content }>
+  extractedJson   String  @default("{}") // JSON: running extraction of profile fields
+  roundsCompleted Int     @default(0)
+  updatedAt       DateTime @updatedAt
+}
+
+// ─── Quizzes ─────────────────────────────────────────────────────────────────
+
+model Quiz {
+  id          String   @id @default(cuid())
+  learnerId   String
+  learner     Learner  @relation(fields: [learnerId], references: [id], onDelete: Cascade)
+  kind        String // calibration | milestone_gate | remediation
+  skillId     String?
+  skillName   String?
+  milestoneId String?
+  status      String   @default("pending") // pending | passed | failed
+  passScore   Float    @default(0.75)
+  createdAt   DateTime @default(now())
+
+  questions QuizQuestion[]
+  attempts  QuizAttempt[]
+
+  @@index([learnerId, status])
+}
+
+model QuizQuestion {
+  id           String @id @default(cuid())
+  quizId       String
+  quiz         Quiz   @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  order        Int    @default(0)
+  prompt       String
+  optionsJson  String // JSON: string[]
+  correctIndex Int
+  explanation  String
+  skillFocus   String?
+}
+
+model QuizAttempt {
+  id           String   @id @default(cuid())
+  quizId       String
+  quiz         Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  answersJson  String // JSON: number[]
+  score        Float
+  passed       Boolean
+  breakdownJson String? // JSON: Array<{ questionId, correct, correctIndex, chosenIndex }>
+  createdAt    DateTime @default(now())
+}
+
+// ─── Paths & milestones ──────────────────────────────────────────────────────
+
+model LearningPath {
+  id              String   @id @default(cuid())
+  learnerId       String
+  learner         Learner  @relation(fields: [learnerId], references: [id], onDelete: Cascade)
+  version         Int      @default(1)
+  scenario        String   @default("balanced") // balanced | intensive | exploratory
+  algorithm       String   @default("dfs-topological")
+  isActive        Boolean  @default(false)
+  totalSkills     Int      @default(0)
+  totalHours      Int      @default(0)
+  hoursPerWeek    Int      @default(10)
+  snapshotJson    String? // JSON: assessments snapshot the path was built from
+  replanReason    String?
+  generatedAt     DateTime @default(now())
+
+  milestones Milestone[]
+
+  @@index([learnerId, isActive])
+}
+
+model Milestone {
+  id                String   @id @default(cuid())
+  pathId            String
+  path              LearningPath @relation(fields: [pathId], references: [id], onDelete: Cascade)
+  order             Int
+  phase             String // phase title
+  title             String
+  description       String
+  skillIdsJson      String // JSON: string[]
+  skillNamesJson    String // JSON: string[]
+  estimatedHours    Int      @default(0)
+  status            String   @default("locked") // locked | available | in_progress | complete
+  hasProject        Boolean  @default(false)
+  hasGateQuiz       Boolean  @default(false)
+  gateQuizId        String?
+  targetStartAt     DateTime?
+  targetEndAt       DateTime?
+  completedAt       DateTime?
+
+  project ProjectSpec?
+
+  @@index([pathId, order])
+}
+
+// ─── Projects ────────────────────────────────────────────────────────────────
+
+model ProjectSpec {
+  id                String    @id @default(cuid())
+  milestoneId       String    @unique
+  milestone         Milestone @relation(fields: [milestoneId], references: [id], onDelete: Cascade)
+  title             String
+  brief             String
+  requirementsJson  String // JSON: string[]
+  rubricJson        String // JSON: Array<{ criterion, weight }>
+  zpdJson           String // JSON: ZpdSpec
+  expectedStackJson String? // JSON: string[] — languages/frameworks we expect to see
+  estimatedHours    Int       @default(8)
+  createdAt         DateTime  @default(now())
+
+  submissions ProjectSubmission[]
+}
+
+model ProjectSubmission {
+  id             String      @id @default(cuid())
+  projectId      String
+  project        ProjectSpec @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  repoUrl        String
+  status         String      @default("submitted") // submitted | evaluating | passed | needs_work
+  evaluationJson String? // JSON: { verdict, score, checks[], strengths[], gaps[], feedback }
+  evaluatorMode  String? // llm | heuristic
+  submittedAt    DateTime    @default(now())
+  evaluatedAt    DateTime?
+}
+
+// ─── Feedback & activity ─────────────────────────────────────────────────────
+
+model FeedbackItem {
+  id          String    @id @default(cuid())
+  learnerId   String
+  learner     Learner   @relation(fields: [learnerId], references: [id], onDelete: Cascade)
+  milestoneId String?
+  kind        String // too_hard | too_easy | too_theoretical | not_relevant | pace_right | other
+  comment     String?
+  applied     Boolean   @default(false)
+  actionTaken String?
+  createdAt   DateTime  @default(now())
+}
+
+model ActivityLog {
+  id        String   @id @default(cuid())
+  learnerId String
+  learner   Learner  @relation(fields: [learnerId], references: [id], onDelete: Cascade)
+  kind      String // evidence_added | quiz_passed | quiz_failed | milestone_started | milestone_completed | project_passed | project_needs_work | path_generated | path_replanned | feedback | goal_changed | calibrated
+  detailJson String // JSON: arbitrary payload
+  createdAt DateTime @default(now())
+
+  @@index([learnerId, createdAt])
+}
+
+model WeeklyReport {
+  id          String   @id @default(cuid())
+  learnerId   String
+  learner     Learner  @relation(fields: [learnerId], references: [id], onDelete: Cascade)
+  weekOf      String // ISO date of the Monday
+  content     String // markdown report
+  metricsJson String // JSON: { milestonesCompleted, quizzesPassed, quizzesFailed, projectsPassed, hoursLogged, streakDays }
+  createdAt   DateTime @default(now())
+
+  @@unique([learnerId, weekOf])
+}
+
+model MentorMessage {
+  id        String   @id @default(cuid())
+  learnerId String
+  learner   Learner  @relation(fields: [learnerId], references: [id], onDelete: Cascade)
+  role      String // user | assistant
+  content   String
+  createdAt DateTime @default(now())
+
+  @@index([learnerId, createdAt])
+}
