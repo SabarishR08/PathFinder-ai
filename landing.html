@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aria Coach - The Future of Learning</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#e2e2e4",
+                        "on-tertiary-fixed-variant": "#474648",
+                        "on-surface": "#e2e2e2",
+                        "on-primary-fixed-variant": "#454749",
+                        "error": "#ffb4ab",
+                        "border-subtle": "#333336",
+                        "outline": "#8f9194",
+                        "on-primary-fixed": "#1a1c1d",
+                        "outline-variant": "#44474a",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-low": "#1b1b1b",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-glass": "rgba(28, 28, 30, 0.6)",
+                        "on-tertiary-container": "#646466",
+                        "titanium-light": "#E5E5EA",
+                        "on-surface-variant": "#c5c7c9",
+                        "tertiary": "#ffffff",
+                        "on-primary": "#2f3132",
+                        "surface-bright": "#393939",
+                        "surface-variant": "#353535",
+                        "on-tertiary-fixed": "#1b1b1d",
+                        "error-container": "#93000a",
+                        "on-primary-container": "#636466",
+                        "tertiary-container": "#e4e2e4",
+                        "inverse-primary": "#5d5e60",
+                        "titanium-dark": "#8E8E93",
+                        "on-background": "#e2e2e2",
+                        "on-error": "#690005",
+                        "on-secondary": "#2f3034",
+                        "inverse-surface": "#e2e2e2",
+                        "surface-container": "#1f1f1f",
+                        "on-secondary-fixed-variant": "#46464b",
+                        "inverse-on-surface": "#303030",
+                        "tertiary-fixed": "#e4e2e4",
+                        "secondary-fixed": "#e3e2e7",
+                        "surface-dim": "#131313",
+                        "secondary-fixed-dim": "#c6c6cb",
+                        "surface-container-highest": "#353535",
+                        "background": "#131313",
+                        "primary-fixed-dim": "#c6c6c8",
+                        "on-tertiary": "#303032",
+                        "on-secondary-fixed": "#1a1b1f",
+                        "surface": "#131313",
+                        "secondary-container": "#46464b",
+                        "primary-container": "#e2e2e4",
+                        "surface-tint": "#c6c6c8",
+                        "tertiary-fixed-dim": "#c8c6c8",
+                        "primary": "#ffffff",
+                        "on-secondary-container": "#b5b4ba",
+                        "secondary": "#c6c6cb",
+                        "surface-container-lowest": "#0e0e0e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "8px",
+                        "xl": "80px",
+                        "container-max": "1200px",
+                        "unit": "4px",
+                        "sm": "16px",
+                        "lg": "48px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "hero-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "hero-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "hero-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "body-lg": ["17px", { "lineHeight": "1.5", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "body-sm": ["15px", { "lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "hero-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #000000;
+        }
+        
+        .glass-card {
+            background: rgba(28, 28, 30, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.05);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .spring-hover {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .spring-hover:hover {
+            transform: scale(1.02);
+        }
+        
+        .spring-hover:active {
+            transform: scale(0.98);
+        }
+
+        .text-gradient-silver {
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .glow-button {
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255,255,255,0.8);
+        }
+    </style>
+</head>
+<body class="text-on-background min-h-screen flex flex-col font-body-sm bg-black antialiased selection:bg-primary-fixed selection:text-black relative overflow-hidden">
+<!-- Ambient background glows -->
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-titanium-dark/10 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+<!-- Navigation -->
+<header class="fixed top-0 w-full backdrop-blur-xl border-b border-white/10 z-50 bg-surface-glass">
+<div class="flex justify-between items-center px-md py-xs max-w-container-max mx-auto">
+<div class="text-headline-md font-headline-md text-primary tracking-tighter">
+                Aria Coach
+            </div>
+<nav class="hidden md:flex gap-lg">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Curriculum</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Methodology</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Pricing</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Community</a>
+</nav>
+<div class="flex items-center gap-md">
+<button class="hidden md:block text-primary font-body-sm font-medium hover:text-titanium-light transition-colors scale-98 active:scale-95 transition-transform">
+                    Get Started
+                </button>
+<button class="text-primary hover:text-titanium-light transition-colors scale-98 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex items-center justify-center pt-xl pb-xl px-sm md:px-md relative z-10">
+<div class="glass-card rounded-[24px] p-lg md:p-[64px] max-w-2xl w-full text-center flex flex-col items-center gap-lg spring-hover">
+<div class="flex flex-col gap-sm items-center">
+<div class="inline-flex items-center justify-center p-3 bg-surface-bright/30 rounded-full mb-2 border border-white/5">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<h1 class="font-hero-lg-mobile md:font-hero-lg text-hero-lg-mobile md:text-hero-lg text-gradient-silver tracking-tighter">
+                    The Future of Learning
+                </h1>
+<p class="font-body-lg text-body-lg text-titanium-dark max-w-md mx-auto">
+                    Personalized AI coaching engineered for mastery.
+                </p>
+</div>
+<form class="w-full max-w-sm flex flex-col gap-md" onsubmit="event.preventDefault();">
+<div class="relative group">
+<input class="w-full bg-[#1A1A1C] border border-border-subtle rounded-full py-4 px-6 text-primary placeholder-on-tertiary-container focus:outline-none focus:ring-1 focus:ring-primary/30 focus:border-primary/50 transition-all duration-300 text-center font-body-lg text-body-lg group-hover:border-border-subtle/80" placeholder="Enter your name" type="text"/>
+<div class="absolute inset-0 rounded-full ring-1 ring-primary/0 group-focus-within:ring-primary/20 blur-sm transition-all duration-300 pointer-events-none"></div>
+</div>
+<button class="w-full bg-primary text-black rounded-full py-4 px-6 font-body-lg font-semibold glow-button hover:bg-titanium-light transition-all duration-300 scale-100 active:scale-95 flex items-center justify-center gap-2" type="submit">
+                    Begin Your Journey
+                    <span class="material-symbols-outlined text-black" style="font-size: 20px;">arrow_forward</span>
+</button>
+</form>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-lg border-t border-border-subtle bg-background relative z-10">
+<div class="max-w-container-max mx-auto px-md flex flex-col md:flex-row justify-between items-center gap-sm">
+<div class="text-label-caps font-label-caps text-primary opacity-80 hover:opacity-100 transition-opacity">
+                © 2024 Aria AI Learning. Engineered for excellence.
+            </div>
+<div class="flex gap-md font-body-sm text-body-sm">
+<a class="text-on-tertiary-fixed-variant hover:text-titanium-light transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="text-on-tertiary-fixed-variant hover:text-titanium-light transition-colors opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="text-on-tertiary-fixed-variant hover:text-titanium-light transition-colors opacity-80 hover:opacity-100" href="#">Contact Support</a>
+<a class="text-on-tertiary-fixed-variant hover:text-titanium-light transition-colors opacity-80 hover:opacity-100" href="#">Security</a>
+</div>
+</div>
+</footer>
+</body></html>

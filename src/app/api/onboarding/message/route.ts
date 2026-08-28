@@ -44,8 +44,8 @@ export async function POST(request: Request) {
       for await (const part of result.fullStream) {
         if (part.type === "text-delta") {
           if (!phaseComplete) {
-            replyBuffer += part.textDelta;
-            yield { type: "delta", text: part.textDelta };
+            replyBuffer += part.text || "";
+            yield { type: "delta", text: part.text || "" };
           }
         } else if (part.type === "tool-call") {
           if (part.toolName === "markPhaseComplete") {
