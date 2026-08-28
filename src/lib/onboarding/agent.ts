@@ -3,7 +3,7 @@ import { loadSkillGraph } from "@/lib/engine/data";
 import { fuseEvidence, logEvidence } from "@/lib/evidence/fuse";
 import type { SkillClaim } from "@/lib/evidence/types";
 import { streamText, tool } from "ai";
-import { createOpenAI } from "@ai-sdk/openai";
+import { createGroq } from "@ai-sdk/groq";
 import { gateway } from "@ai-sdk/gateway";
 import { z } from "zod";
 
@@ -78,9 +78,8 @@ CRITICAL INSTRUCTIONS ON TOOLS:
 
 // Ensure we have a provider. In production on Vercel, use Vercel Gateway.
 // We fallback to standard OpenAI config if needed.
-const openaiProvider = createOpenAI({
-  apiKey: process.env.GROQ_API_KEY || process.env.OPENAI_API_KEY,
-  baseURL: process.env.GROQ_BASE_URL || "https://api.groq.com/openai/v1",
+const groqProvider = createGroq({
+  apiKey: process.env.GROQ_API_KEY,
 });
 
 export async function runAgentStream(learnerId: string, userMessage: string) {
@@ -91,17 +90,21 @@ export async function runAgentStream(learnerId: string, userMessage: string) {
   const history: AgentHistoryTurn[] = JSON.parse(state.historyJson || "[]");
   const extractedSoFar: ExtractedProfile = JSON.parse(state.extractedJson || "{}");
 
+  const systemPrompt = [
+    agentSystemPrompt(state.phase as AgentPhase, learner.name),
+    `Skill catalogue (id|name) — the ONLY valid skillIds:\n${await skillCatalogText(extractedSoFar.domain)}`,
+    `Available domains: ${await domainOptionsText()}`,
+    `Profile captured so far: ${JSON.stringify(extractedSoFar)}`
+  ].join("\n\n");
+
   const messages: any[] = [
-    { role: "system", content: agentSystemPrompt(state.phase as AgentPhase, learner.name) },
-    { role: "system", content: `Skill catalogue (id|name) — the ONLY valid skillIds:\n${await skillCatalogText(extractedSoFar.domain)}` },
-    { role: "system", content: `Available domains: ${await domainOptionsText()}` },
-    { role: "system", content: `Profile captured so far: ${JSON.stringify(extractedSoFar)}` },
-    ...history.slice(-10).map((t) => ({ role: t.role, content: t.content })),
+    ...history.slice(-10).map((t) => ({ role: t.role, content: t.content || "..." })),
     { role: "user", content: userMessage },
   ];
 
   const result = streamText({
-    model: openaiProvider(process.env.GROQ_MODEL || "openai/gpt-oss-120b"),
+    model: groqProvider(process.env.GROQ_MODEL || "openai/gpt-oss-120b"),
+    system: systemPrompt,
     messages,
     tools: {
       exaSearch: gateway.tools.exaSearch(),
@@ -182,7 +185,7 @@ export async function persistAgentTurn(
   const running: ExtractedProfile = JSON.parse(state.extractedJson || "{}");
 
   history.push({ role: "user", content: userMessage });
-  history.push({ role: "assistant", content: replyText.slice(0, 2000) });
+  history.push({ role: "assistant", content: replyText.slice(0, 2000) || "..." });
 
   const merged: ExtractedProfile = { ...running };
   for (const key of ["name", "goalStatement", "targetRole", "domain", "goalSkillId", "learningStyle", "motivation"] as const) {
