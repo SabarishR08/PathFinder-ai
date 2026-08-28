@@ -1,0 +1,243 @@
+/**
+ * Evidence fusion — turns raw claims from any source into tiered skill
+ * assessments.
+ *
+ * Tiers (highest first):
+ *   proven    — real artefacts back the claim (strong GitHub evidence,
+ *               competitive-programming record, PASSED project evaluation)
+ *   verified  — a calibration/gate quiz independently confirmed the level
+ *   claimed   — self-reported only (interview or resume mention)
+ *   inferred  — weak signals (single repo language, incidental mention)
+ *
+ * Level combination across multiple sources: the strongest source sets the
+ * ceiling, weaker sources nudge via a weighted mean — a second corroborating
+ * source raises confidence but never overrides a stronger artefact.
+ *
+ * Confidence: noisy-OR over per-source confidences (independent evidence
+ * compounds; contradictory evidence doesn't silently cancel).
+ */
+import { db } from "@/lib/db";
+import type { SkillClaim, SkillEvidenceSource } from "./types";
+
+const SOURCE_CONFIDENCE: Record<SkillEvidenceSource, number> = {
+  github: 0.85,
+  resume: 0.5,
+  leetcode: 0.9,
+  codeforces: 0.9,
+  interview: 0.35,
+  project: 0.95,
+  quiz: 0.8,
+};
+
+const TIER_RANK: Record<string, number> = { none: 0, inferred: 1, claimed: 2, verified: 3, proven: 4 };
+
+export interface FusionUpdate {
+  skillId: string;
+  skillName: string;
+  before: { level: number; tier: string; confidence: number } | null;
+  after: { level: number; tier: string; confidence: number };
+  changed: boolean;
+}
+
+async function tierForSource(source: SkillEvidenceSource, claim: SkillClaim): Promise<string> {
+  if (source === "project") return "proven";
+  if (source === "quiz") return "verified";
+  if (source === "leetcode" || source === "codeforces") return "proven";
+  if (source === "github") return claim.strength >= 3 ? "proven" : claim.strength >= 2 ? "inferred" : "inferred";
+  if (source === "resume") return claim.strength >= 3 ? "claimed" : "inferred";
+  return "claimed"; // interview
+}
+
+export async function fuseEvidence(
+  learnerId: string,
+  source: SkillEvidenceSource,
+  claims: SkillClaim[],
+): Promise<FusionUpdate[]> {
+  const updates: FusionUpdate[] = [];
+
+  for (const claim of claims) {
+    if (claim.level <= 0) continue;
+    const existing = await db.skillAssessment.findUnique({
+      where: { learnerId_skillId: { learnerId, skillId: claim.skillId } },
+    });
+
+    const sourceTier = await tierForSource(source, claim);
+    const sourceConf = SOURCE_CONFIDENCE[source] * (0.6 + 0.08 * claim.strength);
+    // Self-reported sources (interview, resume) only ever set the CLAIMED
+    // level — evidence must come from artefacts (GitHub, quizzes, projects).
+    // Without this separation the claims-vs-evidence calibration loop is dead.
+    const isSelfReport = source === "interview" || source === "resume";
+
+    if (!existing) {
+      const conf = Math.min(0.97, sourceConf);
+      await db.skillAssessment.create({
+        data: {
+          learnerId,
+          skillId: claim.skillId,
+          skillName: claim.skillName,
+          claimedLevel: isSelfReport ? claim.level : 0,
+          evidencedLevel: isSelfReport ? 0 : claim.level,
+          tier: isSelfReport ? "claimed" : sourceTier,
+          confidence: conf,
+          notes: claim.quote.slice(0, 400),
+          lastVerifiedAt: !isSelfReport && (sourceTier === "proven" || sourceTier === "verified") ? new Date() : null,
+        },
+      });
+      updates.push({
+        skillId: claim.skillId,
+        skillName: claim.skillName,
+        before: null,
+        after: { level: claim.level, tier: sourceTier, confidence: conf },
+        changed: true,
+      });
+      continue;
+    }
+
+    // Combine: new evidenced level = max(existing, claim) when claim is
+    // credible (strength >= 2), else blend toward the mean.
+    // Self-reported sources never touch the evidenced level.
+    const combinedLevel = isSelfReport
+      ? existing.evidencedLevel
+      : claim.level >= existing.evidencedLevel
+        ? Math.round(0.7 * claim.level + 0.3 * existing.evidencedLevel)
+        : Math.round(0.75 * existing.evidencedLevel + 0.25 * claim.level);
+
+    const combinedTier = isSelfReport ? existing.tier : TIER_RANK[sourceTier] >= TIER_RANK[existing.tier] ? sourceTier : existing.tier;
+
+    // Noisy-OR confidence over independent sources.
+    const combinedConf = Math.min(0.97, 1 - (1 - existing.confidence) * (1 - sourceConf));
+
+    // Self-reported sources only raise claimedLevel, never lower it.
+    const claimedLevel = isSelfReport ? Math.max(existing.claimedLevel, claim.level) : existing.claimedLevel;
+
+    const changed =
+      combinedLevel !== existing.evidencedLevel ||
+      combinedTier !== existing.tier ||
+      claimedLevel !== existing.claimedLevel ||
+      Math.abs(combinedConf - existing.confidence) > 0.01;
+
+    await db.skillAssessment.update({
+      where: { id: existing.id },
+      data: {
+        claimedLevel,
+        evidencedLevel: Math.max(combinedLevel, 0),
+        tier: combinedTier,
+        confidence: combinedConf,
+        notes: [existing.notes, claim.quote].filter(Boolean).join(" | ").slice(0, 800),
+        lastVerifiedAt:
+          combinedTier === "proven" || combinedTier === "verified" ? new Date() : existing.lastVerifiedAt,
+      },
+    });
+
+    updates.push({
+      skillId: claim.skillId,
+      skillName: claim.skillName,
+      before: { level: existing.evidencedLevel, tier: existing.tier, confidence: existing.confidence },
+      after: { level: Math.max(combinedLevel, 0), tier: combinedTier, confidence: combinedConf },
+      changed,
+    });
+  }
+
+  return updates;
+}
+
+export async function logEvidence(
+  learnerId: string,
+  source: SkillEvidenceSource,
+  sourceRef: string | null,
+  summary: string,
+  claims: SkillClaim[],
+  url?: string,
+) {
+  await db.evidenceItem.create({
+    data: {
+      learnerId,
+      source,
+      sourceRef,
+      summary: summary.slice(0, 1000),
+      skillClaims: JSON.stringify(claims),
+      strength: claims.length ? Math.max(...claims.map((c) => c.strength)) : 1,
+      url: url ?? null,
+    },
+  });
+  await db.activityLog.create({
+    data: {
+      learnerId,
+      kind: "evidence_added",
+      detailJson: JSON.stringify({ source, sourceRef, claimCount: claims.length, summary: summary.slice(0, 200) }),
+    },
+  });
+}
+
+/** Apply a quiz verdict to an assessment (verified tier). */
+export async function applyQuizVerdict(
+  learnerId: string,
+  skillId: string,
+  skillName: string,
+  passed: boolean,
+  targetLevel: number,
+  score: number,
+) {
+  const existing = await db.skillAssessment.findUnique({
+    where: { learnerId_skillId: { learnerId, skillId } },
+  });
+
+  if (!existing) {
+    await db.skillAssessment.create({
+      data: {
+        learnerId,
+        skillId,
+        skillName,
+        claimedLevel: targetLevel,
+        evidencedLevel: passed ? targetLevel : Math.max(1, Math.round(targetLevel * score)),
+        tier: passed ? "verified" : "claimed",
+        confidence: passed ? 0.8 : 0.4,
+        lastVerifiedAt: passed ? new Date() : null,
+        notes: `Quiz verdict: ${Math.round(score * 100)}%`,
+      },
+    });
+    return;
+  }
+
+  const newEvidenced = passed
+    ? Math.max(existing.evidencedLevel, targetLevel)
+    : Math.min(existing.evidencedLevel, Math.max(0, Math.round(targetLevel * score)));
+  const newTier = passed
+    ? TIER_RANK[existing.tier] >= TIER_RANK.verified
+      ? existing.tier
+      : "verified"
+    : existing.tier === "proven"
+      ? existing.tier
+      : "claimed";
+
+  await db.skillAssessment.update({
+    where: { id: existing.id },
+    data: {
+      evidencedLevel: newEvidenced,
+      tier: newTier,
+      confidence: passed ? Math.min(0.97, Math.max(existing.confidence, 0.8)) : Math.max(0.2, existing.confidence - 0.2),
+      lastVerifiedAt: passed ? new Date() : existing.lastVerifiedAt,
+      notes: [existing.notes, `Quiz verdict: ${Math.round(score * 100)}%`].filter(Boolean).join(" | ").slice(0, 800),
+    },
+  });
+}
+
+/** Mark milestone skills as proven after a PASSED project evaluation. */
+export async function applyProjectVerdict(learnerId: string, skillIds: string[], level: number) {
+  for (const skillId of skillIds) {
+    const existing = await db.skillAssessment.findUnique({
+      where: { learnerId_skillId: { learnerId, skillId } },
+    });
+    if (!existing) continue;
+    await db.skillAssessment.update({
+      where: { id: existing.id },
+      data: {
+        evidencedLevel: Math.max(existing.evidencedLevel, level),
+        tier: "proven",
+        confidence: Math.min(0.97, Math.max(existing.confidence, 0.9)),
+        lastVerifiedAt: new Date(),
+        notes: [existing.notes, "Project evaluation passed"].filter(Boolean).join(" | ").slice(0, 800),
+      },
+    });
+  }
+}
