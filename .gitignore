@@ -36,3 +36,5 @@ coverage/
 !.gitignore
 .vercel
 .env*
+.freebuff/
+supabase/.temp/
