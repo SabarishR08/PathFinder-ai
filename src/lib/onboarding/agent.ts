@@ -104,14 +104,24 @@ export async function runAgentStream(learnerId: string, userMessage: string) {
     ...messages,
   ];
 
-  const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+  // Route through Vercel AI Gateway if key is set, otherwise direct Groq
+  const gatewayKey = process.env.AI_GATEWAY_API_KEY;
+  const baseUrl = gatewayKey
+    ? (process.env.AI_GATEWAY_BASE_URL || "https://ai-gateway.vercel.sh/v1")
+    : "https://api.groq.com/openai/v1";
+  const authKey = gatewayKey || process.env.GROQ_API_KEY;
+  const model = gatewayKey
+    ? (process.env.AI_GATEWAY_MODEL || "groq/llama-3.3-70b-versatile")
+    : (process.env.GROQ_MODEL || "llama-3.3-70b-versatile");
+
+  const response = await fetch(`${baseUrl}/chat/completions`, {
     method: "POST",
     headers: {
-      "Authorization": `Bearer ${process.env.GROQ_API_KEY}`,
+      "Authorization": `Bearer ${authKey}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: process.env.GROQ_MODEL || "llama-3.3-70b-versatile",
+      model,
       messages: apiMessages,
       max_tokens: 500,
       temperature: 0.7,
@@ -121,7 +131,7 @@ export async function runAgentStream(learnerId: string, userMessage: string) {
 
   if (!response.ok) {
     const errText = await response.text();
-    throw new Error(`Groq API error ${response.status}: ${errText}`);
+    throw new Error(`LLM API error ${response.status}: ${errText}`);
   }
 
   // Parse the SSE stream and yield deltas as an async iterable

@@ -8,12 +8,10 @@
  * Provider chain (first configured + reachable wins, per-call fallback on
  * rate-limit / transient errors):
  *
- *   1. Groq            — GROQ_API_KEY            (OpenAI-compatible)
- *   2. OpenAI-compat   — OPENAI_API_KEY (+ OPENAI_BASE, defaults to
- *                        OpenAI; also covers NVIDIA via NVIDIA_API_KEY,
- *                        OpenRouter, Together, local Ollama…)
- *   3. Z.AI            — via z-ai-web-dev-sdk (optional dependency; resolved
- *                        with a dynamic import so the app boots fine without it)
+ *   1. Vercel Gateway  — AI_GATEWAY_API_KEY        (unified proxy, usage dashboard)
+ *   2. Groq            — GROQ_API_KEY              (direct, fallback)
+ *   3. OpenAI-compat   — OPENAI_API_KEY (+ OPENAI_BASE)
+ *   4. Z.AI            — via z-ai-web-dev-sdk (zero-config sandbox fallback)
  *
  * All providers funnel through one OpenAI-compatible transport, so behaviour
  * (timeouts, retries, JSON repair, SSE streaming) is uniform.
@@ -54,8 +52,21 @@ const DEFAULT_TIMEOUT_MS = 45_000;
 
 function resolveProviders(): Provider[] {
   const providers: Provider[] = [];
+
+  // 1. Vercel AI Gateway — one key, usage dashboard, automatic failover
+  const gatewayKey = process.env.AI_GATEWAY_API_KEY;
+  if (gatewayKey) {
+    providers.push({
+      name: "vercel-gateway",
+      model: process.env.AI_GATEWAY_MODEL || "groq/llama-3.3-70b-versatile",
+      baseUrl: process.env.AI_GATEWAY_BASE_URL || "https://ai-gateway.vercel.sh/v1",
+      apiKey: gatewayKey,
+    });
+  }
+
+  // 2. Direct Groq — fallback when no gateway key
   const groqKey = process.env.GROQ_API_KEY;
-  if (groqKey) {
+  if (groqKey && !gatewayKey) {
     providers.push({
       name: "groq",
       model: process.env.GROQ_MODEL || "llama-3.3-70b-versatile",
@@ -63,8 +74,10 @@ function resolveProviders(): Provider[] {
       apiKey: groqKey,
     });
   }
+
+  // 3. NVIDIA (only if no Groq/Gateway)
   const nvidiaKey = process.env.NVIDIA_API_KEY;
-  if (nvidiaKey && !groqKey) {
+  if (nvidiaKey && !groqKey && !gatewayKey) {
     providers.push({
       name: "nvidia",
       model: process.env.NVIDIA_MODEL || "meta/llama-3.1-70b-instruct",
@@ -72,6 +85,8 @@ function resolveProviders(): Provider[] {
       apiKey: nvidiaKey,
     });
   }
+
+  // 4. OpenAI-compatible
   const openaiKey = process.env.OPENAI_API_KEY;
   if (openaiKey) {
     providers.push({
@@ -81,6 +96,7 @@ function resolveProviders(): Provider[] {
       apiKey: openaiKey,
     });
   }
+
   return providers;
 }
 
