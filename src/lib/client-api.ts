@@ -86,11 +86,11 @@ export const api = {
       }>,
     ),
 
-  connectCodeforces: (learnerId: string, handle: string) =>
+  connectCodeforces: (learnerId: string, cfHandle: string) =>
     fetch("/api/evidence/codeforces", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ learnerId, handle }),
+      body: JSON.stringify({ learnerId, handle: cfHandle }),
     }).then(
       handle<{
         stats: { handle: string; rating: number | null; maxRating: number | null; rank: string | null; evidencedLevel: number };

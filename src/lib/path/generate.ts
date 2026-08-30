@@ -251,7 +251,7 @@ export async function knownSkillIdsFor(learnerId: string): Promise<{ known: stri
 export async function previewScenarios(input: Omit<PathGenerationInput, "scenario">): Promise<
   Array<{ scenario: Scenario; totalSkills: number; totalHours: number; etaWeeks: number; algorithm: string; milestones: number }>
 > {
-  const outcomes = [];
+  const outcomes: Array<{ scenario: Scenario; totalSkills: number; totalHours: number; etaWeeks: number; algorithm: string; milestones: number }> = [];
   for (const scenario of ["balanced", "intensive", "exploratory"] as Scenario[]) {
     const generated = await buildGeneratedPath({
       targetSkillId: input.goalSkillId,

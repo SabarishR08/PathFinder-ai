@@ -1,5 +1,5 @@
 import { db } from "@/lib/db";
-import { apiError, sseStream, readJson } from "@/lib/api-helpers";
+import { apiError, json, sseStream, readJson } from "@/lib/api-helpers";
 import { streamMentorReply } from "@/lib/mentor";
 
 export const dynamic = "force-dynamic";

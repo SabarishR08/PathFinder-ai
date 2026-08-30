@@ -94,7 +94,7 @@ export function SkillGraph({
     return shown;
   }, [skills, masteredSet]);
 
-  const { nodes, flowEdges } = useMemo(() => {
+  const { nodes, edges: flowEdges } = useMemo(() => {
     const byDepth = new Map<number, string[]>();
     for (const s of skills) {
       const list = byDepth.get(s.depth) ?? [];

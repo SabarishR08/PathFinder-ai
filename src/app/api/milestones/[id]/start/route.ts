@@ -27,7 +27,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
     if (milestone.status === "locked") return apiError("Milestone is locked — complete the previous phase first");
     if (milestone.status === "complete") return apiError("Milestone already completed");
 
-    let project = null;
+    let project: Record<string, unknown> | null = null;
     if (milestone.hasProject) {
       try {
         const spec = await ensureProjectSpec(milestone.id);

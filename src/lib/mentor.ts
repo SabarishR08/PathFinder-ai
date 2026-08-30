@@ -138,7 +138,7 @@ export async function* streamMentorReply(
         ? `Your next best action: ${digest.path.nextAction}. You're on the ${digest.path.scenario} path (v${digest.path.version}).`
         : `You don't have an active path yet — generate one from your dashboard.`,
       digest.skills.length
-        ? `Strongest evidenced skills: ${digest.skills.slice(0, 3).map((s) => `${s.name} (${s.evidencedLevel}/5, ${s.tier})`).join(", ")}.`
+        ? `Strongest evidenced skills: ${digest.skills.slice(0, 3).map((s) => `${s.name} (${s.evidenced}/5, ${s.tier})`).join(", ")}.`
         : `No skill evidence yet — connect GitHub or take a calibration quiz.`,
       `For "${userMessage.slice(0, 120)}" — check the resources attached to your current milestone; they cover this area.`,
     ].join("\n\n");

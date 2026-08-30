@@ -71,7 +71,7 @@ export default function MilestonePage() {
       setMilestone(m);
       if (m?.project?.submissions?.length) {
         const latest = m.project.submissions[0];
-        if (latest.evaluation) setEvaluation(latest.evaluation);
+        if (latest.evaluation) setEvaluation({ ...latest.evaluation, verdict: latest.evaluation.verdict as "passed" | "needs_work", evaluatorMode: String((latest.evaluation as Record<string, unknown>).evaluatorMode ?? "unknown") });
       }
     } catch (e) {
       toast({ title: "Failed to load milestone", description: e instanceof Error ? e.message : "", variant: "destructive" });

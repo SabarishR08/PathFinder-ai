@@ -93,7 +93,7 @@ Options must be plausible; distractors should reflect real misconceptions.`,
             correctIndex,
             explanation: asString(obj.explanation, "Correct answer."),
             skillFocus: asString(obj.skillFocus) || undefined,
-          } satisfies QuizQuestionDraft;
+          } as QuizQuestionDraft;
         })
         .filter((q): q is QuizQuestionDraft => q !== null);
       return drafts.length >= 3 ? drafts : null;
@@ -257,7 +257,7 @@ Return JSON: array of 4 objects {"prompt", "options": [4 strings], "correctIndex
           const options = asArray(obj.options).map((o) => asString(o)).filter(Boolean);
           const correctIndex = asInt(obj.correctIndex, -1, 0, options.length - 1);
           if (!prompt || options.length < 3 || correctIndex < 0) return null;
-          return { prompt, options: options.slice(0, 5), correctIndex, explanation: asString(obj.explanation, "Correct answer."), skillFocus: asString(obj.skillFocus) || undefined };
+          return { prompt, options: options.slice(0, 5), correctIndex, explanation: asString(obj.explanation, "Correct answer."), skillFocus: asString(obj.skillFocus) || undefined } as QuizQuestionDraft;
         })
         .filter((q): q is QuizQuestionDraft => q !== null);
       return drafts.length >= 3 ? drafts : null;
@@ -312,7 +312,7 @@ export async function gradeQuiz(quizId: string, answers: number[]): Promise<Quiz
       where: { learnerId_skillId: { learnerId: quiz.learnerId, skillId: quiz.skillId } },
     });
     const claimed = assessment?.claimedLevel ?? 3;
-    await applyQuizVerdict(quiz.learnerId, quiz.skillId, quiz.skillName, passed, claimed, score);
+    await applyQuizVerdict(quiz.learnerId, quiz.skillId, quiz.skillName ?? "unknown", passed, claimed, score);
     await db.activityLog.create({
       data: {
         learnerId: quiz.learnerId,

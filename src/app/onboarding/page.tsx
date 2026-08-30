@@ -106,7 +106,7 @@ export default function OnboardingPage() {
   useEffect(() => {
     if (!hydrated || !learnerId) return;
     api.getOnboardingState(learnerId).then((state) => {
-      setChat(state.history.filter((h) => h.content?.trim()));
+      setChat(state.history.filter((h): h is ChatTurn => h.content?.trim() != null));
       if (state.learner.name && state.learner.name !== "Learner") setName(state.learner.name);
       if (state.learner.hoursPerWeek) setHoursPerWeek(state.learner.hoursPerWeek);
       const s = state.learner.onboardingStage;
