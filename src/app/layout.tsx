@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
@@ -37,6 +38,25 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground min-h-screen flex flex-col`}
       >
+        {/*
+          Strip Dark Reader-injected attributes from SVGs before React
+          hydrates. Without this, browser extensions that modify SVG stroke
+          colors cause hydration mismatches on every icon.
+        */}
+        <Script
+          id="dark-reader-cleanup"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `document.querySelectorAll('svg').forEach(svg => {
+  svg.removeAttribute('data-darkreader-inline-stroke');
+  svg.removeAttribute('data-darkreader-inline-fill');
+  const s = svg.getAttribute('style');
+  if (s && s.includes('--darkreader-inline')) {
+    svg.setAttribute('style', s.replace(/--darkreader-inline-[a-z]+:[^;]+;?/gi, '').trim());
+  }
+});`,
+          }}
+        />
         {children}
         <Toaster />
       </body>
