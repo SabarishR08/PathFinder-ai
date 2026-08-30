@@ -111,7 +111,7 @@ export async function runAgentStream(learnerId: string, userMessage: string) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: process.env.GROQ_MODEL || "openai/gpt-oss-120b",
+      model: process.env.GROQ_MODEL || "llama-3.3-70b-versatile",
       messages: apiMessages,
       max_tokens: 500,
       temperature: 0.7,
