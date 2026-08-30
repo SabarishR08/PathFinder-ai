@@ -16,6 +16,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useLearner } from "@/hooks/use-learner";
 import { api, streamOnboardingMessage } from "@/lib/client-api";
 import { cn } from "@/lib/utils";
+import { ErrorBoundary } from "@/components/ui/error-boundary";
 import {
   Compass,
   Send,
@@ -332,6 +333,7 @@ export default function OnboardingPage() {
 
       {/* ── Stage: intro ─────────────────────────────────────────────────── */}
       {stage === "intro" && (
+      <ErrorBoundary stage="Welcome" onRetry={() => setStage("intro")}>
         <div className="max-w-xl mx-auto pt-10">
           <Card className="glass-card glow-primary">
             <CardHeader className="text-center pb-2">
@@ -364,10 +366,12 @@ export default function OnboardingPage() {
             </CardContent>
           </Card>
         </div>
+      </ErrorBoundary>
       )}
 
       {/* ── Stage: interview ─────────────────────────────────────────────── */}
       {stage === "interview" && (
+      <ErrorBoundary stage="Interview" onBack={() => setStage("intro")} onRetry={() => setStage("interview")}>
         <div className="max-w-3xl mx-auto">
           <Card className="glass-card flex flex-col" style={{ height: "min(72vh, 640px)" }}>
             <CardHeader className="pb-3 border-b border-border/60">
@@ -404,7 +408,18 @@ export default function OnboardingPage() {
                   )}
                   <div className="flex justify-start">
                     <div className="max-w-[85%] rounded-2xl rounded-bl-md bg-[#1C1C1E] border border-white/5 text-white px-4 py-2.5 text-sm leading-relaxed whitespace-pre-wrap">
-                      {streamText || <span className="stream-caret" />}
+                      {streamText ? (
+                        <>
+                          {streamText}
+                          <span className="stream-caret" />
+                        </>
+                      ) : (
+                        <div className="flex items-center gap-1.5 py-0.5">
+                          <span className="typing-dot" />
+                          <span className="typing-dot" />
+                          <span className="typing-dot" />
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -442,10 +457,12 @@ export default function OnboardingPage() {
             </Button>
           </div>
         </div>
+      </ErrorBoundary>
       )}
 
       {/* ── Stage: evidence ──────────────────────────────────────────────── */}
       {stage === "evidence" && (
+      <ErrorBoundary stage="Evidence" onBack={() => setStage("interview")} onRetry={() => setStage("evidence")}>
         <div className="max-w-4xl mx-auto grid gap-4 md:grid-cols-2">
           <Card className="glass-card">
             <CardHeader className="pb-3">
@@ -527,10 +544,12 @@ export default function OnboardingPage() {
             </Button>
           </div>
         </div>
+      </ErrorBoundary>
       )}
 
       {/* ── Stage: claims ────────────────────────────────────────────────── */}
       {stage === "claims" && (
+      <ErrorBoundary stage="Profile" onBack={() => setStage("evidence")} onRetry={() => { loadRadar(); setStage("claims"); }}>
         <div className="max-w-4xl mx-auto grid gap-4 md:grid-cols-2">
           <Card className="glass-card">
             <CardHeader className="pb-2">
@@ -568,10 +587,12 @@ export default function OnboardingPage() {
             </Button>
           </div>
         </div>
+      </ErrorBoundary>
       )}
 
       {/* ── Stage: calibration ───────────────────────────────────────────── */}
       {stage === "calibration" && (
+      <ErrorBoundary stage="Calibration" onBack={() => setStage("claims")} onRetry={() => setStage("calibration")}>
         <div className="max-w-3xl mx-auto space-y-4">
           {!activeQuiz && (
             <Card className="glass-card">
@@ -633,10 +654,12 @@ export default function OnboardingPage() {
             </Button>
           </div>
         </div>
+      </ErrorBoundary>
       )}
 
       {/* ── Stage: scenarios ─────────────────────────────────────────────── */}
       {stage === "scenarios" && (
+      <ErrorBoundary stage="Roadmap" onBack={() => setStage("calibration")} onRetry={() => { loadScenarios(); setStage("scenarios"); }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-6">
             <h2 className="text-2xl font-semibold tracking-tight">Three roadmaps, one engine</h2>
@@ -714,6 +737,7 @@ export default function OnboardingPage() {
             </Button>
           </div>
         </div>
+      </ErrorBoundary>
       )}
     </AppShell>
   );
