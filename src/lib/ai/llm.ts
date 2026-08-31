@@ -53,20 +53,9 @@ const DEFAULT_TIMEOUT_MS = 45_000;
 function resolveProviders(): Provider[] {
   const providers: Provider[] = [];
 
-  // 1. Vercel AI Gateway — one key, usage dashboard, automatic failover
-  const gatewayKey = process.env.AI_GATEWAY_API_KEY;
-  if (gatewayKey) {
-    providers.push({
-      name: "vercel-gateway",
-      model: process.env.AI_GATEWAY_MODEL || "groq/llama-3.3-70b-versatile",
-      baseUrl: process.env.AI_GATEWAY_BASE_URL || "https://ai-gateway.vercel.sh/v1",
-      apiKey: gatewayKey,
-    });
-  }
-
-  // 2. Direct Groq — fallback when no gateway key
+  // 1. Direct Groq — fallback when no gateway key
   const groqKey = process.env.GROQ_API_KEY;
-  if (groqKey && !gatewayKey) {
+  if (groqKey) {
     providers.push({
       name: "groq",
       model: process.env.GROQ_MODEL || "llama-3.3-70b-versatile",
@@ -77,7 +66,7 @@ function resolveProviders(): Provider[] {
 
   // 3. NVIDIA (only if no Groq/Gateway)
   const nvidiaKey = process.env.NVIDIA_API_KEY;
-  if (nvidiaKey && !groqKey && !gatewayKey) {
+  if (nvidiaKey && !groqKey) {
     providers.push({
       name: "nvidia",
       model: process.env.NVIDIA_MODEL || "meta/llama-3.1-70b-instruct",
