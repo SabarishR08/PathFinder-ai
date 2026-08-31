@@ -1,3 +1,6 @@
+import { streamText, tool } from "ai";
+import { createGroq } from "@ai-sdk/groq";
+import { search } from "duck-duck-scrape";
 import { db } from "@/lib/db";
 import { loadSkillGraph } from "@/lib/engine/data";
 import { fuseEvidence, logEvidence } from "@/lib/evidence/fuse";
@@ -107,26 +110,10 @@ export async function runAgentStream(learnerId: string, userMessage: string) {
     // Vercel AI SDK with Groq and duck-duck-scrape
   const groq = createGroq({ apiKey: process.env.GROQ_API_KEY, baseURL: process.env.GROQ_BASE_URL });
   
-  const { textStream, text } = streamText({
+          const { textStream, text } = streamText({
     model: groq(process.env.GROQ_MODEL || "llama-3.3-70b-versatile"),
     messages: apiMessages,
-    maxTokens: 500,
     temperature: 0.7,
-    maxSteps: 2,
-    tools: {
-      duckDuckGoSearch: tool({
-        description: "Search the web for current information, tech stacks, or to verify skills.",
-        parameters: z.object({ query: z.string() }),
-        execute: async ({ query }) => {
-          try {
-            const results = await search(query, { safeSearch: "off" });
-            return results.results.slice(0, 3).map(r => r.title + " - " + r.description).join("\n\n");
-          } catch (e) {
-            return "Search failed";
-          }
-        }
-      })
-    }
   });
 
   const deltas: string[] = [];
