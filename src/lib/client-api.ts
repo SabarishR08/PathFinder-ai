@@ -46,6 +46,7 @@ export const api = {
           goalStatement: string | null;
           targetRole: string | null;
           domain: string | null;
+          goalSkillId: string | null;
           hoursPerWeek: number;
           onboardingStage: string;
         };
@@ -239,6 +240,18 @@ export const api = {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ learnerId, goalText }),
     }).then(handle<{ pathId: string; version: number }>),
+
+  changeGoalSkill: (learnerId: string, goalSkillId: string) =>
+    fetch("/api/path/goal", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ learnerId, goalSkillId }),
+    }).then(handle<{ pathId: string; version: number }>),
+
+  searchSkills: (query: string, domain?: string) =>
+    fetch(`/api/skills/search?query=${encodeURIComponent(query)}${domain ? `&domain=${encodeURIComponent(domain)}` : ""}`).then(
+      handle<{ hits: Array<{ id: string; name: string; domain: string; depth: number }> }>
+    ),
 
   // ── Milestones / projects ────────────────────────────────────────────────
   startMilestone: (learnerId: string, milestoneId: string) =>

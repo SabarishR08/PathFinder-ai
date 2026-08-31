@@ -101,6 +101,11 @@ export default function OnboardingPage() {
   const [hoursPerWeek, setHoursPerWeek] = useState(10);
   const [selected, setSelected] = useState("balanced");
   const [generating, setGenerating] = useState(false);
+  const [goalSkillId, setGoalSkillId] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState<Array<{ id: string; name: string; domain: string; depth: number }>>([]);
+  const [searching, setSearching] = useState(false);
+  const [settingGoal, setSettingGoal] = useState(false);
 
   // Resume an existing session.
   useEffect(() => {
@@ -109,6 +114,7 @@ export default function OnboardingPage() {
       setChat(state.history.filter((h): h is ChatTurn => h.content?.trim() != null));
       if (state.learner.name && state.learner.name !== "Learner") setName(state.learner.name);
       if (state.learner.hoursPerWeek) setHoursPerWeek(state.learner.hoursPerWeek);
+      if (state.learner.goalSkillId) setGoalSkillId(state.learner.goalSkillId);
       const s = state.learner.onboardingStage;
       const target = s === "complete" ? "scenarios" : s === "evidence" ? "evidence" : "interview";
       setStage(target as StageId);
@@ -278,13 +284,48 @@ export default function OnboardingPage() {
 
   const loadScenarios = useCallback(async () => {
     if (!learnerId) return;
+    if (!goalSkillId) {
+      setPreviews([]);
+      return;
+    }
     try {
       const res = await api.previewScenarios(learnerId, undefined, hoursPerWeek);
       setPreviews(res.previews);
     } catch {
       /* defaults */
     }
-  }, [learnerId, hoursPerWeek]);
+  }, [learnerId, goalSkillId, hoursPerWeek]);
+
+  const searchSkills = async (query: string) => {
+    setSearchQuery(query);
+    if (!query.trim()) {
+      setSearchResults([]);
+      return;
+    }
+    setSearching(true);
+    try {
+      const res = await api.searchSkills(query);
+      setSearchResults(res.hits);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setSearching(false);
+    }
+  };
+
+  const selectGoalSkill = async (skillId: string) => {
+    if (!learnerId) return;
+    setSettingGoal(true);
+    try {
+      await api.changeGoalSkill(learnerId, skillId);
+      setGoalSkillId(skillId);
+      toast({ title: "Goal set", description: "Your learning goal has been successfully set." });
+    } catch (e) {
+      toast({ title: "Failed to set goal", description: e instanceof Error ? e.message : "Unknown error", variant: "destructive" });
+    } finally {
+      setSettingGoal(false);
+    }
+  };
 
   const generate = async () => {
     if (!learnerId) return;
@@ -297,6 +338,15 @@ export default function OnboardingPage() {
       setGenerating(false);
     }
   };
+
+  // Load state on stage change to scenarios or mount
+  useEffect(() => {
+    if (!learnerId || stage !== "scenarios") return;
+    api.getOnboardingState(learnerId).then((state) => {
+      if (state.learner.goalSkillId) setGoalSkillId(state.learner.goalSkillId);
+      if (state.learner.hoursPerWeek) setHoursPerWeek(state.learner.hoursPerWeek);
+    }).catch(() => {});
+  }, [stage, learnerId]);
 
   // Stage transitions trigger data loads.
   useEffect(() => {
@@ -661,81 +711,135 @@ export default function OnboardingPage() {
       {stage === "scenarios" && (
       <ErrorBoundary stage="Roadmap" onBack={() => setStage("calibration")} onRetry={() => { loadScenarios(); setStage("scenarios"); }}>
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-6">
-            <h2 className="text-2xl font-semibold tracking-tight">Three roadmaps, one engine</h2>
-            <p className="text-sm text-muted-foreground mt-1">
-              Same prerequisite DAG, different scheduling strategy. Drag the hours to see the honest cost.
-            </p>
-          </div>
-
-          <Card className="glass-card mb-6">
-            <CardContent className="py-4">
-              <div className="flex items-center gap-4">
-                <Zap className="h-4 w-4 text-primary shrink-0" />
-                <input
-                  type="range"
-                  min={2}
-                  max={40}
-                  value={hoursPerWeek}
-                  onChange={(e) => setHoursPerWeek(parseInt(e.target.value, 10))}
-                  onMouseUp={loadScenarios}
-                  onTouchEnd={loadScenarios}
-                  className="flex-1 accent-primary"
+          {!goalSkillId ? (
+            <Card className="glass-card max-w-xl mx-auto glow-primary">
+              <CardHeader className="text-center pb-2">
+                <span className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/15 border border-primary/30">
+                  <Compass className="h-7 w-7 text-primary" />
+                </span>
+                <CardTitle className="text-2xl">What is your learning goal?</CardTitle>
+                <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
+                  Since you skipped the onboarding interview, we need to know what skill you want to target.
+                  Search our skills catalogue to set your roadmap goal (e.g. Python Programming, JavaScript, SQL, Cybersecurity).
+                </p>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <Input
+                  placeholder="Search skills (e.g. Python, SQL, Linux)..."
+                  value={searchQuery}
+                  onChange={(e) => searchSkills(e.target.value)}
+                  className="text-base h-11"
+                  autoFocus
                 />
-                <span className="text-sm font-medium w-24 text-right">{hoursPerWeek} h/week</span>
+                {searching && (
+                  <p className="text-xs text-muted-foreground flex items-center gap-2">
+                    <Loader2 className="h-3 w-3 animate-spin" /> Searching catalogue...
+                  </p>
+                )}
+                {searchResults.length > 0 && (
+                  <div className="max-h-60 overflow-y-auto border border-border/60 rounded-lg p-1 divide-y divide-border/40 thin-scroll bg-black/40">
+                    {searchResults.map((hit) => (
+                      <button
+                        key={hit.id}
+                        onClick={() => selectGoalSkill(hit.id)}
+                        disabled={settingGoal}
+                        className="w-full text-left p-3 hover:bg-secondary/60 transition-colors flex justify-between items-center text-sm rounded-md"
+                      >
+                        <div>
+                          <p className="font-medium text-white">{hit.name}</p>
+                          <p className="text-xs text-muted-foreground">{hit.domain}</p>
+                        </div>
+                        <ArrowRight className="h-4 w-4 text-muted-foreground" />
+                      </button>
+                    ))}
+                  </div>
+                )}
+                {searchQuery.trim() !== "" && searchResults.length === 0 && !searching && (
+                  <p className="text-xs text-center text-muted-foreground py-2">
+                    No matching skills found. Try searching for general terms like &quot;python&quot; or &quot;security&quot;.
+                  </p>
+                )}
+              </CardContent>
+            </Card>
+          ) : (
+            <>
+              <div className="text-center mb-6">
+                <h2 className="text-2xl font-semibold tracking-tight">Three roadmaps, one engine</h2>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Same prerequisite DAG, different scheduling strategy. Drag the hours to see the honest cost.
+                </p>
               </div>
-            </CardContent>
-          </Card>
 
-          <div className="grid gap-4 md:grid-cols-3">
-            {previews.map((p) => (
-              <Card
-                key={p.scenario}
-                className={cn("glass-card cursor-pointer transition-all", selected === p.scenario ? "ring-2 ring-primary glow-primary" : "hover:border-primary/40")}
-                onClick={() => setSelected(p.scenario)}
-              >
-                <CardHeader className="pb-2">
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-base">{p.label}</CardTitle>
-                    {selected === p.scenario && <CheckCircle2 className="h-4 w-4 text-primary" />}
+              <Card className="glass-card mb-6">
+                <CardContent className="py-4">
+                  <div className="flex items-center gap-4">
+                    <Zap className="h-4 w-4 text-primary shrink-0" />
+                    <input
+                      type="range"
+                      min={2}
+                      max={40}
+                      value={hoursPerWeek}
+                      onChange={(e) => setHoursPerWeek(parseInt(e.target.value, 10))}
+                      onMouseUp={loadScenarios}
+                      onTouchEnd={loadScenarios}
+                      className="flex-1 accent-primary"
+                    />
+                    <span className="text-sm font-medium w-24 text-right">{hoursPerWeek} h/week</span>
                   </div>
-                  <p className="text-xs text-primary">{p.tagline}</p>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <p className="text-xs text-muted-foreground leading-relaxed">{p.description}</p>
-                  <div className="grid grid-cols-3 gap-2 text-center">
-                    <div className="rounded-lg bg-secondary/60 p-2">
-                      <p className="text-lg font-semibold">{p.etaWeeks}w</p>
-                      <p className="text-[10px] text-muted-foreground">ETA</p>
-                    </div>
-                    <div className="rounded-lg bg-secondary/60 p-2">
-                      <p className="text-lg font-semibold">{p.milestones}</p>
-                      <p className="text-[10px] text-muted-foreground">phases</p>
-                    </div>
-                    <div className="rounded-lg bg-secondary/60 p-2">
-                      <p className="text-lg font-semibold">{p.totalSkills}</p>
-                      <p className="text-[10px] text-muted-foreground">skills</p>
-                    </div>
-                  </div>
-                  <p className="text-[10px] text-muted-foreground font-mono">{p.algorithm} · {p.totalHours}h total</p>
                 </CardContent>
               </Card>
-            ))}
-            {previews.length === 0 && (
-              <Card className="glass-card md:col-span-3">
-                <CardContent className="flex items-center justify-center py-10 text-sm text-muted-foreground">
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Computing scenarios…
-                </CardContent>
-              </Card>
-            )}
-          </div>
 
-          <div className="mt-6 flex justify-center">
-            <Button size="lg" className="glow-primary" onClick={generate} disabled={generating || !previews.length}>
-              {generating ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <RouteIcon className="mr-2 h-4 w-4" />}
-              {generating ? "Building your roadmap…" : "Generate my learning path"}
-            </Button>
-          </div>
+              <div className="grid gap-4 md:grid-cols-3">
+                {previews.map((p) => (
+                  <Card
+                    key={p.scenario}
+                    className={cn("glass-card cursor-pointer transition-all", selected === p.scenario ? "ring-2 ring-primary glow-primary" : "hover:border-primary/40")}
+                    onClick={() => setSelected(p.scenario)}
+                  >
+                    <CardHeader className="pb-2">
+                      <div className="flex items-center justify-between">
+                        <CardTitle className="text-base">{p.label}</CardTitle>
+                        {selected === p.scenario && <CheckCircle2 className="h-4 w-4 text-primary" />}
+                      </div>
+                      <p className="text-xs text-primary">{p.tagline}</p>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <p className="text-xs text-muted-foreground leading-relaxed">{p.description}</p>
+                      <div className="grid grid-cols-3 gap-2 text-center">
+                        <div className="rounded-lg bg-secondary/60 p-2">
+                          <p className="text-lg font-semibold">{p.etaWeeks}w</p>
+                          <p className="text-[10px] text-muted-foreground">ETA</p>
+                        </div>
+                        <div className="rounded-lg bg-secondary/60 p-2">
+                          <p className="text-lg font-semibold">{p.milestones}</p>
+                          <p className="text-[10px] text-muted-foreground">phases</p>
+                        </div>
+                        <div className="rounded-lg bg-secondary/60 p-2">
+                          <p className="text-lg font-semibold">{p.totalSkills}</p>
+                          <p className="text-[10px] text-muted-foreground">skills</p>
+                        </div>
+                      </div>
+                      <p className="text-[10px] text-muted-foreground font-mono">{p.algorithm} · {p.totalHours}h total</p>
+                    </CardContent>
+                  </Card>
+                ))}
+                {previews.length === 0 && (
+                  <Card className="glass-card md:col-span-3">
+                    <CardContent className="flex items-center justify-center py-10 text-sm text-muted-foreground">
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Computing scenarios…
+                    </CardContent>
+                  </Card>
+                )}
+              </div>
+
+              <div className="mt-6 flex justify-center">
+                <Button size="lg" className="glow-primary" onClick={generate} disabled={generating || !previews.length}>
+                  {generating ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <RouteIcon className="mr-2 h-4 w-4" />}
+                  {generating ? "Building your roadmap…" : "Generate my learning path"}
+                </Button>
+              </div>
+            </>
+          )}
         </div>
       </ErrorBoundary>
       )}
