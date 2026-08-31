@@ -111,7 +111,7 @@ export async function runAgentStream(learnerId: string, userMessage: string) {
   const groq = createGroq({ apiKey: process.env.GROQ_API_KEY, baseURL: process.env.GROQ_BASE_URL });
   
           const { textStream, text } = streamText({
-    model: groq(process.env.GROQ_MODEL || "llama-3.3-70b-versatile"),
+    model: groq(process.env.GROQ_MODEL || "openai/gpt-oss-120b"),
     messages: apiMessages,
     temperature: 0.7,
   });
