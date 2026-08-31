@@ -34,15 +34,11 @@ export function validateEnv(): EnvStatus {
   }
 
   // ── LLM providers (at least one required) ────────────────────────────
-  const gatewayKey = process.env.AI_GATEWAY_API_KEY;
-  const groqKey = process.env.GROQ_API_KEY;
+    const groqKey = process.env.GROQ_API_KEY;
   const openaiKey = process.env.OPENAI_API_KEY;
   const nvidiaKey = process.env.NVIDIA_API_KEY;
 
-  if (gatewayKey) {
-    providers.push("vercel-gateway");
-  }
-  if (groqKey) {
+    if (groqKey) {
     providers.push("groq");
   }
   if (openaiKey) {
@@ -58,14 +54,7 @@ export function validateEnv(): EnvStatus {
     );
   }
 
-  // ── Gateway-specific checks ──────────────────────────────────────────
-  if (gatewayKey && groqKey) {
-    warnings.push(
-      "Both AI_GATEWAY_API_KEY and GROQ_API_KEY are set — gateway takes priority, direct Groq is skipped",
-    );
-  }
-
-  // ── Optional but recommended ─────────────────────────────────────────
+    // ── Optional but recommended ─────────────────────────────────────────
   if (!process.env.GITHUB_TOKEN) {
     warnings.push(
       "GITHUB_TOKEN not set — GitHub evidence collection limited to 60 requests/hour",
@@ -85,7 +74,7 @@ export function validateEnv(): EnvStatus {
     warnings,
     errors,
     providers,
-    gatewayEnabled: !!gatewayKey,
+    gatewayEnabled: false,
   };
 
   // Log on first call
@@ -100,10 +89,7 @@ export function validateEnv(): EnvStatus {
   if (providers.length > 0) {
     console.log(`[env-check] LLM providers: ${providers.join(", ")}`);
   }
-  if (gatewayKey) {
-    const model = process.env.AI_GATEWAY_MODEL || "groq/llama-3.3-70b-versatile";
-    console.log(`[env-check] Vercel AI Gateway enabled → ${model}`);
-  }
+  
 
   return cached;
 }

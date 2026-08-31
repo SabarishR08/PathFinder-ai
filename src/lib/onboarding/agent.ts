@@ -67,7 +67,7 @@ Style rules:
 - Never invent skills for the learner. If unsure, ask.
 
 CRITICAL INSTRUCTIONS ON TOOLS:
-- You have access to the exaSearch tool. Use it if you need to look up current information or verify something they said.
+- You have access to the duckDuckGoSearch tool. Use it if you need to look up current information or verify something they said.
 - You have access to fetchGitHubProfile. Use it if they provide their GitHub username.
 - You have access to getTechStackTrends. Use it if they ask whether a specific technology is worth learning.
 - You have access to the markPhaseComplete tool. Use this tool ONLY when you have fully satisfied the Phase goal and are ready to move to the next phase. When you call this tool, you must provide the profile fields you have extracted. Calling this tool pauses the interview and asks the user for confirmation.`;
@@ -104,79 +104,48 @@ export async function runAgentStream(learnerId: string, userMessage: string) {
     ...messages,
   ];
 
-  // Route through Vercel AI Gateway if key is set, otherwise direct Groq
-  const gatewayKey = process.env.AI_GATEWAY_API_KEY;
-  const baseUrl = gatewayKey
-    ? (process.env.AI_GATEWAY_BASE_URL || "https://ai-gateway.vercel.sh/v1")
-    : "https://api.groq.com/openai/v1";
-  const authKey = gatewayKey || process.env.GROQ_API_KEY;
-  const model = gatewayKey
-    ? (process.env.AI_GATEWAY_MODEL || "groq/llama-3.3-70b-versatile")
-    : (process.env.GROQ_MODEL || "llama-3.3-70b-versatile");
-
-  const response = await fetch(`${baseUrl}/chat/completions`, {
-    method: "POST",
-    headers: {
-      "Authorization": `Bearer ${authKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      model,
-      messages: apiMessages,
-      max_tokens: 500,
-      temperature: 0.7,
-      stream: true,
-    }),
+    // Vercel AI SDK with Groq and duck-duck-scrape
+  const groq = createGroq({ apiKey: process.env.GROQ_API_KEY, baseURL: process.env.GROQ_BASE_URL });
+  
+  const { textStream, text } = streamText({
+    model: groq(process.env.GROQ_MODEL || "llama-3.3-70b-versatile"),
+    messages: apiMessages,
+    maxTokens: 500,
+    temperature: 0.7,
+    maxSteps: 2,
+    tools: {
+      duckDuckGoSearch: tool({
+        description: "Search the web for current information, tech stacks, or to verify skills.",
+        parameters: z.object({ query: z.string() }),
+        execute: async ({ query }) => {
+          try {
+            const results = await search(query, { safeSearch: "off" });
+            return results.results.slice(0, 3).map(r => r.title + " - " + r.description).join("\n\n");
+          } catch (e) {
+            return "Search failed";
+          }
+        }
+      })
+    }
   });
 
-  if (!response.ok) {
-    const errText = await response.text();
-    throw new Error(`LLM API error ${response.status}: ${errText}`);
-  }
-
-  // Parse the SSE stream and yield deltas as an async iterable
-  const reader = response.body!.getReader();
-  const decoder = new TextDecoder();
-  let buffer = "";
-  let fullReply = "";
   const deltas: string[] = [];
-
-  for (;;) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    buffer += decoder.decode(value, { stream: true });
-    const lines = buffer.split("\n");
-    buffer = lines.pop() ?? "";
-    for (const line of lines) {
-      const trimmed = line.trim();
-      if (!trimmed.startsWith("data: ")) continue;
-      const data = trimmed.slice(6);
-      if (data === "[DONE]") continue;
-      try {
-        const parsed = JSON.parse(data);
-        const delta = parsed.choices?.[0]?.delta?.content;
-        if (delta) {
-          fullReply += delta;
-          deltas.push(delta);
-        }
-      } catch { /* skip malformed */ }
-    }
-  }
 
   // Return a result-like object that the route handler can consume
   return {
     result: {
       fullStream: (async function* () {
-        for (const d of deltas) {
+        for await (const d of textStream) {
+          deltas.push(d);
           yield { type: "text-delta", text: d };
         }
       })(),
-      text: Promise.resolve(fullReply),
+      text: text,
     },
     state,
     learnerId,
     userMessage,
-    fullReply,
+    get fullReply() { return deltas.join(""); },
   };
 }
 
